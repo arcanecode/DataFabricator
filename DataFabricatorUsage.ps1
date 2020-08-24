@@ -8,4 +8,10 @@ Remove-Module DataFabricator -ErrorAction SilentlyContinue
 
 Import-Module .\DataFabricator -Verbose
 
-Get-FirstName
+Clear-Host
+Get-FabricatedFirstName
+Get-FabricatedLastName
+Get-FabricatedFirstLastName
+Get-FabricatedLastFirstName
+Get-FabricatedFirstMiLastName
+Get-FabricatedLastFirstMiName

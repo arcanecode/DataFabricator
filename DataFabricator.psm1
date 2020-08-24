@@ -24,13 +24,30 @@
   Version 5 with modules. 
 -----------------------------------------------------------------------------#>
 
+# Use the $PSVersionTable.OS value to determine which OS you are on.
+# Then load the files setting the \ or / according to the OS.
+
 # Run the scripts to load data into memory
+
+. .\Data\Load-Address2.ps1
+. .\Data\Load-Company.ps1
+. .\Data\Load-Letter.ps1
 . .\Data\Load-NamesFirst.ps1
+. .\Data\Load-NamesLast.ps1
+. .\Data\Load-States.ps1
+. .\Data\Load-StreetsFirst.ps1
+. .\Data\Load-StreetsLast.ps1
+
 
 # Run the scripts to load the functions into memory
-. .\Code\Get-RandomValue.ps1
+. .\Code\FabricateNames.ps1
 
 #-----------------------------------------------------------------------------#
 # Export our functions
 #-----------------------------------------------------------------------------#
-Export-ModuleMember Get-FirstName
+Export-ModuleMember Get-FabricatedFirstName
+Export-ModuleMember Get-FabricatedLastName
+Export-ModuleMember Get-FabricatedFirstLastName
+Export-ModuleMember Get-FabricatedLastFirstName
+Export-ModuleMember Get-FabricatedFirstMiLastName
+Export-ModuleMember Get-FabricatedLastFirstMiName

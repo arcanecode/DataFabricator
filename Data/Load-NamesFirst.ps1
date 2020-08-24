@@ -1,5 +1,3 @@
-Write-Verbose 'DataFabricator: Loading m_NamesFirst'
-
 $m_NamesFirst = 'Aaron',
                 'Abdul',
                 'Abdullah',
