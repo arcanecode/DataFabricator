@@ -31,6 +31,7 @@
 
 . .\Data\Load-Address2.ps1
 . .\Data\Load-Company.ps1
+. .\Data\Load-Compass.ps1
 . .\Data\Load-Letter.ps1
 . .\Data\Load-NamesFirst.ps1
 . .\Data\Load-NamesLast.ps1
@@ -40,14 +41,18 @@
 
 
 # Run the scripts to load the functions into memory
-. .\Code\FabricateNames.ps1
+. .\Code\Get-FabricatedAddressLine1.ps1
+. .\Code\Get-FabricatedAddressLine2.ps1
+. .\Code\Get-FabricatedName.ps1
+. .\Code\Get-FabricatedState.ps1
+. .\Code\Get-FabricatedZipCode.ps1
 
 #-----------------------------------------------------------------------------#
 # Export our functions
 #-----------------------------------------------------------------------------#
-Export-ModuleMember Get-FabricatedFirstName
-Export-ModuleMember Get-FabricatedLastName
-Export-ModuleMember Get-FabricatedFirstLastName
-Export-ModuleMember Get-FabricatedLastFirstName
-Export-ModuleMember Get-FabricatedFirstMiLastName
-Export-ModuleMember Get-FabricatedLastFirstMiName
+Export-ModuleMember Get-FabricatedAddressLine1
+Export-ModuleMember Get-FabricatedAddressLine2
+Export-ModuleMember Get-FabricatedName
+Export-ModuleMember Get-FabricatedState
+Export-ModuleMember Get-FabricatedZipCode
+

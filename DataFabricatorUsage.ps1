@@ -9,9 +9,23 @@ Remove-Module DataFabricator -ErrorAction SilentlyContinue
 Import-Module .\DataFabricator -Verbose
 
 Clear-Host
-Get-FabricatedFirstName
-Get-FabricatedLastName
-Get-FabricatedFirstLastName
-Get-FabricatedLastFirstName
-Get-FabricatedFirstMiLastName
-Get-FabricatedLastFirstMiName
+
+Get-FabricatedName 
+Get-FabricatedName -First
+Get-FabricatedName -Last
+Get-FabricatedName -FirstMiLast
+Get-FabricatedName -FirstMiddleLast
+Get-FabricatedName -LastFirst
+Get-FabricatedName -LastFirstMi
+Get-FabricatedName -LastFirstMiddle
+
+Get-FabricatedAddressLine1
+Get-FabricatedAddressLine2
+Get-FabricatedAddressLine2 -Threshold 99
+
+Get-FabricatedState
+Get-FabricatedState -FullName
+
+Get-FabricatedZipCode
+Get-FabricatedZipCode -Plus4
+Get-FabricatedZipCode -PlusFour
