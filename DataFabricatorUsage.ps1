@@ -29,3 +29,13 @@ Get-FabricatedState -FullName
 Get-FabricatedZipCode
 Get-FabricatedZipCode -Plus4
 Get-FabricatedZipCode -PlusFour
+
+Get-FabricatedCity
+
+Get-FabricatedCityStateZipCode
+Get-FabricatedCityStateZipCode -Plus4
+Get-FabricatedCityStateZipCode -PlusFour
+Get-FabricatedCityStateZipCode -FullStateName
+Get-FabricatedCityStateZipCode -FullStateName -Plus4
+
+
