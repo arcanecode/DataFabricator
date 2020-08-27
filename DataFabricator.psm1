@@ -46,6 +46,8 @@
 . .\Code\Get-FabricatedAddressLine2.ps1
 . .\Code\Get-FabricatedCity.ps1
 . .\Code\Get-FabricatedCityStateZipCode.ps1
+. .\Code\Get-FabricatedCompany.ps1
+. .\Code\Get-FabricatedDate.ps1
 . .\Code\Get-FabricatedName.ps1
 . .\Code\Get-FabricatedState.ps1
 . .\Code\Get-FabricatedZipCode.ps1
@@ -57,6 +59,8 @@ Export-ModuleMember Get-FabricatedAddressLine1
 Export-ModuleMember Get-FabricatedAddressLine2
 Export-ModuleMember Get-FabricatedCity
 Export-ModuleMember Get-FabricatedCityStateZipCode
+Export-ModuleMember Get-FabricatedCompany 
+Export-ModuleMember Get-FabricatedDate
 Export-ModuleMember Get-FabricatedName
 Export-ModuleMember Get-FabricatedState
 Export-ModuleMember Get-FabricatedZipCode

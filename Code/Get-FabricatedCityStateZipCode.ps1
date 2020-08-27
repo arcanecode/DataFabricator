@@ -2,10 +2,10 @@ function Get-FabricatedCityStateZipCode {
 
   [CmdletBinding()]
   param (
-    [Alias('PlusFour')]
-    [switch] $Plus4
-  , [switch] $FullStateName
-  )
+          [Alias('PlusFour')]
+          [switch] $Plus4
+        , [switch] $FullStateName
+        )
 
   $city = Get-FabricatedCity
 

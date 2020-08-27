@@ -2,14 +2,14 @@ function Get-FabricatedName()
 {
   [CmdletBinding()]
   param (
-      [switch] $First
-    , [switch] $Last
-    , [switch] $FirstMiLast
-    , [switch] $FirstMiddleLast
-    , [switch] $LastFirst
-    , [switch] $LastFirstMi
-    , [switch] $LastFirstMiddle
-    )
+          [switch] $First
+        , [switch] $Last
+        , [switch] $FirstMiLast
+        , [switch] $FirstMiddleLast
+        , [switch] $LastFirst
+        , [switch] $LastFirstMi
+        , [switch] $LastFirstMiddle
+        )
 
   # Go ahead and generate some names, we'll use these to assemble the output
   $firstName = $m_NamesFirst | Get-Random

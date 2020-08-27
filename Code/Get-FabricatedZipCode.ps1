@@ -2,9 +2,9 @@ function Get-FabricatedZipCode {
 
   [CmdletBinding()]
   param (
-    [Alias('PlusFour')]
-    [switch] $Plus4
-  )
+          [Alias('PlusFour')]
+          [switch] $Plus4
+        )
 
   # Get a random number for the first part
   $first = $(1..99999 | Get-Random).ToString().PadLeft(5, '0')

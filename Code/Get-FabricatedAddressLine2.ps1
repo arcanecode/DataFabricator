@@ -2,8 +2,8 @@ function Get-FabricatedAddressLine2 ()
 {
   [CmdletBinding()]
   param(
-    [int] $Threshold = 25
-  )
+         [int] $Threshold = 25
+       )
 
   # Do a little boundary checking
   if ($Threshold -lt 1) { $Threshold = 1 }

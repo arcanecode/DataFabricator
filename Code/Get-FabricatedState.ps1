@@ -2,8 +2,8 @@ function Get-FabricatedState()
 {
   [CmdletBinding()]
   param (
-    [switch] $FullName
-  )
+          [switch] $FullName
+        )
 
   if ($FullName.IsPresent)
   {
