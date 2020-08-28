@@ -9,6 +9,7 @@ function Get-FabricatedDate()
         , [switch] $AsDateTime
         , [switch] $FormatMDY
         , [switch] $FormatDMY
+        , [switch] $FabricateTime
         )
 
   # If ThruYear is not overridden, set it to this year
@@ -53,21 +54,31 @@ function Get-FabricatedDate()
       { $retDay = (1..28 | Get-Random).ToString().PadLeft(2, '0') }
   }
 
+  # Calculate a time, make sure to put a space in front of it
+
   # Create the return value
   if ($AsDateTime.IsPresent)
   {
-    # If they want it as a DateTime, we need to add the 00:00:00 time to
-    # make it convert to a DateTime correctly
-    $retVal = [DateTime]"$retYear-$retMonth-$retDay 00:00:00"
+    # If they want it as a DateTime, we need to add a time to the string to
+    # make it convert to a DateTime correctly.
+    # If user asked for it, fabricate a time, otherwise use 00:00:00
+    if ($FabricateTime.IsPresent)  { $time = Get-FabricatedTime }
+    else                           { $time = '00:00:00' }
+
+    $retVal = [DateTime]"$retYear-$retMonth-$retDay $time"
   }
   else
   {
+    # If they wanted time included, add it, otherwise make it blank
+    if ($FabricateTime.IsPresent)  { $time = " $(Get-FabricatedTime)" }
+    else                           { $time = '' }
+
     # If we are returning as a string, we can then determine the format
     switch ($true)
     {
-      $FormatMDY.IsPresent { $retVal = "$retMonth-$retDay-$retYear" }
-      $FormatDMY.IsPresent { $retVal = "$retDay-$retMonth-$retYear" }
-      default              { $retVal = "$retYear-$retMonth-$retDay" }
+      $FormatMDY.IsPresent { $retVal = "$retMonth-$retDay-$retYear$($time)" }
+      $FormatDMY.IsPresent { $retVal = "$retDay-$retMonth-$retYear$($time)" }
+      default              { $retVal = "$retYear-$retMonth-$retDay$($time)" }
     }
   }
 
