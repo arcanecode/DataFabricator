@@ -28,14 +28,15 @@
 # Then load the files setting the \ or / according to the OS.
 
 # Run the scripts to load data into memory
-
 . .\Data\Load-Address2.ps1
 . .\Data\Load-Cities.ps1
 . .\Data\Load-Company.ps1
 . .\Data\Load-Compass.ps1
+. .\Data\Load-JobTitles.ps1
 . .\Data\Load-Letter.ps1
 . .\Data\Load-NamesFirst.ps1
 . .\Data\Load-NamesLast.ps1
+. .\Data\Load-Products.ps1
 . .\Data\Load-States.ps1
 . .\Data\Load-StreetsFirst.ps1
 . .\Data\Load-StreetsLast.ps1
@@ -48,9 +49,17 @@
 . .\Code\Get-FabricatedCityStateZipCode.ps1
 . .\Code\Get-FabricatedCompany.ps1
 . .\Code\Get-FabricatedDate.ps1
+. .\Code\Get-FabricatedJobTitle.ps1
 . .\Code\Get-FabricatedName.ps1
+. .\Code\Get-FabricatedPhone.ps1
+. .\Code\Get-FabricatedProduct
+. .\Code\Get-FabricatedSSN.ps1
 . .\Code\Get-FabricatedState.ps1
+. .\Code\Get-FabricatedTime.ps1
 . .\Code\Get-FabricatedZipCode.ps1
+. .\Code\New-FabricatedCompanyRecord.ps1
+. .\Code\New-FabricatedEmployeeRecord.ps1
+. .\Code\New-FabricatedProductTable.ps1
 
 #-----------------------------------------------------------------------------#
 # Export our functions
@@ -61,7 +70,14 @@ Export-ModuleMember Get-FabricatedCity
 Export-ModuleMember Get-FabricatedCityStateZipCode
 Export-ModuleMember Get-FabricatedCompany 
 Export-ModuleMember Get-FabricatedDate
+Export-ModuleMember Get-FabricatedJobTitle
 Export-ModuleMember Get-FabricatedName
+Export-ModuleMember Get-FabricatedPhone
+
+Export-ModuleMember Get-FabricatedSSN
 Export-ModuleMember Get-FabricatedState
+Export-ModuleMember Get-FabricatedTime
 Export-ModuleMember Get-FabricatedZipCode
+Export-ModuleMember New-FabricatedCompanyRecord
+Export-ModuleMember New-FabricatedEmployeeRecord
 

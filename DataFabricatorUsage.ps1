@@ -10,16 +10,6 @@ Import-Module .\DataFabricator -Verbose
 
 Clear-Host
 
-# Names
-Get-FabricatedName 
-Get-FabricatedName -First
-Get-FabricatedName -Last
-Get-FabricatedName -FirstMiLast
-Get-FabricatedName -FirstMiddleLast
-Get-FabricatedName -LastFirst
-Get-FabricatedName -LastFirstMi
-Get-FabricatedName -LastFirstMiddle
-
 # Address
 Get-FabricatedAddressLine1
 Get-FabricatedAddressLine2
@@ -41,6 +31,9 @@ Get-FabricatedCityStateZipCode -PlusFour
 Get-FabricatedCityStateZipCode -FullStateName
 Get-FabricatedCityStateZipCode -FullStateName -Plus4
 
+# Company
+Get-FabricatedCompany
+
 # Dates
 Get-FabricatedDate
 Get-FabricatedDate -FromYear 1930
@@ -50,5 +43,40 @@ Get-FabricatedDate -AsDateTime
 Get-FabricatedDate -FormatMDY
 Get-FabricatedDate -FormatDMY
 
-# Company
-Get-FabricatedCompany
+Get-FabricatedTime
+Get-FabricatedTime -AMPM
+
+# Job Title
+Get-FabricatedJobTitle
+
+# Names
+Get-FabricatedName 
+Get-FabricatedName -First
+Get-FabricatedName -Last
+Get-FabricatedName -FirstMiLast
+Get-FabricatedName -FirstMiddleLast
+Get-FabricatedName -LastFirst
+Get-FabricatedName -LastFirstMi
+Get-FabricatedName -LastFirstMiddle
+
+Get-FabricatedPhone
+Get-FabricatedPhone -NoDashes
+
+Get-FabricatedSSN
+Get-FabricatedSSN -NoDashes
+
+# Products
+Get-FabricatedProduct
+
+# Records
+$emp = New-FabricatedEmployeeRecord
+$emp
+
+$emp = New-FabricatedEmployeeRecord -EMailDomain "pluralsight.com"
+$emp
+
+$company = New-FabricatedCompanyRecord
+$company
+
+$productTable = New-FabricatedProductTable
+$productTable
