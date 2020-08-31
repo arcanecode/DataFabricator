@@ -1,6 +1,7 @@
-class Product
+class ProductTable
 {
   [int]    $ID
+  [string] $ProductCode
   [string] $Clothing
   [string] $Color
   [string] $Size
@@ -19,8 +20,13 @@ function New-FabricatedProductTable {
     {
       foreach($size in $m_Sizes)
       {
-        $prod = [Product]::new()
+        $productCode = $clothing.Substring(0,3).ToUpper() `
+                     + $color.Substring(0,3).ToUpper() `
+                     + $size.Substring(0,3).ToUpper()
+
+        $prod = [ProductTable]::new()
         $prod.ID = $ID++
+        $prod.ProductCode = $productCode
         $prod.Clothing = $clothing
         $prod.Color = $color
         $prod.Size = $size

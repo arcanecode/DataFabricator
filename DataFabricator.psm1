@@ -45,6 +45,7 @@
 # Run the scripts to load the functions into memory
 . .\Code\Get-FabricatedAddressLine1.ps1
 . .\Code\Get-FabricatedAddressLine2.ps1
+. .\Code\Get-FabricatedBin.ps1
 . .\Code\Get-FabricatedCity.ps1
 . .\Code\Get-FabricatedCityStateZipCode.ps1
 . .\Code\Get-FabricatedCompany.ps1
@@ -66,6 +67,7 @@
 #-----------------------------------------------------------------------------#
 Export-ModuleMember Get-FabricatedAddressLine1
 Export-ModuleMember Get-FabricatedAddressLine2
+Export-ModuleMember Get-FabricatedBin 
 Export-ModuleMember Get-FabricatedCity
 Export-ModuleMember Get-FabricatedCityStateZipCode
 Export-ModuleMember Get-FabricatedCompany 
@@ -73,6 +75,7 @@ Export-ModuleMember Get-FabricatedDate
 Export-ModuleMember Get-FabricatedJobTitle
 Export-ModuleMember Get-FabricatedName
 Export-ModuleMember Get-FabricatedPhone
+Export-ModuleMember Get-FabricatedProduct
 
 Export-ModuleMember Get-FabricatedSSN
 Export-ModuleMember Get-FabricatedState
@@ -80,4 +83,4 @@ Export-ModuleMember Get-FabricatedTime
 Export-ModuleMember Get-FabricatedZipCode
 Export-ModuleMember New-FabricatedCompanyRecord
 Export-ModuleMember New-FabricatedEmployeeRecord
-
+Export-ModuleMember New-FabricatedProductTable 

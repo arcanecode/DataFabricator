@@ -67,6 +67,8 @@ Get-FabricatedSSN -NoDashes
 
 # Products
 Get-FabricatedProduct
+Get-FabricatedBin
+
 
 # Records
 $emp = New-FabricatedEmployeeRecord
@@ -77,6 +79,9 @@ $emp
 
 $company = New-FabricatedCompanyRecord
 $company
+
+$product = Get-FabricatedProduct
+$product
 
 $productTable = New-FabricatedProductTable
 $productTable
