@@ -27,3 +27,23 @@ if (-not (Compare-Object $w1 $w2 -IncludeEqual))
 { 'match' }
 else
 { 'no match' } 
+
+
+# City Length
+$minLen = 9999999
+$city = 'x'
+# Replace spaces commas and dashes with nothing, and uppercase
+foreach($c in $m_Cities)
+{
+  $cCleaned = $c.Replace(' ', '').Replace('-', '').Replace(',', '').ToUpper()
+
+  if ($cCleaned.Length -lt $minLen)
+  { 
+    $minLen = $cCleaned.Length
+    $city = $cCleaned
+  }
+}
+
+Write-Host "Min Length is $city $minLen"
+
+# Y CDP
