@@ -31,6 +31,8 @@ New-FabricatedCityStateZipCodeRecord -RecordCount 5
 New-FabricatedCityStateZipCodeRecord -RecordCount 5 -Plus4
 New-FabricatedCityStateZipCodeRecord -RecordCount 5 -PlusFour
 
+New-FabricatedCityStateZipCodeRecord -RecordCount 500 -Verbose
+
 # Company
 Get-FabricatedCompany
 

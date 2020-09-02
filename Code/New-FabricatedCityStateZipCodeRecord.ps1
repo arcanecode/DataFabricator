@@ -20,11 +20,9 @@ function New-FabricatedCityStateZipCodeRecord {
   $retVal = @()
 
   Write-Verbose "Record Count $RecordCount"
-
-  for ($i = 0; $i -lt $RecordCount; $i++)
+  $i = 0
+  while ($i -lt $RecordCount)
   {
-    Write-Verbose "Generating record $i"
-
     $csz = [CityStateZipCode]::new()
   
     $csz.City = Get-FabricatedCity
@@ -44,8 +42,28 @@ function New-FabricatedCityStateZipCodeRecord {
     $csz.CityStateZipCode = "$($csz.City), $($csz.StateName) $($csz.ZipCode)"
     $csz.CityCode = "$($csz.State)$(ConvertTo-CityCode -City $csz.City)"
 
-    Write-Verbose "CSZ: $($csz.City) $($csz.State) $($csz.ZipCode)"
-    $retVal += $csz
+    Write-Verbose "Record #$($i): $($csz.City) $($csz.State) $($csz.ZipCode)"
+    
+    # Firse we need to make sure we have at least one record
+    # Then, if this code is not already in the array, then increment
+    # the record count and add it to the output array
+    if ($retVal.Count -gt 0)
+    {
+      if ($retVal.CityCode.Contains($csz.CityCode) -eq $false)
+      {
+        $i++
+        $retVal += $csz
+      }
+      else
+      {
+        Write-Verbose "Dupe Alert Skipping: $($csz.City) $($csz.State) $($csz.ZipCode)"
+      }
+    }
+    else # This is the first record so add it
+    {
+      $i++
+      $retVal += $csz
+    }
   }
 
   return $retVal

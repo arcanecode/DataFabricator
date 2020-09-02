@@ -162,3 +162,61 @@ foreach($c in $cityCodes)
 $dupeList.Count
 $deDupeList.Count
 
+
+
+
+
+class dupeTest
+{
+  [string] $Key
+  [int] $SomeValue
+}
+
+$dupes = @()
+
+for($i=0; $i -lt 10; $i=$i+2)
+{
+  $d = [dupeTest]::new()
+  $d.Key = "AA$i"
+  $d.SomeValue = $i
+  $dupes += $d
+}
+
+$dupes
+
+$dupes.Key.Contains("AA2")
+
+$recordCount = 10
+$i = $dupes.Count
+$keyValue = 0
+
+while ($i -lt $recordCount) 
+{
+  $d = [dupeTest]::new()
+  $d.Key = "AA$keyValue"
+  $d.SomeValue = $keyValue
+  if ($dupes.Key.Contains($d.Key) -eq $false)
+  {
+    $dupes += $d
+    $i++
+  }
+  $keyValue++
+
+}
+
+$dupes | Sort-Object -Property Key
+
+
+
+
+
+
+
+
+$k = "Key"
+
+$dupes.$k.Contains("AA09")
+
+$dupes
+$dupes.RemoveAt(2)
+
