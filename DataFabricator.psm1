@@ -43,11 +43,13 @@
 
 
 # Run the scripts to load the functions into memory
+. .\Code\ConvertFrom-CityStateCode.ps1
+. .\Code\ConvertFrom-ProductCode.ps1
+. .\Code\ConvertTo-CityCode.ps1
 . .\Code\Get-FabricatedAddressLine1.ps1
 . .\Code\Get-FabricatedAddressLine2.ps1
 . .\Code\Get-FabricatedBin.ps1
 . .\Code\Get-FabricatedCity.ps1
-. .\Code\Get-FabricatedCityStateZipCode.ps1
 . .\Code\Get-FabricatedCompany.ps1
 . .\Code\Get-FabricatedDate.ps1
 . .\Code\Get-FabricatedJobTitle.ps1
@@ -58,29 +60,43 @@
 . .\Code\Get-FabricatedState.ps1
 . .\Code\Get-FabricatedTime.ps1
 . .\Code\Get-FabricatedZipCode.ps1
+. .\Code\New-FabricatedCityStateZipCodeRecord.ps1
 . .\Code\New-FabricatedCompanyRecord.ps1
+. .\Code\New-FabricatedCustomerRecord.ps1
 . .\Code\New-FabricatedEmployeeRecord.ps1
+. .\Code\New-FabricatedInventoryRecord.ps1
 . .\Code\New-FabricatedProductTable.ps1
+
+# A few hash tables rely on some of the functions, so these have to be run
+# after the functions are loaded
+. .\Data\Load-TableCityCodes.ps1
+. .\Data\Load-TableProducts.ps1
 
 #-----------------------------------------------------------------------------#
 # Export our functions
 #-----------------------------------------------------------------------------#
+Export-ModuleMember ConvertFrom-CityStateCode
+Export-ModuleMember ConvertFrom-ProductCode
+Export-ModuleMember ConvertTo-CityCode
+
 Export-ModuleMember Get-FabricatedAddressLine1
 Export-ModuleMember Get-FabricatedAddressLine2
 Export-ModuleMember Get-FabricatedBin 
 Export-ModuleMember Get-FabricatedCity
-Export-ModuleMember Get-FabricatedCityStateZipCode
 Export-ModuleMember Get-FabricatedCompany 
 Export-ModuleMember Get-FabricatedDate
 Export-ModuleMember Get-FabricatedJobTitle
 Export-ModuleMember Get-FabricatedName
 Export-ModuleMember Get-FabricatedPhone
 Export-ModuleMember Get-FabricatedProduct
-
 Export-ModuleMember Get-FabricatedSSN
 Export-ModuleMember Get-FabricatedState
 Export-ModuleMember Get-FabricatedTime
 Export-ModuleMember Get-FabricatedZipCode
+
+Export-ModuleMember New-FabricatedCityStateZipCodeRecord
 Export-ModuleMember New-FabricatedCompanyRecord
+Export-ModuleMember New-FabricatedCustomerRecord
 Export-ModuleMember New-FabricatedEmployeeRecord
+Export-ModuleMember New-FabricatedInventoryRecord
 Export-ModuleMember New-FabricatedProductTable 
