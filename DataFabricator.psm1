@@ -55,7 +55,6 @@
 . .\Code\Get-FabricatedJobTitle.ps1
 . .\Code\Get-FabricatedName.ps1
 . .\Code\Get-FabricatedPhone.ps1
-. .\Code\Get-FabricatedProduct
 . .\Code\Get-FabricatedSSN.ps1
 . .\Code\Get-FabricatedState.ps1
 . .\Code\Get-FabricatedTime.ps1
@@ -65,6 +64,7 @@
 . .\Code\New-FabricatedCustomerRecord.ps1
 . .\Code\New-FabricatedEmployeeRecord.ps1
 . .\Code\New-FabricatedInventoryRecord.ps1
+. .\Code\New-FabricatedProductRecord.ps1
 . .\Code\New-FabricatedProductTable.ps1
 
 # A few hash tables rely on some of the functions, so these have to be run
@@ -88,7 +88,6 @@ Export-ModuleMember Get-FabricatedDate
 Export-ModuleMember Get-FabricatedJobTitle
 Export-ModuleMember Get-FabricatedName
 Export-ModuleMember Get-FabricatedPhone
-Export-ModuleMember Get-FabricatedProduct
 Export-ModuleMember Get-FabricatedSSN
 Export-ModuleMember Get-FabricatedState
 Export-ModuleMember Get-FabricatedTime
@@ -99,4 +98,5 @@ Export-ModuleMember New-FabricatedCompanyRecord
 Export-ModuleMember New-FabricatedCustomerRecord
 Export-ModuleMember New-FabricatedEmployeeRecord
 Export-ModuleMember New-FabricatedInventoryRecord
+Export-ModuleMember New-FabricatedProductRecord
 Export-ModuleMember New-FabricatedProductTable 

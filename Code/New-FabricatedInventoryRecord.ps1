@@ -16,13 +16,19 @@ function New-FabricatedInventoryRecord()
         , [int] $MaxQuantity = 999  
         )
 
+
+  # Note, due to the way the range function in PowerShell works, we
+  # don't have to worry if the Min Quantity is greater than the Max.
+  # 1..999 and 999..1 both work the same for our purposes
+  
+  # Generate the records
   $retVal = @()
 
   for($i = 0; $i -lt $RecordCount; $i++)
   {
     $prod = [InventoryRecord]::new()
   
-    $prod.ProductCode = $(Get-FabricatedProduct).ProductCode
+    $prod.ProductCode = $(New-FabricatedProductRecord).ProductCode
 
     # If they passed a warehouse use it, otherwise generate one
     if ($WarehouseCode -ne 'x')
