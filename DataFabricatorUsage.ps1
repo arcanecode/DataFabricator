@@ -149,9 +149,89 @@ $inv | Format-Table
 
 
 # To DO
-# Date Table
+# Dupe check
+#   Maybe: Dupe Timeout that triggers a Write-Error
+#   Product
+#   Company 
+#   Customer
+#   Employee
+#   Inventory (?)
+#   CityStateZip would need to add dupe timeout
+
 # Sales Table - Pass in:
 #   Inventory
 #   Customer
 #   Employee
-# Randomly pick the keys from each plus a quantity to create a sales table
+#   Randomly pick the keys from each plus date, quantity to create a sales table
+
+# Create text based tables
+#   Number of Inv, Cust, Emp, Sales recs
+#   Will write a product table with all the products
+#   Path to write to 
+#   Format CSV or JSON
+#   Maybe: switch to add a numeric key 
+
+# Date Table
+
+# Write Verbose
+#   ConvertFrom-CityStateCode
+#   ConvertFrom-ProductCode
+#   ConvertTo-CityCode
+#  
+#   Get-FabricatedAddressLine1
+#   Get-FabricatedAddressLine2
+#   Get-FabricatedBin 
+#   Get-FabricatedCity
+#   Get-FabricatedCompany 
+#   Get-FabricatedDate
+#   Get-FabricatedJobTitle
+#   Get-FabricatedName
+#   Get-FabricatedPhone
+#   Get-FabricatedSSN
+#   Get-FabricatedState
+#   Get-FabricatedTime
+#   Get-FabricatedZipCode
+#  
+#   New-FabricatedCityStateZipCodeRecord
+#   New-FabricatedCompanyRecord
+#   New-FabricatedCustomerRecord
+#   New-FabricatedEmployeeRecord
+#   New-FabricatedInventoryRecord
+#   New-FabricatedProductRecord
+#   New-FabricatedProductTable   
+
+# Write Help
+#   ConvertFrom-CityStateCode
+#   ConvertFrom-ProductCode
+#   ConvertTo-CityCode
+#  
+#   Get-FabricatedAddressLine1
+#   Get-FabricatedAddressLine2
+#   Get-FabricatedBin 
+#   Get-FabricatedCity
+#   Get-FabricatedCompany 
+#   Get-FabricatedDate
+#   Get-FabricatedJobTitle
+#   Get-FabricatedName
+#   Get-FabricatedPhone
+#   Get-FabricatedSSN
+#   Get-FabricatedState
+#   Get-FabricatedTime
+#   Get-FabricatedZipCode
+#  
+#   New-FabricatedCityStateZipCodeRecord
+#   New-FabricatedCompanyRecord
+#   New-FabricatedCustomerRecord
+#   New-FabricatedEmployeeRecord
+#   New-FabricatedInventoryRecord
+#   New-FabricatedProductRecord
+#   New-FabricatedProductTable   
+
+# Install/Test PlatyPs
+# Eventually Pester Tests
+
+# Maybe: remove the Key from Product table
+
+# Output CSV
+# Output JSON   $x | ConvertTo-Json | Out-File $path
+
