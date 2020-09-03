@@ -46,6 +46,7 @@
 . .\Code\ConvertFrom-CityStateCode.ps1
 . .\Code\ConvertFrom-ProductCode.ps1
 . .\Code\ConvertTo-CityCode.ps1
+. .\Code\ConvertTo-ProductCode.ps1
 . .\Code\Get-FabricatedAddressLine1.ps1
 . .\Code\Get-FabricatedAddressLine2.ps1
 . .\Code\Get-FabricatedBin.ps1
@@ -78,6 +79,7 @@
 Export-ModuleMember ConvertFrom-CityStateCode
 Export-ModuleMember ConvertFrom-ProductCode
 Export-ModuleMember ConvertTo-CityCode
+Export-ModuleMember ConvertTo-ProductCode
 
 Export-ModuleMember Get-FabricatedAddressLine1
 Export-ModuleMember Get-FabricatedAddressLine2

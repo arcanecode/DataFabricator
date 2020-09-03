@@ -1,18 +1,18 @@
 class ProductTable
 {
-  [int]    $ID
   [string] $ProductCode
   [string] $Clothing
   [string] $Color
   [string] $Size
 }
 
-function New-FabricatedProductTable {
+function New-FabricatedProductTable 
+{
+  [CmdletBinding()]
   param (
   )
 
   $products = @()
-  $ID = 0
 
   foreach($clothing in $m_Clothing)
   {
@@ -20,16 +20,21 @@ function New-FabricatedProductTable {
     {
       foreach($size in $m_Sizes)
       {
-        $productCode = $clothing.Substring(0,3).ToUpper() `
-                     + $color.Substring(0,3).ToUpper() `
-                     + $size.Substring(0,3).ToUpper()
+        $productCode = ConvertTo-ProductCode -Clothing $clothing `
+                                             -Color $color `
+                                             -Size $size
 
         $prod = [ProductTable]::new()
-        $prod.ID = $ID++
         $prod.ProductCode = $productCode
         $prod.Clothing = $clothing
         $prod.Color = $color
         $prod.Size = $size
+
+        $clothSp = ' ' * ($c_MaxClothingLength - $prod.Clothing.Length)
+        $colorSp = ' ' * ($c_MaxColorLength - $prod.Color.Length)
+        $prodData = "Product $($prod.ProductCode) $($prod.Clothing)$clothSp $($prod.Color)$colorSp $($prod.Size)"
+        Write-Verbose "Fabricating $prodData"
+
         $products += $prod 
       }
     }

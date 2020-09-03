@@ -10,12 +10,16 @@ Import-Module .\DataFabricator -Verbose
 
 Clear-Host
 
+#------------------------------------------------------------------------------------------------
 # Address
+#------------------------------------------------------------------------------------------------
 Get-FabricatedAddressLine1
 Get-FabricatedAddressLine2
 Get-FabricatedAddressLine2 -Threshold 99
 
+#------------------------------------------------------------------------------------------------
 # City State and Zip Codes
+#------------------------------------------------------------------------------------------------
 Get-FabricatedCity
 
 Get-FabricatedState
@@ -33,10 +37,14 @@ New-FabricatedCityStateZipCodeRecord -RecordCount 5 -PlusFour
 
 New-FabricatedCityStateZipCodeRecord -RecordCount 500 -Verbose
 
+#------------------------------------------------------------------------------------------------
 # Company
+#------------------------------------------------------------------------------------------------
 Get-FabricatedCompany
 
+#------------------------------------------------------------------------------------------------
 # Dates
+#------------------------------------------------------------------------------------------------
 Get-FabricatedDate
 Get-FabricatedDate -FromYear 1930
 Get-FabricatedDate -FromYear 1940 -ThruYear 1990
@@ -48,10 +56,14 @@ Get-FabricatedDate -FormatDMY
 Get-FabricatedTime
 Get-FabricatedTime -AMPM
 
+#------------------------------------------------------------------------------------------------
 # Job Title
+#------------------------------------------------------------------------------------------------
 Get-FabricatedJobTitle
 
+#------------------------------------------------------------------------------------------------
 # Names
+#------------------------------------------------------------------------------------------------
 Get-FabricatedName 
 Get-FabricatedName -First
 Get-FabricatedName -Last
@@ -67,13 +79,16 @@ Get-FabricatedPhone -NoDashes
 Get-FabricatedSSN
 Get-FabricatedSSN -NoDashes
 
+#------------------------------------------------------------------------------------------------
 # Products
+#------------------------------------------------------------------------------------------------
 Get-FabricatedProduct
 Get-FabricatedBin
 
 
-# Records
+#------------------------------------------------------------------------------------------------
 # Customers
+#------------------------------------------------------------------------------------------------
 $cust = New-FabricatedCustomerRecord
 $cust
 
@@ -88,7 +103,9 @@ $cust = New-FabricatedCustomerRecord -RecordCount 5 -EMailDomain 'pluralsight.co
 $cust
 $cust | Format-Table
 
+#------------------------------------------------------------------------------------------------
 # Employee
+#------------------------------------------------------------------------------------------------
 $emp = New-FabricatedEmployeeRecord
 $emp
 
@@ -104,7 +121,9 @@ $emp
 $emp | Format-Table
 
 
+#------------------------------------------------------------------------------------------------
 # Company
+#------------------------------------------------------------------------------------------------
 $company = New-FabricatedCompanyRecord
 $company
 
@@ -112,17 +131,32 @@ $company = New-FabricatedCompanyRecord -RecordCount 5
 $company
 $company | Format-Table
 
+#------------------------------------------------------------------------------------------------
 # Product
+#------------------------------------------------------------------------------------------------
 $product = New-FabricatedProductRecord
 $product
 
 $product = New-FabricatedProductRecord -RecordCount 5
 $product
 
+$product = New-FabricatedProductRecord -RecordCount 5 -Verbose
+$product
+
+# Intentionally cause a max dupe error
+$product = New-FabricatedProductRecord -RecordCount 1000 -MaxDuplicateCountBeforeError 1000 -Verbose
+$product
+
+# Return a list of all products
 $productTable = New-FabricatedProductTable
 $productTable
 
+$productTable = New-FabricatedProductTable -Verbose 
+$productTable
+
+#------------------------------------------------------------------------------------------------
 # Inventory
+#------------------------------------------------------------------------------------------------
 $inv = New-FabricatedInventoryRecord
 $inv
 
@@ -235,3 +269,4 @@ $inv | Format-Table
 # Output CSV
 # Output JSON   $x | ConvertTo-Json | Out-File $path
 
+# Load-TableProducts Not sure this is still needed?

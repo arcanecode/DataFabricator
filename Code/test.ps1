@@ -48,6 +48,10 @@ Write-Host "Min Length is $city $minLen"
 
 # Y CDP
 
+#------------------------------------------------------------------------------------------------
+#  Dupe Testing
+#------------------------------------------------------------------------------------------------
+
 $front = '            "'
 $end = '",'
 
@@ -207,16 +211,12 @@ while ($i -lt $recordCount)
 $dupes | Sort-Object -Property Key
 
 
-
-
-
-
-
-
 $k = "Key"
 
 $dupes.$k.Contains("AA09")
 
 $dupes
 $dupes.RemoveAt(2)
+
+
 

@@ -1,4 +1,4 @@
-
+# Load-TableProducts Not sure this is still needed?
 
 $m_ColorCodes = @{}
 foreach($c in $m_Colors)

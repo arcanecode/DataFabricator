@@ -13,6 +13,7 @@ function New-FabricatedCityStateZipCodeRecord {
   [CmdletBinding()]
   param (
           [int] $RecordCount = 1
+        , [int] $MaxDuplicateCountBeforeError = 50  
         , [Alias('PlusFour')]
           [switch] $Plus4
         )
@@ -20,7 +21,10 @@ function New-FabricatedCityStateZipCodeRecord {
   $retVal = @()
 
   Write-Verbose "Record Count $RecordCount"
+  
+  $dupeTrackingCount = 0
   $i = 0
+  
   while ($i -lt $RecordCount)
   {
     $csz = [CityStateZipCode]::new()
@@ -56,13 +60,26 @@ function New-FabricatedCityStateZipCodeRecord {
       }
       else
       {
-        Write-Verbose "Dupe Alert Skipping: $($csz.City) $($csz.State) $($csz.ZipCode)"
+        $dupeTrackingCount++
+        Write-Verbose "Dupe Alert #$($dupeTrackingCount) Skipping: $($csz.City) $($csz.State) $($csz.ZipCode)"
       }
     }
     else # This is the first record so add it
     {
       $i++
       $retVal += $csz
+    }
+
+    if ( $dupeTrackingCount -ge $MaxDuplicateCountBeforeError )
+    {
+      $i = $RecordCount + 1
+      $err = @"
+      Duplicate Max Count Exceeded, $dupeTrackingCount duplicates were generated. 
+      You may have tried to create more records than the number of possible combinations.
+      Suggestion: Try running again with a lower value for the RecordCount parameter.
+      Alternatively, increase the value of the MaxDuplicateCountBeforeError to a number greater than $MaxDuplicateCountBeforeError
+"@
+      Write-Error $err
     }
   }
 
