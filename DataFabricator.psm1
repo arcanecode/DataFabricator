@@ -68,6 +68,10 @@
 . .\Code\New-FabricatedProductRecord.ps1
 . .\Code\New-FabricatedProductTable.ps1
 
+# Run scripts to load internal functions, used only in the module
+. .\Internal\Request-DupeErrorMessage.ps1
+. .\Internal\Request-EndRunMessage.ps1
+
 # A few hash tables rely on some of the functions, so these have to be run
 # after the functions are loaded
 . .\Data\Load-TableCityCodes.ps1

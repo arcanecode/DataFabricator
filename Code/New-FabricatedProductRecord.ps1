@@ -13,21 +13,24 @@ function New-FabricatedProductRecord {
         , [int] $MaxDuplicateCountBeforeError = 50  
         )
 
-  # Message Declarations
-  $paramMessage = @"
-Parameters
-  RecordCount: $RecordCount
-  MaxDuplicateCountBeforeError: $MaxDuplicateCountBeforeError
-
+  # Function Name
+  $fn = "$($PSCmdlet.MyInvocation.MyCommand.Module) - $($PSCmdlet.MyInvocation.MyCommand.Name)"
+  $st = Get-Date
+  Write-Verbose @"
+$fn
+         Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
+         Record Count: $RecordCount
+         Max Duplicate Rows Befor Error: $MaxDuplicateCountBeforeError
 "@
 
-  # Variable Declarations
+  # Declare an empty array to hold the results
   $retVal = @()
+
+  # Set the counters
   $dupeTrackingCount = 0
   $i = 0
-
-  Write-Verbose $paramMessage
   
+  # Fabricate new rows
   while ($i -lt $RecordCount)
   {
     $product = [Product]::new()
@@ -43,75 +46,46 @@ Parameters
     $colorSp = ' ' * ($c_MaxColorLength - $product.Color.Length)
     $prodData = "Product $($product.ProductCode) $($product.Clothing)$clothSp $($product.Color)$colorSp $($product.Size)"
 
-    $progressMessage = "Record Number: $($i.ToString().PadLeft(4, '0')): $prodData"
+    $progressMessage = "$fn - Fabricating #$($i.ToString('#,##0')): $prodData"
     Write-Verbose $progressMessage
 
     # If no values we need to add the first one. If we don't, the dupe check below will
     # error out on a null valued array ($retVal)
     if ( $retVal.Count -eq 0 )
     {
-      $i++
-      $retVal += $product
+      $retVal += $product; $i++
     }   
-
-    # Now do the dupe check
-    if ( $retVal.ProductCode.Contains($product.ProductCode) -eq $false )
-    {
-      # If not there are are safe to add it
-      $retVal += $product
-      $i++
-    }
     else
     {
-      # Already there, track the number of dupes and let user know
-      $dupeTrackingCount++
-      Write-Verbose "Dupe Number..: $($dupeTrackingCount.ToString().PadLeft(4, '0')): $prodData"
-    }        
+      # Now do the dupe check
+      if ( $retVal.ProductCode.Contains($product.ProductCode) -eq $false )
+      {        
+        $retVal += $product; $i++   # If not there are are safe to add it
+      }
+      else
+      {        
+        $dupeTrackingCount++        # Mark as a dupe
+        Write-Verbose "$fn - Duplicate   #$($dupeTrackingCount.ToString('#,##0')): $prodData Skipping"
+      }        
+    }
 
-<#
-    if ( $retVal.Count -gt 0 )
-    {
-        if ( $retVal.ProductCode.Contains($product.ProductCode) -eq $false )
-        {
-          $i++
-          $retVal += $product
-        }
-        else
-        {
-          $dupeTrackingCount++
-          Write-Verbose "Dupe Number..: $($dupeTrackingCount.ToString().PadLeft(4, '0')): $prodData"
-        }        
-    }
-    else
-    {
-      $i++
-      $retVal += $product
-    }
-#>
+    # If we exceeded the max dupe error count, error out
     if ( $dupeTrackingCount -ge $MaxDuplicateCountBeforeError )
     {
-      $i = $RecordCount + 1 # Set it high so the while loop will exit
-
-      $dupeErrorMessage = @"
-Error
-  Function: New-FabricatedProductRecord
-  Time: $(Get-Date -Format 'MM/dd/yyyy hh:mm:ss tt' )
-  Error Message: Duplicate Max Count Exceeded, $dupeTrackingCount duplicates were generated. 
-                                                                                                        -
-Explanation:
-  You may have tried to fabricate more records than the number of possible combinations.
-                                                                                                        -
-Suggestion: 
-  Try running again with a lower value for the RecordCount parameter.
-  Alternatively, increase the value of the MaxDuplicateCountBeforeError to a number greater than $MaxDuplicateCountBeforeError
-  If you are looking to get ALL product records, please see the function New-FabricatedProductTable.
-                                                                                                        -
-"@
-      Write-Error $dupeErrorMessage
+      $i = $RecordCount + 1     # Set it high so the while loop will exit
+      $extra = "If you are looking to get ALL product records, please see the function New-FabricatedProductTable."
+      Request-DupeErrorMessage -FunctionName $fn -DuplicateCount $dupeTrackingCount -Extra $extra | Write-Verbose
     }
-
   }
 
+  # Let user know we're done 
+  $et = Get-Date   # End Time
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+
+  # Sort the output
+  $retVal = $retVal | Sort-Object -Property ProductCode
+
+  # Return our results
   return $retVal 
 
 }

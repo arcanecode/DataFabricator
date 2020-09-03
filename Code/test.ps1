@@ -220,3 +220,54 @@ $dupes.RemoveAt(2)
 
 
 
+function get-mytest()
+{
+  [CmdletBinding()]
+  param (
+          [string] $paramStr = "param"
+        , [int] $paramInt = 33
+        , [switch] $ASwitch
+        )
+
+  Write-Host "Name"
+  Write-Host $PSCmdlet.MyInvocation.MyCommand.Name
+  #Write-Host "CmdletBinding"
+  #Write-Host $PSCmdlet.MyInvocation.MyCommand.CmdletBinding
+  #Write-Host "CommandType"
+  #Write-Host $PSCmdlet.MyInvocation.MyCommand.CommandType
+  #Write-Host "Definition"
+  #Write-Host $PSCmdlet.MyInvocation.MyCommand.Definition
+  Write-Host "Options"
+  Write-Host $PSCmdlet.MyInvocation.MyCommand.Options
+  Write-Host "Verb"
+  Write-Host $PSCmdlet.MyInvocation.MyCommand.Verb
+  Write-Host "Noun"
+  Write-Host $PSCmdlet.MyInvocation.MyCommand.Noun
+  Write-Host "Parameters"
+  Write-Host $PSCmdlet.MyInvocation.MyCommand.Parameters
+  Write-Host "OutputType"
+  Write-Host $PSCmdlet.MyInvocation.MyCommand.OutputType
+  Write-Host "ParameterSets"
+  Write-Host $PSCmdlet.MyInvocation.MyCommand.ParameterSets
+  Write-Host "Version"
+  Write-Host $PSCmdlet.MyInvocation.MyCommand.Version
+  Write-Host "Visibility"
+  Write-Host $PSCmdlet.MyInvocation.MyCommand.Visibility
+  Write-Host "Source"
+  Write-Host $PSCmdlet.MyInvocation.MyCommand.Source
+  Write-Host "ScriptBlock"
+  Write-Host $PSCmdlet.MyInvocation.MyCommand.ScriptBlock
+  
+
+
+
+  foreach($b in $PSCmdlet.MyInvocation.BoundParameters)
+  {
+    Write-Host $b.ToString()
+  }
+
+  
+}
+
+get-mytest 
+

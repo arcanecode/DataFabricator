@@ -35,7 +35,26 @@ New-FabricatedCityStateZipCodeRecord -RecordCount 5
 New-FabricatedCityStateZipCodeRecord -RecordCount 5 -Plus4
 New-FabricatedCityStateZipCodeRecord -RecordCount 5 -PlusFour
 
-New-FabricatedCityStateZipCodeRecord -RecordCount 500 -Verbose
+New-FabricatedCityStateZipCodeRecord -Verbose
+New-FabricatedCityStateZipCodeRecord -Plus4 -Verbose
+New-FabricatedCityStateZipCodeRecord -PlusFour -Verbose
+
+New-FabricatedCityStateZipCodeRecord -Verbose
+
+Remove-Module DataFabricator -ErrorAction SilentlyContinue
+Import-Module .\DataFabricator -Verbose
+$csz = New-FabricatedCityStateZipCodeRecord -RecordCount 5 -Verbose
+$csz | Format-Table
+
+$csz = New-FabricatedCityStateZipCodeRecord -RecordCount 50 -Plus4 -Verbose
+$csz | Format-Table
+
+$csz = New-FabricatedCityStateZipCodeRecord -RecordCount 50 -Plus4 -MaxDuplicateCountBeforeError 5 -Verbose
+$csz | Format-Table
+
+
+$csz = New-FabricatedCityStateZipCodeRecord -RecordCount 250 -Verbose
+$csz | Format-Table
 
 #------------------------------------------------------------------------------------------------
 # Company
@@ -103,6 +122,23 @@ $cust = New-FabricatedCustomerRecord -RecordCount 5 -EMailDomain 'pluralsight.co
 $cust
 $cust | Format-Table
 
+$cust = New-FabricatedCustomerRecord -Verbose
+$cust
+
+$cust = New-FabricatedCustomerRecord -EMailDomain 'pluralsight.com' -Verbose
+$cust
+
+$cust = New-FabricatedCustomerRecord -RecordCount 50 -Verbose
+$cust
+$cust | Format-Table
+
+$cust = New-FabricatedCustomerRecord -RecordCount 5 -EMailDomain 'pluralsight.com' -Verbose
+$cust
+$cust | Format-Table
+
+
+
+
 #------------------------------------------------------------------------------------------------
 # Employee
 #------------------------------------------------------------------------------------------------
@@ -120,6 +156,17 @@ $emp = New-FabricatedEmployeeRecord -RecordCount 5 -EMailDomain 'pluralsight.com
 $emp
 $emp | Format-Table
 
+$emp = New-FabricatedEmployeeRecord -Verbose
+$emp
+
+$emp = New-FabricatedEmployeeRecord -EMailDomain 'pluralsight.com' -Verbose
+$emp
+
+$emp = New-FabricatedEmployeeRecord -RecordCount 5 -Verbose
+$emp | Format-Table
+
+$emp = New-FabricatedEmployeeRecord -RecordCount 5 -EMailDomain 'pluralsight.com' -Verbose
+$emp | Format-Table
 
 #------------------------------------------------------------------------------------------------
 # Company
@@ -129,6 +176,9 @@ $company
 
 $company = New-FabricatedCompanyRecord -RecordCount 5
 $company
+$company | Format-Table
+
+$company = New-FabricatedCompanyRecord -RecordCount 5 -Verbose
 $company | Format-Table
 
 #------------------------------------------------------------------------------------------------
@@ -157,6 +207,9 @@ $productTable
 #------------------------------------------------------------------------------------------------
 # Inventory
 #------------------------------------------------------------------------------------------------
+Remove-Module DataFabricator -ErrorAction SilentlyContinue
+Import-Module .\DataFabricator -Verbose
+
 $inv = New-FabricatedInventoryRecord
 $inv
 
@@ -172,25 +225,24 @@ $WarehouseCode
 $inv = New-FabricatedInventoryRecord -WarehouseCode $WarehouseCode
 $inv
 
-$inv = New-FabricatedInventoryRecord -RecordCount 5 -WarehouseCode $WarehouseCode
-$inv
+$inv = New-FabricatedInventoryRecord -RecordCount 5 -WarehouseCode $WarehouseCode -Verbose
 $inv | Format-Table
 
 $inv = New-FabricatedInventoryRecord -RecordCount 5 -WarehouseCode $WarehouseCode -MinQuantity 5000 -MaxQuantity 9999
-$inv
 $inv | Format-Table
 
+$inv = New-FabricatedInventoryRecord -RecordCount 5 -WarehouseCode $WarehouseCode -MinQuantity 5000 -MaxQuantity 9999 -Verbose
+$inv | Format-Table
 
 
 # To DO
 # Dupe check
-#   Maybe: Dupe Timeout that triggers a Write-Error
-#   Product
-#   Company 
-#   Customer
-#   Employee
-#   Inventory (?)
-#   CityStateZip would need to add dupe timeout
+#   x CityStateZip would need to add dupe timeout
+#   x Company 
+#   x Customer
+#   x Employee
+#   x Product
+#   x Inventory
 
 # Sales Table - Pass in:
 #   Inventory
