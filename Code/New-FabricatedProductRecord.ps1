@@ -40,7 +40,8 @@ $fn
     
     $product.ProductCode = ConvertTo-ProductCode -Clothing $product.Clothing `
                                                  -Color $product.Color `
-                                                 -Size $product.Size
+                                                 -Size $product.Size `
+                                                 -Verbose:$false
     
     $clothSp = ' ' * ($c_MaxClothingLength - $product.Clothing.Length)
     $colorSp = ' ' * ($c_MaxColorLength - $product.Color.Length)

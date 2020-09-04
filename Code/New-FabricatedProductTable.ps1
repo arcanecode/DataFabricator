@@ -12,7 +12,16 @@ function New-FabricatedProductTable
   param (
   )
 
+  # Function Name
+  $fn = "$($PSCmdlet.MyInvocation.MyCommand.Module) - $($PSCmdlet.MyInvocation.MyCommand.Name)"
+  $st = Get-Date
+  Write-Verbose @"
+$fn
+         Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
+"@
+
   $products = @()
+  $i = 0
 
   foreach($clothing in $m_Clothing)
   {
@@ -22,7 +31,8 @@ function New-FabricatedProductTable
       {
         $productCode = ConvertTo-ProductCode -Clothing $clothing `
                                              -Color $color `
-                                             -Size $size
+                                             -Size $size `
+                                             -Verbose:$false
 
         $prod = [ProductTable]::new()
         $prod.ProductCode = $productCode
@@ -33,13 +43,19 @@ function New-FabricatedProductTable
         $clothSp = ' ' * ($c_MaxClothingLength - $prod.Clothing.Length)
         $colorSp = ' ' * ($c_MaxColorLength - $prod.Color.Length)
         $prodData = "Product $($prod.ProductCode) $($prod.Clothing)$clothSp $($prod.Color)$colorSp $($prod.Size)"
-        Write-Verbose "Fabricating $prodData"
-
+        Write-Verbose "$fn - Fabricating #$($i.ToString('#,##0')): $prodData"
+        
         $products += $prod 
+        $i++
       }
     }
   }
   
+ # Let user know we're done 
+  $et = Get-Date   # End Time
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+
+  # Return our results
   return $products 
 
 }

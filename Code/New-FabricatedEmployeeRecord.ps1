@@ -56,36 +56,36 @@ $fn
   {
     $emp = [EmployeeRecord]::new()
 
-    $emp.FirstName = Get-FabricatedName -First
-    $emp.MiddleName = Get-FabricatedName -First
-    $emp.LastName = Get-FabricatedName -Last
+    $emp.FirstName = Get-FabricatedName -First -Verbose:$false
+    $emp.MiddleName = Get-FabricatedName -First -Verbose:$false
+    $emp.LastName = Get-FabricatedName -Last -Verbose:$false
     $emp.FullName = "$($emp.FirstName) $($emp.MiddleName) $($emp.LastName)"
 
-    $emp.SSN = Get-FabricatedSSN
+    $emp.SSN = Get-FabricatedSSN -Verbose:$false
     $emp.EmployeeID = "$($emp.LastName.Substring(0, 2).ToUpper())$($emp.SSN.Substring($emp.SSN.Length - 4, 4)) "
 
     $emp.EMail = "$($emp.FirstName.Substring(0, 1).ToLower()).$($emp.LastName.ToLower())@$($EMailDomain)"
 
-    $emp.HomePhone = Get-FabricatedPhone
-    $emp.MobilePhone = Get-FabricatedPhone
-    $emp.WorkPhone = Get-FabricatedPhone
+    $emp.HomePhone = Get-FabricatedPhone -Verbose:$false
+    $emp.MobilePhone = Get-FabricatedPhone -Verbose:$false
+    $emp.WorkPhone = Get-FabricatedPhone -Verbose:$false
 
-    $emp.HomeAddress1 = Get-FabricatedAddressLine1
-    $emp.HomeAddress2 = Get-FabricatedAddressLine2
-    $emp.HomeCity = Get-FabricatedCity
-    $emp.HomeState = Get-FabricatedState
-    $emp.HomeZip = Get-FabricatedZipCode
+    $emp.HomeAddress1 = Get-FabricatedAddressLine1 -Verbose:$false
+    $emp.HomeAddress2 = Get-FabricatedAddressLine2 -Verbose:$false
+    $emp.HomeCity = Get-FabricatedCity -Verbose:$false
+    $emp.HomeState = Get-FabricatedState -Verbose:$false
+    $emp.HomeZip = Get-FabricatedZipCode -Verbose:$false
 
-    $emp.WorkAddress1 = Get-FabricatedAddressLine1
-    $emp.WorkAddress2 = Get-FabricatedAddressLine2
-    $emp.WorkCity = Get-FabricatedCity
-    $emp.WorkState = Get-FabricatedState
-    $emp.WorkZip = Get-FabricatedZipCode
+    $emp.WorkAddress1 = Get-FabricatedAddressLine1 -Verbose:$false
+    $emp.WorkAddress2 = Get-FabricatedAddressLine2 -Verbose:$false
+    $emp.WorkCity = Get-FabricatedCity -Verbose:$false
+    $emp.WorkState = Get-FabricatedState -Verbose:$false
+    $emp.WorkZip = Get-FabricatedZipCode -Verbose:$false
 
-    $emp.BirthDate = Get-FabricatedDate -RelativeThruYear 18 -RelativeFromYear 70 
-    $emp.HireDate = Get-FabricatedDate -RelativeFromYear 15
+    $emp.BirthDate = Get-FabricatedDate -RelativeThruYear 18 -RelativeFromYear 70 -Verbose:$false
+    $emp.HireDate = Get-FabricatedDate -RelativeFromYear 15 -Verbose:$false
 
-    $emp.JobTitle = Get-FabricatedJobTitle
+    $emp.JobTitle = Get-FabricatedJobTitle -Verbose:$false
 
     $item = $emp.FullName
     Write-Verbose "$fn - Fabricating #$($i.ToString('#,##0')): $item"

@@ -207,9 +207,6 @@ $productTable
 #------------------------------------------------------------------------------------------------
 # Inventory
 #------------------------------------------------------------------------------------------------
-Remove-Module DataFabricator -ErrorAction SilentlyContinue
-Import-Module .\DataFabricator -Verbose
-
 $inv = New-FabricatedInventoryRecord
 $inv
 
@@ -278,13 +275,13 @@ $inv | Format-Table
 #   Get-FabricatedTime
 #   Get-FabricatedZipCode
 #  
-#   New-FabricatedCityStateZipCodeRecord
-#   New-FabricatedCompanyRecord
-#   New-FabricatedCustomerRecord
-#   New-FabricatedEmployeeRecord
-#   New-FabricatedInventoryRecord
-#   New-FabricatedProductRecord
-#   New-FabricatedProductTable   
+#   x New-FabricatedCityStateZipCodeRecord
+#   x New-FabricatedCompanyRecord
+#   x New-FabricatedCustomerRecord
+#   x New-FabricatedEmployeeRecord
+#   x New-FabricatedInventoryRecord
+#   x New-FabricatedProductRecord
+#   x New-FabricatedProductTable   
 
 # Write Help
 #   ConvertFrom-CityStateCode

@@ -64,13 +64,13 @@ $fn
     }
     else
     {
-      $state = Get-FabricatedState
-      $cityCode = ConvertTo-CityCode -City $(Get-FabricatedCity)
+      $state = Get-FabricatedState -Verbose:$false
+      $cityCode = ConvertTo-CityCode -City $(Get-FabricatedCity -Verbose:$false)
   
       $prod.WarehouseCode = "$state$cityCode"
     }
     
-    $prod.Bin = Get-FabricatedBin
+    $prod.Bin = Get-FabricatedBin -Verbose:$false
   
     $prod.Quantity = $MinQuantity..$MaxQuantity | Get-Random
 

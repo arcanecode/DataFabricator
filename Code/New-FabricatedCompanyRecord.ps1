@@ -41,19 +41,19 @@ $fn
   while ($i -lt $RecordCount) 
   {
     $company = [CompanyRecord]::new()
-    $company.Name = Get-FabricatedCompany
-    $company.Address1 = Get-FabricatedAddressLine1
-    $company.Address2 = Get-FabricatedAddressLine2
-    $company.City = Get-FabricatedCity
-    $company.State = Get-FabricatedState
-    $company.Zip = Get-FabricatedZipCode
+    $company.Name = Get-FabricatedCompany -Verbose:$false
+    $company.Address1 = Get-FabricatedAddressLine1 -Verbose:$false
+    $company.Address2 = Get-FabricatedAddressLine2 -Verbose:$false
+    $company.City = Get-FabricatedCity -Verbose:$false
+    $company.State = Get-FabricatedState -Verbose:$false
+    $company.Zip = Get-FabricatedZipCode -Verbose:$false
 
-    $firstName = Get-FabricatedName -First
-    $lastName = Get-FabricatedName -Last
+    $firstName = Get-FabricatedName -First -Verbose:$false
+    $lastName = Get-FabricatedName -Last -Verbose:$false
 
     $company.ContactName = "$firstName $lastName"
-    $company.ContactPhone = Get-FabricatedPhone
-    $company.ContactJobTitle = Get-FabricatedJobTitle
+    $company.ContactPhone = Get-FabricatedPhone -Verbose:$false
+    $company.ContactJobTitle = Get-FabricatedJobTitle -Verbose:$false
 
     $email = $company.Name.ToLower().Replace(' ', '')
     $company.ContactEMail = "$($firstName.Substring(0, 1).ToLower()).$($lastName.ToLower())@$($email).com"

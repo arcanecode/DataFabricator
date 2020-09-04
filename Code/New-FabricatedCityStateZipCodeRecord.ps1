@@ -41,18 +41,18 @@ $fn
   {
     $csz = [CityStateZipCode]::new()
   
-    $csz.City = Get-FabricatedCity
-    $csz.State = Get-FabricatedState    
+    $csz.City = Get-FabricatedCity -Verbose:$false
+    $csz.State = Get-FabricatedState -Verbose:$false
     $csz.StateName = $m_StateTable[$csz.State]
   
     if ($Plus4.IsPresent) 
-      { $csz.ZipCode = Get-FabricatedZipCode -Plus4 }
+      { $csz.ZipCode = Get-FabricatedZipCode -Plus4 -Verbose:$false }
     else 
-      { $csz.ZipCode = Get-FabricatedZipCode }
+      { $csz.ZipCode = Get-FabricatedZipCode -Verbose:$false }
   
     $csz.CityStZipCode = "$($csz.City), $($csz.State) $($csz.ZipCode)"
     $csz.CityStateZipCode = "$($csz.City), $($csz.StateName) $($csz.ZipCode)"
-    $csz.CityCode = "$($csz.State)$(ConvertTo-CityCode -City $csz.City)"
+    $csz.CityCode = "$($csz.State)$(ConvertTo-CityCode -City $csz.City -Verbose:$false)"
 
     # Format a string with the item key for informational usage
     $spCity = ' ' * ($c_MaxCitiesLength - $csz.City.Length)
