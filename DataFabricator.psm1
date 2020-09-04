@@ -67,6 +67,7 @@
 . .\Code\New-FabricatedInventoryRecord.ps1
 . .\Code\New-FabricatedProductRecord.ps1
 . .\Code\New-FabricatedProductTable.ps1
+. .\Code\New-FabricatedSalesRecord.ps1
 
 # Run scripts to load internal functions, used only in the module
 . .\Internal\Request-DupeErrorMessage.ps1
@@ -105,4 +106,5 @@ Export-ModuleMember New-FabricatedCustomerRecord
 Export-ModuleMember New-FabricatedEmployeeRecord
 Export-ModuleMember New-FabricatedInventoryRecord
 Export-ModuleMember New-FabricatedProductRecord
-Export-ModuleMember New-FabricatedProductTable 
+Export-ModuleMember New-FabricatedProductTable
+Export-ModuleMember New-FabricatedSalesRecord 

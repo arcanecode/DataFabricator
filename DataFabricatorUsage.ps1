@@ -5,7 +5,6 @@
 
 # If the module is not in memory, then suppress the error and silently continue
 Remove-Module DataFabricator -ErrorAction SilentlyContinue
-
 Import-Module .\DataFabricator -Verbose
 
 Clear-Host
@@ -264,6 +263,43 @@ $inv | Format-Table
 
 $inv = New-FabricatedInventoryRecord -RecordCount 5 -WarehouseCode $WarehouseCode -MinQuantity 5000 -MaxQuantity 9999 -Verbose
 $inv | Format-Table
+
+#------------------------------------------------------------------------------------------------
+# Sales
+#------------------------------------------------------------------------------------------------
+Remove-Module DataFabricator -ErrorAction SilentlyContinue
+Import-Module .\DataFabricator -Verbose
+
+# Get some employees
+$employees = New-FabricatedEmployeeRecord -RecordCount 50 -Verbose
+$productTable = New-FabricatedProductTable -Verbose 
+$customers = New-FabricatedCustomerRecord -RecordCount 50 -Verbose
+
+$s = New-FabricatedSalesRecord -Employees $employees `
+                               -Products $productTable `
+                               -Customers $customers `
+                               -Verbose
+$s | Format-Table
+
+
+$s = New-FabricatedSalesRecord -RecordCount 50 `
+                               -Employees $employees `
+                               -Products $productTable `
+                               -Customers $customers `
+                               -Verbose
+$s | Format-Table
+
+$s = New-FabricatedSalesRecord -RecordCount 50 `
+                               -Employees $employees `
+                               -Products $productTable `
+                               -Customers $customers `
+                               -MinQuantityPerSale 5 `
+                               -MaxQuantityPerSale 10 `
+                               -MinPricePerProduct 10 `
+                               -MaxPricePerProduct 20 `
+                               -YearsTofabricateSalesFor 5 `
+                               -Verbose
+$s | Format-Table
 
 
 # To DO

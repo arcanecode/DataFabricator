@@ -271,3 +271,37 @@ function get-mytest()
 
 get-mytest 
 
+
+
+function anothertest()
+{
+  [CmdletBinding()]
+  param (
+          [array] $SomeData
+        )
+
+  foreach($a in $SomeData)
+  { Write-Host "$($a.First) $($a.Last)" }
+
+}
+
+class OurData
+{
+  [string] $First
+  [string] $Last
+}
+
+$sData = @()
+
+$o = [ourdata]::new()
+$o.First = 'Adam'
+$o.Last = 'Curry'
+$sData += $o 
+
+$o = [ourdata]::new()
+$o.First = 'John'
+$o.Last = 'C Dvorak'
+$sData += $o 
+
+anothertest -SomeData $sData
+
