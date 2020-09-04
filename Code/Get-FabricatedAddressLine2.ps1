@@ -5,6 +5,15 @@ function Get-FabricatedAddressLine2 ()
          [int] $Threshold = 25
        )
 
+  # Function Name
+  $fn = "$($PSCmdlet.MyInvocation.MyCommand.Module) - $($PSCmdlet.MyInvocation.MyCommand.Name)"
+  $st = Get-Date
+  Write-Verbose @"
+$fn
+         Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
+         Threshold: $Threshold
+"@
+
   # Do a little boundary checking
   if ($Threshold -lt 1) { $Threshold = 1 }
   if ($Threshold -gt 100) { $Threshold = 100 }
@@ -16,6 +25,7 @@ function Get-FabricatedAddressLine2 ()
   if ($thresholdPercent -gt $Threshold)
   {
     $retVal = ''
+    Write-Verbose "$fn Generated Threshold of $thresholdPercent%, which was above the maximum of $Threshold% so the address suppressed."
   }
   else 
   {
@@ -32,8 +42,14 @@ function Get-FabricatedAddressLine2 ()
     }
 
     $retVal = "$first $last"
+    Write-Verbose "$fn $retVal"
   }
 
+  # Let user know we're done 
+  $et = Get-Date   # End Time
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+
+  # Return our results
   return $retVal
 
 }

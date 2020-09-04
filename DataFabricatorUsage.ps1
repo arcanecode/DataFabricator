@@ -14,20 +14,41 @@ Clear-Host
 # Address
 #------------------------------------------------------------------------------------------------
 Get-FabricatedAddressLine1
+Get-FabricatedAddressLine1 -Verbose 
+
 Get-FabricatedAddressLine2
 Get-FabricatedAddressLine2 -Threshold 99
+
+Get-FabricatedAddressLine2 -Verbose
+Get-FabricatedAddressLine2 -Threshold 99 -Verbose
 
 #------------------------------------------------------------------------------------------------
 # City State and Zip Codes
 #------------------------------------------------------------------------------------------------
+ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
+ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP" -Verbose
+
+ConvertTo-CityCode -City "Aaronsburg CDP"
+ConvertTo-CityCode -City "Aaronsburg CDP" -Verbose
+
+
+
 Get-FabricatedCity
+Get-FabricatedCity -Verbose
 
 Get-FabricatedState
 Get-FabricatedState -FullName
 
+Get-FabricatedState -Verbose
+Get-FabricatedState -FullName -Verbose
+
 Get-FabricatedZipCode
 Get-FabricatedZipCode -Plus4
 Get-FabricatedZipCode -PlusFour
+
+Get-FabricatedZipCode -Verbose
+
+
 New-FabricatedCityStateZipCodeRecord
 New-FabricatedCityStateZipCodeRecord -Plus4
 New-FabricatedCityStateZipCodeRecord -PlusFour
@@ -60,6 +81,7 @@ $csz | Format-Table
 # Company
 #------------------------------------------------------------------------------------------------
 Get-FabricatedCompany
+Get-FabricatedCompany -Verbose 
 
 #------------------------------------------------------------------------------------------------
 # Dates
@@ -74,11 +96,19 @@ Get-FabricatedDate -FormatDMY
 
 Get-FabricatedTime
 Get-FabricatedTime -AMPM
+Get-FabricatedTime -Verbose
+
+Get-FabricatedDate -Verbose
+Get-FabricatedDate -FromYear 1930 -Verbose
+Get-FabricatedDate -FromYear 1940 -ThruYear 1990 -Verbose
+Get-FabricatedDate -RelativeFromYear 1000 -Verbose
 
 #------------------------------------------------------------------------------------------------
 # Job Title
 #------------------------------------------------------------------------------------------------
 Get-FabricatedJobTitle
+
+Get-FabricatedJobTitle -Verbose
 
 #------------------------------------------------------------------------------------------------
 # Names
@@ -92,18 +122,22 @@ Get-FabricatedName -LastFirst
 Get-FabricatedName -LastFirstMi
 Get-FabricatedName -LastFirstMiddle
 
+Get-FabricatedName -Verbose
+
 Get-FabricatedPhone
 Get-FabricatedPhone -NoDashes
+Get-FabricatedPhone -Verbose
 
 Get-FabricatedSSN
 Get-FabricatedSSN -NoDashes
+Get-FabricatedSSN -Verbose
 
 #------------------------------------------------------------------------------------------------
-# Products
+# Bins
 #------------------------------------------------------------------------------------------------
-Get-FabricatedProduct
 Get-FabricatedBin
 
+Get-FabricatedBin -Verbose
 
 #------------------------------------------------------------------------------------------------
 # Customers
@@ -233,13 +267,6 @@ $inv | Format-Table
 
 
 # To DO
-# Dupe check
-#   x CityStateZip would need to add dupe timeout
-#   x Company 
-#   x Customer
-#   x Employee
-#   x Product
-#   x Inventory
 
 # Sales Table - Pass in:
 #   Inventory
@@ -256,32 +283,6 @@ $inv | Format-Table
 
 # Date Table
 
-# Write Verbose
-#   ConvertFrom-CityStateCode
-#   ConvertFrom-ProductCode
-#   ConvertTo-CityCode
-#  
-#   Get-FabricatedAddressLine1
-#   Get-FabricatedAddressLine2
-#   Get-FabricatedBin 
-#   Get-FabricatedCity
-#   Get-FabricatedCompany 
-#   Get-FabricatedDate
-#   Get-FabricatedJobTitle
-#   Get-FabricatedName
-#   Get-FabricatedPhone
-#   Get-FabricatedSSN
-#   Get-FabricatedState
-#   Get-FabricatedTime
-#   Get-FabricatedZipCode
-#  
-#   x New-FabricatedCityStateZipCodeRecord
-#   x New-FabricatedCompanyRecord
-#   x New-FabricatedCustomerRecord
-#   x New-FabricatedEmployeeRecord
-#   x New-FabricatedInventoryRecord
-#   x New-FabricatedProductRecord
-#   x New-FabricatedProductTable   
 
 # Write Help
 #   ConvertFrom-CityStateCode

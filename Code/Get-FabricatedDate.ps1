@@ -12,6 +12,18 @@ function Get-FabricatedDate()
         , [switch] $FabricateTime
         )
 
+  # Function Name
+  $fn = "$($PSCmdlet.MyInvocation.MyCommand.Module) - $($PSCmdlet.MyInvocation.MyCommand.Name)"
+  $st = Get-Date
+  Write-Verbose @"
+$fn
+         Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
+         FromYear $FromYear 
+         ThruYear $ThruYear 
+         RelativeFromYear $RelativeFromYear
+         RelativeThruYear $RelativeThruYear
+"@
+
   # If ThruYear is not overridden, set it to this year
   if ($ThruYear -eq -9999) { $endYear = $(Get-Date).Year }
   else                     { $endYear = $ThruYear }
@@ -82,6 +94,13 @@ function Get-FabricatedDate()
     }
   }
 
+  Write-Verbose "$fn Fabricated Date: $retVal"
+
+  # Let user know we're done 
+  $et = Get-Date   # End Time
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+
+  # Return our results
   return $retVal
 
 }
