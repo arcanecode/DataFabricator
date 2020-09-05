@@ -22,7 +22,7 @@
 -----------------------------------------------------------------------------------------------#>
 
 # Import PlatyPS into memory
-Import-Module PlatyPS
+# Import-Module PlatyPS
 
 # Before running, you need to have the most current version loaded in memory
 Remove-Module DataFabricator -ErrorAction SilentlyContinue
@@ -48,121 +48,161 @@ New-MarkdownHelp -Module DataFabricator -OutputFolder $docPath -Force -WithModul
 # Get a list of all the MD files
 $filePath = Get-ChildItem -Path $docPath | Where-Object {$_.Extension -eq '.md'} # | Where-Object { $_.Name -eq 'ConvertFrom-CityStateCode.md'}
 
-# Now loop over each one fixing the issue
-foreach ($f in $filePath)
+function Format-PlatyPSMarkdown()
 {
-  # Just display the name of what we are working on
-  $f.FullName 
-  
-  # Get the contents of the file into memory
-  $contents = Get-Content -Path $f.FullName
+  [CmdletBinding()]
+  param (
+          [array] $FilePath
+        )
 
-  # Set the various flags we have to have
-  $startChecking = $false 
-  $checkForBlank = $false
-  $skipSyntaxCheck = $false
-  $yamlBlock = $false
-  $prevLine = ''
-
-  # Create an array to hold the new file output
-  $newOutput = @()
-
-  # Loop over each line
-  foreach ($line in $contents)
-  { 
-    # If the previous line was a header tag, and the current line is blank,
-    # insert a blank line between the header and this one
-    if ($checkForBlank)
-    {
-      if ($line.Length -ne 0)
-        { $newOutput += ''  }
-      $checkForBlank = $false
-    }
-
-    # If we try to do a substring and the line isn't long enough, it will
-    # produce an error, so annoyingly we have to check each line length first
-    if ( $line.Length -ge 9)
-    {
-      # It's the INPUTS and OUTPUTS areas that PlatyPS messes up the formatting
-      # so set a flag to indicate we are in that area
-      if ( $line.Substring(0, 9) -eq '## INPUTS')
-        { $startChecking = $true }
-    }
+# Now loop over each one fixing the issue
+  foreach ($f in $FilePath)
+  {
+    # Just display the name of what we are working on
+    $f.FullName 
     
-    # If we are checking, it means we're in the input/output area
-    if ( $startChecking )
-    {
-      # If this line starts with a H3 tag we want to remove it
-      if ( $line.Length -ge 4)
-      { 
-        if ( $line.Substring(0, 3) -eq '###' )
-          { $line = $line.Substring(4) }
-      }
-      
-      # Once we hit the notes area stop checking
-      if ( $line.Length -ge 8)
-      {
-         if ( $line.Substring(0, 8) -eq '## NOTES' )
-           { $startChecking = $false }
-      }
-    }
-
-    # After some of the headers, it does not put a blank line, so add one
-    if ( $line.Length -ge 2)
+    # Get the contents of the file into memory
+    $contents = Get-Content -Path $f.FullName
+  
+    # Set the various flags we have to have
+    $startChecking = $false 
+    $checkForBlank = $false
+    $skipSyntaxCheck = $false
+    $yamlBlock = $false
+    $prevLine = ''
+  
+    # Create an array to hold the new file output
+    $newOutput = @()
+  
+    # Loop over each line
+    foreach ($line in $contents)
     { 
-      if ( $line.Substring(0, 2) -eq '##' )
-        { 
-          $checkForBlank = $true 
-          if ($prevLine.Length -ne 0) 
-            { $newOutput += ''  }
+      Write-Verbose '----------------------------------------'
+      Write-Verbose $line
+      Write-Verbose '----------------------------------------'
+      # If the previous line was a header tag, and the current line is blank,
+      # insert a blank line between the header and this one
+      if ($checkForBlank)
+      {
+        Write-Verbose "Checking for Blank: $($line.Length) $line"
+        if ($line.Length -ne 0)
+          { $newOutput += ''  ; Write-Verbose 'Adding a blank'}
+        $checkForBlank = $false
+      }
+  
+      # If we are at the input area, turn on the flag to begin checking
+      # for the erroneous ### tags PlatyPS likes (mistakenly) to insert
+      if ( $line.StartsWith('## INPUTS') )
+        { $startChecking = $true ; Write-Verbose 'Start Checking'}
+  
+      # If we are checking, it means we're in the input/output area
+      if ( $startChecking )
+      {
+        # If this line starts with a H3 tag we want to remove it
+        if ( $line.StartsWith('###') )
+          { $line = $line.Substring(4) ; Write-Verbose 'Removing ###'}
+  
+        # Once we hit the notes area stop checking
+        if ( $line.StartsWith('## NOTES' ) )
+          { $startChecking = $false ; Write-Verbose 'Found ## NOTES'}
+  
+      } # if ( $startChecking )
+  
+      # After some of the headers, it does not put a blank line, so add one
+      if ( $line.StartsWith('##') )
+      { 
+        Write-Verbose "Found StartsWith ## at $line "
+        # Trigger a check for the line after it
+        $checkForBlank = $true 
+        # If the previous line wasn't empty, add an extra one
+        if ($prevLine.Length -ne 0) 
+          { $newOutput += ''  ; Write-Verbose "Adding a blank line after $line"}
+      }
+  
+      # If this is a code syntax block    
+      if ( ($line -eq '```') -and ($yamlBlock -eq $false) )
+      {
+        Write-Verbose 'Found a syntax block that wasn''t YAML'
+        # And it's the first one
+        if ( $skipSyntaxCheck -eq $false )
+        {
+          # Replace the line with the one for powershell 
+          $line = '```powershell'  
+          # Indicate we should skip the next comment block that ends the block
+          $skipSyntaxCheck = $true 
         }
-    }
-
-    # If this is a code syntax block    
-    if ( ($line -eq '```') -and ($yamlBlock -eq $false) )
-    {
-      # And it's the first one
-      if ( $skipSyntaxCheck -eq $false )
+        else 
+        {
+          $skipSyntaxCheck = $false
+          $yamlBlock = $false
+        }
+      
+      } #if ( ($line -eq '```') -and ($yamlBlock -eq $false) )
+  
+      # PlatyPS puts in YAML blocks so we need to flag when we find one so
+      # we don't accidentally replace the closing YAML tag with the start powershell tag
+      if ( $line -eq '```yaml' )
+        { $yamlBlock = $true ; Write-Verbose 'Found a YAML block'}
+  
+      # Look for links specific to our documentation, and remove the
+      # https part and the md part from the link label so it looks like
+      # a proper link when it's rendered in markdown
+      $lookFor = '[https://github.com/arcanecode/DataFabricator/blob/master/Documentation/'
+      if ($line.StartsWith($lookFor))
       {
-        # Replace the line with the one for powershell 
-        $line = '```powershell'  
-        # Indicate we should skip the next comment block that ends the block
-        $skipSyntaxCheck = $true 
+        Write-Verbose 'Fixing Documentation Link'
+        $line = '[' + $line.Substring(72)
+        $line = $line.Replace('.md]', ']')
       }
-      else 
-      {
-        $skipSyntaxCheck = $false
-        $yamlBlock = $false
-      }
-    }
 
-    # PlatyPS puts in YAML blocks so we need to flag when we find one so
-    # we don't accidentally replace the closing YAML tag with the start powershell tag
-    if ( $line -eq '```yaml' )
-    {
-      $yamlBlock = $true
-    }
+      # The notes section contains my twitter handle, let's make it a link
+      $lookFor = 'Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com'
+      $replaceWith = 'Author: Robert C Cain | [@ArcaneCode](https://twitter.com/arcanecode) | arcane@arcanetc.com'
+      if ($line.StartsWith($lookFor))
+        { $line = $replaceWith ; Write-Verbose '@ArcaneCode'}
+  
+      # Also clean up the link to the Data Fabricator site we include in
+      # Every help comment
+      $lookFor = '[http://datafabricator.com](http://datafabricator.com)'
+      $replaceWith = '[Data Fabricator on GitHub](http://datafabricator.com)'
+      if ($line.StartsWith($lookFor))
+        { $line = $replaceWith ; Write-Verbose 'Fixing Data Fabrictor'}
 
-<# Need to fix this
-    # Don't write two blanks in a row
-    if ( ( $line -eq '' ) -and ( $prevLine -eq '' ) )
-    {
-      $prevLine = $line
-      # Don't add a second empty line
-    }
-    else
-    {
+      # The link section contains a link to my website, fix it to be
+      # a real markdown link
+      $lookFor = '[http://arcanecode.me]'
+      $replaceWith = '[ArcaneCode''s Website](http://arcanecode.me)'
+      if ( $line.StartsWith($lookFor) )
+        { $line = $replaceWith ; Write-Verbose 'Fixing arcanecode.me' }
+
+      Write-Verbose 'Adding line'
       $prevLine = $line
       $newOutput += $line
+  
+    } # foreach ($line in $contents)
+  
+    # Final cleanup, there winds up being an extraneous blank line
+    # at the end of the file. Resift the output stopping at the
+    # Data Fabricator URL, which should always be the last thing
+    $finalOutput = @()
+    foreach ($line in $newOutput)
+    {
+      if ($line -eq '[Data Fabricator on GitHub](http://datafabricator.com)')
+      {
+        # Finally! Write the fixed MD to the file, replacing it
+        Write-Verbose "Writing to $($f.FullName)"
+        $finalOutput += $line
+        $finalOutput | Out-File -Path $f.FullName -Force
+        break 
+      }
+      else
+      {
+        $finalOutput += $line
+      }
     }
-#>
-      $prevLine = $line
-      $newOutput += $line
 
-  }
+  } # foreach ($f in $FilePath)
 
-  # Finally! Write the fixed MD to the file, replacing it
-  $newOutput | Out-File -Path $f.FullName -Force
-}
+} # function Format-PlatyPSMarkdown
 
-
+Format-PlatyPSMarkdown -FilePath $filePath # -Verbose

@@ -217,6 +217,13 @@ $company | Format-Table
 #------------------------------------------------------------------------------------------------
 # Product
 #------------------------------------------------------------------------------------------------
+ConvertFrom-ProductCode -ProductCode "GLOOCELAR"
+ConvertFrom-ProductCode -ProductCode "GLOOCELAR" -Verbose
+
+ConvertTo-ProductCode -Clothing 'Gloves' -Color 'Ocean Green' -Size 'Large'
+
+
+
 $product = New-FabricatedProductRecord
 $product
 
@@ -329,9 +336,10 @@ Remove-Item "$Path\*.csv"
 
 
 # Write Help
-#   ConvertFrom-CityStateCode
+#   x ConvertFrom-CityStateCode
 #   ConvertFrom-ProductCode
 #   ConvertTo-CityCode
+#   ConvertTo-ProductCode
 #  
 #   Get-FabricatedAddressLine1
 #   Get-FabricatedAddressLine2

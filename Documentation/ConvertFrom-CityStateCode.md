@@ -1,7 +1,7 @@
 ---
 external help file: DataFabricator-help.xml
 Module Name: DataFabricator
-online version: http://datafabricator.com
+online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/ConvertFrom-CityStateCode.md
 schema: 2.0.0
 ---
 
@@ -29,7 +29,7 @@ Takes a CityState code (the city code with the two character state abbreviation 
 ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
 ```
 
-Returns the following data:
+ConvertFrom-CityStateCode returns the following data:
 
 City: Aaronsburg CDP
 
@@ -67,8 +67,9 @@ An object array with two properties, the City and State.
 
 ## NOTES
 
-Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
-         http://arcanecode.me
+Data Fabricator - ConvertFrom-CityStateCode
+
+Author: Robert C Cain | [@ArcaneCode](https://twitter.com/arcanecode) | arcane@arcanetc.com
 
 This code is Copyright (c) 2020 Robert C Cain All rights reserved
 
@@ -80,5 +81,8 @@ the express written consent of the author.
 
 ## RELATED LINKS
 
-[http://datafabricator.com](http://datafabricator.com)
+[ConvertFrom-CityStateCode](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/ConvertFrom-CityStateCode.md)
 
+[ArcaneCode's Website](http://arcanecode.me)
+
+[Data Fabricator on GitHub](http://datafabricator.com)

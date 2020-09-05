@@ -1,8 +1,3 @@
-class City
-{
-  [string] $City
-  [string] $State
-}
 <#
 .SYNOPSIS
 Converts a CityState code back to a city and state
@@ -22,15 +17,16 @@ An object array with two properties, the City and State.
 .EXAMPLE
 ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
 
-Returns the following data:
+ConvertFrom-CityStateCode returns the following data:
 
 City: Aaronsburg CDP
 
 State: AL
 
 .NOTES
+Data Fabricator - ConvertFrom-CityStateCode
+
 Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
-         http://arcanecode.me
 
 This code is Copyright (c) 2020 Robert C Cain All rights reserved
 
@@ -39,6 +35,12 @@ No warranty or guarantee is implied or expressly granted.
 
 This module may not be reproduced in whole or in part without
 the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/ConvertFrom-CityStateCode.md
+
+.LINK
+http://arcanecode.me
 
 .LINK
 http://datafabricator.com
@@ -63,6 +65,13 @@ $fn
          CityStateCode: $CityStateCode
 "@
 
+  # This is the class structure that the function will return
+  class City
+  {
+    [string] $City
+    [string] $State
+  }
+  
   #Extract the State abbreviation
   $state = $CityStateCode.Substring(0, 2)
 

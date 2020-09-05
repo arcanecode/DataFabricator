@@ -1,7 +1,7 @@
 ---
 external help file: DataFabricator-help.xml
 Module Name: DataFabricator
-online version: http://datafabricator.com
+online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/ConvertTo-ProductCode.md
 schema: 2.0.0
 ---
 
@@ -9,7 +9,7 @@ schema: 2.0.0
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Takes the product code and converts it back to the Clothing, Color and Size.
 
 ## SYNTAX
 
@@ -19,23 +19,29 @@ ConvertFrom-ProductCode [[-ProductCode] <String>] [<CommonParameters>]
 
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+The product code is 9 characters.
+The first three point to the clothing, second three to color, and final three to size.
+This function breaks them into the three codes then uses an internal lookup table to convert these back into the full clothing, color and size names.
+These are then placed into an object and returned.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 
 ```powershell
-PS C:\> {{ Add example code here }}
-```powershell
+ConvertFrom-ProductCode -ProductCode "GLOOCELAR"
+```
 
-{{ Add example description here }}
+Returns the following data:
+Clothing: Gloves
+Color: Ocean Green
+Size: Large
 
 ## PARAMETERS
 
 ### -ProductCode
 
-{{ Fill ProductCode Description }}
+The 9 character product code.
 
 ```yaml
 Type: String
@@ -43,7 +49,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 0
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -59,8 +65,25 @@ None
 
 ## OUTPUTS
 
-System.Object
+A object with three fields: Clothing, Color, and Size.
 
 ## NOTES
 
+Data Fabricator - ConvertFrom-ProductCode.ps1
+
+Author: Robert C Cain | [@ArcaneCode](https://twitter.com/arcanecode) | arcane@arcanetc.com
+         http://arcanecode.me
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
 ## RELATED LINKS
+
+[ConvertTo-ProductCode](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/ConvertTo-ProductCode.md)
+
+[Data Fabricator on GitHub](http://datafabricator.com)
