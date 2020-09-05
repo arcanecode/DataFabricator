@@ -14,7 +14,7 @@ Converts a CityState code back to a city and state
 ## SYNTAX
 
 ```powershell
-ConvertFrom-CityStateCode [[-CityStateCode] <String>] [<CommonParameters>]
+ConvertFrom-CityStateCode [-CityStateCode] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -29,7 +29,7 @@ Takes a CityState code (the city code with the two character state abbreviation 
 ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
 ```
 
-Returns
+Returns the following data:
 
 City: Aaronsburg CDP
 
@@ -46,7 +46,7 @@ Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: 1
 Default value: None
 Accept pipeline input: False

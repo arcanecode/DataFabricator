@@ -22,7 +22,7 @@ An object array with two properties, the City and State.
 .EXAMPLE
 ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
 
-Returns
+Returns the following data:
 
 City: Aaronsburg CDP
 
@@ -47,6 +47,10 @@ function ConvertFrom-CityStateCode()
 { 
   [CmdletBinding()]
   param (
+          [Parameter( Mandatory = $true,
+                      HelpMessage = 'Please enter a valid city state code.'
+                    )
+          ]          
           [string] $CityStateCode
         )
 
