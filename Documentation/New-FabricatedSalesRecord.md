@@ -1,18 +1,19 @@
 ---
 external help file: DataFabricator-help.xml
 Module Name: DataFabricator
-online version:
+online version: http://datafabricator.com
 schema: 2.0.0
 ---
 
 # New-FabricatedSalesRecord
 
 ## SYNOPSIS
+
 {{ Fill in the Synopsis }}
 
 ## SYNTAX
 
-```
+```powershell
 New-FabricatedSalesRecord [[-RecordCount] <Int32>] [[-Employees] <Array>] [[-Products] <Array>]
  [[-Customers] <Array>] [[-MinQuantityPerSale] <Int32>] [[-MaxQuantityPerSale] <Int32>]
  [[-MinPricePerProduct] <Single>] [[-MaxPricePerProduct] <Single>] [[-YearsToFabricateSalesFor] <Int32>]
@@ -20,20 +21,23 @@ New-FabricatedSalesRecord [[-RecordCount] <Int32>] [[-Employees] <Array>] [[-Pro
 ```
 
 ## DESCRIPTION
+
 {{ Fill in the Description }}
 
 ## EXAMPLES
 
 ### Example 1
+
 ```powershell
 PS C:\> {{ Add example code here }}
-```
+```powershell
 
 {{ Add example description here }}
 
 ## PARAMETERS
 
 ### -Customers
+
 {{ Fill Customers Description }}
 
 ```yaml
@@ -49,6 +53,7 @@ Accept wildcard characters: False
 ```
 
 ### -Employees
+
 {{ Fill Employees Description }}
 
 ```yaml
@@ -64,6 +69,7 @@ Accept wildcard characters: False
 ```
 
 ### -MaxPricePerProduct
+
 {{ Fill MaxPricePerProduct Description }}
 
 ```yaml
@@ -79,6 +85,7 @@ Accept wildcard characters: False
 ```
 
 ### -MaxQuantityPerSale
+
 {{ Fill MaxQuantityPerSale Description }}
 
 ```yaml
@@ -94,6 +101,7 @@ Accept wildcard characters: False
 ```
 
 ### -MinPricePerProduct
+
 {{ Fill MinPricePerProduct Description }}
 
 ```yaml
@@ -109,6 +117,7 @@ Accept wildcard characters: False
 ```
 
 ### -MinQuantityPerSale
+
 {{ Fill MinQuantityPerSale Description }}
 
 ```yaml
@@ -124,6 +133,7 @@ Accept wildcard characters: False
 ```
 
 ### -Products
+
 {{ Fill Products Description }}
 
 ```yaml
@@ -139,6 +149,7 @@ Accept wildcard characters: False
 ```
 
 ### -RecordCount
+
 {{ Fill RecordCount Description }}
 
 ```yaml
@@ -154,6 +165,7 @@ Accept wildcard characters: False
 ```
 
 ### -YearsToFabricateSalesFor
+
 {{ Fill YearsToFabricateSalesFor Description }}
 
 ```yaml
@@ -169,15 +181,17 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
-### None
+None
 
 ## OUTPUTS
 
-### System.Object
+System.Object
+
 ## NOTES
 
 ## RELATED LINKS

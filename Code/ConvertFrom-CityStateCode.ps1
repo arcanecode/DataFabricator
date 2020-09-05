@@ -10,14 +10,21 @@ ConvertFrom-CityStateCode - Converts a CityState code back to a city and state
 .DESCRIPTION
 Takes a City State Code (the city code with the two character state abbreviation on front) and deconstructs it, converting it back to the city and state.
 
+Adding another para here to test
+
 .PARAMETER CityStatecode
 The code holding the state and city code
 
 .INPUTS
-There are no inputs for this cmdlet
+This has no inputs
 
 .OUTPUTS
 An object with two properties, the City and State.
+
+.EXAMPLE
+ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
+
+Returns:
 
 class City
 {
@@ -25,18 +32,24 @@ class City
   [string] $State
 }
 
-.EXAMPLE
-ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
-
-Returns:
-
 City           State
 ----           -----
 Aaronsburg CDP AL
 
-.LINK
-arcanecode.gallery
+.NOTES
+  Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+           http://arcanecode.me
 
+  This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+  The code herein is for demonstration purposes.
+  No warranty or guarantee is implied or expressly granted.
+
+  This module may not be reproduced in whole or in part without
+  the express written consent of the author.
+
+.LINK
+http://datafabricator.com
 #>
 function ConvertFrom-CityStateCode()
 { 

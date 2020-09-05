@@ -1,36 +1,40 @@
 ---
 external help file: DataFabricator-help.xml
 Module Name: DataFabricator
-online version:
+online version: http://datafabricator.com
 schema: 2.0.0
 ---
 
 # ConvertTo-ProductCode
 
 ## SYNOPSIS
+
 {{ Fill in the Synopsis }}
 
 ## SYNTAX
 
-```
+```powershell
 ConvertTo-ProductCode [[-Clothing] <String>] [[-Color] <String>] [[-Size] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 {{ Fill in the Description }}
 
 ## EXAMPLES
 
 ### Example 1
+
 ```powershell
 PS C:\> {{ Add example code here }}
-```
+```powershell
 
 {{ Add example description here }}
 
 ## PARAMETERS
 
 ### -Clothing
+
 {{ Fill Clothing Description }}
 
 ```yaml
@@ -46,6 +50,7 @@ Accept wildcard characters: False
 ```
 
 ### -Color
+
 {{ Fill Color Description }}
 
 ```yaml
@@ -61,6 +66,7 @@ Accept wildcard characters: False
 ```
 
 ### -Size
+
 {{ Fill Size Description }}
 
 ```yaml
@@ -76,15 +82,17 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
-### None
+None
 
 ## OUTPUTS
 
-### System.Object
+System.Object
+
 ## NOTES
 
 ## RELATED LINKS
