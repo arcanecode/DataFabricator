@@ -5,12 +5,10 @@ class City
 }
 <#
 .SYNOPSIS
-ConvertFrom-CityStateCode - Converts a CityState code back to a city and state
+Converts a CityState code back to a city and state
 
 .DESCRIPTION
-Takes a City State Code (the city code with the two character state abbreviation on front) and deconstructs it, converting it back to the city and state.
-
-Adding another para here to test
+Takes a CityState code (the city code with the two character state abbreviation on front) and deconstructs it, converting it back to the city and state.
 
 .PARAMETER CityStatecode
 The code holding the state and city code
@@ -19,34 +17,27 @@ The code holding the state and city code
 This has no inputs
 
 .OUTPUTS
-An object with two properties, the City and State.
+An object array with two properties, the City and State.
 
 .EXAMPLE
 ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
 
-Returns:
+Returns
+City: Aaronsburg CDP
+State: AL
 
-class City
-{
-  [string] $City
-  [string] $State
-}
-
-City           State
-----           -----
-Aaronsburg CDP AL
 
 .NOTES
-  Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
-           http://arcanecode.me
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+         http://arcanecode.me
 
-  This code is Copyright (c) 2020 Robert C Cain All rights reserved
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
 
-  The code herein is for demonstration purposes.
-  No warranty or guarantee is implied or expressly granted.
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
 
-  This module may not be reproduced in whole or in part without
-  the express written consent of the author.
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
 
 .LINK
 http://datafabricator.com

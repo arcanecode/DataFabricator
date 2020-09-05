@@ -9,7 +9,7 @@ schema: 2.0.0
 
 ## SYNOPSIS
 
-ConvertFrom-CityStateCode - Converts a CityState code back to a city and state
+Converts a CityState code back to a city and state
 
 ## SYNTAX
 
@@ -19,9 +19,7 @@ ConvertFrom-CityStateCode [[-CityStateCode] <String>] [<CommonParameters>]
 
 ## DESCRIPTION
 
-Takes a City State Code (the city code with the two character state abbreviation on front) and deconstructs it, converting it back to the city and state.
-
-Adding another para here to test
+Takes a CityState code (the city code with the two character state abbreviation on front) and deconstructs it, converting it back to the city and state.
 
 ## EXAMPLES
 
@@ -31,17 +29,9 @@ Adding another para here to test
 ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
 ```
 
-Returns:
-
-class City
-{
-  \[string\] $City
-  \[string\] $State
-}
-
-City           State
-----           -----
-Aaronsburg CDP AL
+Returns
+City: Aaronsburg CDP
+State: AL
 
 ## PARAMETERS
 
@@ -71,7 +61,7 @@ This has no inputs
 
 ## OUTPUTS
 
-An object with two properties, the City and State.
+An object array with two properties, the City and State.
 
 ## NOTES
 
