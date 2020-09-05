@@ -23,9 +23,10 @@ An object array with two properties, the City and State.
 ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
 
 Returns
-City: Aaronsburg CDP
-State: AL
 
+City: Aaronsburg CDP
+
+State: AL
 
 .NOTES
 Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
