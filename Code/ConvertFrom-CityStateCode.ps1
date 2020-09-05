@@ -3,6 +3,41 @@ class City
   [string] $City
   [string] $State
 }
+<#
+.SYNOPSIS
+ConvertFrom-CityStateCode - Converts a CityState code back to a city and state
+
+.DESCRIPTION
+Takes a City State Code (the city code with the two character state abbreviation on front) and deconstructs it, converting it back to the city and state.
+
+.PARAMETER CityStatecode
+The code holding the state and city code
+
+.INPUTS
+There are no inputs for this cmdlet
+
+.OUTPUTS
+An object with two properties, the City and State.
+
+class City
+{
+  [string] $City
+  [string] $State
+}
+
+.EXAMPLE
+ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
+
+Returns:
+
+City           State
+----           -----
+Aaronsburg CDP AL
+
+.LINK
+arcanecode.gallery
+
+#>
 function ConvertFrom-CityStateCode()
 { 
   [CmdletBinding()]

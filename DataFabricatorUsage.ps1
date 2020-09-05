@@ -275,19 +275,19 @@ $employees = New-FabricatedEmployeeRecord -RecordCount 50 -Verbose
 $productTable = New-FabricatedProductTable -Verbose 
 $customers = New-FabricatedCustomerRecord -RecordCount 50 -Verbose
 
-$s = New-FabricatedSalesRecord -Employees $employees `
+$sales = New-FabricatedSalesRecord -Employees $employees `
                                -Products $productTable `
                                -Customers $customers `
                                -Verbose
-$s | Format-Table
+$sales | Format-Table
 
 
-$s = New-FabricatedSalesRecord -RecordCount 50 `
+$sales = New-FabricatedSalesRecord -RecordCount 50 `
                                -Employees $employees `
                                -Products $productTable `
                                -Customers $customers `
                                -Verbose
-$s | Format-Table
+$sales | Format-Table
 
 $s = New-FabricatedSalesRecord -RecordCount 50 `
                                -Employees $employees `
@@ -304,18 +304,26 @@ $s | Format-Table
 
 # To DO
 
-# Sales Table - Pass in:
-#   Inventory
-#   Customer
-#   Employee
-#   Randomly pick the keys from each plus date, quantity to create a sales table
+$company = New-FabricatedCompanyRecord -RecordCount 50
 
-# Create text based tables
-#   Number of Inv, Cust, Emp, Sales recs
-#   Will write a product table with all the products
-#   Path to write to 
-#   Format CSV or JSON
-#   Maybe: switch to add a numeric key 
+
+# Some examples of how to export the fabricated data to files
+$Path = ".\SampleOutput"
+$employees    | Export-Csv "$Path\Employee.csv"
+$productTable | Export-Csv "$Path\Products.csv"
+$customers    | Export-Csv "$Path\Customers.csv"
+$sales        | Export-Csv "$Path\Sales.csv"
+$company      | Export-Csv "$Path\Company.csv"
+
+$employees    | ConvertTo-Json | Out-File "$Path\Employees.json"
+$productTable | ConvertTo-Json | Out-File "$Path\Products.json" 
+$customers    | ConvertTo-Json | Out-File "$Path\Customers.json" 
+$sales        | ConvertTo-Json | Out-File "$Path\Sales.json" 
+$company      | ConvertTo-Json | Out-File "$Path\Company.json" 
+
+Remove-Item "$Path\*.json"
+Remove-Item "$Path\*.csv"
+
 
 # Date Table
 
