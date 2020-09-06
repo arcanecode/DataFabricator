@@ -1,3 +1,57 @@
+<#
+.SYNOPSIS
+Fabricates a random time of day.
+
+.DESCRIPTION
+Will generate a time of day, by default in HH:MM:SS 24 hour format. 
+Using a switch it can also return the time in 12 hour AM/PM format.
+
+.PARAMETER AMPM
+Switch that will cause the time to be returned in 12 hour format with AM or PM at the end of the string, as opposed to the default of 24 hour format.
+
+.INPUTS
+This cmdlet has no inputs.
+
+.OUTPUTS
+String with a fabricated time.
+
+.EXAMPLE
+Get-FabricatedTime
+
+Get-FabricatedTime returns the following data:
+
+22:35:41
+
+.EXAMPLE
+Get-FabricatedTime -AMPM
+
+Get-FabricatedTime returns the following data:
+
+10:35:41 PM
+
+.NOTES
+Data Fabricator - Get-FabricatedTime.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedDate.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
+
 function Get-FabricatedTime()
 {
   [CmdletBinding()]

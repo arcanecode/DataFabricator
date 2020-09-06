@@ -1,5 +1,5 @@
 # Load-TableProducts Not sure this is still needed?
-
+<#
 $m_ColorCodes = @{}
 foreach($c in $m_Colors)
 {
@@ -17,3 +17,4 @@ foreach($s in $m_Sizes)
 {
   $m_SizeCodes[$($s.Substring(0,3).ToUpper())] = $s
 }
+#>

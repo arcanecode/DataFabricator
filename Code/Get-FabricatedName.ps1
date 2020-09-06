@@ -1,3 +1,123 @@
+<#
+.SYNOPSIS
+Fabricates names, first and last, from internal lists of over 20,000 names.
+
+.DESCRIPTION
+By default, this function will return a name in "First Last" format.
+However, using the swticthes (documented below) you can change the output.
+
+.PARAMETER First
+Switch that will cause the function to only return a First name: First
+
+.PARAMETER Last
+Switch that will cause the function to only return a Last name: Last
+
+.PARAMETER FirstMiLast
+Switch to have the name returned with a middle initial: First M Last
+
+.PARAMETER FirstMiddleLast
+Switch that will include a middle name: First Middle Last
+
+.PARAMETER LastFirst
+Switch that returns the last name first: Last, First
+
+.PARAMETER LastFirstMi
+Switch that returns the last name at the beginning, with first name and middle initial following: Last, First M
+
+.PARAMETER LastFirstMiddle
+Switch that places the last name at the beginning, and includes the first and middle names: Last, First Middle
+
+.INPUTS
+This cmdlet has no inputs.
+
+.OUTPUTS
+String containing a fabricated name.
+
+.EXAMPLE
+Get-FabricatedName 
+
+Get-FabricatedName returns the following data:
+
+John Sapien
+
+.EXAMPLE
+Get-FabricatedName -First
+
+Get-FabricatedName returns the following data:
+
+Sherril
+
+.EXAMPLE
+Get-FabricatedName -Last
+
+Get-FabricatedName returns the following data:
+
+Piercy
+
+.EXAMPLE
+Get-FabricatedName -FirstMiLast
+
+Get-FabricatedName returns the following data:
+
+Gertie F. Phillip
+
+.EXAMPLE
+Get-FabricatedName -FirstMiddleLast
+
+Get-FabricatedName returns the following data:
+
+Loyce Coral Caldwell
+
+.EXAMPLE
+Get-FabricatedName -LastFirst
+
+Get-FabricatedName returns the following data:
+
+Wixom, Eli
+
+.EXAMPLE
+Get-FabricatedName -LastFirstMi
+
+Get-FabricatedName returns the following data:
+
+Tunnell, Evan E.
+
+.EXAMPLE
+Get-FabricatedName -LastFirstMiddle
+
+Get-FabricatedName returns the following data:
+
+Boothe, Janiyah Lou
+
+.NOTES
+Data Fabricator - Get-FabricatedName.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCompanyRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCustomerRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedEmployeeRecord.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
+
 function Get-FabricatedName()
 {
   [CmdletBinding()]

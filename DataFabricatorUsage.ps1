@@ -339,6 +339,13 @@ Remove-Item "$Path\*.json"
 Remove-Item "$Path\*.csv"
 
 
+# TODO
+# Recheck the data fabricator.com link once the github project is public
+
+# Strip out the external XML data PlatyPS puts at the top of each MD file
+
+# Fabricate Date - Add text to -FabricateTime to indicate time is in 24 hour format
+
 # Date Table
 
 
@@ -355,12 +362,12 @@ Remove-Item "$Path\*.csv"
 #   x Get-FabricatedCompany 
 #   x Get-FabricatedDate
 #   x Get-FabricatedJobTitle
-#   Get-FabricatedName
-#   Get-FabricatedPhone
-#   Get-FabricatedSSN
-#   Get-FabricatedState
-#   Get-FabricatedTime
-#   Get-FabricatedZipCode
+#   x Get-FabricatedName
+#   x Get-FabricatedPhone
+#   x Get-FabricatedSSN
+#   x Get-FabricatedState
+#   x Get-FabricatedTime
+#   x Get-FabricatedZipCode
 #  
 #   New-FabricatedCityStateZipCodeRecord
 #   New-FabricatedCompanyRecord
@@ -372,8 +379,6 @@ Remove-Item "$Path\*.csv"
 
 # Install/Test PlatyPs
 # Eventually Pester Tests
-
-# Maybe: remove the Key from Product table
 
 # Output CSV
 # Output JSON   $x | ConvertTo-Json | Out-File $path

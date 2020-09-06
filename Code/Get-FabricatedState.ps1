@@ -1,3 +1,69 @@
+<#
+.SYNOPSIS
+Fabricates a US state by randomly picking it from a list of states.
+
+.DESCRIPTION
+Will randomly select a state and returns the two character code for that state.
+Alternativley it can also return the full name of a state by using the FullName switch.
+
+.PARAMETER FullName
+Switch that will return the full name of a state instead of the two character state abbreviation.
+
+.INPUTS
+This cmdlet has no inputs.
+
+.OUTPUTS
+String with a randomly selected US state.
+
+.EXAMPLE
+Get-FabricatedState
+
+Get-FabricatedState returns the following data:
+
+AL
+
+.EXAMPLE
+Get-FabricatedState -FullName
+
+Get-FabricatedState returns the following data:
+
+Alabama
+
+.NOTES
+Data Fabricator - Get-FabricatedState.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCompanyRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCustomerRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedEmployeeRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedInventoryRecord.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
+
 function Get-FabricatedState()
 {
   [CmdletBinding()]

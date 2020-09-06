@@ -1,3 +1,56 @@
+<#
+.SYNOPSIS
+Fabricates a SSN (Social Security Number), a taxpayer identification number used in the US.
+
+.DESCRIPTION
+Will generate a US based taxpayer Social Security Number (abbreviated SSN) in the format xxx-xx-xxxx.
+
+.PARAMETER NoDashes
+Switch that will prevent dashes from being included in the output.
+
+.INPUTS
+This cmdlet has no inputs.
+
+.OUTPUTS
+String with the fabricated SSN.
+
+.EXAMPLE
+Get-FabricatedSSN
+
+Get-FabricatedSSN returns the following data:
+
+082-12-7296
+
+.EXAMPLE
+Get-FabricatedSSN -NoDashes
+
+Get-FabricatedSSN returns the following data:
+
+082127296
+
+.NOTES
+Data Fabricator - Get-FabricatedSSN.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedEmployeeRecord.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
+
 function Get-FabricatedSSN()
 {
   [CmdletBinding()]
