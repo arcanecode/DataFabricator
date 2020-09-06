@@ -65,6 +65,7 @@
 . .\Code\New-FabricatedCustomerRecord.ps1
 . .\Code\New-FabricatedEmployeeRecord.ps1
 . .\Code\New-FabricatedInventoryRecord.ps1
+. .\Code\New-FabricatedNameRecord.ps1
 . .\Code\New-FabricatedProductRecord.ps1
 . .\Code\New-FabricatedProductTable.ps1
 . .\Code\New-FabricatedSalesRecord.ps1
@@ -105,6 +106,7 @@ Export-ModuleMember New-FabricatedCompanyRecord
 Export-ModuleMember New-FabricatedCustomerRecord
 Export-ModuleMember New-FabricatedEmployeeRecord
 Export-ModuleMember New-FabricatedInventoryRecord
+Export-ModuleMember New-FabricatedNameRecord
 Export-ModuleMember New-FabricatedProductRecord
 Export-ModuleMember New-FabricatedProductTable
 Export-ModuleMember New-FabricatedSalesRecord 

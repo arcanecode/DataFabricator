@@ -136,6 +136,19 @@ Get-FabricatedSSN
 Get-FabricatedSSN -NoDashes
 Get-FabricatedSSN -Verbose
 
+$n = New-FabricatedNameRecord
+$n 
+
+$n = New-FabricatedNameRecord -Verbose
+$n 
+
+$n = New-FabricatedNameRecord -RecordCount 10
+$n | Format-Table
+
+$n = New-FabricatedNameRecord -RecordCount 10 -Verbose
+$n | Format-Table
+
+
 #------------------------------------------------------------------------------------------------
 # Bins
 #------------------------------------------------------------------------------------------------
@@ -214,8 +227,10 @@ Get-FabricatedCompany
 $company = New-FabricatedCompanyRecord
 $company
 
-$company = New-FabricatedCompanyRecord -RecordCount 5
+$company = New-FabricatedCompanyRecord -Verbose
 $company
+
+$company = New-FabricatedCompanyRecord -RecordCount 5
 $company | Format-Table
 
 $company = New-FabricatedCompanyRecord -RecordCount 5 -Verbose
@@ -369,11 +384,12 @@ Remove-Item "$Path\*.csv"
 #   x Get-FabricatedTime
 #   x Get-FabricatedZipCode
 #  
-#   New-FabricatedCityStateZipCodeRecord
+#   x New-FabricatedCityStateZipCodeRecord
 #   New-FabricatedCompanyRecord
 #   New-FabricatedCustomerRecord
 #   New-FabricatedEmployeeRecord
 #   New-FabricatedInventoryRecord
+#   x New-FabricatedNameRecord
 #   New-FabricatedProductRecord
 #   New-FabricatedProductTable   
 

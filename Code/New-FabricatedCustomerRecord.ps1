@@ -51,17 +51,22 @@ $fn
   
   while ($i -lt $RecordCount) 
   {
+    # Fabricate city/state/zip and name records
+    $cszHome = New-FabricatedCityStateZipCodeRecord -Verbose:$false
+    $cszWork = New-FabricatedCityStateZipCodeRecord -Verbose:$false
+    $name = New-FabricatedNameRecord -Verbose:$false
+
     $cust = [CustomerRecord]::new()
 
-    $cust.FirstName = Get-FabricatedName -First -Verbose:$false
-    $cust.MiddleName = Get-FabricatedName -First -Verbose:$false
-    $cust.LastName = Get-FabricatedName -Last -Verbose:$false
-    $cust.FullName = "$($cust.FirstName) $($cust.MiddleName) $($cust.LastName)"
+    $cust.FirstName = $name.First
+    $cust.MiddleName = $name.Middle
+    $cust.LastName = $name.Last
+    $cust.FullName = $name.FirstMiddleLast
 
     $custnumber = $(1..999999 | Get-Random).ToString().PadLeft(6,'0')
     $cust.CustomerID = "$($cust.LastName.Substring(0, 2).ToUpper())$($custnumber)"
 
-    $cust.EMail = "$($cust.FirstName.Substring(0, 1).ToLower()).$($cust.LastName.ToLower())@$($EMailDomain)"
+    $cust.EMail = "$($name.EmailName)@$($EMailDomain)"
 
     $cust.HomePhone = Get-FabricatedPhone -Verbose:$false
     $cust.MobilePhone = Get-FabricatedPhone -Verbose:$false
@@ -69,15 +74,15 @@ $fn
 
     $cust.HomeAddress1 = Get-FabricatedAddressLine1 -Verbose:$false
     $cust.HomeAddress2 = Get-FabricatedAddressLine2 -Verbose:$false
-    $cust.HomeCity = Get-FabricatedCity -Verbose:$false
-    $cust.HomeState = Get-FabricatedState -Verbose:$false
-    $cust.HomeZip = Get-FabricatedZipCode -Verbose:$false
+    $cust.HomeCity = $cszHome.City
+    $cust.HomeState = $cszHome.State
+    $cust.HomeZip = $cszHome.ZipCode
 
     $cust.WorkAddress1 = Get-FabricatedAddressLine1 -Verbose:$false
     $cust.WorkAddress2 = Get-FabricatedAddressLine2 -Verbose:$false
-    $cust.WorkCity = Get-FabricatedCity -Verbose:$false
-    $cust.WorkState = Get-FabricatedState -Verbose:$false
-    $cust.WorkZip = Get-FabricatedZipCode -Verbose:$false
+    $cust.WorkCity = $cszWork.City
+    $cust.WorkState = $cszWork.State
+    $cust.WorkZip = $cszWork.ZipCode
 
     $cust.BirthDate = Get-FabricatedDate -RelativeThruYear 18 -RelativeFromYear 70 -Verbose:$false
  

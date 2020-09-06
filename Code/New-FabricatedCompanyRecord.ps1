@@ -40,23 +40,24 @@ $fn
   # Fabricate new rows
   while ($i -lt $RecordCount) 
   {
+    # Fabricate city/state/zip and name records
+    $csz = New-FabricatedCityStateZipCodeRecord -Verbose:$false
+    $name = New-FabricatedNameRecord -Verbose:$false
+
     $company = [CompanyRecord]::new()
     $company.Name = Get-FabricatedCompany -Verbose:$false
     $company.Address1 = Get-FabricatedAddressLine1 -Verbose:$false
     $company.Address2 = Get-FabricatedAddressLine2 -Verbose:$false
-    $company.City = Get-FabricatedCity -Verbose:$false
-    $company.State = Get-FabricatedState -Verbose:$false
-    $company.Zip = Get-FabricatedZipCode -Verbose:$false
+    $company.City = $csz.City
+    $company.State = $csz.State
+    $company.Zip = $csz.ZipCode
 
-    $firstName = Get-FabricatedName -First -Verbose:$false
-    $lastName = Get-FabricatedName -Last -Verbose:$false
+    $company.ContactName = $name.FirstLast
+    $email = $company.Name.ToLower().Replace(' ', '')
+    $company.ContactEMail = "$($name.EmailName)@$($email).com"
 
-    $company.ContactName = "$firstName $lastName"
     $company.ContactPhone = Get-FabricatedPhone -Verbose:$false
     $company.ContactJobTitle = Get-FabricatedJobTitle -Verbose:$false
-
-    $email = $company.Name.ToLower().Replace(' ', '')
-    $company.ContactEMail = "$($firstName.Substring(0, 1).ToLower()).$($lastName.ToLower())@$($email).com"
     
     $item = $company.Name
     Write-Verbose "$fn - Fabricating #$($i.ToString('#,##0')): $item"

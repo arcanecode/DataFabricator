@@ -1,13 +1,137 @@
-class CityStateZipCode
-{
-  [string] $City
-  [string] $State 
-  [string] $StateName 
-  [string] $ZipCode
-  [string] $CityStZipCode
-  [string] $CityStateZipCode
-  [string] $CityCode
-}
+<#
+.SYNOPSIS
+Fabricate one or more records with city, state, and zip code data.
+
+.DESCRIPTION
+This cmdlet will genereate an object (or array of them) with combinations of randomly selected cities, states and zip codes.
+Because these are randomly selected, you will wind up with odd results sometimes, such as placing Salt Lake City in Alabama, with a zip code somewhere in Michigan.
+That's not only acceptable but desired, as this data is only supposed to be realistic looking, not actually real.
+One additional field is the CityCode. 
+This is the city run through the ConvertTo-CityCode cmdlet, and will produce a unique value (based on the data supplied with the module) that is suitable for use as a key.
+This value is appended to the two letter state abbreviation to produce unqiue city/state keys.
+
+.PARAMETER RecordCount
+The number of records you want returned from this cmdlet. The default is 1.
+
+.PARAMETER MaxDuplicateCountBeforeError
+This cmdlet checks for duplicates so they are removed from the final output.
+By default, once the cmdlet has generated 50 duplicates it will throw an error and exit before all the records have been generated (although it will return what it has generated to that point).
+It is possible in some cases to request more records than it is possible to create based on the internal data.
+To keep from falling into an infinite loop this mechanism will exit and let the user know what the issue is.
+Normally you won't need to override this, but it is possible should you feel the need.
+
+.PARAMETER Plus4
+Switch that will add a randomly generated plus 4 code to the returned zip code.
+(See the documentation for Get-FabricatedZipCode for more info on plus 4 codes.)
+
+.PARAMETER PlusFour
+Alias to the Plus4 switch.
+
+.INPUTS
+This cmdlet has no inputs.
+
+.OUTPUTS
+Object (or array of objects) with the following properties:
+
+[string] $City - A randomly selected city
+
+[string] $State - A randomly selected two character state code
+
+[string] $StateName - The full name of the state for the corresponding state code
+
+[string] $ZipCode - Randomly generated zip code
+
+[string] $CityStZipCode - Full city, state abbreviation, and zip combined in a string, i.e. "Chelsea, AL 12345"
+
+[string] $CityStateZipCode - City, full state name, and zip combined in a string, i.e. "Chelsea, Alabama 12345"
+
+[string] $CityCode - The city which has been processed using the ConvertTo-CityCode cmdlet. Allows the city to be used as a unique key.
+
+
+.EXAMPLE
+New-FabricatedCityStateZipCodeRecord
+
+New-FabricatedCityStateZipCodeRecord returns the following data:
+
+City: Chinook CDP
+
+State: AK
+
+StateName: Alaska
+
+ZipCode: 27264
+
+CityStZipCode: Chinook CDP, AK 27264
+
+CityStateZipCode: Chinook CDP, Alaska 27264
+
+CityCode: AKCHINOOKCDP
+
+.EXAMPLE
+New-FabricatedCityStateZipCodeRecord -RecordCount 5
+
+New-FabricatedCityStateZipCodeRecord returns 5 records with data similar to the previous example.
+
+.EXAMPLE
+New-FabricatedCityStateZipCodeRecord -Plus4
+
+New-FabricatedCityStateZipCodeRecord returns the following data:
+
+City: Chinook CDP
+
+State: AK
+
+StateName: Alaska
+
+ZipCode: 27264
+
+CityStZipCode: Chinook CDP, AK 27264-3982
+
+CityStateZipCode: Chinook CDP, Alaska 27264
+
+CityCode: AKCHINOOKCDP
+
+.NOTES
+Data Fabricator - New-FabricatedCityStateZipCodeRecord.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedCity.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedState.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedZipCode.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCompanyRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCustomerRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedEmployeeRecord.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
+
 function New-FabricatedCityStateZipCodeRecord {
 
   [CmdletBinding()]
@@ -29,7 +153,19 @@ $fn
          Plus4 Switch Used: $($Plus4.IsPresent)
 "@
 
-  # Declare an empty array to hold the results
+  # Declare the class that will be used for the return CityStateZipCode objects
+  class CityStateZipCode
+  {
+    [string] $City
+    [string] $State 
+    [string] $StateName 
+    [string] $ZipCode
+    [string] $CityStZipCode
+    [string] $CityStateZipCode
+    [string] $CityCode
+  }
+
+  # Declare an empty array to hold the CityStateZipCode objects
   $retVal = @()
 
   # Set the counters

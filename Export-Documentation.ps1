@@ -59,7 +59,7 @@ function Format-PlatyPSMarkdown()
   foreach ($f in $FilePath)
   {
     # Just display the name of what we are working on
-    $f.FullName 
+    $f.Name 
     
     # Get the contents of the file into memory
     $contents = Get-Content -Path $f.FullName

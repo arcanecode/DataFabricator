@@ -77,6 +77,9 @@ Locale: en-US
 ### [New-FabricatedInventoryRecord](New-FabricatedInventoryRecord.md)
 {{ Fill in the Description }}
 
+### [New-FabricatedNameRecord](New-FabricatedNameRecord.md)
+{{ Fill in the Description }}
+
 ### [New-FabricatedProductRecord](New-FabricatedProductRecord.md)
 {{ Fill in the Description }}
 

@@ -54,17 +54,22 @@ $fn
   # Fabricate new rows
   while ($i -lt $RecordCount) 
   {
+    # Fabricate city/state/zip and name records
+    $cszHome = New-FabricatedCityStateZipCodeRecord -Verbose:$false
+    $cszWork = New-FabricatedCityStateZipCodeRecord -Verbose:$false
+    $name = New-FabricatedNameRecord -Verbose:$false
+
     $emp = [EmployeeRecord]::new()
 
-    $emp.FirstName = Get-FabricatedName -First -Verbose:$false
-    $emp.MiddleName = Get-FabricatedName -First -Verbose:$false
-    $emp.LastName = Get-FabricatedName -Last -Verbose:$false
-    $emp.FullName = "$($emp.FirstName) $($emp.MiddleName) $($emp.LastName)"
+    $emp.FirstName = $name.First
+    $emp.MiddleName = $name.Middle
+    $emp.LastName = $name.Last
+    $emp.FullName = $name.FirstMiddleLast
 
     $emp.SSN = Get-FabricatedSSN -Verbose:$false
     $emp.EmployeeID = "$($emp.LastName.Substring(0, 2).ToUpper())$($emp.SSN.Substring($emp.SSN.Length - 4, 4)) "
 
-    $emp.EMail = "$($emp.FirstName.Substring(0, 1).ToLower()).$($emp.LastName.ToLower())@$($EMailDomain)"
+    $emp.EMail = "$($name.EmailName)@$($EMailDomain)"
 
     $emp.HomePhone = Get-FabricatedPhone -Verbose:$false
     $emp.MobilePhone = Get-FabricatedPhone -Verbose:$false
@@ -72,15 +77,15 @@ $fn
 
     $emp.HomeAddress1 = Get-FabricatedAddressLine1 -Verbose:$false
     $emp.HomeAddress2 = Get-FabricatedAddressLine2 -Verbose:$false
-    $emp.HomeCity = Get-FabricatedCity -Verbose:$false
-    $emp.HomeState = Get-FabricatedState -Verbose:$false
-    $emp.HomeZip = Get-FabricatedZipCode -Verbose:$false
+    $emp.HomeCity = $cszHome.City
+    $emp.HomeState = $cszHome.State
+    $emp.HomeZip = $cszHome.ZipCode
 
     $emp.WorkAddress1 = Get-FabricatedAddressLine1 -Verbose:$false
     $emp.WorkAddress2 = Get-FabricatedAddressLine2 -Verbose:$false
-    $emp.WorkCity = Get-FabricatedCity -Verbose:$false
-    $emp.WorkState = Get-FabricatedState -Verbose:$false
-    $emp.WorkZip = Get-FabricatedZipCode -Verbose:$false
+    $emp.WorkCity = $cszWork.City
+    $emp.WorkState = $cszWork.State
+    $emp.WorkZip = $cszWork.ZipCode
 
     $emp.BirthDate = Get-FabricatedDate -RelativeThruYear 18 -RelativeFromYear 70 -Verbose:$false
     $emp.HireDate = Get-FabricatedDate -RelativeFromYear 15 -Verbose:$false
