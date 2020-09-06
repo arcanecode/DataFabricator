@@ -104,18 +104,21 @@ This cmdlet has no inputs.
 ## OUTPUTS
 
 Array of objects with the following properties:
-First - The first name
-Middle - Middle Name
-MiddleInitial - First letter of the middle name
-Last - Last Name
-FirstLast - The full name in the format "John Doe"
-FirstMiLast - First and last with middle initial, "John X. Doe"
-FirstMiddleLast - First, middle and last name, "John Xavier Doe"
-LastFirst - Name in reverse format, "Doe, John"
-LastFirstMi - Name in reverse format ending with the middle initial, "Doe, John X."
-LastFirstMiddle - Name in reverse format with the full middle name, "Doe, John Xavier"
-EmailName - The name suitible for the opening part of an email address, "j.doe"
-NameCode - This is the name converted to uppercase with underscores, useful for a key. "DOE_JOHN_XAVIER"
+
+Property | Description
+| ----- | ------ |
+First | The first name
+Middle | Middle Name
+MiddleInitial | First letter of the middle name
+Last | Last Name
+FirstLast | The full name in the format "John Doe"
+FirstMiLast | First and last with middle initial, "John X. Doe"
+FirstMiddleLast | First, middle and last name, "John Xavier Doe"
+LastFirst | Name in reverse format, "Doe, John"
+LastFirstMi | Name in reverse format ending with the middle initial, "Doe, John X."
+LastFirstMiddle | Name in reverse format with the full middle name, "Doe, John Xavier"
+EmailName | The name suitible for the opening part of an email address, "j.doe"
+NameCode | This is the name converted to uppercase with underscores, useful for a key. "DOE_JOHN_XAVIER"
 
 ## NOTES
 

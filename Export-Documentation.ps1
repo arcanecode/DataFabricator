@@ -70,6 +70,7 @@ function Format-PlatyPSMarkdown()
     $skipSyntaxCheck = $false
     $yamlBlock = $false
     $prevLine = ''
+    $insertTableHeader = $false
   
     # Create an array to hold the new file output
     $newOutput = @()
@@ -93,7 +94,11 @@ function Format-PlatyPSMarkdown()
       # If we are at the input area, turn on the flag to begin checking
       # for the erroneous ### tags PlatyPS likes (mistakenly) to insert
       if ( $line.StartsWith('## INPUTS') )
-        { $startChecking = $true ; Write-Verbose 'Start Checking'}
+      { 
+        $startChecking = $true
+        $insertTableHeader = $true
+        Write-Verbose 'Start Checking'
+      }
   
       # If we are checking, it means we're in the input/output area
       if ( $startChecking )
@@ -101,10 +106,27 @@ function Format-PlatyPSMarkdown()
         # If this line starts with a H3 tag we want to remove it
         if ( $line.StartsWith('###') )
           { $line = $line.Substring(4) ; Write-Verbose 'Removing ###'}
+
+        # In the output section of the help I use | to divide the property from its
+        # description. Use this code to convert it to a proper markdown table
+        if ($line.Contains('|'))
+        {
+          if ( $insertTableHeader )
+          {
+            $newOutput += ''
+            $newOutput += 'Property | Description'
+            $newOutput += '| ----- | ------ |'
+            $insertTableHeader = $false
+          }
+        }
   
         # Once we hit the notes area stop checking
         if ( $line.StartsWith('## NOTES' ) )
-          { $startChecking = $false ; Write-Verbose 'Found ## NOTES'}
+          { 
+             $startChecking = $false 
+             $insertTableHeader = $false
+             Write-Verbose 'Found ## NOTES'
+          }
   
       } # if ( $startChecking )
   
