@@ -16,7 +16,7 @@ Get-FabricatedAddressLine1
 Get-FabricatedAddressLine1 -Verbose 
 
 Get-FabricatedAddressLine2
-Get-FabricatedAddressLine2 -Threshold 99
+Get-FabricatedAddressLine2 -Threshold 100
 
 Get-FabricatedAddressLine2 -Verbose
 Get-FabricatedAddressLine2 -Threshold 99 -Verbose
@@ -87,11 +87,16 @@ Get-FabricatedCompany -Verbose
 #------------------------------------------------------------------------------------------------
 Get-FabricatedDate
 Get-FabricatedDate -FromYear 1930
-Get-FabricatedDate -FromYear 1940 -ThruYear 1990
+Get-FabricatedDate -FromYear 1000 -ThruYear 1200
 Get-FabricatedDate -RelativeFromYear 1000
+Get-FabricatedDate -RelativeThruYear 21
+
 Get-FabricatedDate -AsDateTime
+Get-FabricatedDate -AsDateTime -FabricateTime
 Get-FabricatedDate -FormatMDY
 Get-FabricatedDate -FormatDMY
+
+Get-FabricatedDate -FabricateTime
 
 Get-FabricatedTime
 Get-FabricatedTime -AMPM
@@ -204,6 +209,8 @@ $emp | Format-Table
 #------------------------------------------------------------------------------------------------
 # Company
 #------------------------------------------------------------------------------------------------
+Get-FabricatedCompany
+
 $company = New-FabricatedCompanyRecord
 $company
 
@@ -335,19 +342,19 @@ Remove-Item "$Path\*.csv"
 # Date Table
 
 
-# Write Help
+# Write Help / Verbose
 #   x ConvertFrom-CityStateCode
-#   ConvertFrom-ProductCode
-#   ConvertTo-CityCode
-#   ConvertTo-ProductCode
+#   x ConvertFrom-ProductCode
+#   x ConvertTo-CityCode
+#   x ConvertTo-ProductCode
 #  
-#   Get-FabricatedAddressLine1
-#   Get-FabricatedAddressLine2
-#   Get-FabricatedBin 
-#   Get-FabricatedCity
-#   Get-FabricatedCompany 
-#   Get-FabricatedDate
-#   Get-FabricatedJobTitle
+#   x Get-FabricatedAddressLine1
+#   x Get-FabricatedAddressLine2
+#   x Get-FabricatedBin 
+#   x Get-FabricatedCity
+#   x Get-FabricatedCompany 
+#   x Get-FabricatedDate
+#   x Get-FabricatedJobTitle
 #   Get-FabricatedName
 #   Get-FabricatedPhone
 #   Get-FabricatedSSN

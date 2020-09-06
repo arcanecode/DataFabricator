@@ -1,3 +1,53 @@
+<#
+.SYNOPSIS
+Fabricates an address typically used as the address line 1 in an address.
+
+.DESCRIPTION
+Addresses often consist of two lines, address 1 and address 2.
+This will create a realistic but fake address suitible for address 1.
+
+.INPUTS
+This cmdlet has no inputs.
+
+.OUTPUTS
+String with an address
+
+.EXAMPLE
+Get-FabricatedAddressLine1
+
+Get-FabricatedAddressLine1 returns the following data:
+
+Address1: 4964 Mackenzie Road
+
+.NOTES
+Data Fabricator - Get-FabricatedAddressLine1.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCompanyRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCustomerRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedEmployeeRecord.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
+
 function Get-FabricatedAddressLine1 {
 
   [CmdletBinding()]

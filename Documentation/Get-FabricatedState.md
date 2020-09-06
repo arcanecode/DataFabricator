@@ -1,7 +1,7 @@
 ---
 external help file: DataFabricator-help.xml
 Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/ConvertTo-ProductCode.md
+online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCompanyRecord.md
 schema: 2.0.0
 ---
 

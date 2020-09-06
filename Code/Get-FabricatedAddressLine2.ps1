@@ -1,3 +1,73 @@
+<#
+.SYNOPSIS
+Fabricates an address suitible for the second line in an address, such as an apartment number or office suite.
+
+.DESCRIPTION
+Often, but not always, an address will contain a second line that will be an apartment number or office suite.
+To account for the fact that an address2 line is not always used, this function calculates a percentage of the time to generate an address 2, by default 25%.
+This means there is a 25% chance of returning an address2, the rest of the time it will return an empty value for address2.
+Note this is calculated on each call to the function, it is not done across calls.
+The default threshold can be overridden using the Threshold parameter.
+
+.PARAMETER Threshold
+The percentage of the time to return a value for address2, by default it is set to 25. To always return an address2 line, set the threshold to 100.
+
+.INPUTS
+This cmdlet has no inputs.
+
+.OUTPUTS
+String with a realistic address2 line
+
+.EXAMPLE
+Get-FabricatedAddressLine2
+
+Get-FabricatedAddressLine2 the following data:
+
+Address2: Office 33
+
+.EXAMPLE
+Get-FabricatedAddressLine2 -Threshold 50
+
+Get-FabricatedAddressLine2 will have a 50% chance of returning data, such as:
+
+Address2: Suite A
+
+.EXAMPLE
+Get-FabricatedAddressLine2 -Threshold 100
+
+Get-FabricatedAddressLine2 will always return an address2 value, such as:
+
+Address2: Apartment 42
+
+.NOTES
+Data Fabricator - Get-FabricatedAddressLine2.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCompanyRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCustomerRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedEmployeeRecord.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
+
 function Get-FabricatedAddressLine2 ()
 {
   [CmdletBinding()]

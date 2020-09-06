@@ -1,38 +1,138 @@
 ---
 external help file: DataFabricator-help.xml
 Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/ConvertTo-ProductCode.md
+online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCustomerRecord.md
 schema: 2.0.0
 ---
 
 # Get-FabricatedDate
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+
+Fabricates a date and (optionally) a time.
 
 ## SYNTAX
 
-```
+```powershell
 Get-FabricatedDate [[-FromYear] <Int32>] [[-ThruYear] <Int32>] [[-RelativeFromYear] <Int32>]
  [[-RelativeThruYear] <Int32>] [-AsDateTime] [-FormatMDY] [-FormatDMY] [-FabricateTime] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+
+This flexible cmdlet has the ability generate dates in either string or datetime format.
+By default it will uses ranges in the last 50 years backwards from the current year, however these are easily overridden using the parameters (see each parameter for more information).
+The default format for the returned string is YYYY-MM-DD (only a date, no time), unless overridden.
+Using switches (see below) you can change the format a well as include a fabricated time.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
+
 ```powershell
-PS C:\> {{ Add example code here }}
+Get-FabricatedDate
 ```
 
-{{ Add example description here }}
+Get-FabricatedDate returns the following string:
+
+1991-12-23
+
+### EXAMPLE 2
+
+```powershell
+Get-FabricatedDate -FromYear 1930
+```
+
+Get-FabricatedDate returns the following string:
+
+1936-02-27
+
+### EXAMPLE 3
+
+```powershell
+Get-FabricatedDate -FromYear 1000 -ThruYear 1200
+```
+
+Get-FabricatedDate returns the following string:
+
+1042-02-27
+
+### EXAMPLE 4
+
+```powershell
+Get-FabricatedDate -RelativeFromYear 1000
+```
+
+Get-FabricatedDate returns the following string:
+
+1764-05-21
+
+### EXAMPLE 5
+
+```powershell
+Get-FabricatedDate -RelativeThruYear 21
+```
+
+Get-FabricatedDate returns the following string:
+
+1984-02-07
+
+### EXAMPLE 6
+
+```powershell
+Get-FabricatedDate -AsDateTime
+```
+
+Get-FabricatedDate returns the following datetime datatype:
+
+Tuesday, August 18, 1981 12:00:00 AM
+
+### EXAMPLE 7
+
+```powershell
+Get-FabricatedDate -AsDateTime -FabricateTime
+```
+
+Get-FabricatedDate returns the following datetime datatype:
+
+Tuesday, June 14, 2011 4:18:26 AM
+
+### EXAMPLE 8
+
+```powershell
+Get-FabricatedDate -FormatMDY
+```
+
+Get-FabricatedDate returns the following string:
+
+10-28-1998
+
+### EXAMPLE 9
+
+```powershell
+Get-FabricatedDate -FormatDMY
+```
+
+Get-FabricatedDate returns the following string:
+
+22-02-1975
+
+### EXAMPLE 10
+
+```powershell
+Get-FabricatedDate -FabricateTime
+```
+
+Get-FabricatedDate returns the following string:
+
+1992-05-28 07:27:33
 
 ## PARAMETERS
 
 ### -AsDateTime
-{{ Fill AsDateTime Description }}
+
+Switch that will return the fabricated date as a datetime datatype instead of a string. 
+Note if you do not also use the FabricatedTime switch, the default time will be midnight (12:00:00 AM).
 
 ```yaml
 Type: SwitchParameter
@@ -41,13 +141,14 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -FabricateTime
-{{ Fill FabricateTime Description }}
+
+Switch that will fabricate a time of the day instead of using the default of midnight (12:00:00 AM).
 
 ```yaml
 Type: SwitchParameter
@@ -56,13 +157,14 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -FormatDMY
-{{ Fill FormatDMY Description }}
+
+Swtich that will return the date in DD-MM-YYYY format instead of the default YYYY-MM-DD format.
 
 ```yaml
 Type: SwitchParameter
@@ -71,13 +173,14 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -FormatMDY
-{{ Fill FormatMDY Description }}
+
+Switch that will return the date in MM-DD-YYYY format instead of the default YYYY-MM-DD format.
 
 ```yaml
 Type: SwitchParameter
@@ -86,58 +189,15 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -FromYear
-{{ Fill FromYear Description }}
 
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 0
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -RelativeFromYear
-{{ Fill RelativeFromYear Description }}
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 2
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -RelativeThruYear
-{{ Fill RelativeThruYear Description }}
-
-```yaml
-Type: Int32
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 3
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ThruYear
-{{ Fill ThruYear Description }}
+The year to begin generating dates from.
+If no date is passed it, by default it will go back 50 years from the current year.
 
 ```yaml
 Type: Int32
@@ -146,21 +206,99 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: None
+Default value: -9999
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -RelativeFromYear
+
+Rather than hard coding a year, you can use this parameter to create an offset from the current year as the starting year.
+For example, if you pass in 100, and the current year is 2020, the starting year will be 1920.
+When New Years hits and we get to 2021, the starting year will become 2021.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: -9999
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -RelativeThruYear
+
+Just like the RelativeFromYear, this parameter can be used to set a relative end year for date generation.
+This can be especially useful for generating birthdays for employees.
+Many companies require people to be a minimum age, for example 21.
+Using 21 for a relative thru year would assure all dates fabricated would be at least 21 years ago.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 4
+Default value: -9999
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ThruYear
+
+The final year to use for date generation.
+If no year is supplied it will default to the current year.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: -9999
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
-### None
+This cmdlet has no inputs.
 
 ## OUTPUTS
 
-### System.Object
+Either a string or a datetime datatype with a fabricated date.
+
 ## NOTES
 
+Data Fabricator - Get-FabricatedDate.ps1
+
+Author: Robert C Cain | [@ArcaneCode](https://twitter.com/arcanecode) | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
 ## RELATED LINKS
+
+[New-FabricatedCustomerRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCustomerRecord.md)
+
+[New-FabricatedEmployeeRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedEmployeeRecord.md)
+
+[New-FabricatedSalesRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedSalesRecord.md)
+
+[ArcaneCode's Website](http://arcanecode.me)
+
+[Data Fabricator on GitHub](http://datafabricator.com)

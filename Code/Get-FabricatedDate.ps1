@@ -1,3 +1,148 @@
+<#
+.SYNOPSIS
+Fabricates a date and (optionally) a time.
+
+.DESCRIPTION
+This flexible cmdlet has the ability generate dates in either string or datetime format.
+By default it will uses ranges in the last 50 years backwards from the current year, however these are easily overridden using the parameters (see each parameter for more information).
+The default format for the returned string is YYYY-MM-DD (only a date, no time), unless overridden.
+Using switches (see below) you can change the format a well as include a fabricated time.
+
+.PARAMETER FromYear
+The year to begin generating dates from. If no date is passed it, by default it will go back 50 years from the current year.
+
+.PARAMETER ThruYear
+The final year to use for date generation. If no year is supplied it will default to the current year.
+
+.PARAMETER RelativeFromYear
+Rather than hard coding a year, you can use this parameter to create an offset from the current year as the starting year.
+For example, if you pass in 100, and the current year is 2020, the starting year will be 1920.
+When New Years hits and we get to 2021, the starting year will become 2021.
+
+.PARAMETER RelativeThruYear
+Just like the RelativeFromYear, this parameter can be used to set a relative end year for date generation.
+This can be especially useful for generating birthdays for employees.
+Many companies require people to be a minimum age, for example 21.
+Using 21 for a relative thru year would assure all dates fabricated would be at least 21 years ago.
+
+.PARAMETER AsDateTime
+Switch that will return the fabricated date as a datetime datatype instead of a string. 
+Note if you do not also use the FabricatedTime switch, the default time will be midnight (12:00:00 AM).
+
+.PARAMETER FormatMDY
+Switch that will return the date in MM-DD-YYYY format instead of the default YYYY-MM-DD format.
+
+.PARAMETER FormatDMY
+Swtich that will return the date in DD-MM-YYYY format instead of the default YYYY-MM-DD format.
+
+.PARAMETER FabricateTime
+Switch that will fabricate a time of the day instead of using the default of midnight (12:00:00 AM).
+
+.INPUTS
+This cmdlet has no inputs.
+
+.OUTPUTS
+Either a string or a datetime datatype with a fabricated date.
+
+.EXAMPLE
+Get-FabricatedDate
+
+Get-FabricatedDate returns the following string:
+
+1991-12-23
+
+.EXAMPLE
+Get-FabricatedDate -FromYear 1930
+
+Get-FabricatedDate returns the following string:
+
+1936-02-27
+
+.EXAMPLE
+Get-FabricatedDate -FromYear 1000 -ThruYear 1200
+
+Get-FabricatedDate returns the following string:
+
+1042-02-27
+
+.EXAMPLE
+Get-FabricatedDate -RelativeFromYear 1000
+
+Get-FabricatedDate returns the following string:
+
+1764-05-21
+
+.EXAMPLE
+Get-FabricatedDate -RelativeThruYear 21
+
+Get-FabricatedDate returns the following string:
+
+1984-02-07
+
+.EXAMPLE
+Get-FabricatedDate -AsDateTime
+
+Get-FabricatedDate returns the following datetime datatype:
+
+Tuesday, August 18, 1981 12:00:00 AM
+
+.EXAMPLE
+Get-FabricatedDate -AsDateTime -FabricateTime
+
+Get-FabricatedDate returns the following datetime datatype:
+
+Tuesday, June 14, 2011 4:18:26 AM
+
+.EXAMPLE
+Get-FabricatedDate -FormatMDY
+
+Get-FabricatedDate returns the following string:
+
+10-28-1998
+
+.EXAMPLE
+Get-FabricatedDate -FormatDMY
+
+Get-FabricatedDate returns the following string:
+
+22-02-1975
+
+.EXAMPLE
+Get-FabricatedDate -FabricateTime
+
+Get-FabricatedDate returns the following string:
+
+1992-05-28 07:27:33
+
+.NOTES
+Data Fabricator - Get-FabricatedDate.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCustomerRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedEmployeeRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedSalesRecord.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
+
 function Get-FabricatedDate()
 {
   [CmdletBinding()]

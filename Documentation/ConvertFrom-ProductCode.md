@@ -19,10 +19,9 @@ ConvertFrom-ProductCode [[-ProductCode] <String>] [<CommonParameters>]
 
 ## DESCRIPTION
 
-The product code is 9 characters.
-The first three point to the clothing, second three to color, and final three to size.
+The product code is 9 characters, the first three point to the clothing, second three to color, and final three to size.
 This function breaks them into the three codes then uses an internal lookup table to convert these back into the full clothing, color and size names.
-These are then placed into an object and returned.
+These are then placed into an object with three properties, Clothing, Color, and Size, which is returned.
 
 ## EXAMPLES
 
@@ -33,8 +32,11 @@ ConvertFrom-ProductCode -ProductCode "GLOOCELAR"
 ```
 
 Returns the following data:
+
 Clothing: Gloves
+
 Color: Ocean Green
+
 Size: Large
 
 ## PARAMETERS
@@ -61,7 +63,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-None
+This has no inputs
 
 ## OUTPUTS
 
@@ -72,7 +74,6 @@ A object with three fields: Clothing, Color, and Size.
 Data Fabricator - ConvertFrom-ProductCode.ps1
 
 Author: Robert C Cain | [@ArcaneCode](https://twitter.com/arcanecode) | arcane@arcanetc.com
-         http://arcanecode.me
 
 This code is Copyright (c) 2020 Robert C Cain All rights reserved
 
@@ -85,5 +86,7 @@ the express written consent of the author.
 ## RELATED LINKS
 
 [ConvertTo-ProductCode](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/ConvertTo-ProductCode.md)
+
+[ArcaneCode's Website](http://arcanecode.me)
 
 [Data Fabricator on GitHub](http://datafabricator.com)

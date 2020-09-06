@@ -3,13 +3,14 @@
 Takes the product code and converts it back to the Clothing, Color and Size.
 
 .DESCRIPTION
-The product code is 9 characters. The first three point to the clothing, second three to color, and final three to size. This function breaks them into the three codes then uses an internal lookup table to convert these back into the full clothing, color and size names. These are then placed into an object and returned.
+The product code is 9 characters, the first three point to the clothing, second three to color, and final three to size. This function breaks them into the three codes then uses an internal lookup table to convert these back into the full clothing, color and size names.
+These are then placed into an object with three properties, Clothing, Color, and Size, which is returned.
 
 .PARAMETER ProductCode
 The 9 character product code.
 
 .INPUTS
-None
+This has no inputs
 
 .OUTPUTS
 A object with three fields: Clothing, Color, and Size.
@@ -18,15 +19,17 @@ A object with three fields: Clothing, Color, and Size.
 ConvertFrom-ProductCode -ProductCode "GLOOCELAR"
 
 Returns the following data:
+
 Clothing: Gloves
+
 Color: Ocean Green
+
 Size: Large
 
 .NOTES
 Data Fabricator - ConvertFrom-ProductCode.ps1
 
 Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
-         http://arcanecode.me
 
 This code is Copyright (c) 2020 Robert C Cain All rights reserved
 
@@ -40,10 +43,12 @@ the express written consent of the author.
 https://github.com/arcanecode/DataFabricator/blob/master/Documentation/ConvertTo-ProductCode.md
 
 .LINK
+http://arcanecode.me
+
+.LINK
 http://datafabricator.com
 
 #>
-
 function ConvertFrom-ProductCode()
 {
 

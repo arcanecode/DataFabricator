@@ -1,3 +1,53 @@
+<#
+.SYNOPSIS
+Taks a city name and creates a city code
+
+.DESCRIPTION
+The city code is combined with the two character state abbreviaion to create the city state code.
+This is used as a key in several functions.
+
+.PARAMETER City
+The name of the city to create a city code for
+
+.INPUTS
+This has no inputs
+
+.OUTPUTS
+String with the CityCode
+
+.EXAMPLE
+ConvertTo-CityCode -City "Aaronsburg CDP"
+
+ConvertTo-CityCode returns the following data:
+
+CityCode: AARONSBURGCDP
+
+.NOTES
+Data Fabricator - ConvertTo-CityCode.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedInventoryRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipCodeRecord.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
+
 function ConvertTo-CityCode()
 {
   [CmdletBinding()]

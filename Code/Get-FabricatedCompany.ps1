@@ -1,3 +1,47 @@
+<#
+.SYNOPSIS
+Fabricates a company name.
+
+.DESCRIPTION
+Randomly generates a company name from three parts to create a realistic name.
+The first part is a name, such as Arcane, the second is an industry, such as Training, the final part is a company type such as Incorporated.
+
+.INPUTS
+This cmdlet has no inputs.
+
+.OUTPUTS
+String holding a company name.
+
+.EXAMPLE
+Get-FabricatedCompany
+
+Get-FabricatedCompany returns the following data:
+
+Arcane Training Inc.
+
+.NOTES
+Data Fabricator - Get-FabricatedCompany.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCompanyRecord.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
+
 function Get-FabricatedCompany()
 {
   [CmdletBinding()]
