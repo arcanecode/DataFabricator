@@ -34,61 +34,43 @@ This cmdlet has no inputs.
 Object (or array of objects) with the following properties.
 
 City | A randomly selected city.
-
 State | A randomly selected two character state code.
-
 StateName | The full name of the state for the corresponding state code.
-
 ZipCode | Randomly generated zip code.
-
 CityStZipCode | Full city, state abbreviation, and zip combined in a string, i.e. "Chelsea, AL 12345".
-
 CityStateZipCode | City, full state name, and zip combined in a string, i.e. "Chelsea, Alabama 12345".
-
 CityCode | The city which has been processed using the ConvertTo-CityCode cmdlet. Allows the city to be used as a unique key.
 
 .EXAMPLE
-New-FabricatedCityStateZipCodeRecord
+New-FabricatedCityStateZipCodeRecord | Test-Pipe
 
 New-FabricatedCityStateZipCodeRecord returns the following data.
 
-City: Chinook CDP
-
-State: AK
-
-StateName: Alaska
-
-ZipCode: 27264
-
-CityStZipCode: Chinook CDP, AK 27264
-
-CityStateZipCode: Chinook CDP, Alaska 27264
-
-CityCode: AKCHINOOKCDP
+City | Chinook CDP
+State | AK
+StateName | Alaska
+ZipCode | 27264
+CityStZipCode | Chinook CDP, AK 27264
+CityStateZipCode | Chinook CDP, Alaska 27264
+CityCode | AKCHINOOKCDP
 
 .EXAMPLE
-New-FabricatedCityStateZipCodeRecord -RecordCount 5
+New-FabricatedCityStateZipCodeRecord -RecordCount 5 | Test-Pipe
 
 New-FabricatedCityStateZipCodeRecord returns 5 records with data similar to the previous example.
 
 .EXAMPLE
-New-FabricatedCityStateZipCodeRecord -Plus4
+New-FabricatedCityStateZipCodeRecord -Plus4 | Test-Pipe
 
 New-FabricatedCityStateZipCodeRecord returns the following data:
 
-City: Chinook CDP
-
-State: AK
-
-StateName: Alaska
-
-ZipCode: 27264
-
-CityStZipCode: Chinook CDP, AK 27264-3982
-
-CityStateZipCode: Chinook CDP, Alaska 27264
-
-CityCode: AKCHINOOKCDP
+City | Chinook CDP
+State | AK
+StateName | Alaska
+ZipCode | 27264
+CityStZipCode | Chinook CDP, AK 27264-3982
+CityStateZipCode | Chinook CDP, Alaska 27264
+CityCode | AKCHINOOKCDP
 
 .NOTES
 Data Fabricator - New-FabricatedCityStateZipCodeRecord.ps1

@@ -1,12 +1,68 @@
-class ProductTable
-{
-  [string] $ProductCode
-  [string] $Clothing
-  [string] $Color
-  [string] $Size
-}
+<#
+.SYNOPSIS
+Fabricate a table with all possible combinations of products.
 
-function New-FabricatedProductTable 
+.DESCRIPTION
+This cmdlet will return a collection of all possible combinations of product codes that are contained in the included sample dataset.
+Note this cmdlet and New-FabricatedProductRecord both return the same output type, so they can be used interchangeably.
+
+.INPUTS
+This cmdlet has no inputs.
+
+.OUTPUTS
+Returns an array with objects that have the following properties.
+
+ProductCode | The 9 character product code to uniquely identify this product.
+Clothing | The type of clothing.
+Color | The color of the clothing.
+Size | The size of the clothing.
+
+.EXAMPLE
+New-FabricatedProductTable
+
+This is a subset of the data that is returned:
+
+ProductCode | COAMAUEXT
+Clothing | Coat
+Color | Mauve
+Size | Extra large
+ProductCode | COAMAU2XL
+Clothing | Coat
+Color | Mauve
+Size | 2XL
+ProductCode | COAMAU3XL
+Clothing | Coat
+Color | Mauve
+Size | 3XL
+ProductCode | COAMAU4XL
+Clothing | Coat
+Color | Mauve
+Size | 4XL
+
+.NOTES
+Data Fabricator - New-FabricatedProductTable.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedProductRecord.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
+
+function New-FabricatedProductTable
 {
   [CmdletBinding()]
   param (
@@ -20,6 +76,15 @@ $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
 "@
 
+  # Define the output object
+  class ProductTable
+  {
+    [string] $ProductCode
+    [string] $Clothing
+    [string] $Color
+    [string] $Size
+  }
+  
   $products = @()
   $i = 0
 

@@ -33,11 +33,6 @@ Import-Module .\DataFabricator
 $docPath = ".\Documentation"
 New-MarkdownHelp -Module DataFabricator -OutputFolder $docPath -Force -WithModulePage -AlphabeticParamsOrder
 
-#Update-MarkdownHelp -Path $docPath
-
-# This will update existing help or create files for new cmdlets
-#Update-MarkdownHelpModule -Path $docPath
-
 # PlatyPS has a weird quirk (bug?) That makes everything under the Input and Output tags
 # a level 3 header. This looks ugly and shouldn't be, so this code will clean that up by
 # stripping out the ### for each line in those sections
@@ -65,8 +60,8 @@ function Format-PlatyPSMarkdown()
     $contents = Get-Content -Path $f.FullName
   
     # Set the various flags we have to have
-    $startChecking = $false 
-    $checkForBlank = $false
+    $checkIOforUnwantedH3Tags = $false 
+    $checkForBlankLineAfterAHeaderLine = $false
     $skipSyntaxCheck = $false
     $yamlBlock = $false
     $prevLine = ''
@@ -81,27 +76,29 @@ function Format-PlatyPSMarkdown()
       Write-Verbose '----------------------------------------'
       Write-Verbose $line
       Write-Verbose '----------------------------------------'
-      # If the previous line was a header tag, and the current line is blank,
+
+      # If the previous line was a header tag (if so it set the checkForBlank to 
+      # true during the previous iteration in the loop), and the current line is blank,
       # insert a blank line between the header and this one
-      if ($checkForBlank)
+      if ($checkForBlankLineAfterAHeaderLine)
       {
         Write-Verbose "Checking for Blank: $($line.Length) $line"
         if ($line.Length -ne 0)
           { $newOutput += ''  ; Write-Verbose 'Adding a blank'}
-        $checkForBlank = $false
+        $checkForBlankLineAfterAHeaderLine = $false
       }
-  
+
       # If we are at the input area, turn on the flag to begin checking
       # for the erroneous ### tags PlatyPS likes (mistakenly) to insert
       if ( $line.StartsWith('## INPUTS') )
       { 
-        $startChecking = $true
+        $checkIOforUnwantedH3Tags = $true
         $insertTableHeader = $true
         Write-Verbose 'Start Checking'
       }
   
       # If we are checking, it means we're in the input/output area
-      if ( $startChecking )
+      if ( $checkIOforUnwantedH3Tags )
       {
         # If this line starts with a H3 tag we want to remove it
         if ( $line.StartsWith('###') )
@@ -123,25 +120,34 @@ function Format-PlatyPSMarkdown()
         # Once we hit the notes area stop checking
         if ( $line.StartsWith('## NOTES' ) )
           { 
-             $startChecking = $false 
+             $checkIOforUnwantedH3Tags = $false 
              $insertTableHeader = $false
              Write-Verbose 'Found ## NOTES'
           }
   
-      } # if ( $startChecking )
+      } # if ( $checkIOforUnwantedH3Tags )
   
-      # After some of the headers, it does not put a blank line, so add one
+      # Before and after some of the header tags, PlatyPS does not put a blank line,
+      # so see if we need to add one before or after. This will fix both H2 and H3 headers.
       if ( $line.StartsWith('##') )
       { 
         Write-Verbose "Found StartsWith ## at $line "
+
         # Trigger a check for the line after it
-        $checkForBlank = $true 
-        # If the previous line wasn't empty, add an extra one
+        $checkForBlankLineAfterAHeaderLine = $true 
+        
+        # In addition to a blank line after a header tag, there should also be a
+        # blank line before the header. Check the previous line, and if it wasn't
+        # empty, add a blank line ahead of the header line (contained in $line)
         if ($prevLine.Length -ne 0) 
           { $newOutput += ''  ; Write-Verbose "Adding a blank line after $line"}
       }
   
-      # If this is a code syntax block    
+      # There are two types of code syntax blocks. The first is YAML, which PlatyPS inserts.
+      # The second are in the EXAMPLE area, unfortunately PLatyPS just inserts a ```, which 
+      # denotes as a code block but not a PowerShell code block, hence the markdown won't
+      # render it with the right syntax colors. We will fix that here, by replacing the
+      # first instance of a code block with a named powershell block.
       if ( ($line -eq '```') -and ($yamlBlock -eq $false) )
       {
         Write-Verbose 'Found a syntax block that wasn''t YAML'
@@ -166,9 +172,69 @@ function Format-PlatyPSMarkdown()
       if ( $line -eq '```yaml' )
         { $yamlBlock = $true ; Write-Verbose 'Found a YAML block'}
   
+      # In the Examples section, use the same technique with the | symbol to take output
+      # and turn it into a markdown table. I have to be careful though, since PowerShell itself
+      # uses pipes, not to screw with the powershell code block but only the data under it,
+      # until it hits the next example
+      if ( $line.StartsWith('```') )
+      { 
+        if ( $line.StartsWith('```powershell') -eq $false )
+        {
+          $exampleChecking = $true
+          $insertTableHeader = $true
+          Write-Verbose 'Start Example Checking'
+        }
+      }
+
+      # In theory this shouldn't happen, it should have gotten turned off from the 
+      # previous iteration in the loop. But just in case let's turn it off anyway
+      if ( $line.StartsWith('```powershell')  )
+      {
+        $exampleChecking = $false
+        $insertTableHeader = $false
+      }
+
+      # OK, time to turn it into a table. In the help text we already use a | to separate
+      # the properties and values, so all we really have to do is insert a table header. Then
+      # markdown will read the rest of the text as a table automatically
+      if ( $line.Length -gt 0 )
+      {
+        if ( ($line.Contains('|')) -and ($exampleChecking -eq $true))
+        {
+          if ( $insertTableHeader )
+          {
+            $newOutput += ''
+            $newOutput += 'Property | Value'
+            $newOutput += '| ----- | ------ |'
+            $insertTableHeader = $false
+          }
+        }
+      }
+
+      # If we are at the start of a PowerShell code block, we definately want to turn off
+      # checking
+      if ( $line.StartsWith('```powershell') )
+      { 
+        $exampleChecking = $false
+        $insertTableHeader = $false
+        Write-Verbose 'Stop Example Checking'
+      }
+
+      # Once we hit the parameters, we've exited the examples and should be sure to 
+      # turn checking off
+      if ( $line.StartsWith('## PARAMETERS') )
+      { 
+        $exampleChecking = $false
+        $insertTableHeader = $false
+        Write-Verbose 'Stop Example Checking'
+      }
+
+
       # Look for links specific to our documentation, and remove the
       # https part and the md part from the link label so it looks like
-      # a proper link when it's rendered in markdown
+      # a proper link when it's rendered in markdown. Thus instead of 
+      # getting https://blah/blah/Get-FabricatedDate.md as the 'friendly' name,
+      # it will instead become just Get-FabricatedDate
       $lookFor = '[https://github.com/arcanecode/DataFabricator/blob/master/Documentation/'
       if ($line.StartsWith($lookFor))
       {
@@ -177,25 +243,24 @@ function Format-PlatyPSMarkdown()
         $line = $line.Replace('.md]', ']')
       }
 
-      # The notes section contains my twitter handle, let's make it a link
-      $lookFor = 'Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com'
-      $replaceWith = 'Author: Robert C Cain | [@ArcaneCode](https://twitter.com/arcanecode) | arcane@arcanetc.com'
-      if ($line.StartsWith($lookFor))
-        { $line = $replaceWith ; Write-Verbose '@ArcaneCode'}
-  
-      # Also clean up the link to the Data Fabricator site we include in
-      # Every help comment
-      $lookFor = '[http://datafabricator.com](http://datafabricator.com)'
-      $replaceWith = '[Data Fabricator on GitHub](http://datafabricator.com)'
-      if ($line.StartsWith($lookFor))
-        { $line = $replaceWith ; Write-Verbose 'Fixing Data Fabrictor'}
+      # There are a few text strings with URLs I want to clean up, as PlatyPS just uses the URL for
+      # the friendly name of the link, and I would prefer to generate a human readable name.
+      # In addtion, in the notes area I have my Twitter handle. While we are at it let's turn
+      # it into an actual link (appeasing my vanity, don't ya know)
+      # The hashtable Name property is to the left of the equal sign, the Value property is 
+      # to the right. 
+      $replacements = @{'Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com' = 'Author: Robert C Cain | [@ArcaneCode](https://twitter.com/arcanecode) | arcane@arcanetc.com'
+                        '[http://datafabricator.com](http://datafabricator.com)' = '[Data Fabricator on GitHub](http://datafabricator.com)'
+                        '[http://arcanecode.me]' = '[ArcaneCode''s Website](http://arcanecode.me)'
+                       }
 
-      # The link section contains a link to my website, fix it to be
-      # a real markdown link
-      $lookFor = '[http://arcanecode.me]'
-      $replaceWith = '[ArcaneCode''s Website](http://arcanecode.me)'
-      if ( $line.StartsWith($lookFor) )
-        { $line = $replaceWith ; Write-Verbose 'Fixing arcanecode.me' }
+      # Note you can't iterate over a hashtable like you would an array, instead you have
+      # to call the GetEnumerator() method of the hashtable
+      foreach ( $r in $replacements.GetEnumerator() )
+      {
+        if ($line.StartsWith($r.Name))
+          { $line = $r.Value }
+      }
 
       Write-Verbose 'Adding line'
       $prevLine = $line
@@ -228,3 +293,10 @@ function Format-PlatyPSMarkdown()
 } # function Format-PlatyPSMarkdown
 
 Format-PlatyPSMarkdown -FilePath $filePath # -Verbose
+
+
+#Update-MarkdownHelp -Path $docPath
+
+# This will update existing help or create files for new cmdlets
+#Update-MarkdownHelpModule -Path $docPath
+

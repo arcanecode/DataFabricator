@@ -390,8 +390,8 @@ Remove-Item "$Path\*.csv"
 #   New-FabricatedEmployeeRecord
 #   New-FabricatedInventoryRecord
 #   x New-FabricatedNameRecord
-#   New-FabricatedProductRecord
-#   New-FabricatedProductTable   
+#   x New-FabricatedProductRecord
+#   x New-FabricatedProductTable   
 
 # Install/Test PlatyPs
 # Eventually Pester Tests

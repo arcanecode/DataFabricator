@@ -31,9 +31,12 @@ ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
 
 ConvertFrom-CityStateCode returns the following data:
 
-City: Aaronsburg CDP
 
-State: AL
+Property | Value
+| ----- | ------ |
+City | Aaronsburg CDP
+
+State | AL
 
 ## PARAMETERS
 

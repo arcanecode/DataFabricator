@@ -20,11 +20,9 @@ ConvertFrom-ProductCode -ProductCode "GLOOCELAR"
 
 Returns the following data:
 
-Clothing: Gloves
-
-Color: Ocean Green
-
-Size: Large
+Clothing | Gloves
+Color | Ocean Green
+Size | Large
 
 .NOTES
 Data Fabricator - ConvertFrom-ProductCode.ps1

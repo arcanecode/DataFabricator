@@ -1,10 +1,77 @@
-class Product
-{
-  [string] $ProductCode
-  [string] $Clothing
-  [string] $Color
-  [string] $Size
-}
+<#
+.SYNOPSIS
+Fabricates one or more product records.
+
+.DESCRIPTION
+This will generate one or more product records with the output type as described in the output section below.
+Note this cmdlet and New-FabricatedProductTable return the same output type, so could be used interchangeably.
+The main difference is this cmdlet randomly generates product data, and thus will be a subset of the product table, whereas New-FabricatedProductTable returns all possible products.
+
+.PARAMETER RecordCount
+The number of records you want returned from this cmdlet. The default is 1.
+
+.PARAMETER MaxDuplicateCountBeforeError
+This cmdlet checks for duplicates so they are removed from the final output.
+By default, once the cmdlet has generated 50 duplicates it will throw an error and exit before all the records have been generated (although it will return what it has generated to that point).
+It is possible in some cases to request more records than it is possible to create based on the internal data.
+To keep from falling into an infinite loop this mechanism will exit and let the user know what the issue is.
+Normally you won't need to override this, but it is possible should you feel the need.
+
+.INPUTS
+This cmdlet has no inputs.
+
+.OUTPUTS
+Returns an array with objects that have the following properties.
+
+ProductCode | The 9 character product code to uniquely identify this product.
+Clothing | The type of clothing.
+Color | The color of the clothing.
+Size | The size of the clothing.
+
+.EXAMPLE
+New-FabricatedProductRecord
+
+This is a subset of the data that is returned:
+
+ProductCode | COAMAUEXT
+Clothing | Coat
+Color | Mauve
+Size | Extra large
+ProductCode | COAMAU2XL
+Clothing | Coat
+Color | Mauve
+Size | 2XL
+ProductCode | COAMAU3XL
+Clothing | Coat
+Color | Mauve
+Size | 3XL
+ProductCode | COAMAU4XL
+Clothing | Coat
+Color | Mauve
+Size | 4XL
+
+.NOTES
+Data Fabricator - New-FabricatedProductRecord.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedProductTable.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
 
 function New-FabricatedProductRecord {
   [CmdletBinding()]
@@ -23,6 +90,15 @@ $fn
          Max Duplicate Rows Befor Error: $MaxDuplicateCountBeforeError
 "@
 
+  # Define the output object
+  class Product
+  {
+    [string] $ProductCode
+    [string] $Clothing
+    [string] $Color
+    [string] $Size
+  }
+  
   # Declare an empty array to hold the results
   $retVal = @()
 

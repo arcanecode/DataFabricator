@@ -1,45 +1,96 @@
 ---
 external help file: DataFabricator-help.xml
 Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedName.md
+online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedProductRecord.md
 schema: 2.0.0
 ---
 
 # New-FabricatedProductTable
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+
+Fabricate a table with all possible combinations of products.
 
 ## SYNTAX
 
-```
+```powershell
 New-FabricatedProductTable [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+
+This cmdlet will return a collection of all possible combinations of product codes that are contained in the included sample dataset.
+Note this cmdlet and New-FabricatedProductRecord both return the same output type, so they can be used interchangeably.
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
+
 ```powershell
-PS C:\> {{ Add example code here }}
+New-FabricatedProductTable
 ```
 
-{{ Add example description here }}
+This is a subset of the data that is returned:
+
+
+Property | Value
+| ----- | ------ |
+ProductCode | COAMAUEXT
+Clothing | Coat
+Color | Mauve
+Size | Extra large
+ProductCode | COAMAU2XL
+Clothing | Coat
+Color | Mauve
+Size | 2XL
+ProductCode | COAMAU3XL
+Clothing | Coat
+Color | Mauve
+Size | 3XL
+ProductCode | COAMAU4XL
+Clothing | Coat
+Color | Mauve
+Size | 4XL
 
 ## PARAMETERS
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
-### None
+This cmdlet has no inputs.
 
 ## OUTPUTS
 
-### System.Object
+Returns an array with objects that have the following properties.
+
+Property | Description
+| ----- | ------ |
+ProductCode | The 9 character product code to uniquely identify this product.
+Clothing | The type of clothing.
+Color | The color of the clothing.
+Size | The size of the clothing.
+
 ## NOTES
 
+Data Fabricator - New-FabricatedProductTable.ps1
+
+Author: Robert C Cain | [@ArcaneCode](https://twitter.com/arcanecode) | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
 ## RELATED LINKS
+
+[New-FabricatedProductRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedProductRecord.md)
+
+[ArcaneCode's Website](http://arcanecode.me)
+
+[Data Fabricator on GitHub](http://datafabricator.com)

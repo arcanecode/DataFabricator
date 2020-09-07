@@ -32,29 +32,26 @@ This value is appended to the two letter state abbreviation to produce unqiue ci
 ### EXAMPLE 1
 
 ```powershell
-New-FabricatedCityStateZipCodeRecord
+New-FabricatedCityStateZipCodeRecord | Test-Pipe
 ```
 
 New-FabricatedCityStateZipCodeRecord returns the following data.
 
-City: Chinook CDP
 
-State: AK
-
-StateName: Alaska
-
-ZipCode: 27264
-
-CityStZipCode: Chinook CDP, AK 27264
-
-CityStateZipCode: Chinook CDP, Alaska 27264
-
-CityCode: AKCHINOOKCDP
+Property | Value
+| ----- | ------ |
+City | Chinook CDP
+State | AK
+StateName | Alaska
+ZipCode | 27264
+CityStZipCode | Chinook CDP, AK 27264
+CityStateZipCode | Chinook CDP, Alaska 27264
+CityCode | AKCHINOOKCDP
 
 ### EXAMPLE 2
 
 ```powershell
-New-FabricatedCityStateZipCodeRecord -RecordCount 5
+New-FabricatedCityStateZipCodeRecord -RecordCount 5 | Test-Pipe
 ```
 
 New-FabricatedCityStateZipCodeRecord returns 5 records with data similar to the previous example.
@@ -62,24 +59,21 @@ New-FabricatedCityStateZipCodeRecord returns 5 records with data similar to the 
 ### EXAMPLE 3
 
 ```powershell
-New-FabricatedCityStateZipCodeRecord -Plus4
+New-FabricatedCityStateZipCodeRecord -Plus4 | Test-Pipe
 ```
 
 New-FabricatedCityStateZipCodeRecord returns the following data:
 
-City: Chinook CDP
 
-State: AK
-
-StateName: Alaska
-
-ZipCode: 27264
-
-CityStZipCode: Chinook CDP, AK 27264-3982
-
-CityStateZipCode: Chinook CDP, Alaska 27264
-
-CityCode: AKCHINOOKCDP
+Property | Value
+| ----- | ------ |
+City | Chinook CDP
+State | AK
+StateName | Alaska
+ZipCode | 27264
+CityStZipCode | Chinook CDP, AK 27264-3982
+CityStateZipCode | Chinook CDP, Alaska 27264
+CityCode | AKCHINOOKCDP
 
 ## PARAMETERS
 
