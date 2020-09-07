@@ -31,7 +31,17 @@ Size | The size of the clothing.
 .EXAMPLE
 New-FabricatedProductRecord
 
-This is a subset of the data that is returned:
+New-FabricatedProductRecord returns these four rows:
+
+ProductCode | COAMAU4XL
+Clothing | Coat
+Color | Mauve
+Size | 4XL
+
+.EXAMPLE
+New-FabricatedProductRecord -RecordCount 4
+
+New-FabricatedProductRecord returns these four rows:
 
 ProductCode | COAMAUEXT
 Clothing | Coat

@@ -32,7 +32,23 @@ The main difference is this cmdlet randomly generates product data, and thus wil
 New-FabricatedProductRecord
 ```
 
-This is a subset of the data that is returned:
+New-FabricatedProductRecord returns these four rows:
+
+
+Property | Value
+| ----- | ------ |
+ProductCode | COAMAU4XL
+Clothing | Coat
+Color | Mauve
+Size | 4XL
+
+### EXAMPLE 2
+
+```powershell
+New-FabricatedProductRecord -RecordCount 4
+```
+
+New-FabricatedProductRecord returns these four rows:
 
 
 Property | Value

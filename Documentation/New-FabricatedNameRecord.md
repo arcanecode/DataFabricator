@@ -35,19 +35,19 @@ New-FabricatedNameRecord returns an object with the following data:
 
 Property | Value
 | ----- | ------ |
-First | Eliana
-Middle | Corey
-MiddleInitial | C
-Last | Moore
-FirstLast | Eliana Moore
-FirstMiLast | Eliana C.
-Moore
-FirstMiddleLast | Eliana Corey Moore
-LastFirst | Moore, Eliana
-LastFirstMi | Moore, Eliana C.
-LastFirstMiddle | Moore, Eliana Corey
-EmailName | e.moore
-NameCode | MOORE_ELIANA_COREY
+First | "Eliana"
+Middle | "Corey"
+MiddleInitial | "C"
+Last | "Moore"
+FirstLast | "Eliana Moore"
+FirstMiLast | "Eliana C.
+Moore"
+FirstMiddleLast | "Eliana Corey Moore"
+LastFirst | "Moore, Eliana"
+LastFirstMi | "Moore, Eliana C."
+LastFirstMiddle | "Moore, Eliana Corey"
+EmailName | "e.moore"
+NameCode | "MOORE_ELIANA_COREY"
 
 ### EXAMPLE 2
 

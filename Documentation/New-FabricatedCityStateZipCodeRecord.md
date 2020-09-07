@@ -72,7 +72,7 @@ State | AK
 StateName | Alaska
 ZipCode | 27264
 CityStZipCode | Chinook CDP, AK 27264-3982
-CityStateZipCode | Chinook CDP, Alaska 27264
+CityStateZipCode | Chinook CDP, Alaska 27264-3982
 CityCode | AKCHINOOKCDP
 
 ## PARAMETERS
