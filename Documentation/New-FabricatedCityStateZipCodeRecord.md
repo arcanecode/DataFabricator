@@ -32,7 +32,7 @@ This value is appended to the two letter state abbreviation to produce unqiue ci
 ### EXAMPLE 1
 
 ```powershell
-New-FabricatedCityStateZipCodeRecord | Test-Pipe
+New-FabricatedCityStateZipCodeRecord
 ```
 
 New-FabricatedCityStateZipCodeRecord returns the following data.
@@ -51,7 +51,7 @@ CityCode         | AKCHINOOKCDP
 ### EXAMPLE 2
 
 ```powershell
-New-FabricatedCityStateZipCodeRecord -RecordCount 5 | Test-Pipe
+New-FabricatedCityStateZipCodeRecord -RecordCount 5
 ```
 
 New-FabricatedCityStateZipCodeRecord returns 5 records with data similar to the previous example.
@@ -59,7 +59,7 @@ New-FabricatedCityStateZipCodeRecord returns 5 records with data similar to the 
 ### EXAMPLE 3
 
 ```powershell
-New-FabricatedCityStateZipCodeRecord -Plus4 | Test-Pipe
+New-FabricatedCityStateZipCodeRecord -Plus4
 ```
 
 New-FabricatedCityStateZipCodeRecord returns the following data:

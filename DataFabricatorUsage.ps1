@@ -358,6 +358,18 @@ Remove-Item "$Path\*.csv"
 # Recheck the data fabricator.com link once the github project is public
 
 # Change ZipCode to PostalCode in the project
+# Change SSN to taxpayer ID
+# Add -US flag to many of the Get-Fabricated... 
+# That, or add a CountryCode parameter that defaults to the US, using an ENUM value
+# Update the m_ lists to be m_xxxUS
+
+# UK Phones
+# (020) nnnn nnnn London
+# (029) nnnn nnnn Cardiff
+
+# UK TaxpayerID
+# UTR - Unique Taxpayer Reference
+# 01234 56789 (10 digits)
 
 # Strip out the external XML data PlatyPS puts at the top of each MD file
 

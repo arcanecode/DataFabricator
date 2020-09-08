@@ -305,3 +305,44 @@ $sData += $o
 
 anothertest -SomeData $sData
 
+#------------------------------------------------------------------------------------------------
+
+
+enum CountryCode
+{
+  Unspecified = 0
+  US = 1
+  UK = 2
+}
+
+
+function DoSomething()
+{
+  [CmdletBinding()]
+  param (
+          [CountryCode] $CountryCode
+        )
+
+  # Default to US if they pick nothing, or pick Unspecified
+  if ( ($null -eq $CountryCode) -or ( $CountryCode -eq 'Unspecified') )
+  {
+    $CountryCode = [CountryCode]::US
+  }
+
+  Write-Host "You picked $CountryCode"
+
+  switch ($CountryCode) {
+    'US' { Write-Host 'Switch US'  }
+    'UK' { Write-Host 'Switch UK' }
+    Default { Write-Host 'Switch: US Default' }
+  }
+
+}
+
+
+DoSomething -CountryCode US
+DoSomething -CountryCode Unspecified
+DoSomething -CountryCode UK
+DoSomething
+
+

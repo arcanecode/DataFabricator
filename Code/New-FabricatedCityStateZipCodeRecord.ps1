@@ -42,7 +42,7 @@ CityStateZipCode | City, full state name, and zip combined in a string, i.e. "Ch
 CityCode         | The city which has been processed using the ConvertTo-CityCode cmdlet. Allows the city to be used as a unique key.
 
 .EXAMPLE
-New-FabricatedCityStateZipCodeRecord | Test-Pipe
+New-FabricatedCityStateZipCodeRecord
 
 New-FabricatedCityStateZipCodeRecord returns the following data.
 
@@ -55,12 +55,12 @@ CityStateZipCode | Chinook CDP, Alaska 27264
 CityCode         | AKCHINOOKCDP
 
 .EXAMPLE
-New-FabricatedCityStateZipCodeRecord -RecordCount 5 | Test-Pipe
+New-FabricatedCityStateZipCodeRecord -RecordCount 5
 
 New-FabricatedCityStateZipCodeRecord returns 5 records with data similar to the previous example.
 
 .EXAMPLE
-New-FabricatedCityStateZipCodeRecord -Plus4 | Test-Pipe
+New-FabricatedCityStateZipCodeRecord -Plus4
 
 New-FabricatedCityStateZipCodeRecord returns the following data:
 
