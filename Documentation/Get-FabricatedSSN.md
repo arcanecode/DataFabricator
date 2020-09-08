@@ -5,49 +5,52 @@ online version: https://github.com/arcanecode/DataFabricator/blob/master/Documen
 schema: 2.0.0
 ---
 
-# Get-FabricatedSSN
+# Get-FabricatedTaxpayerID
 
 ## SYNOPSIS
 
-Fabricates a SSN (Social Security Number), a taxpayer identification number used in the US.
+Fabricates a TaxpayerID (Social Security Number), a taxpayer identification number used in the US.
 
 ## SYNTAX
 
 ```powershell
-Get-FabricatedSSN [-NoDashes] [<CommonParameters>]
-```
+Get-FabricatedTaxpayerID [-NoDashes] [<CommonParameters>]
+```powershell
 
 ## DESCRIPTION
 
-Will generate a US based taxpayer Social Security Number (abbreviated SSN) in the format xxx-xx-xxxx.
+Will generate a US based taxpayer Social Security Number (abbreviated TaxpayerID) in the format xxx-xx-xxxx.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
 ```powershell
-Get-FabricatedSSN
+Get-FabricatedTaxpayerID
 ```
 
-Get-FabricatedSSN returns the following data:
+Get-FabricatedTaxpayerID returns the following data:
+
 
 
 Property | Value
 | ----- | ------ |
-SSN | 082-12-7296
+Property | Value
+| ----- | ------ |
+TaxpayerID | 082-12-7296
 
 ### EXAMPLE 2
 
 ```powershell
-Get-FabricatedSSN -NoDashes
-```
+Get-FabricatedTaxpayerID -NoDashes
+```powershell
 
-Get-FabricatedSSN returns the following data:
+Get-FabricatedTaxpayerID returns the following data:
 
 
 Property | Value
 | ----- | ------ |
-SSN | 082127296
+TaxpayerID | 082127296
 
 ## PARAMETERS
 
@@ -77,11 +80,11 @@ This cmdlet has no inputs.
 
 ## OUTPUTS
 
-String with the fabricated SSN.
+String with the fabricated TaxpayerID.
 
 ## NOTES
 
-Data Fabricator - Get-FabricatedSSN.ps1
+Data Fabricator - Get-FabricatedTaxpayerID.ps1
 
 Author: Robert C Cain | [@ArcaneCode](https://twitter.com/arcanecode) | arcane@arcanetc.com
 

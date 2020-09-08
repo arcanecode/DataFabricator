@@ -9,18 +9,19 @@ schema: 2.0.0
 
 ## SYNOPSIS
 
-Fabricates a phone number in xxx-xxx-xxxx (US Based) format.
+Fabricates a phone number for the CountryCode, defaulting to the US based format.
 
 ## SYNTAX
 
 ```powershell
-Get-FabricatedPhone [-NoDashes] [<CommonParameters>]
+Get-FabricatedPhone [[-CountryCode] <String>] [-NoFormatting] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-Generates three sets of random numbers and combines them to form a phone number.
-By default the three sections are separated by dashes, however using a swtich the dash can be excluded from the output.
+Generates random numbers to compose a phone number for CountryCode parameter.
+If no CountryCode is passed in, it will default to the US format of xxx-xxx-xxxx.
+To suppress extra charcters like dashes, spaces, and so on from the phone number use the NoFormatting switch.
 
 ## EXAMPLES
 
@@ -50,11 +51,54 @@ Property | Value
 | ----- | ------ |
 Phone | 6723441425
 
+### EXAMPLE 3
+
+```powershell
+Get-FabricatedPhone -UK
+```
+
+Get-FabricatedPhone returns the following data:
+
+
+Property | Value
+| ----- | ------ |
+Phone | (029) 6723 1425
+
+### EXAMPLE 4
+
+```powershell
+Get-FabricatedPhone -UK -NoFormatting
+```
+
+Get-FabricatedPhone returns the following data:
+
+
+Property | Value
+| ----- | ------ |
+Phone | 02967231425
+
 ## PARAMETERS
 
-### -NoDashes
+### -CountryCode
 
-Switch that prevents dashses from being included in the returned phone number.
+Enumerated country code.
+If no code is supplied it defaults to the US.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 1
+Default value: US
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -NoFormatting
+
+Switch that will prevent formatting, such as dashes or spaces, from being included in the output.
 
 ```yaml
 Type: SwitchParameter

@@ -1,26 +1,3 @@
-class CustomerRecord
-{
-  [string] $FirstName
-  [string] $MiddleName
-  [string] $LastName
-  [string] $FullName
-  [string] $CustomerID
-  [string] $EMail
-  [string] $HomePhone
-  [string] $MobilePhone
-  [string] $WorkPhone
-  [string] $HomeAddress1
-  [string] $HomeAddress2
-  [string] $HomeCity
-  [string] $HomeState
-  [string] $HomeZip
-  [string] $WorkAddress1
-  [string] $WorkAddress2
-  [string] $WorkCity
-  [string] $WorkState
-  [string] $WorkZip
-  [string] $BirthDate
-}
 function New-FabricatedCustomerRecord()
 {
   [CmdletBinding()]
@@ -28,6 +5,7 @@ function New-FabricatedCustomerRecord()
           [int] $RecordCount = 1
         , [int] $MaxDuplicateCountBeforeError = 50  
         , [string] $EMailDomain = 'fakemail.com'
+        , [string] $CountryCode = 'US'
         )
 
   # Function Name
@@ -42,6 +20,39 @@ $fn
          EMailDomain: $EMailDomain
 "@
 
+  # Create a class for our return object
+  class CustomerRecord
+  {
+    [string] $FirstName
+    [string] $MiddleName
+    [string] $LastName
+    [string] $FullName
+    [string] $CustomerID
+    [string] $EMail
+    [string] $HomePhone
+    [string] $MobilePhone
+    [string] $WorkPhone
+    [string] $HomeAddress1
+    [string] $HomeAddress2
+    [string] $HomeCity
+    [string] $HomeState
+    [string] $HomePostalCode
+    [string] $WorkAddress1
+    [string] $WorkAddress2
+    [string] $WorkCity
+    [string] $WorkState
+    [string] $WorkPostalCode
+    [string] $BirthDate
+  }
+
+  # If no code is passed in, or they use unspecified, use the US
+  if ( ($null -eq $CountryCode) -or ( $CountryCode -eq 'Unspecified') )
+    { $CountryCode = 'US' }
+
+  # Warn if the country code is invalid, but continue working using the US instead
+  if ( (Test-CountryCode -CountryCode $CountryCode) -eq $false )
+    { Write-Warning "The country code $CountryCode is invalid, reverting to use US instead." }
+
   # Declare an empty array to hold the results
   $retVal = @()
   
@@ -51,9 +62,9 @@ $fn
   
   while ($i -lt $RecordCount) 
   {
-    # Fabricate city/state/zip and name records
-    $cszHome = New-FabricatedCityStateZipCodeRecord -Verbose:$false
-    $cszWork = New-FabricatedCityStateZipCodeRecord -Verbose:$false
+    # Fabricate city/state/PostalCode and name records
+    $cszHome = New-FabricatedCityStatePostalCodeRecord -CountryCode $CountryCode -Verbose:$false
+    $cszWork = New-FabricatedCityStatePostalCodeRecord -CountryCode $CountryCode -Verbose:$false
     $name = New-FabricatedNameRecord -Verbose:$false
 
     $cust = [CustomerRecord]::new()
@@ -68,21 +79,21 @@ $fn
 
     $cust.EMail = "$($name.EmailName)@$($EMailDomain)"
 
-    $cust.HomePhone = Get-FabricatedPhone -Verbose:$false
-    $cust.MobilePhone = Get-FabricatedPhone -Verbose:$false
-    $cust.WorkPhone = Get-FabricatedPhone -Verbose:$false
+    $cust.HomePhone = Get-FabricatedPhone -CountryCode $CountryCode -Verbose:$false
+    $cust.MobilePhone = Get-FabricatedPhone -CountryCode $CountryCode -Verbose:$false
+    $cust.WorkPhone = Get-FabricatedPhone -CountryCode $CountryCode -Verbose:$false
 
     $cust.HomeAddress1 = Get-FabricatedAddressLine1 -Verbose:$false
     $cust.HomeAddress2 = Get-FabricatedAddressLine2 -Verbose:$false
     $cust.HomeCity = $cszHome.City
     $cust.HomeState = $cszHome.State
-    $cust.HomeZip = $cszHome.ZipCode
+    $cust.HomePostalCode = $cszHome.PostalCode
 
     $cust.WorkAddress1 = Get-FabricatedAddressLine1 -Verbose:$false
     $cust.WorkAddress2 = Get-FabricatedAddressLine2 -Verbose:$false
     $cust.WorkCity = $cszWork.City
     $cust.WorkState = $cszWork.State
-    $cust.WorkZip = $cszWork.ZipCode
+    $cust.WorkPostalCode = $cszWork.PostalCode
 
     $cust.BirthDate = Get-FabricatedDate -RelativeThruYear 18 -RelativeFromYear 70 -Verbose:$false
  

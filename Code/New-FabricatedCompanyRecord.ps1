@@ -17,6 +17,9 @@ It is possible in some cases to request more records than it is possible to crea
 To keep from falling into an infinite loop this mechanism will exit and let the user know what the issue is.
 Normally you won't need to override this, but it is possible should you feel the need.
 
+.PARAMETER CountryCode
+Country code. If no code is supplied it defaults to the US.
+
 .INPUTS
 This cmdlet has no inputs.
 
@@ -69,7 +72,7 @@ This module may not be reproduced in whole or in part without
 the express written consent of the author.
 
 .LINK
-https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipCodeRecord.md
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStatePostalCodeRecord.md
 
 .LINK
 https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedNameRecord.md
@@ -93,6 +96,7 @@ function New-FabricatedCompanyRecord()
   param (
           [int] $RecordCount = 1
         , [int] $MaxDuplicateCountBeforeError = 50  
+        , [string] $CountryCode = 'US'
         )
 
   # Function Name
@@ -114,13 +118,21 @@ $fn
     [string] $Address2
     [string] $City
     [string] $State
-    [string] $Zip
+    [string] $PostalCode
     [string] $ContactName
     [string] $ContactPhone
     [string] $ContactEMail
     [string] $ContactJobTitle
   }
   
+  # If no code is passed in, or they use unspecified, use the US
+  if ( ($null -eq $CountryCode) -or ( $CountryCode -eq 'Unspecified') )
+    { $CountryCode = 'US' }
+
+  # Warn if the country code is invalid, but continue working using the US instead
+  if ( (Test-CountryCode -CountryCode $CountryCode) -eq $false )
+    { Write-Warning "The country code $CountryCode is invalid, reverting to use US instead." }
+
   # Declare an empty array to hold the results
   $retVal = @()
 
@@ -132,22 +144,22 @@ $fn
   while ($i -lt $RecordCount) 
   {
     # Fabricate city/state/zip and name records
-    $csz = New-FabricatedCityStateZipCodeRecord -Verbose:$false
+    $csz = New-FabricatedCityStatePostalCodeRecord -CountryCode $CountryCode -Verbose:$false
     $name = New-FabricatedNameRecord -Verbose:$false
 
     $company = [CompanyRecord]::new()
     $company.Name = Get-FabricatedCompany -Verbose:$false
     $company.Address1 = Get-FabricatedAddressLine1 -Verbose:$false
-    $company.Address2 = Get-FabricatedAddressLine2 -Verbose:$false
+    $company.Address2 = Get-FabricatedAddressLine2 -Threshold 90 -Verbose:$false
     $company.City = $csz.City
     $company.State = $csz.State
-    $company.Zip = $csz.ZipCode
+    $company.PostalCode = $csz.PostalCode
 
     $company.ContactName = $name.FirstLast
     $email = $company.Name.ToLower().Replace(' ', '')
     $company.ContactEMail = "$($name.EmailName)@$($email).com"
 
-    $company.ContactPhone = Get-FabricatedPhone -Verbose:$false
+    $company.ContactPhone = Get-FabricatedPhone -CountryCode $CountryCode -Verbose:$false
     $company.ContactJobTitle = Get-FabricatedJobTitle -Verbose:$false
     
     $item = $company.Name

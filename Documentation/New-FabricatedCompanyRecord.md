@@ -1,7 +1,7 @@
 ---
 external help file: DataFabricator-help.xml
 Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipCodeRecord.md
+online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStatePostalCodeRecord.md
 schema: 2.0.0
 ---
 
@@ -15,7 +15,7 @@ Fabricates a new company and returns it as an object (aka record)
 
 ```powershell
 New-FabricatedCompanyRecord [[-RecordCount] <Int32>] [[-MaxDuplicateCountBeforeError] <Int32>]
- [<CommonParameters>]
+ [[-CountryCode] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -57,6 +57,23 @@ New-FabricatedCompanyRecord -RecordCount 10
 In this example, New-FabricatedCompanyRecord will return 10 rows of fabricated data, each row with output similar to the example above.
 
 ## PARAMETERS
+
+### -CountryCode
+
+Country code.
+If no code is supplied it defaults to the US.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: US
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -MaxDuplicateCountBeforeError
 
@@ -136,7 +153,7 @@ the express written consent of the author.
 
 ## RELATED LINKS
 
-[New-FabricatedCityStateZipCodeRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipCodeRecord.md)
+[New-FabricatedCityStatePostalCodeRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStatePostalCodeRecord.md)
 
 [New-FabricatedNameRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedNameRecord.md)
 

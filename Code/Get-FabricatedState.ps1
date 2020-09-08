@@ -9,6 +9,9 @@ Alternativley it can also return the full name of a state by using the FullName 
 .PARAMETER FullName
 Switch that will return the full name of a state instead of the two character state abbreviation.
 
+.PARAMETER CountryCode
+Country code. If no code is supplied it defaults to the US.
+
 .INPUTS
 This cmdlet has no inputs.
 
@@ -69,6 +72,7 @@ function Get-FabricatedState()
   [CmdletBinding()]
   param (
           [switch] $FullName
+        , [string] $CountryCode = 'US'
         )
 
   # Function Name
@@ -79,13 +83,46 @@ $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
 "@
 
-  if ($FullName.IsPresent)
+  #----------------------------------------------------------------------------------------------
+  # Some helper functions
+  #----------------------------------------------------------------------------------------------
+  function usState( [bool] $fullName )
   {
-    $retVal = $m_StateName | Get-Random
+    if ($fullName)
+      { $retVal = $m_StateNameUS | Get-Random }
+    else 
+      { $retVal = $m_StateAbbrUS | Get-Random }
+
+    return $retVal
   }
-  else 
+
+  function ukState( [bool] $fullName )
   {
-    $retVal = $m_StateAbbr | Get-Random  
+    if ($fullName)
+      { $retVal = $m_StateNameUK | Get-Random }
+    else 
+      { $retVal = $m_StateAbbrUK | Get-Random }
+
+    return $retVal
+  }
+
+  #----------------------------------------------------------------------------------------------
+  #  Main logic to create and return the State
+  #----------------------------------------------------------------------------------------------
+
+  # If no code is passed in, or they use unspecified, use the US
+  if ( ($null -eq $CountryCode) -or ( $CountryCode -eq 'Unspecified') )
+    { $CountryCode = 'US' }
+
+  # Warn if the country code is invalid, but continue working using the US instead
+  if ( (Test-CountryCode -CountryCode $CountryCode) -eq $false )
+    { Write-Warning "The country code $CountryCode is invalid, reverting to use US instead." }
+
+
+  switch ($CountryCode) {
+    'UK'    { $retVal = ukState( $FullName.IsPresent) }
+    'US'    { $retVal = usState( $FullName.IsPresent) }
+    default { $retVal = usState( $FullName.IsPresent) }
   }
 
   Write-Verbose "$fn Fabricated State $retVal"

@@ -5,6 +5,9 @@ Fabricates the name of a city from a list of cities.
 .DESCRIPTION
 This routine will generate the name of a city for use in your fabricated data.
 
+.PARAMETER CountryCode
+Country code. If no code is supplied it defaults to the US.
+
 .INPUTS
 This cmdlet has no inputs.
 
@@ -17,6 +20,13 @@ Get-FabricatedCity
 Get-FabricatedCity returns the following data:
 
 City | Chelsea
+
+.EXAMPLE
+Get-FabricatedCity -CountryCode UK
+
+Get-FabricatedCity returns the following data:
+
+City | Inverness
 
 .NOTES
 Data Fabricator - Get-FabricatedCity.ps1
@@ -32,7 +42,7 @@ This module may not be reproduced in whole or in part without
 the express written consent of the author.
 
 .LINK
-https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipCodeRecord.md
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStatePostalCodeRecord.md
 
 .LINK
 https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCompanyRecord.md
@@ -56,7 +66,9 @@ http://datafabricator.com
 function Get-FabricatedCity()
 {
   [CmdletBinding()]
-  param ()
+  param (
+          [string] $CountryCode = 'US'
+        )
 
   # Function Name
   $fn = "$($PSCmdlet.MyInvocation.MyCommand.Module) - $($PSCmdlet.MyInvocation.MyCommand.Name)"
@@ -64,9 +76,23 @@ function Get-FabricatedCity()
   Write-Verbose @"
 $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
+         CountryCode: $CountryCode
 "@
 
-  $retVal = $m_Cities | Get-Random 
+  # If no code is passed in, or they use unspecified, use the US
+  if ( ($null -eq $CountryCode) -or ( $CountryCode -eq 'Unspecified') )
+    { $CountryCode = 'US' }
+
+  # Warn if the country code is invalid, but continue working using the US instead
+  if ( (Test-CountryCode -CountryCode $CountryCode) -eq $false )
+    { Write-Warning "The country code $CountryCode is invalid, reverting to use US instead." }
+
+  switch ( $CountryCode )
+  {
+    'UK'    { $retVal = $m_CitiesUK | Get-Random }
+    'US'    { $retVal = $m_CitiesUS | Get-Random }
+    default { $retVal = $m_CitiesUS | Get-Random }
+  }
 
   Write-Verbose "$fn Fabricated City: $retVal"
 

@@ -1,35 +1,8 @@
-$m_Colors = 'Red',
-            'Green',
-            'Blue',
-            'Yellow',
-            'Black',
-            'White',
-            'Purple',
-            'Sky Blue',
-            'Ocean Green',
-            'Mauve'
+$m_Colors = Get-Content .\Data\Data-Colors.txt
 
+$m_Clothing = Get-Content .\Data\Data-Clothing.txt
 
-$m_Clothing = 'Shirt',
-              'Pants',
-              'Socks',
-              'Hat',
-              'Mens Shoes',
-              'Ladies Shoes',
-              'Gloves',
-              'Shorts',
-              'Slacks',
-              'Jeans',
-              'Coat'
-
-$m_Sizes = 'Extra Small',
-           'Small',
-           'Medium',
-           'Large',
-           'Extra large',
-           '2XL',
-           '3XL',
-           '4XL'
+$m_Sizes = Get-Content .\Data\Data-Sizes.txt
 
 # Some functions use the length of a string for calculating spaces for
 # proper on screen formatting. By calculating these "constants" here,

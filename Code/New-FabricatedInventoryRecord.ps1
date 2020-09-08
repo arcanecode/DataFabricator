@@ -14,6 +14,7 @@ function New-FabricatedInventoryRecord()
           [int] $RecordCount = 1
         , [int] $MaxDuplicateCountBeforeError = 50  
         , [string] $WarehouseCode = 'x'
+        , [string] $CountryCode = 'US'
         , [int] $MinQuantity = 1
         , [int] $MaxQuantity = 999  
         )
@@ -42,6 +43,18 @@ $fn
          Warehouse Code: $wc
 "@
 
+  #----------------------------------------------------------------------------------------------
+  #  Main logic to create and return the Record
+  #----------------------------------------------------------------------------------------------
+
+  # If no code is passed in, or they use unspecified, use the US
+  if ( ($null -eq $CountryCode) -or ( $CountryCode -eq 'Unspecified') )
+    { $CountryCode = 'US' }
+
+  # Warn if the country code is invalid, but continue working using the US instead
+  if ( (Test-CountryCode -CountryCode $CountryCode) -eq $false )
+    { Write-Warning "The country code $CountryCode is invalid, reverting to use US instead." }
+
   # Declare an empty array to hold the results
   $retVal = @()
 
@@ -64,8 +77,8 @@ $fn
     }
     else
     {
-      $state = Get-FabricatedState -Verbose:$false
-      $cityCode = ConvertTo-CityCode -City $(Get-FabricatedCity -Verbose:$false)
+      $state = Get-FabricatedState -CountryCode $CountryCode -Verbose:$false
+      $cityCode = ConvertTo-CityCode -City $(Get-FabricatedCity -CountryCode $CountryCode -Verbose:$false)
   
       $prod.WarehouseCode = "$state$cityCode"
     }

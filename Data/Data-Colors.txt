@@ -1,0 +1,10 @@
+Red
+Green
+Blue
+Yellow
+Black
+White
+Purple
+Sky Blue
+Ocean Green
+Mauve

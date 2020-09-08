@@ -5,7 +5,7 @@ online version: https://github.com/arcanecode/DataFabricator/blob/master/Documen
 schema: 2.0.0
 ---
 
-# Get-FabricatedZipCode
+# Get-FabricatedPostalCode
 
 ## SYNOPSIS
 
@@ -14,8 +14,8 @@ Fabrictes a US Zip Code in either 5 digit (the default) or the 5 Plus 4 format.
 ## SYNTAX
 
 ```powershell
-Get-FabricatedZipCode [-Plus4] [<CommonParameters>]
-```
+Get-FabricatedPostalCode [-Plus4] [<CommonParameters>]
+```powershell
 
 ## DESCRIPTION
 
@@ -29,12 +29,15 @@ Note that these zip codes are randomly generated, and may or may not actually ex
 ### EXAMPLE 1
 
 ```powershell
-Get-FabricatedZipCode
+Get-FabricatedPostalCode
 ```
 
-Get-FabricatedZipCode returns a string with the following data:
+Get-FabricatedPostalCode returns a string with the following data:
 
 
+
+Property | Value
+| ----- | ------ |
 Property | Value
 | ----- | ------ |
 Zip Code | 12345
@@ -42,10 +45,10 @@ Zip Code | 12345
 ### EXAMPLE 2
 
 ```powershell
-Get-FabricatedZipCode -Plus4
-```
+Get-FabricatedPostalCode -Plus4
+```powershell
 
-Get-FabricatedZipCode returns a string with the following data:
+Get-FabricatedPostalCode returns a string with the following data:
 
 
 Property | Value
@@ -55,12 +58,15 @@ Zip Code | 12345-6789
 ### EXAMPLE 3
 
 ```powershell
-Get-FabricatedZipCode -PlusFour
+Get-FabricatedPostalCode -PlusFour
 ```
 
-Get-FabricatedZipCode returns a string with the following data:
+Get-FabricatedPostalCode returns a string with the following data:
 
 
+
+Property | Value
+| ----- | ------ |
 Property | Value
 | ----- | ------ |
 Zip Code | 12345-6789
@@ -97,7 +103,7 @@ A string with the five digit zip code in 00000 format, or 00000-0000 if the Plus
 
 ## NOTES
 
-Data Fabricator - Get-FabricatedZipCode.ps1
+Data Fabricator - Get-FabricatedPostalCode.ps1
 
 Author: Robert C Cain | [@ArcaneCode](https://twitter.com/arcanecode) | arcane@arcanetc.com
 

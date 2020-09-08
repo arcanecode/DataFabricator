@@ -1,23 +1,4 @@
-$m_StreetsLast = 'Street',
-                 'Road',
-                 'Rd.',
-                 'Avenue',
-                 'Ave.',
-                 'Lane',
-                 'Ln.',
-                 'Drive',
-                 'Highway',
-                 'Hwy',
-                 'Boulevard',
-                 'Blvd',
-                 'Place',
-                 'Court',
-                 'Ct.',
-                 'Circle',
-                 'Trail',
-                 'Path',
-                 'Loop',
-                 'Way'
+$m_StreetsLast = Get-Content .\Data\Data-StreetsLast.ps1
 
 # Some functions use the length of a string for calculating spaces for
 # proper on screen formatting. By calculating these 'constants' here,

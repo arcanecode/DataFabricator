@@ -5,7 +5,7 @@ online version: https://github.com/arcanecode/DataFabricator/blob/master/Documen
 schema: 2.0.0
 ---
 
-# New-FabricatedCityStateZipCodeRecord
+# New-FabricatedCityStatePostalCodeRecord
 
 ## SYNOPSIS
 
@@ -14,9 +14,9 @@ Fabricate one or more records with city, state, and zip code data.
 ## SYNTAX
 
 ```powershell
-New-FabricatedCityStateZipCodeRecord [[-RecordCount] <Int32>] [[-MaxDuplicateCountBeforeError] <Int32>]
+New-FabricatedCityStatePostalCodeRecord [[-RecordCount] <Int32>] [[-MaxDuplicateCountBeforeError] <Int32>]
  [-Plus4] [<CommonParameters>]
-```
+```powershell
 
 ## DESCRIPTION
 
@@ -32,12 +32,15 @@ This value is appended to the two letter state abbreviation to produce unqiue ci
 ### EXAMPLE 1
 
 ```powershell
-New-FabricatedCityStateZipCodeRecord
+New-FabricatedCityStatePostalCodeRecord
 ```
 
-New-FabricatedCityStateZipCodeRecord returns the following data.
+New-FabricatedCityStatePostalCodeRecord returns the following data.
 
 
+
+Property | Value
+| ----- | ------ |
 Property | Value
 | ----- | ------ |
 City             | Chinook CDP
@@ -45,26 +48,29 @@ State            | AK
 StateName        | Alaska
 ZipCode          | 27264
 CityStZipCode    | Chinook CDP, AK 27264
-CityStateZipCode | Chinook CDP, Alaska 27264
+CityStatePostalCode | Chinook CDP, Alaska 27264
 CityCode         | AKCHINOOKCDP
 
 ### EXAMPLE 2
 
 ```powershell
-New-FabricatedCityStateZipCodeRecord -RecordCount 5
-```
+New-FabricatedCityStatePostalCodeRecord -RecordCount 5
+```powershell
 
-New-FabricatedCityStateZipCodeRecord returns 5 records with data similar to the previous example.
+New-FabricatedCityStatePostalCodeRecord returns 5 records with data similar to the previous example.
 
 ### EXAMPLE 3
 
 ```powershell
-New-FabricatedCityStateZipCodeRecord -Plus4
+New-FabricatedCityStatePostalCodeRecord -Plus4
 ```
 
-New-FabricatedCityStateZipCodeRecord returns the following data:
+New-FabricatedCityStatePostalCodeRecord returns the following data:
 
 
+
+Property | Value
+| ----- | ------ |
 Property | Value
 | ----- | ------ |
 City             | Chinook CDP
@@ -72,7 +78,7 @@ State            | AK
 StateName        | Alaska
 ZipCode          | 27264
 CityStZipCode    | Chinook CDP, AK 27264-3982
-CityStateZipCode | Chinook CDP, Alaska 27264-3982
+CityStatePostalCode | Chinook CDP, Alaska 27264-3982
 CityCode         | AKCHINOOKCDP
 
 ## PARAMETERS
@@ -100,7 +106,7 @@ Accept wildcard characters: False
 ### -Plus4
 
 Switch that will add a randomly generated plus 4 code to the returned zip code.
-(See the documentation for Get-FabricatedZipCode for more info on plus 4 codes.)
+(See the documentation for Get-FabricatedPostalCode for more info on plus 4 codes.)
 
 ```yaml
 Type: SwitchParameter
@@ -143,6 +149,9 @@ This cmdlet has no inputs.
 
 Object (or array of objects) with the following properties.
 
+
+Property | Description
+| ----- | ------ |
 Property | Description
 | ----- | ------ |
 City             | A randomly selected city.
@@ -150,12 +159,12 @@ State            | A randomly selected two character state code.
 StateName        | The full name of the state for the corresponding state code.
 ZipCode          | Randomly generated zip code.
 CityStZipCode    | Full city, state abbreviation, and zip combined in a string, i.e. "Chelsea, AL 12345".
-CityStateZipCode | City, full state name, and zip combined in a string, i.e. "Chelsea, Alabama 12345".
+CityStatePostalCode | City, full state name, and zip combined in a string, i.e. "Chelsea, Alabama 12345".
 CityCode         | The city which has been processed using the ConvertTo-CityCode cmdlet. Allows the city to be used as a unique key.
 
 ## NOTES
 
-Data Fabricator - New-FabricatedCityStateZipCodeRecord.ps1
+Data Fabricator - New-FabricatedCityStatePostalCodeRecord.ps1
 
 Author: Robert C Cain | [@ArcaneCode](https://twitter.com/arcanecode) | arcane@arcanetc.com
 
@@ -173,7 +182,7 @@ the express written consent of the author.
 
 [Get-FabricatedState](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedState.md)
 
-[Get-FabricatedZipCode](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedZipCode.md)
+[Get-FabricatedPostalCode](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedPostalCode.md)
 
 [New-FabricatedCityStateZipRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipRecord.md)
 

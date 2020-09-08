@@ -1,9 +1,9 @@
 # Now load a hashtable of codes and cities
-$m_CityCodes = @{}
+$m_CityCodesUS = @{}
 
-foreach($c in $m_Cities)
+foreach($c in $m_CitiesUS)
 {
-  $m_CityCodes[$(ConvertTo-CityCode -City $c)] = $c
+  $m_CityCodesUS[$(ConvertTo-CityCode -City $c)] = $c
 }
 
 # Note since this is a hash table, we won't be calculating max length

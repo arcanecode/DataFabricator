@@ -1,0 +1,11 @@
+Shirt
+Pants
+Socks
+Hat
+Mens Shoes
+Ladies Shoes
+Gloves
+Shorts
+Slacks
+Jeans
+Coat

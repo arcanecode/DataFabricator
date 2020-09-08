@@ -1,7 +1,7 @@
 ---
 external help file: DataFabricator-help.xml
 Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipCodeRecord.md
+online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStatePostalCodeRecord.md
 schema: 2.0.0
 ---
 
@@ -14,7 +14,8 @@ schema: 2.0.0
 
 ```
 New-FabricatedInventoryRecord [[-RecordCount] <Int32>] [[-MaxDuplicateCountBeforeError] <Int32>]
- [[-WarehouseCode] <String>] [[-MinQuantity] <Int32>] [[-MaxQuantity] <Int32>] [<CommonParameters>]
+ [[-WarehouseCode] <String>] [[-CountryCode] <String>] [[-MinQuantity] <Int32>] [[-MaxQuantity] <Int32>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -30,6 +31,21 @@ PS C:\> {{ Add example code here }}
 {{ Add example description here }}
 
 ## PARAMETERS
+
+### -CountryCode
+{{ Fill CountryCode Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -MaxDuplicateCountBeforeError
 {{ Fill MaxDuplicateCountBeforeError Description }}
@@ -55,7 +71,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 4
+Position: 5
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -70,7 +86,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 3
+Position: 4
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

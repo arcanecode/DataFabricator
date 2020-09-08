@@ -4,7 +4,7 @@ class EmployeeRecord
   [string] $MiddleName
   [string] $LastName
   [string] $FullName
-  [string] $SSN
+  [string] $TaxpayerID
   [string] $EmployeeID
   [string] $EMail
   [string] $HomePhone
@@ -14,12 +14,12 @@ class EmployeeRecord
   [string] $HomeAddress2
   [string] $HomeCity
   [string] $HomeState
-  [string] $HomeZip
+  [string] $HomePostalCode
   [string] $WorkAddress1
   [string] $WorkAddress2
   [string] $WorkCity
   [string] $WorkState
-  [string] $WorkZip
+  [string] $WorkPostalCode
   [string] $BirthDate
   [string] $HireDate
   [string] $JobTitle
@@ -31,6 +31,7 @@ function New-FabricatedEmployeeRecord()
           [int] $RecordCount = 1
         , [int] $MaxDuplicateCountBeforeError = 50  
         , [string] $EMailDomain = 'fakemail.com'
+        , [string] $CountryCode = 'US'
         )
 
   # Function Name
@@ -44,6 +45,14 @@ $fn
          Max Duplicate Rows Befor Error: $MaxDuplicateCountBeforeError
 "@
 
+  # If no code is passed in, or they use unspecified, use the US
+  if ( ($null -eq $CountryCode) -or ( $CountryCode -eq 'Unspecified') )
+    { $CountryCode = 'US' }
+
+  # Warn if the country code is invalid, but continue working using the US instead
+  if ( (Test-CountryCode -CountryCode $CountryCode) -eq $false )
+    { Write-Warning "The country code $CountryCode is invalid, reverting to use US instead." }
+
   # Declare an empty array to hold the results
   $retVal = @()
 
@@ -55,8 +64,8 @@ $fn
   while ($i -lt $RecordCount) 
   {
     # Fabricate city/state/zip and name records
-    $cszHome = New-FabricatedCityStateZipCodeRecord -Verbose:$false
-    $cszWork = New-FabricatedCityStateZipCodeRecord -Verbose:$false
+    $cszHome = New-FabricatedCityStatePostalCodeRecord -CountryCode $CountryCode -Verbose:$false
+    $cszWork = New-FabricatedCityStatePostalCodeRecord -CountryCode $CountryCode -Verbose:$false
     $name = New-FabricatedNameRecord -Verbose:$false
 
     $emp = [EmployeeRecord]::new()
@@ -66,26 +75,27 @@ $fn
     $emp.LastName = $name.Last
     $emp.FullName = $name.FirstMiddleLast
 
-    $emp.SSN = Get-FabricatedSSN -Verbose:$false
-    $emp.EmployeeID = "$($emp.LastName.Substring(0, 2).ToUpper())$($emp.SSN.Substring($emp.SSN.Length - 4, 4)) "
+    $emp.TaxpayerID = Get-FabricatedTaxpayerID -CountryCode $CountryCode -Verbose:$false
+    $emp.EmployeeID = "$($emp.LastName.Substring(0, 2).ToUpper())$($emp.TaxpayerID.Substring($emp.TaxpayerID.Length - 4, 4)) "
 
     $emp.EMail = "$($name.EmailName)@$($EMailDomain)"
 
-    $emp.HomePhone = Get-FabricatedPhone -Verbose:$false
-    $emp.MobilePhone = Get-FabricatedPhone -Verbose:$false
-    $emp.WorkPhone = Get-FabricatedPhone -Verbose:$false
+    $emp.HomePhone = Get-FabricatedPhone -CountryCode $CountryCode -Verbose:$false
+    $emp.MobilePhone = Get-FabricatedPhone -CountryCode $CountryCode -Verbose:$false
+    $emp.WorkPhone = Get-FabricatedPhone -CountryCode $CountryCode -Verbose:$false
 
     $emp.HomeAddress1 = Get-FabricatedAddressLine1 -Verbose:$false
     $emp.HomeAddress2 = Get-FabricatedAddressLine2 -Verbose:$false
     $emp.HomeCity = $cszHome.City
     $emp.HomeState = $cszHome.State
-    $emp.HomeZip = $cszHome.ZipCode
+    $emp.HomePostalCode = $cszHome.PostalCode
 
+    # It's fairly common for work address to have a line 2, so we'll use a high threshold
     $emp.WorkAddress1 = Get-FabricatedAddressLine1 -Verbose:$false
-    $emp.WorkAddress2 = Get-FabricatedAddressLine2 -Verbose:$false
+    $emp.WorkAddress2 = Get-FabricatedAddressLine2 -Threshold 75 -Verbose:$false
     $emp.WorkCity = $cszWork.City
     $emp.WorkState = $cszWork.State
-    $emp.WorkZip = $cszWork.ZipCode
+    $emp.WorkPostalCode = $cszWork.PostalCode
 
     $emp.BirthDate = Get-FabricatedDate -RelativeThruYear 18 -RelativeFromYear 70 -Verbose:$false
     $emp.HireDate = Get-FabricatedDate -RelativeFromYear 15 -Verbose:$false

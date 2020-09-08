@@ -1,19 +1,4 @@
-$m_Compass = 'North',
-             'North East',
-             'North West',
-             'N',
-             'NE',
-             'NW',
-             'South',
-             'South East',
-             'South West',
-             'S',
-             'SE',
-             'SW',
-             'West',
-             'W',
-             'East',
-             'E'
+$m_Compass = Get-Content .\Data\Data-Compass.txt
 
 # Some functions use the length of a string for calculating spaces for
 # proper on screen formatting. By calculating these 'constants' here,

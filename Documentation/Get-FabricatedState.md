@@ -14,7 +14,7 @@ Fabricates a US state by randomly picking it from a list of states.
 ## SYNTAX
 
 ```powershell
-Get-FabricatedState [-FullName] [<CommonParameters>]
+Get-FabricatedState [-FullName] [[-CountryCode] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -51,6 +51,23 @@ Property | Value
 State | Alabama
 
 ## PARAMETERS
+
+### -CountryCode
+
+Country code.
+If no code is supplied it defaults to the US.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 1
+Default value: US
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -FullName
 

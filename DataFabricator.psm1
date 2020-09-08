@@ -32,6 +32,7 @@
 . .\Data\Load-Cities.ps1
 . .\Data\Load-Company.ps1
 . .\Data\Load-Compass.ps1
+. .\Data\Load-CountryCode.ps1
 . .\Data\Load-JobTitles.ps1
 . .\Data\Load-Letter.ps1
 . .\Data\Load-NamesFirst.ps1
@@ -47,6 +48,8 @@
 . .\Code\ConvertFrom-ProductCode.ps1
 . .\Code\ConvertTo-CityCode.ps1
 . .\Code\ConvertTo-ProductCode.ps1
+. .\Code\Get-CountryCodes.ps1
+. .\Code\Get-StateName.ps1
 . .\Code\Get-FabricatedAddressLine1.ps1
 . .\Code\Get-FabricatedAddressLine2.ps1
 . .\Code\Get-FabricatedBin.ps1
@@ -56,11 +59,11 @@
 . .\Code\Get-FabricatedJobTitle.ps1
 . .\Code\Get-FabricatedName.ps1
 . .\Code\Get-FabricatedPhone.ps1
-. .\Code\Get-FabricatedSSN.ps1
+. .\Code\Get-FabricatedTaxpayerID.ps1
 . .\Code\Get-FabricatedState.ps1
 . .\Code\Get-FabricatedTime.ps1
-. .\Code\Get-FabricatedZipCode.ps1
-. .\Code\New-FabricatedCityStateZipCodeRecord.ps1
+. .\Code\Get-FabricatedPostalCode.ps1
+. .\Code\New-FabricatedCityStatePostalCodeRecord.ps1
 . .\Code\New-FabricatedCompanyRecord.ps1
 . .\Code\New-FabricatedCustomerRecord.ps1
 . .\Code\New-FabricatedEmployeeRecord.ps1
@@ -69,6 +72,7 @@
 . .\Code\New-FabricatedProductRecord.ps1
 . .\Code\New-FabricatedProductTable.ps1
 . .\Code\New-FabricatedSalesRecord.ps1
+. .\Code\Test-CountryCode.ps1
 
 # Run scripts to load internal functions, used only in the module
 . .\Internal\Request-DupeErrorMessage.ps1
@@ -87,6 +91,8 @@ Export-ModuleMember ConvertFrom-ProductCode
 Export-ModuleMember ConvertTo-CityCode
 Export-ModuleMember ConvertTo-ProductCode
 
+Export-ModuleMember Get-CountryCodes
+Export-ModuleMember Get-StateName
 Export-ModuleMember Get-FabricatedAddressLine1
 Export-ModuleMember Get-FabricatedAddressLine2
 Export-ModuleMember Get-FabricatedBin 
@@ -96,12 +102,12 @@ Export-ModuleMember Get-FabricatedDate
 Export-ModuleMember Get-FabricatedJobTitle
 Export-ModuleMember Get-FabricatedName
 Export-ModuleMember Get-FabricatedPhone
-Export-ModuleMember Get-FabricatedSSN
+Export-ModuleMember Get-FabricatedTaxpayerID
 Export-ModuleMember Get-FabricatedState
 Export-ModuleMember Get-FabricatedTime
-Export-ModuleMember Get-FabricatedZipCode
+Export-ModuleMember Get-FabricatedPostalCode
 
-Export-ModuleMember New-FabricatedCityStateZipCodeRecord
+Export-ModuleMember New-FabricatedCityStatePostalCodeRecord
 Export-ModuleMember New-FabricatedCompanyRecord
 Export-ModuleMember New-FabricatedCustomerRecord
 Export-ModuleMember New-FabricatedEmployeeRecord
@@ -110,3 +116,5 @@ Export-ModuleMember New-FabricatedNameRecord
 Export-ModuleMember New-FabricatedProductRecord
 Export-ModuleMember New-FabricatedProductTable
 Export-ModuleMember New-FabricatedSalesRecord 
+
+Export-ModuleMember Test-CountryCode

@@ -1,7 +1,7 @@
 ---
 external help file: DataFabricator-help.xml
 Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipCodeRecord.md
+online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStatePostalCodeRecord.md
 schema: 2.0.0
 ---
 
@@ -14,7 +14,7 @@ Fabricates the name of a city from a list of cities.
 ## SYNTAX
 
 ```powershell
-Get-FabricatedCity [<CommonParameters>]
+Get-FabricatedCity [[-CountryCode] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -36,7 +36,37 @@ Property | Value
 | ----- | ------ |
 City | Chelsea
 
+### EXAMPLE 2
+
+```powershell
+Get-FabricatedCity -CountryCode UK
+```
+
+Get-FabricatedCity returns the following data:
+
+
+Property | Value
+| ----- | ------ |
+City | Inverness
+
 ## PARAMETERS
+
+### -CountryCode
+
+Country code.
+If no code is supplied it defaults to the US.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 1
+Default value: US
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### CommonParameters
 
@@ -66,7 +96,7 @@ the express written consent of the author.
 
 ## RELATED LINKS
 
-[New-FabricatedCityStateZipCodeRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipCodeRecord.md)
+[New-FabricatedCityStatePostalCodeRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStatePostalCodeRecord.md)
 
 [New-FabricatedCompanyRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCompanyRecord.md)
 

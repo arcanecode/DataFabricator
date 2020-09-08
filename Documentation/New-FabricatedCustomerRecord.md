@@ -1,7 +1,7 @@
 ---
 external help file: DataFabricator-help.xml
 Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipCodeRecord.md
+online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStatePostalCodeRecord.md
 schema: 2.0.0
 ---
 
@@ -14,7 +14,7 @@ schema: 2.0.0
 
 ```
 New-FabricatedCustomerRecord [[-RecordCount] <Int32>] [[-MaxDuplicateCountBeforeError] <Int32>]
- [[-EMailDomain] <String>] [<CommonParameters>]
+ [[-EMailDomain] <String>] [[-CountryCode] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -30,6 +30,21 @@ PS C:\> {{ Add example code here }}
 {{ Add example description here }}
 
 ## PARAMETERS
+
+### -CountryCode
+{{ Fill CountryCode Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 3
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -EMailDomain
 {{ Fill EMailDomain Description }}

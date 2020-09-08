@@ -10,6 +10,17 @@ Import-Module .\DataFabricator -Verbose
 Clear-Host
 
 #------------------------------------------------------------------------------------------------
+# Country Codes
+#------------------------------------------------------------------------------------------------
+Get-CountryCodes
+
+# Should return true
+Test-CountryCode -CountryCode 'UK'
+
+# Should produce an error message and return false
+Test-CountryCode -CountryCode 'XX'
+
+#------------------------------------------------------------------------------------------------
 # Address
 #------------------------------------------------------------------------------------------------
 Get-FabricatedAddressLine1
@@ -35,45 +46,76 @@ ConvertTo-CityCode -City "Aaronsburg CDP" -Verbose
 Get-FabricatedCity
 Get-FabricatedCity -Verbose
 
+Get-FabricatedCity -CountryCode US
+Get-FabricatedCity -CountryCode US -Verbose
+
+Get-FabricatedCity -CountryCode UK
+Get-FabricatedCity -CountryCode UK -Verbose
+
+Get-FabricatedCity -CountryCode 'Garbage'
+Get-FabricatedCity -CountryCode 'Garbage' -Verbose
+
+
 Get-FabricatedState
 Get-FabricatedState -FullName
 
 Get-FabricatedState -Verbose
 Get-FabricatedState -FullName -Verbose
 
-Get-FabricatedZipCode
-Get-FabricatedZipCode -Plus4
-Get-FabricatedZipCode -PlusFour
+Get-FabricatedState -CountryCode UK
+Get-FabricatedState -CountryCode UK -FullName
 
-Get-FabricatedZipCode -Verbose
+Get-FabricatedPostalCode
+Get-FabricatedPostalCode -Plus4
+Get-FabricatedPostalCode -PlusFour
 
+Get-FabricatedPostalCode -Verbose
 
-New-FabricatedCityStateZipCodeRecord
-New-FabricatedCityStateZipCodeRecord -Plus4
-New-FabricatedCityStateZipCodeRecord -PlusFour
-New-FabricatedCityStateZipCodeRecord -RecordCount 5
-New-FabricatedCityStateZipCodeRecord -RecordCount 5 -Plus4
-New-FabricatedCityStateZipCodeRecord -RecordCount 5 -PlusFour
+Get-FabricatedPostalCode -CountryCode UK
+Get-FabricatedPostalCode -CountryCode UK -Plus4
+Get-FabricatedPostalCode -CountryCode UK -PlusFour
 
-New-FabricatedCityStateZipCodeRecord -Verbose
-New-FabricatedCityStateZipCodeRecord -Plus4 -Verbose
-New-FabricatedCityStateZipCodeRecord -PlusFour -Verbose
+Get-FabricatedPostalCode -CountryCode UK -Verbose
+Get-FabricatedPostalCode -CountryCode UK -Plus4 -Verbose
 
-New-FabricatedCityStateZipCodeRecord -Verbose
+New-FabricatedCityStatePostalCodeRecord
+New-FabricatedCityStatePostalCodeRecord -Plus4
+New-FabricatedCityStatePostalCodeRecord -PlusFour
+New-FabricatedCityStatePostalCodeRecord -RecordCount 5
+New-FabricatedCityStatePostalCodeRecord -RecordCount 5 -Plus4
+New-FabricatedCityStatePostalCodeRecord -RecordCount 5 -PlusFour
 
-Remove-Module DataFabricator -ErrorAction SilentlyContinue
-Import-Module .\DataFabricator -Verbose
-$csz = New-FabricatedCityStateZipCodeRecord -RecordCount 5 -Verbose
+New-FabricatedCityStatePostalCodeRecord -Verbose
+New-FabricatedCityStatePostalCodeRecord -Plus4 -Verbose
+New-FabricatedCityStatePostalCodeRecord -PlusFour -Verbose
+
+New-FabricatedCityStatePostalCodeRecord -CountryCode UK 
+New-FabricatedCityStatePostalCodeRecord -CountryCode UK -Plus4
+New-FabricatedCityStatePostalCodeRecord -CountryCode UK -PlusFour
+New-FabricatedCityStatePostalCodeRecord -CountryCode UK -RecordCount 5
+New-FabricatedCityStatePostalCodeRecord -CountryCode UK -RecordCount 5 -Plus4
+New-FabricatedCityStatePostalCodeRecord -CountryCode UK -RecordCount 5 -PlusFour
+
+New-FabricatedCityStatePostalCodeRecord -CountryCode UK -Verbose
+New-FabricatedCityStatePostalCodeRecord -CountryCode UK -Plus4 -Verbose
+New-FabricatedCityStatePostalCodeRecord -CountryCode UK -PlusFour -Verbose
+
+$csz = New-FabricatedCityStatePostalCodeRecord -RecordCount 5 -Verbose
 $csz | Format-Table
 
-$csz = New-FabricatedCityStateZipCodeRecord -RecordCount 50 -Plus4 -Verbose
+$csz = New-FabricatedCityStatePostalCodeRecord -RecordCount 50 -Plus4 -Verbose
 $csz | Format-Table
 
-$csz = New-FabricatedCityStateZipCodeRecord -RecordCount 50 -Plus4 -MaxDuplicateCountBeforeError 5 -Verbose
+$csz = New-FabricatedCityStatePostalCodeRecord -RecordCount 50 -Plus4 -MaxDuplicateCountBeforeError 5 -Verbose
 $csz | Format-Table
 
+$csz = New-FabricatedCityStatePostalCodeRecord -RecordCount 5 -CountryCode UK -Verbose
+$csz | Format-Table
 
-$csz = New-FabricatedCityStateZipCodeRecord -RecordCount 250 -Verbose
+$csz = New-FabricatedCityStatePostalCodeRecord -RecordCount 50 -Plus4 -CountryCode UK -Verbose
+$csz | Format-Table
+
+$csz = New-FabricatedCityStatePostalCodeRecord -RecordCount 50 -Plus4 -MaxDuplicateCountBeforeError 5 -CountryCode UK -Verbose
 $csz | Format-Table
 
 #------------------------------------------------------------------------------------------------
@@ -129,13 +171,25 @@ Get-FabricatedName -LastFirstMiddle
 Get-FabricatedName -Verbose
 
 Get-FabricatedPhone
-Get-FabricatedPhone -NoDashes
+Get-FabricatedPhone -NoFormatting
 Get-FabricatedPhone -Verbose
 
-Get-FabricatedSSN
-Get-FabricatedSSN -NoDashes
-Get-FabricatedSSN -Verbose
+Get-FabricatedPhone -CountryCode UK 
+Get-FabricatedPhone -CountryCode UK -NoFormatting
+Get-FabricatedPhone -CountryCode UK -Verbose
 
+Get-FabricatedTaxpayerID
+Get-FabricatedTaxpayerID -NoFormatting
+Get-FabricatedTaxpayerID -Verbose
+
+Get-FabricatedTaxpayerID -CountryCode UK
+Get-FabricatedTaxpayerID -CountryCode UK -NoFormatting
+Get-FabricatedTaxpayerID -CountryCode UK -Verbose
+
+
+#------------------------------------------------------------------------------------------------
+# Names
+#------------------------------------------------------------------------------------------------
 $n = New-FabricatedNameRecord
 $n 
 
@@ -166,7 +220,6 @@ $cust = New-FabricatedCustomerRecord -EMailDomain 'pluralsight.com'
 $cust
 
 $cust = New-FabricatedCustomerRecord -RecordCount 5
-$cust
 $cust | Format-Table
 
 $cust = New-FabricatedCustomerRecord -RecordCount 5 -EMailDomain 'pluralsight.com'
@@ -189,6 +242,33 @@ $cust | Format-Table
 
 
 
+$cust = New-FabricatedCustomerRecord -CountryCode UK
+$cust
+
+$cust = New-FabricatedCustomerRecord -CountryCode UK -EMailDomain 'pluralsight.co'
+$cust
+
+$cust = New-FabricatedCustomerRecord -CountryCode UK -RecordCount 5
+$cust
+$cust | Format-Table
+
+$cust = New-FabricatedCustomerRecord -CountryCode UK -RecordCount 5 -EMailDomain 'pluralsight.co'
+$cust
+$cust | Format-Table
+
+$cust = New-FabricatedCustomerRecord -CountryCode UK -Verbose
+$cust
+
+$cust = New-FabricatedCustomerRecord -CountryCode UK -EMailDomain 'pluralsight.co' -Verbose
+$cust
+
+$cust = New-FabricatedCustomerRecord -CountryCode UK -RecordCount 50 -Verbose
+$cust
+$cust | Format-Table
+
+$cust = New-FabricatedCustomerRecord -CountryCode UK -RecordCount 5 -EMailDomain 'pluralsight.com' -Verbose
+$cust
+$cust | Format-Table
 
 #------------------------------------------------------------------------------------------------
 # Employee
@@ -219,6 +299,30 @@ $emp | Format-Table
 $emp = New-FabricatedEmployeeRecord -RecordCount 5 -EMailDomain 'pluralsight.com' -Verbose
 $emp | Format-Table
 
+$emp = New-FabricatedEmployeeRecord -CountryCode UK
+$emp
+
+$emp = New-FabricatedEmployeeRecord -CountryCode UK -EMailDomain 'pluralsight.co'
+$emp
+
+$emp = New-FabricatedEmployeeRecord -CountryCode UK -RecordCount 5
+$emp | Format-Table
+
+$emp = New-FabricatedEmployeeRecord -CountryCode UK -RecordCount 5 -EMailDomain 'pluralsight.co'
+$emp | Format-Table
+
+$emp = New-FabricatedEmployeeRecord -CountryCode UK -Verbose
+$emp
+
+$emp = New-FabricatedEmployeeRecord -CountryCode UK -EMailDomain 'pluralsight.co' -Verbose
+$emp
+
+$emp = New-FabricatedEmployeeRecord -CountryCode UK -RecordCount 5 -Verbose
+$emp | Format-Table
+
+$emp = New-FabricatedEmployeeRecord -CountryCode UK -RecordCount 5 -EMailDomain 'pluralsight.co' -Verbose
+$emp | Format-Table
+
 #------------------------------------------------------------------------------------------------
 # Company
 #------------------------------------------------------------------------------------------------
@@ -234,6 +338,18 @@ $company = New-FabricatedCompanyRecord -RecordCount 5
 $company | Format-Table
 
 $company = New-FabricatedCompanyRecord -RecordCount 5 -Verbose
+$company | Format-Table
+
+$company = New-FabricatedCompanyRecord -CountryCode UK
+$company
+
+$company = New-FabricatedCompanyRecord -CountryCode UK -Verbose
+$company
+
+$company = New-FabricatedCompanyRecord -CountryCode UK -RecordCount 5
+$company | Format-Table
+
+$company = New-FabricatedCompanyRecord -CountryCode UK -RecordCount 5 -Verbose
 $company | Format-Table
 
 #------------------------------------------------------------------------------------------------
@@ -277,7 +393,7 @@ $inv
 $inv | Format-Table
 
 # Use the same warehouse code for everything
-$csz = New-FabricatedCityStateZipCodeRecord
+$csz = New-FabricatedCityStatePostalCodeRecord
 $WarehouseCode = $csz.CityCode
 $WarehouseCode
 
@@ -358,7 +474,7 @@ Remove-Item "$Path\*.csv"
 # Recheck the data fabricator.com link once the github project is public
 
 # Change ZipCode to PostalCode in the project
-# Change SSN to taxpayer ID
+# Change TaxpayerID to taxpayer ID
 # Add -US flag to many of the Get-Fabricated... 
 # That, or add a CountryCode parameter that defaults to the US, using an ENUM value
 # Update the m_ lists to be m_xxxUS
@@ -393,12 +509,12 @@ Remove-Item "$Path\*.csv"
 #   x Get-FabricatedJobTitle
 #   x Get-FabricatedName
 #   x Get-FabricatedPhone
-#   x Get-FabricatedSSN
+#   x Get-FabricatedTaxpayerID
 #   x Get-FabricatedState
 #   x Get-FabricatedTime
-#   x Get-FabricatedZipCode
+#   x Get-FabricatedPostalCode
 #  
-#   x New-FabricatedCityStateZipCodeRecord
+#   x New-FabricatedCityStatePostalCodeRecord
 #   New-FabricatedCompanyRecord
 #   New-FabricatedCustomerRecord
 #   New-FabricatedEmployeeRecord
