@@ -21,7 +21,7 @@ Get-FabricatedBin
 
 Get-FabricatedBin returns the following data:
 
-IW328
+Bin | IW328
 
 .NOTES
 Data Fabricator - Get-FabricatedBin.ps1

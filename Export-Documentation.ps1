@@ -22,7 +22,8 @@
 -----------------------------------------------------------------------------------------------#>
 
 # Import PlatyPS into memory
-# Import-Module PlatyPS
+Install-Module PlatyPS
+Import-Module PlatyPS
 
 # Before running, you need to have the most current version loaded in memory
 Remove-Module DataFabricator -ErrorAction SilentlyContinue

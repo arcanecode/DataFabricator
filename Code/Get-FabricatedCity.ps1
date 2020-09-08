@@ -16,7 +16,7 @@ Get-FabricatedCity
 
 Get-FabricatedCity returns the following data:
 
-City: Chelsea
+City | Chelsea
 
 .NOTES
 Data Fabricator - Get-FabricatedCity.ps1

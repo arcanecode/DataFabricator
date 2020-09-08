@@ -17,7 +17,7 @@ Get-FabricatedCompany
 
 Get-FabricatedCompany returns the following data:
 
-Arcane Training Inc.
+Company | Arcane Training Inc.
 
 .NOTES
 Data Fabricator - Get-FabricatedCompany.ps1

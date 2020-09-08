@@ -32,7 +32,10 @@ ConvertTo-ProductCode -Clothing 'Gloves' -Color 'Ocean Green' -Size 'Large'
 
 ConvertTo-ProductCode returns the following data:
 
-ProductCode: GLOOCELAR
+
+Property | Value
+| ----- | ------ |
+ProductCode | GLOOCELAR
 
 ## PARAMETERS
 

@@ -32,7 +32,10 @@ Get-FabricatedAddressLine1
 
 Get-FabricatedAddressLine1 returns the following data:
 
-Address1: 4964 Mackenzie Road
+
+Property | Value
+| ----- | ------ |
+Address1 | 4964 Mackenzie Road
 
 ## PARAMETERS
 

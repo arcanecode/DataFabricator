@@ -26,7 +26,7 @@ ConvertTo-ProductCode -Clothing 'Gloves' -Color 'Ocean Green' -Size 'Large'
 
 ConvertTo-ProductCode returns the following data:
 
-ProductCode: GLOOCELAR
+ProductCode | GLOOCELAR
 
 .NOTES
 Data Fabricator - ConvertTo-ProductCode.ps1

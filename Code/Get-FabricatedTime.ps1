@@ -20,14 +20,14 @@ Get-FabricatedTime
 
 Get-FabricatedTime returns the following data:
 
-22:35:41
+Time | 22:35:41
 
 .EXAMPLE
 Get-FabricatedTime -AMPM
 
 Get-FabricatedTime returns the following data:
 
-10:35:41 PM
+Time | 10:35:41 PM
 
 .NOTES
 Data Fabricator - Get-FabricatedTime.ps1

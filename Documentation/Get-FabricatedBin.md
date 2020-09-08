@@ -36,7 +36,10 @@ Get-FabricatedBin
 
 Get-FabricatedBin returns the following data:
 
-IW328
+
+Property | Value
+| ----- | ------ |
+Bin | IW328
 
 ## PARAMETERS
 

@@ -21,36 +21,36 @@ This cmdlet has no inputs.
 .OUTPUTS
 Array of objects with the following properties:
 
-First | The first name
-Middle | Middle Name
-MiddleInitial | First letter of the middle name
-Last | Last Name
-FirstLast | The full name in the format "John Doe"
-FirstMiLast | First and last with middle initial, "John X. Doe"
+First           | The first name
+Middle          | Middle Name
+MiddleInitial   | First letter of the middle name
+Last            | Last Name
+FirstLast       | The full name in the format "John Doe"
+FirstMiLast     | First and last with middle initial, "John X. Doe"
 FirstMiddleLast | First, middle and last name, "John Xavier Doe"
-LastFirst | Name in reverse format, "Doe, John"
-LastFirstMi | Name in reverse format ending with the middle initial, "Doe, John X."
+LastFirst       | Name in reverse format, "Doe, John"
+LastFirstMi     | Name in reverse format ending with the middle initial, "Doe, John X."
 LastFirstMiddle | Name in reverse format with the full middle name, "Doe, John Xavier"
-EmailName | The name suitible for the opening part of an email address, "j.doe"
-NameCode | This is the name converted to uppercase with underscores, useful for a key. "DOE_JOHN_XAVIER"
+EmailName       | The name suitible for the opening part of an email address, "j.doe"
+NameCode        | This is the name converted to uppercase with underscores, useful for a key. "DOE_JOHN_XAVIER"
 
 .EXAMPLE
 New-FabricatedNameRecord
 
 New-FabricatedNameRecord returns an object with the following data:
 
-First | "Eliana"
-Middle | "Corey"
-MiddleInitial | "C"
-Last | "Moore"
-FirstLast | "Eliana Moore"
-FirstMiLast | "Eliana C. Moore"
+First           | "Eliana"
+Middle          | "Corey"
+MiddleInitial   | "C"
+Last            | "Moore"
+FirstLast       | "Eliana Moore"
+FirstMiLast     | "Eliana C. Moore"
 FirstMiddleLast | "Eliana Corey Moore"
-LastFirst | "Moore, Eliana"
-LastFirstMi | "Moore, Eliana C."
+LastFirst       | "Moore, Eliana"
+LastFirstMi     | "Moore, Eliana C."
 LastFirstMiddle | "Moore, Eliana Corey"
-EmailName | "e.moore"
-NameCode | "MOORE_ELIANA_COREY"
+EmailName       | "e.moore"
+NameCode        | "MOORE_ELIANA_COREY"
 
 .EXAMPLE
 New-FabricatedNameRecord -RecordCount 5

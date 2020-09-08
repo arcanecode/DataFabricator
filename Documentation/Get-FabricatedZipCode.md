@@ -34,7 +34,10 @@ Get-FabricatedZipCode
 
 Get-FabricatedZipCode returns a string with the following data:
 
-12345
+
+Property | Value
+| ----- | ------ |
+Zip Code | 12345
 
 ### EXAMPLE 2
 
@@ -44,7 +47,10 @@ Get-FabricatedZipCode -Plus4
 
 Get-FabricatedZipCode returns a string with the following data:
 
-12345-6789
+
+Property | Value
+| ----- | ------ |
+Zip Code | 12345-6789
 
 ### EXAMPLE 3
 
@@ -54,7 +60,10 @@ Get-FabricatedZipCode -PlusFour
 
 Get-FabricatedZipCode returns a string with the following data:
 
-12345-6789
+
+Property | Value
+| ----- | ------ |
+Zip Code | 12345-6789
 
 ## PARAMETERS
 

@@ -31,7 +31,10 @@ Get-FabricatedCity
 
 Get-FabricatedCity returns the following data:
 
-City: Chelsea
+
+Property | Value
+| ----- | ------ |
+City | Chelsea
 
 ## PARAMETERS
 

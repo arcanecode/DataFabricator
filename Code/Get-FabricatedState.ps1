@@ -20,14 +20,14 @@ Get-FabricatedState
 
 Get-FabricatedState returns the following data:
 
-AL
+State | AL
 
 .EXAMPLE
 Get-FabricatedState -FullName
 
 Get-FabricatedState returns the following data:
 
-Alabama
+State | Alabama
 
 .NOTES
 Data Fabricator - Get-FabricatedState.ps1

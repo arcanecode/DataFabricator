@@ -19,14 +19,14 @@ Get-FabricatedSSN
 
 Get-FabricatedSSN returns the following data:
 
-082-12-7296
+SSN | 082-12-7296
 
 .EXAMPLE
 Get-FabricatedSSN -NoDashes
 
 Get-FabricatedSSN returns the following data:
 
-082127296
+SSN | 082127296
 
 .NOTES
 Data Fabricator - Get-FabricatedSSN.ps1

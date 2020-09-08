@@ -32,7 +32,10 @@ Get-FabricatedState
 
 Get-FabricatedState returns the following data:
 
-AL
+
+Property | Value
+| ----- | ------ |
+State | AL
 
 ### EXAMPLE 2
 
@@ -42,7 +45,10 @@ Get-FabricatedState -FullName
 
 Get-FabricatedState returns the following data:
 
-Alabama
+
+Property | Value
+| ----- | ------ |
+State | Alabama
 
 ## PARAMETERS
 

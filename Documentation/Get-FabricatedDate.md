@@ -35,7 +35,10 @@ Get-FabricatedDate
 
 Get-FabricatedDate returns the following string:
 
-1991-12-23
+
+Property | Value
+| ----- | ------ |
+Date | 1991-12-23
 
 ### EXAMPLE 2
 
@@ -45,7 +48,10 @@ Get-FabricatedDate -FromYear 1930
 
 Get-FabricatedDate returns the following string:
 
-1936-02-27
+
+Property | Value
+| ----- | ------ |
+Date | 1936-02-27
 
 ### EXAMPLE 3
 
@@ -55,7 +61,10 @@ Get-FabricatedDate -FromYear 1000 -ThruYear 1200
 
 Get-FabricatedDate returns the following string:
 
-1042-02-27
+
+Property | Value
+| ----- | ------ |
+Date | 1042-02-27
 
 ### EXAMPLE 4
 
@@ -65,7 +74,10 @@ Get-FabricatedDate -RelativeFromYear 1000
 
 Get-FabricatedDate returns the following string:
 
-1764-05-21
+
+Property | Value
+| ----- | ------ |
+Date | 1764-05-21
 
 ### EXAMPLE 5
 
@@ -75,7 +87,10 @@ Get-FabricatedDate -RelativeThruYear 21
 
 Get-FabricatedDate returns the following string:
 
-1984-02-07
+
+Property | Value
+| ----- | ------ |
+Date | 1984-02-07
 
 ### EXAMPLE 6
 
@@ -85,7 +100,10 @@ Get-FabricatedDate -AsDateTime
 
 Get-FabricatedDate returns the following datetime datatype:
 
-Tuesday, August 18, 1981 12:00:00 AM
+
+Property | Value
+| ----- | ------ |
+Date | Tuesday, August 18, 1981 12:00:00 AM
 
 ### EXAMPLE 7
 
@@ -95,7 +113,10 @@ Get-FabricatedDate -AsDateTime -FabricateTime
 
 Get-FabricatedDate returns the following datetime datatype:
 
-Tuesday, June 14, 2011 4:18:26 AM
+
+Property | Value
+| ----- | ------ |
+Date | Tuesday, June 14, 2011 4:18:26 AM
 
 ### EXAMPLE 8
 
@@ -105,7 +126,10 @@ Get-FabricatedDate -FormatMDY
 
 Get-FabricatedDate returns the following string:
 
-10-28-1998
+
+Property | Value
+| ----- | ------ |
+Date | 10-28-1998
 
 ### EXAMPLE 9
 
@@ -115,7 +139,10 @@ Get-FabricatedDate -FormatDMY
 
 Get-FabricatedDate returns the following string:
 
-22-02-1975
+
+Property | Value
+| ----- | ------ |
+Date | 22-02-1975
 
 ### EXAMPLE 10
 
@@ -125,7 +152,10 @@ Get-FabricatedDate -FabricateTime
 
 Get-FabricatedDate returns the following string:
 
-1992-05-28 07:27:33
+
+Property | Value
+| ----- | ------ |
+Date | 1992-05-28 07:27:33
 
 ## PARAMETERS
 

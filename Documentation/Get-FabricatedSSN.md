@@ -31,7 +31,10 @@ Get-FabricatedSSN
 
 Get-FabricatedSSN returns the following data:
 
-082-12-7296
+
+Property | Value
+| ----- | ------ |
+SSN | 082-12-7296
 
 ### EXAMPLE 2
 
@@ -41,7 +44,10 @@ Get-FabricatedSSN -NoDashes
 
 Get-FabricatedSSN returns the following data:
 
-082127296
+
+Property | Value
+| ----- | ------ |
+SSN | 082127296
 
 ## PARAMETERS
 

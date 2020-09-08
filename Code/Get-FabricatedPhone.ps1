@@ -20,14 +20,14 @@ Get-FabricatedPhone
 
 Get-FabricatedPhone returns the following data:
 
-672-344-1425
+Phone | 672-344-1425
 
 .EXAMPLE
 Get-FabricatedPhone -NoDashes
 
 Get-FabricatedPhone returns the following data:
 
-6723441425
+Phone | 6723441425
 
 .NOTES
 Data Fabricator - Get-FabricatedPhone.ps1

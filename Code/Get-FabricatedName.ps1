@@ -38,56 +38,56 @@ Get-FabricatedName
 
 Get-FabricatedName returns the following data:
 
-John Sapien
+Name | John Sapien
 
 .EXAMPLE
 Get-FabricatedName -First
 
 Get-FabricatedName returns the following data:
 
-Sherril
+Name | Sherril
 
 .EXAMPLE
 Get-FabricatedName -Last
 
 Get-FabricatedName returns the following data:
 
-Piercy
+Name | Piercy
 
 .EXAMPLE
 Get-FabricatedName -FirstMiLast
 
 Get-FabricatedName returns the following data:
 
-Gertie F. Phillip
+Name | Gertie F. Phillip
 
 .EXAMPLE
 Get-FabricatedName -FirstMiddleLast
 
 Get-FabricatedName returns the following data:
 
-Loyce Coral Caldwell
+Name | Loyce Coral Caldwell
 
 .EXAMPLE
 Get-FabricatedName -LastFirst
 
 Get-FabricatedName returns the following data:
 
-Wixom, Eli
+Name | Wixom, Eli
 
 .EXAMPLE
 Get-FabricatedName -LastFirstMi
 
 Get-FabricatedName returns the following data:
 
-Tunnell, Evan E.
+Name | Tunnell, Evan E.
 
 .EXAMPLE
 Get-FabricatedName -LastFirstMiddle
 
 Get-FabricatedName returns the following data:
 
-Boothe, Janiyah Lou
+Name | Boothe, Janiyah Lou
 
 .NOTES
 Data Fabricator - Get-FabricatedName.ps1

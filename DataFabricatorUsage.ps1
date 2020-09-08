@@ -357,6 +357,8 @@ Remove-Item "$Path\*.csv"
 # TODO
 # Recheck the data fabricator.com link once the github project is public
 
+# Change ZipCode to PostalCode in the project
+
 # Strip out the external XML data PlatyPS puts at the top of each MD file
 
 # Fabricate Date - Add text to -FabricateTime to indicate time is in 24 hour format

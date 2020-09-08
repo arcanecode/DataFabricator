@@ -32,7 +32,10 @@ ConvertTo-CityCode -City "Aaronsburg CDP"
 
 ConvertTo-CityCode returns the following data:
 
-CityCode: AARONSBURGCDP
+
+Property | Value
+| ----- | ------ |
+CityCode | AARONSBURGCDP
 
 ## PARAMETERS
 

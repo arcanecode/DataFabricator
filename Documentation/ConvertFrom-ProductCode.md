@@ -37,8 +37,8 @@ Returns the following data:
 Property | Value
 | ----- | ------ |
 Clothing | Gloves
-Color | Ocean Green
-Size | Large
+Color    | Ocean Green
+Size     | Large
 
 ## PARAMETERS
 
@@ -68,7 +68,13 @@ This has no inputs
 
 ## OUTPUTS
 
-A object with three fields: Clothing, Color, and Size.
+A object with these properties.
+
+Property | Description
+| ----- | ------ |
+Clothing | The type of clothing, shirt, pants, and so forth
+Color    | Standard colors like red, yellow, blue
+Size     | Standard sizes such as large, 1XL, 2XL and so on
 
 ## NOTES
 

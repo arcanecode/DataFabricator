@@ -25,21 +25,21 @@ Get-FabricatedZipCode
 
 Get-FabricatedZipCode returns a string with the following data:
 
-12345
+Zip Code | 12345
 
 .EXAMPLE
 Get-FabricatedZipCode -Plus4
 
 Get-FabricatedZipCode returns a string with the following data:
 
-12345-6789
+Zip Code | 12345-6789
 
 .EXAMPLE
 Get-FabricatedZipCode -PlusFour
 
 Get-FabricatedZipCode returns a string with the following data:
 
-12345-6789
+Zip Code | 12345-6789
 
 .NOTES
 Data Fabricator - Get-FabricatedZipCode.ps1

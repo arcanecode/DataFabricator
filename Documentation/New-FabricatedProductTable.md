@@ -36,21 +36,21 @@ This is a subset of the data that is returned:
 Property | Value
 | ----- | ------ |
 ProductCode | COAMAUEXT
-Clothing | Coat
-Color | Mauve
-Size | Extra large
+Clothing    | Coat
+Color       | Mauve
+Size        | Extra large
 ProductCode | COAMAU2XL
-Clothing | Coat
-Color | Mauve
-Size | 2XL
+Clothing    | Coat
+Color       | Mauve
+Size        | 2XL
 ProductCode | COAMAU3XL
-Clothing | Coat
-Color | Mauve
-Size | 3XL
+Clothing    | Coat
+Color       | Mauve
+Size        | 3XL
 ProductCode | COAMAU4XL
-Clothing | Coat
-Color | Mauve
-Size | 4XL
+Clothing    | Coat
+Color       | Mauve
+Size        | 4XL
 
 ## PARAMETERS
 
@@ -69,9 +69,9 @@ Returns an array with objects that have the following properties.
 Property | Description
 | ----- | ------ |
 ProductCode | The 9 character product code to uniquely identify this product.
-Clothing | The type of clothing.
-Color | The color of the clothing.
-Size | The size of the clothing.
+Clothing    | The type of clothing, shirt, pants and so forth
+Color       | The color of the clothing, such as red, green, or blue
+Size        | The size of the clothing, for example medium, large, 1XL, 2XL
 
 ## NOTES
 

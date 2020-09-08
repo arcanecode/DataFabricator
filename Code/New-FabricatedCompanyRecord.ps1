@@ -1,16 +1,92 @@
-class CompanyRecord
-{
-  [string] $Name
-  [string] $Address1
-  [string] $Address2
-  [string] $City
-  [string] $State
-  [string] $Zip
-  [string] $ContactName
-  [string] $ContactPhone
-  [string] $ContactEMail
-  [string] $ContactJobTitle
-}
+<#
+.SYNOPSIS
+Fabricates a new company and returns it as an object (aka record)
+
+.DESCRIPTION
+This cmdlet will create a new object (or objects) that have properties tha a company would have.
+Company name, address, contact and more (see the Outputs section for full details.)
+This makes it easy to generate one or more companies for you to do business with.
+
+.PARAMETER RecordCount
+The number of records you want returned from this cmdlet. The default is 1.
+
+.PARAMETER MaxDuplicateCountBeforeError
+This cmdlet checks for duplicates so they are removed from the final output.
+By default, once the cmdlet has generated 50 duplicates it will throw an error and exit before all the records have been generated (although it will return what it has generated to that point).
+It is possible in some cases to request more records than it is possible to create based on the internal data.
+To keep from falling into an infinite loop this mechanism will exit and let the user know what the issue is.
+Normally you won't need to override this, but it is possible should you feel the need.
+
+.INPUTS
+This cmdlet has no inputs.
+
+.OUTPUTS
+One or more objects with the following properties.
+
+Name            | The fabricated name of the company
+Address1        | The fictional address line 1 for the company
+Address2        | The fictional address line 2 for the company (might be empty)
+City            | A randomly selected City
+State           | A randomly selected state
+Zip             | A fabricated Zip code
+ContactName     | A fabricated persons name in "First Last" format
+ContactPhone    | A fake phone number for the company
+ContactEMail    | An email address generated from the name and company, such as f.last@companyname.com
+ContactJobTitle | A randomly selected job title of the company contact
+
+.EXAMPLE
+New-FabricatedCompanyRecord
+
+New-FabricatedCompanyRecord returns the following data:
+
+Name            | Transformative Products Corp
+Address1        | 762 Connie Hwy
+Address2        |
+City            | West Columbia City
+State           | AL
+Zip             | 48310
+ContactName     | Mikala Mundy
+ContactPhone    | 342-056-6296
+ContactEMail    | m.mundy@transformativeproductscorp.com
+ContactJobTitle | Transport Driver
+
+.EXAMPLE
+New-FabricatedCompanyRecord -RecordCount 10
+
+In this example, New-FabricatedCompanyRecord will return 10 rows of fabricated data, each row with output similar to the example above.
+
+.NOTES
+Data Fabricator - New-FabricatedCompanyRecord.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipCodeRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedNameRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedAddressLine1.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedAddressLine2.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
+
 function New-FabricatedCompanyRecord()
 {
   [CmdletBinding()]
@@ -30,6 +106,21 @@ $fn
          Max Duplicate Rows Befor Error: $MaxDuplicateCountBeforeError
 "@
 
+  # Define the properties of the object (or arrayy of them) we will return
+  class CompanyRecord
+  {
+    [string] $Name
+    [string] $Address1
+    [string] $Address2
+    [string] $City
+    [string] $State
+    [string] $Zip
+    [string] $ContactName
+    [string] $ContactPhone
+    [string] $ContactEMail
+    [string] $ContactJobTitle
+  }
+  
   # Declare an empty array to hold the results
   $retVal = @()
 

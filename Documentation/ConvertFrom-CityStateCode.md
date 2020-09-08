@@ -34,8 +34,7 @@ ConvertFrom-CityStateCode returns the following data:
 
 Property | Value
 | ----- | ------ |
-City | Aaronsburg CDP
-
+City  | Aaronsburg CDP
 State | AL
 
 ## PARAMETERS

@@ -32,7 +32,10 @@ Get-FabricatedJobTitle
 
 Get-FabricatedJobTitle returns the following data:
 
-Credentialing Specialist
+
+Property | Value
+| ----- | ------ |
+Job Title | Credentialing Specialist
 
 ## PARAMETERS
 

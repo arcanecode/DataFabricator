@@ -17,7 +17,7 @@ Get-FabricatedJobTitle
 
 Get-FabricatedJobTitle returns the following data:
 
-Credentialing Specialist
+Job Title | Credentialing Specialist
 
 .NOTES
 Data Fabricator - Get-FabricatedJobTitle.ps1

@@ -35,7 +35,10 @@ Get-FabricatedAddressLine2
 
 Get-FabricatedAddressLine2 the following data:
 
-Address2: Office 33
+
+Property | Value
+| ----- | ------ |
+Address2 | Office 33
 
 ### EXAMPLE 2
 
@@ -45,7 +48,10 @@ Get-FabricatedAddressLine2 -Threshold 50
 
 Get-FabricatedAddressLine2 will have a 50% chance of returning data, such as:
 
-Address2: Suite A
+
+Property | Value
+| ----- | ------ |
+Address2 | Suite A
 
 ### EXAMPLE 3
 
@@ -55,7 +61,10 @@ Get-FabricatedAddressLine2 -Threshold 100
 
 Get-FabricatedAddressLine2 will always return an address2 value, such as:
 
-Address2: Apartment 42
+
+Property | Value
+| ----- | ------ |
+Address2 | Apartment 42
 
 ## PARAMETERS
 

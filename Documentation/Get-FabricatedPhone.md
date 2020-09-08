@@ -32,7 +32,10 @@ Get-FabricatedPhone
 
 Get-FabricatedPhone returns the following data:
 
-672-344-1425
+
+Property | Value
+| ----- | ------ |
+Phone | 672-344-1425
 
 ### EXAMPLE 2
 
@@ -42,7 +45,10 @@ Get-FabricatedPhone -NoDashes
 
 Get-FabricatedPhone returns the following data:
 
-6723441425
+
+Property | Value
+| ----- | ------ |
+Phone | 6723441425
 
 ## PARAMETERS
 

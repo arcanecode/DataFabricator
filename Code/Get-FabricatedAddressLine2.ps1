@@ -23,21 +23,21 @@ Get-FabricatedAddressLine2
 
 Get-FabricatedAddressLine2 the following data:
 
-Address2: Office 33
+Address2 | Office 33
 
 .EXAMPLE
 Get-FabricatedAddressLine2 -Threshold 50
 
 Get-FabricatedAddressLine2 will have a 50% chance of returning data, such as:
 
-Address2: Suite A
+Address2 | Suite A
 
 .EXAMPLE
 Get-FabricatedAddressLine2 -Threshold 100
 
 Get-FabricatedAddressLine2 will always return an address2 value, such as:
 
-Address2: Apartment 42
+Address2 | Apartment 42
 
 .NOTES
 Data Fabricator - Get-FabricatedAddressLine2.ps1

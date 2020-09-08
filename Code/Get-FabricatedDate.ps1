@@ -49,70 +49,70 @@ Get-FabricatedDate
 
 Get-FabricatedDate returns the following string:
 
-1991-12-23
+Date | 1991-12-23
 
 .EXAMPLE
 Get-FabricatedDate -FromYear 1930
 
 Get-FabricatedDate returns the following string:
 
-1936-02-27
+Date | 1936-02-27
 
 .EXAMPLE
 Get-FabricatedDate -FromYear 1000 -ThruYear 1200
 
 Get-FabricatedDate returns the following string:
 
-1042-02-27
+Date | 1042-02-27
 
 .EXAMPLE
 Get-FabricatedDate -RelativeFromYear 1000
 
 Get-FabricatedDate returns the following string:
 
-1764-05-21
+Date | 1764-05-21
 
 .EXAMPLE
 Get-FabricatedDate -RelativeThruYear 21
 
 Get-FabricatedDate returns the following string:
 
-1984-02-07
+Date | 1984-02-07
 
 .EXAMPLE
 Get-FabricatedDate -AsDateTime
 
 Get-FabricatedDate returns the following datetime datatype:
 
-Tuesday, August 18, 1981 12:00:00 AM
+Date | Tuesday, August 18, 1981 12:00:00 AM
 
 .EXAMPLE
 Get-FabricatedDate -AsDateTime -FabricateTime
 
 Get-FabricatedDate returns the following datetime datatype:
 
-Tuesday, June 14, 2011 4:18:26 AM
+Date | Tuesday, June 14, 2011 4:18:26 AM
 
 .EXAMPLE
 Get-FabricatedDate -FormatMDY
 
 Get-FabricatedDate returns the following string:
 
-10-28-1998
+Date | 10-28-1998
 
 .EXAMPLE
 Get-FabricatedDate -FormatDMY
 
 Get-FabricatedDate returns the following string:
 
-22-02-1975
+Date | 22-02-1975
 
 .EXAMPLE
 Get-FabricatedDate -FabricateTime
 
 Get-FabricatedDate returns the following string:
 
-1992-05-28 07:27:33
+Date | 1992-05-28 07:27:33
 
 .NOTES
 Data Fabricator - Get-FabricatedDate.ps1

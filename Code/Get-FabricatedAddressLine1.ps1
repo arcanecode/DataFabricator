@@ -17,7 +17,7 @@ Get-FabricatedAddressLine1
 
 Get-FabricatedAddressLine1 returns the following data:
 
-Address1: 4964 Mackenzie Road
+Address1 | 4964 Mackenzie Road
 
 .NOTES
 Data Fabricator - Get-FabricatedAddressLine1.ps1

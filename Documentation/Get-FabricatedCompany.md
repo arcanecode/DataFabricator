@@ -32,7 +32,10 @@ Get-FabricatedCompany
 
 Get-FabricatedCompany returns the following data:
 
-Arcane Training Inc.
+
+Property | Value
+| ----- | ------ |
+Company | Arcane Training Inc.
 
 ## PARAMETERS
 

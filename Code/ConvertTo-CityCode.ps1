@@ -20,7 +20,7 @@ ConvertTo-CityCode -City "Aaronsburg CDP"
 
 ConvertTo-CityCode returns the following data:
 
-CityCode: AARONSBURGCDP
+CityCode | AARONSBURGCDP
 
 .NOTES
 Data Fabricator - ConvertTo-CityCode.ps1

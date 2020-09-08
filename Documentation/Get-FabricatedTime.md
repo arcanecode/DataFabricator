@@ -32,7 +32,10 @@ Get-FabricatedTime
 
 Get-FabricatedTime returns the following data:
 
-22:35:41
+
+Property | Value
+| ----- | ------ |
+Time | 22:35:41
 
 ### EXAMPLE 2
 
@@ -42,7 +45,10 @@ Get-FabricatedTime -AMPM
 
 Get-FabricatedTime returns the following data:
 
-10:35:41 PM
+
+Property | Value
+| ----- | ------ |
+Time | 10:35:41 PM
 
 ## PARAMETERS
 

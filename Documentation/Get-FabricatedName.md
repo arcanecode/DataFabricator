@@ -33,7 +33,10 @@ Get-FabricatedName
 
 Get-FabricatedName returns the following data:
 
-John Sapien
+
+Property | Value
+| ----- | ------ |
+Name | John Sapien
 
 ### EXAMPLE 2
 
@@ -43,7 +46,10 @@ Get-FabricatedName -First
 
 Get-FabricatedName returns the following data:
 
-Sherril
+
+Property | Value
+| ----- | ------ |
+Name | Sherril
 
 ### EXAMPLE 3
 
@@ -53,7 +59,10 @@ Get-FabricatedName -Last
 
 Get-FabricatedName returns the following data:
 
-Piercy
+
+Property | Value
+| ----- | ------ |
+Name | Piercy
 
 ### EXAMPLE 4
 
@@ -63,7 +72,10 @@ Get-FabricatedName -FirstMiLast
 
 Get-FabricatedName returns the following data:
 
-Gertie F.
+
+Property | Value
+| ----- | ------ |
+Name | Gertie F.
 Phillip
 
 ### EXAMPLE 5
@@ -74,7 +86,10 @@ Get-FabricatedName -FirstMiddleLast
 
 Get-FabricatedName returns the following data:
 
-Loyce Coral Caldwell
+
+Property | Value
+| ----- | ------ |
+Name | Loyce Coral Caldwell
 
 ### EXAMPLE 6
 
@@ -84,7 +99,10 @@ Get-FabricatedName -LastFirst
 
 Get-FabricatedName returns the following data:
 
-Wixom, Eli
+
+Property | Value
+| ----- | ------ |
+Name | Wixom, Eli
 
 ### EXAMPLE 7
 
@@ -94,7 +112,10 @@ Get-FabricatedName -LastFirstMi
 
 Get-FabricatedName returns the following data:
 
-Tunnell, Evan E.
+
+Property | Value
+| ----- | ------ |
+Name | Tunnell, Evan E.
 
 ### EXAMPLE 8
 
@@ -104,7 +125,10 @@ Get-FabricatedName -LastFirstMiddle
 
 Get-FabricatedName returns the following data:
 
-Boothe, Janiyah Lou
+
+Property | Value
+| ----- | ------ |
+Name | Boothe, Janiyah Lou
 
 ## PARAMETERS
 
