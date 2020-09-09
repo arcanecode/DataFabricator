@@ -27,7 +27,7 @@ Will generate a US based taxpayer Social Security Number (abbreviated TaxpayerID
 
 ```powershell
 Get-FabricatedTaxpayerID
-```
+```powershell
 
 Get-FabricatedTaxpayerID returns the following data:
 

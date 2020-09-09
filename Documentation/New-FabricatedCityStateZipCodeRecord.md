@@ -33,7 +33,7 @@ This value is appended to the two letter state abbreviation to produce unqiue ci
 
 ```powershell
 New-FabricatedCityStatePostalCodeRecord
-```
+```powershell
 
 New-FabricatedCityStatePostalCodeRecord returns the following data.
 
@@ -69,6 +69,9 @@ New-FabricatedCityStatePostalCodeRecord returns the following data:
 
 
 
+
+Property | Value
+| ----- | ------ |
 Property | Value
 | ----- | ------ |
 Property | Value
@@ -150,6 +153,9 @@ This cmdlet has no inputs.
 Object (or array of objects) with the following properties.
 
 
+
+Property | Description
+| ----- | ------ |
 Property | Description
 | ----- | ------ |
 Property | Description

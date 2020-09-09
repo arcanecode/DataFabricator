@@ -1,3 +1,59 @@
+<#
+.SYNOPSIS
+Converts the state abbreviation to the full state name.
+
+.DESCRIPTION
+Takes the passed in state name, and expands it to the full state name. The country code is also needed to know which set of state tables to use (US, UK, etc).
+
+.PARAMETER CountryCode
+Country code. If no code is supplied it defaults to the US.
+
+.PARAMETER StateAbbr
+The two character state abbreviation.
+
+.INPUTS
+This cmdlet has no inputs.
+
+.OUTPUTS
+String with the expanded state name. It will be empty if the passed in state abbreviation is not found.
+
+.EXAMPLE
+Get-StateName -StateAbbr 'AL' -CountryCode 'US'
+
+Returns the following data:
+
+StateName | Alabama
+
+.EXAMPLE
+Get-StateName -StateAbbr 'CA' -CountryCode 'UK'
+
+Returns the following data:
+
+StateName | Cambridgeshire
+
+.NOTES
+Data Fabricator - Get-StateName.ps1
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes.
+No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without
+the express written consent of the author.
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/CMDLET-HERE.md
+
+.LINK
+http://arcanecode.me
+
+.LINK
+http://datafabricator.com
+#>
+
 function Get-StateName()
 {
   [CmdletBinding()]

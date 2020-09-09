@@ -20,7 +20,7 @@ Get-FabricatedTaxpayerID [[-CountryCode] <String>] [-NoFormatting] [<CommonParam
 ## DESCRIPTION
 
 Will generate a taxpayer ID Number (abbreviated TaxpayerID) for the specified CountryCode. 
-If no CountryCode is passed in, the cmdlet defaults to the US social security number in xxx-xx-xxxx format.
+If no CountryCode is passed in, the cmdlet defaults to the US, the social security number in xxx-xx-xxxx format.
 
 ## EXAMPLES
 

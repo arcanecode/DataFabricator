@@ -9,7 +9,7 @@ schema: 2.0.0
 
 ## SYNOPSIS
 
-Fabrictes a US Zip Code in either 5 digit (the default) or the 5 Plus 4 format.
+Fabrictes a postal code.
 
 ## SYNTAX
 
@@ -19,9 +19,11 @@ Get-FabricatedPostalCode [[-CountryCode] <String>] [-Plus4] [<CommonParameters>]
 
 ## DESCRIPTION
 
+This cmldet will generate a postal code in the format used by the country represented in the country code parameter. 
+If no code is passed, it will default to a country code of US. 
 In the US postal codes, known as Zip Codes, are five numbers indicating the area of mail service.
-The postal system also supports an additional four numbers known as the "Plus 4" system that provides additional accuracy.
-By default this cmdlet will randomly generate a five digit zip code in 00000 format, using the switch it will append the additional plus 4 in 00000-0000 format.
+The US postal system also supports an additional four numbers known as the "Plus 4" system that provides additional accuracy.
+By default, for US codes, this cmdlet will randomly generate a five digit zip code in 00000 format, using the switch it will append the additional plus 4 in 00000-0000 format.
 Note that these zip codes are randomly generated, and may or may not actually exist.
 
 ## EXAMPLES
@@ -65,6 +67,19 @@ Property | Value
 | ----- | ------ |
 Zip Code | 12345-6789
 
+### EXAMPLE 4
+
+```powershell
+Get-FabricatedPostalCode -CountryCode UK
+```
+
+Get-FabricatedPostalCode returns a string with the following data:
+
+
+Property | Value
+| ----- | ------ |
+Postal Code | MV6Y 2BH
+
 ## PARAMETERS
 
 ### -CountryCode
@@ -87,6 +102,7 @@ Accept wildcard characters: False
 ### -Plus4
 
 Switch that will add a randomly generated plus 4 code to the returned zip code.
+Note that this parameter is only valid when the country code is US, for other country codes it will be ignored.
 
 ```yaml
 Type: SwitchParameter
@@ -110,7 +126,7 @@ This cmdlet has no inputs.
 
 ## OUTPUTS
 
-A string with the five digit zip code in 00000 format, or 00000-0000 if the Plus4 switch is used.
+A string with a generated postal code, matching the format for the country code used (US by defalt)
 
 ## NOTES
 

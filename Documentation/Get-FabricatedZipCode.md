@@ -30,7 +30,7 @@ Note that these zip codes are randomly generated, and may or may not actually ex
 
 ```powershell
 Get-FabricatedPostalCode
-```
+```powershell
 
 Get-FabricatedPostalCode returns a string with the following data:
 
@@ -65,6 +65,9 @@ Get-FabricatedPostalCode returns a string with the following data:
 
 
 
+
+Property | Value
+| ----- | ------ |
 Property | Value
 | ----- | ------ |
 Property | Value

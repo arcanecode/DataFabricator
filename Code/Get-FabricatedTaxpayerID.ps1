@@ -4,7 +4,7 @@ Fabricates a TaxpayerID (In the US this would be the Social Security Number), a 
 
 .DESCRIPTION
 Will generate a taxpayer ID Number (abbreviated TaxpayerID) for the specified CountryCode. 
-If no CountryCode is passed in, the cmdlet defaults to the US social security number in xxx-xx-xxxx format.
+If no CountryCode is passed in, the cmdlet defaults to the US, the social security number in xxx-xx-xxxx format.
 
 .PARAMETER NoFormatting
 Switch that will prevent formatting, such as dashes or spaces, from being included in the output.

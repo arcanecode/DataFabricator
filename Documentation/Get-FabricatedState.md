@@ -50,6 +50,32 @@ Property | Value
 | ----- | ------ |
 State | Alabama
 
+### EXAMPLE 3
+
+```powershell
+Get-FabricatedState -CountryCode UK
+```
+
+Get-FabricatedState returns the following data:
+
+
+Property | Value
+| ----- | ------ |
+State | WO
+
+### EXAMPLE 4
+
+```powershell
+Get-FabricatedState -FullName -CountryCode UK
+```
+
+Get-FabricatedState returns the following data:
+
+
+Property | Value
+| ----- | ------ |
+State | Yorkshire
+
 ## PARAMETERS
 
 ### -CountryCode

@@ -32,6 +32,20 @@ Get-FabricatedState returns the following data:
 
 State | Alabama
 
+.EXAMPLE
+Get-FabricatedState -CountryCode UK
+
+Get-FabricatedState returns the following data:
+
+State | WO
+
+.EXAMPLE
+Get-FabricatedState -FullName -CountryCode UK
+
+Get-FabricatedState returns the following data:
+
+State | Yorkshire
+
 .NOTES
 Data Fabricator - Get-FabricatedState.ps1
 
