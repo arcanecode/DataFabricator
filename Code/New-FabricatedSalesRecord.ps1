@@ -125,7 +125,19 @@ This module may not be reproduced in whole or in part without
 the express written consent of the author.
 
 .LINK
-https://github.com/arcanecode/DataFabricator/blob/master/Documentation/CMDLET-HERE.md
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedDate.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCustomerRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedEmployeeRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedProductRecord.md
+
+.LINK
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedProductTable.md
 
 .LINK
 http://arcanecode.me
@@ -195,7 +207,7 @@ $fn
 
     $sales.EmployeeID = ($Employees | Get-Random).EmployeeID
     $sales.ProductCode = ($Products | Get-Random).ProductCode
-    $sales.CustomerID = ($Employees | Get-Random).EmployeeID
+    $sales.CustomerID = ($Customers | Get-Random).CustomerID
 
     $sales.Quantity = $MinQuantityPerSale..$MaxQuantityPerSale | Get-Random
     $cents = (0..99 | Get-Random) / 100.00

@@ -20,16 +20,18 @@ New-FabricatedCityStatePostalCodeRecord [[-RecordCount] <Int32>] [[-MaxDuplicate
 
 ## DESCRIPTION
 
-Using real city, states and zips is just too risky.
+Using real city, states and postal codes is just too risky.
 Makes it easy for governments to spy on us, making it hard to get away with...
 stuff, if you know what I mean. 
 Not that we have time for...
 stuff, too busy writing PowerShell code.
 
-This cmdlet will genereate an object (or array of them) with combinations of randomly selected cities, states and zip codes.
-Because these are randomly selected, you will wind up with odd results sometimes, such as placing Salt Lake City in Alabama, with a zip code somewhere in Michigan.
+This cmdlet will genereate an object (or array of them) with combinations of randomly selected cities, states and postal codes.
+Because these are randomly selected, you will wind up with odd results sometimes, such as placing Salt Lake City in Alabama, with a postal code somewhere in Michigan.
+
 That's not only acceptable but desired, as this data is only supposed to be realistic looking, not actually real.
-One additional field is the CityCode. 
+
+One additional field returned is the CityCode. 
 This is the city run through the ConvertTo-CityCode cmdlet, and will produce a unique value (based on the data supplied with the module) that is suitable for use as a key.
 This value is appended to the two letter state abbreviation to produce unqiue city/state keys.
 

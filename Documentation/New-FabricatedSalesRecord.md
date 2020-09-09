@@ -1,7 +1,7 @@
 ---
 external help file: DataFabricator-help.xml
 Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/CMDLET-HERE.md
+online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedDate.md
 schema: 2.0.0
 ---
 
@@ -296,7 +296,15 @@ the express written consent of the author.
 
 ## RELATED LINKS
 
-[CMDLET-HERE](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/CMDLET-HERE.md)
+[Get-FabricatedDate](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedDate.md)
+
+[New-FabricatedCustomerRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCustomerRecord.md)
+
+[New-FabricatedEmployeeRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedEmployeeRecord.md)
+
+[New-FabricatedProductRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedProductRecord.md)
+
+[New-FabricatedProductTable](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedProductTable.md)
 
 [ArcaneCode's Website](http://arcanecode.me)
 

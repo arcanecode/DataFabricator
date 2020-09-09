@@ -22,7 +22,7 @@ Get-FabricatedPhone [[-CountryCode] <String>] [-NoFormatting] [<CommonParameters
 We wouldn't want to use real phone numbers, telemarters are horrible!
 They always seem to call at meal time.
 
-This cmdlet generates random numbers to compose a phone number for CountryCode parameter, to avoid those meal interrupting calls.
+This cmdlet generates random numbers to compose a phone number for the CountryCode parameter, to avoid those meal interrupting calls.
 If no CountryCode is passed in, it will default to the US format of xxx-xxx-xxxx.
 To suppress extra charcters like dashes, spaces, and so on from the phone number use the NoFormatting switch.
 

@@ -7,10 +7,12 @@ Real postal codes just lead to more junk mail, and who needs yet another high in
 
 This cmldet will generate a postal code in the format used by the country represented in the country code parameter. 
 If no code is passed, it will default to a country code of US. 
+
 In the US postal codes, known as Zip Codes, are five numbers indicating the area of mail service.
 The US postal system also supports an additional four numbers known as the "Plus 4" system that provides additional accuracy.
 By default, for US codes, this cmdlet will randomly generate a five digit zip code in 00000 format, using the switch it will append the additional plus 4 in 00000-0000 format.
-Note that these zip codes are randomly generated, and may or may not actually exist.
+
+Note that the fabricated postal codes are randomly generated, and may or may not actually exist.
 
 .PARAMETER Plus4
 Switch that will add a randomly generated plus 4 code to the returned zip code. Note that this parameter is only valid when the country code is US, for other country codes it will be ignored.

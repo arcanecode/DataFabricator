@@ -21,7 +21,7 @@ New-FabricatedCustomerRecord [[-RecordCount] <Int32>] [[-MaxDuplicateCountBefore
 ## DESCRIPTION
 
 Our lawyers have advised us not to use the names of real customers in our data, to avoid even more lawsuits or make their negative product reviews easy to find.
-So we've created this cmdlet, will generate one or more fake customer records for the country code passed in.
+So we've created this cmdlet, which will generate one or more fake customer records for the country code passed in.
 
 ## EXAMPLES
 
