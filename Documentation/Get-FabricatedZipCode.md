@@ -59,7 +59,7 @@ Zip Code | 12345-6789
 
 ```powershell
 Get-FabricatedPostalCode -PlusFour
-```
+```powershell
 
 Get-FabricatedPostalCode returns a string with the following data:
 

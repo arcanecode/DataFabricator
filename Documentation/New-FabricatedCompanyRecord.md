@@ -56,6 +56,28 @@ New-FabricatedCompanyRecord -RecordCount 10
 
 In this example, New-FabricatedCompanyRecord will return 10 rows of fabricated data, each row with output similar to the example above.
 
+### EXAMPLE 3
+
+```powershell
+New-FabricatedCompanyRecord -CountryCode UK
+```
+
+New-FabricatedCompanyRecord returns the following data:
+
+
+Property | Value
+| ----- | ------ |
+Name            | Popular Group Corporation
+Address1        | 7221 Chelsea Rd
+Address2        | Ste 6466
+City            | Westminster
+State           | ST
+PostalCode      | FQ1I 9IV
+ContactName     | Charmaine Jayne
+ContactPhone    | (029) 0491 1054
+ContactEMail    | c.jayne@populargroupcorporation.com
+ContactJobTitle | Patient Care Assistant
+
 ## PARAMETERS
 
 ### -CountryCode

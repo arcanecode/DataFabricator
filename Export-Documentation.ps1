@@ -21,13 +21,13 @@
   written consent of the author. 
 -----------------------------------------------------------------------------------------------#>
 
-# Import PlatyPS into memory
-Install-Module PlatyPS
-Import-Module PlatyPS
-
 # Before running, you need to have the most current version loaded in memory
 Remove-Module DataFabricator -ErrorAction SilentlyContinue
 Import-Module .\DataFabricator 
+
+# Import PlatyPS into memory
+Install-Module PlatyPS
+Import-Module PlatyPS
 
 # Now generate the documentation (Force is needed to overwrite existing documentation)
 # Note this will overwrite any changes you manually made

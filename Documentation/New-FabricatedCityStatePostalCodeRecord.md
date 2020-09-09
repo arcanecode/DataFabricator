@@ -81,18 +81,18 @@ CityCode            | AKCHINOOKCDP
 New-FabricatedCityStatePostalCodeRecord -CountryCode UK
 ```
 
-New-FabricatedCityStatePostalCodeRecord returns the following data.
+New-FabricatedCityStatePostalCodeRecord returns the following data:
 
 
 Property | Value
 | ----- | ------ |
-City                | Chinook CDP
-State               | AK
-StateName           | Alaska
-PostalCode          | 27264
-CityStPostalCode    | Chinook CDP, AK 27264
-CityStatePostalCode | Chinook CDP, Alaska 27264
-CityCode            | AKCHINOOKCDP
+City                | St Davids
+State               | WE
+StateName           | Westmorland
+PostalCode          | QH6Z 9RX
+CityStPostalCode    | St Davids, WE QH6Z 9RX
+CityStatePostalCode | St Davids, Westmorland QH6Z 9RX
+CityCode            | WESTDAVIDS
 
 ### EXAMPLE 5
 
@@ -190,13 +190,13 @@ Object (or array of objects) with the following properties.
 
 Property | Description
 | ----- | ------ |
-City                | A randomly selected city.
-State               | A randomly selected two character state code.
-StateName           | The full name of the state for the corresponding state code.
-PostalCode          | Randomly generated zip code.
-CityStPostalCode    | Full city, state abbreviation, and zip combined in a string, i.e. "Chelsea, AL 12345".
-CityStatePostalCode | City, full state name, and zip combined in a string, i.e. "Chelsea, Alabama 12345".
-CityCode            | The city which has been processed using the ConvertTo-CityCode cmdlet. Allows the city to be used as a unique key.
+City                | A randomly selected city
+State               | A randomly selected two character state code
+StateName           | The full name of the state for the corresponding state code
+PostalCode          | Randomly generated zip code
+CityStPostalCode    | Full city, state abbreviation, and zip combined in a string, i.e. "Chelsea, AL 12345"
+CityStatePostalCode | City, full state name, and zip combined in a string, i.e. "Chelsea, Alabama 12345"
+CityCode            | The city which has been processed using the ConvertTo-CityCode cmdlet. Allows the city to be used as a unique key
 
 ## NOTES
 

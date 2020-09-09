@@ -515,13 +515,15 @@ Remove-Item "$Path\*.csv"
 #   x Get-FabricatedPostalCode
 #  
 #   x New-FabricatedCityStatePostalCodeRecord
-#   New-FabricatedCompanyRecord
-#   New-FabricatedCustomerRecord
+#   x New-FabricatedCompanyRecord
+#   x New-FabricatedCustomerRecord
 #   New-FabricatedEmployeeRecord
 #   New-FabricatedInventoryRecord
 #   x New-FabricatedNameRecord
 #   x New-FabricatedProductRecord
-#   x New-FabricatedProductTable   
+#   x New-FabricatedProductTable  
+#   New-FabricatedSalesRecord 
+#   Test-CountryCode
 
 # Install/Test PlatyPs
 # Eventually Pester Tests
