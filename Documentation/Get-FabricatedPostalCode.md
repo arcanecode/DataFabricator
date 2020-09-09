@@ -43,7 +43,7 @@ Get-FabricatedPostalCode returns a string with the following data:
 
 Property | Value
 | ----- | ------ |
-Zip Code | 12345
+Postal Code | 12345
 
 ### EXAMPLE 2
 
@@ -56,7 +56,7 @@ Get-FabricatedPostalCode returns a string with the following data:
 
 Property | Value
 | ----- | ------ |
-Zip Code | 12345-6789
+Postal Code | 12345-6789
 
 ### EXAMPLE 3
 
@@ -69,7 +69,7 @@ Get-FabricatedPostalCode returns a string with the following data:
 
 Property | Value
 | ----- | ------ |
-Zip Code | 12345-6789
+Postal Code | 12345-6789
 
 ### EXAMPLE 4
 

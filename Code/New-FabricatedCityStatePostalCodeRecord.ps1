@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Fabricate one or more records with city, state, and zip code data.
+Fabricate one or more records with city, state, and postal code data.
 
 .DESCRIPTION
 Using real city, states and postal codes is just too risky. Makes it easy for governments to spy on us, making it hard to get away with... stuff, if you know what I mean. 

@@ -9,7 +9,7 @@ schema: 2.0.0
 
 ## SYNOPSIS
 
-Fabricate one or more records with city, state, and zip code data.
+Fabricate one or more records with city, state, and postal code data.
 
 ## SYNTAX
 

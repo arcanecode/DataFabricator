@@ -34,21 +34,21 @@ Get-FabricatedPostalCode
 
 Get-FabricatedPostalCode returns a string with the following data:
 
-Zip Code | 12345
+Postal Code | 12345
 
 .EXAMPLE
 Get-FabricatedPostalCode -Plus4
 
 Get-FabricatedPostalCode returns a string with the following data:
 
-Zip Code | 12345-6789
+Postal Code | 12345-6789
 
 .EXAMPLE
 Get-FabricatedPostalCode -PlusFour
 
 Get-FabricatedPostalCode returns a string with the following data:
 
-Zip Code | 12345-6789
+Postal Code | 12345-6789
 
 .EXAMPLE
 Get-FabricatedPostalCode -CountryCode UK
