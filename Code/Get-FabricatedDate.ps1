@@ -147,10 +147,10 @@ function Get-FabricatedDate()
 {
   [CmdletBinding()]
   param (
-          [int] $FromYear = -9999
-        , [int] $ThruYear = -9999
-        , [int] $RelativeFromYear = -9999
-        , [int] $RelativeThruYear = -9999
+             [int] $FromYear = -9999
+        ,    [int] $ThruYear = -9999
+        ,    [int] $RelativeFromYear = -9999
+        ,    [int] $RelativeThruYear = -9999
         , [switch] $AsDateTime
         , [switch] $FormatMDY
         , [switch] $FormatDMY

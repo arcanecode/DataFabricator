@@ -34,7 +34,7 @@ This module may not be reproduced in whole or in part without
 the express written consent of the author.
 
 .LINK
-https://github.com/arcanecode/DataFabricator/blob/master/Documentation/CMDLET-HERE.md
+https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Test-CountryCode.md
 
 .LINK
 http://arcanecode.me

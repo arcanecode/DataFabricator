@@ -20,6 +20,8 @@ Get-FabricatedName [-First] [-Last] [-FirstMiLast] [-FirstMiddleLast] [-LastFirs
 
 ## DESCRIPTION
 
+In order to protect the innocent, we wouldn't want to use real names so this cmdlet will generate a fake name for you.
+
 By default, this function will return a name in "First Last" format.
 However, using the swticthes (documented below) you can change the output.
 
@@ -31,7 +33,7 @@ However, using the swticthes (documented below) you can change the output.
 Get-FabricatedName
 ```
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 
 Property | Value
@@ -44,7 +46,7 @@ Name | John Sapien
 Get-FabricatedName -First
 ```
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 
 Property | Value
@@ -57,7 +59,7 @@ Name | Sherril
 Get-FabricatedName -Last
 ```
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 
 Property | Value
@@ -70,7 +72,7 @@ Name | Piercy
 Get-FabricatedName -FirstMiLast
 ```
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 
 Property | Value
@@ -84,7 +86,7 @@ Phillip
 Get-FabricatedName -FirstMiddleLast
 ```
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 
 Property | Value
@@ -97,7 +99,7 @@ Name | Loyce Coral Caldwell
 Get-FabricatedName -LastFirst
 ```
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 
 Property | Value
@@ -110,7 +112,7 @@ Name | Wixom, Eli
 Get-FabricatedName -LastFirstMi
 ```
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 
 Property | Value
@@ -123,7 +125,7 @@ Name | Tunnell, Evan E.
 Get-FabricatedName -LastFirstMiddle
 ```
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 
 Property | Value

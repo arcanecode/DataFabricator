@@ -3,7 +3,7 @@
 Fabricates the name of a city from a list of cities.
 
 .DESCRIPTION
-This routine will generate the name of a city for use in your fabricated data.
+This routine will generate the name of a city from an internal list for use in your fabricated data.
 
 .PARAMETER CountryCode
 Country code. If no code is supplied it defaults to the US.
@@ -17,14 +17,14 @@ String with the name of a city.
 .EXAMPLE
 Get-FabricatedCity
 
-Get-FabricatedCity returns the following data:
+Get-FabricatedCity returns data similar to the following example:
 
 City | Chelsea
 
 .EXAMPLE
 Get-FabricatedCity -CountryCode UK
 
-Get-FabricatedCity returns the following data:
+Get-FabricatedCity returns data similar to the following example:
 
 City | Inverness
 

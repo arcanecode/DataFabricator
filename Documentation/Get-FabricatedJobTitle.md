@@ -19,7 +19,7 @@ Get-FabricatedJobTitle [<CommonParameters>]
 
 ## DESCRIPTION
 
-This module includes an interal list of over 4,000 real job titles.
+This module includes an interal list of over 4,000 real job titles, including my dream job of Zamboni Driver.
 This routine will randomly select one from the list and return it.
 
 ## EXAMPLES
@@ -30,7 +30,7 @@ This routine will randomly select one from the list and return it.
 Get-FabricatedJobTitle
 ```
 
-Get-FabricatedJobTitle returns the following data:
+Get-FabricatedJobTitle returns data similar to the following example:
 
 
 Property | Value

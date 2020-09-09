@@ -29,7 +29,7 @@ Will generate a US based taxpayer Social Security Number (abbreviated TaxpayerID
 Get-FabricatedTaxpayerID
 ```powershell
 
-Get-FabricatedTaxpayerID returns the following data:
+Get-FabricatedTaxpayerID returns data similar to the following example:
 
 
 
@@ -45,7 +45,7 @@ TaxpayerID | 082-12-7296
 Get-FabricatedTaxpayerID -NoDashes
 ```powershell
 
-Get-FabricatedTaxpayerID returns the following data:
+Get-FabricatedTaxpayerID returns data similar to the following example:
 
 
 Property | Value

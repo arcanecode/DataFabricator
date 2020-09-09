@@ -3,7 +3,10 @@
 Fabricates a TaxpayerID (In the US this would be the Social Security Number), a taxpayer identification number..
 
 .DESCRIPTION
-Will generate a taxpayer ID Number (abbreviated TaxpayerID) for the specified CountryCode. 
+Taxes are a terrible thing, but we all have to pay them. And to pay them we have to have a tax payer ID. 
+Of course we don't want to use real ones (unless you'd be open to paying our outrageously high tax bill, he said hopefuly?).
+
+To avoid this, we have this function which will generate a taxpayer ID Number (abbreviated TaxpayerID) for the specified CountryCode. 
 If no CountryCode is passed in, the cmdlet defaults to the US, the social security number in xxx-xx-xxxx format.
 
 .PARAMETER NoFormatting
@@ -21,7 +24,7 @@ String with the fabricated TaxpayerID.
 .EXAMPLE
 Get-FabricatedTaxpayerID
 
-Get-FabricatedTaxpayerID returns the following data:
+Get-FabricatedTaxpayerID returns data similar to the following example:
 
 TaxpayerID | 082-12-7296
 
@@ -35,14 +38,14 @@ TaxpayerID | 082127296
 .EXAMPLE
 Get-FabricatedTaxpayerID -CountryCode UK
 
-Get-FabricatedTaxpayerID returns the following data:
+Get-FabricatedTaxpayerID returns data similar to the following example:
 
 TaxpayerID | 01234 56789
 
 .EXAMPLE
 Get-FabricatedTaxpayerID -CountryCode UK -NoFormatting
 
-Get-FabricatedTaxpayerID returns the following data:
+Get-FabricatedTaxpayerID returns data similar to the following example:
 
 TaxpayerID | 0123456789
 
@@ -83,8 +86,8 @@ function Get-FabricatedTaxpayerID()
   Write-Verbose @"
 $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
-         CountryCode: $CountryCode
-         NoFormatting: $($NoFormatting.IsPresent)
+         CountryCode...: $CountryCode
+         NoFormatting..: $($NoFormatting.IsPresent)
 "@
 
   #----------------------------------------------------------------------------------------------

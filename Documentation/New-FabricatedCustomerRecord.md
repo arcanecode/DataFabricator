@@ -20,7 +20,8 @@ New-FabricatedCustomerRecord [[-RecordCount] <Int32>] [[-MaxDuplicateCountBefore
 
 ## DESCRIPTION
 
-This cmdlet will generate one or more custoemr records for the country code passed in.
+Our lawyers have advised us not to use the names of real customers in our data, to avoid even more lawsuits or make their negative product reviews easy to find.
+So we've created this cmdlet, will generate one or more fake customer records for the country code passed in.
 
 ## EXAMPLES
 
@@ -30,7 +31,7 @@ This cmdlet will generate one or more custoemr records for the country code pass
 New-FabricatedCustomerRecord
 ```
 
-New-FabricatedCustomerRecord returns the following data:
+New-FabricatedCustomerRecord returns data similar to the following example:
 
 
 Property | Value
@@ -62,7 +63,7 @@ BirthDate      | 1982-03-23
 New-FabricatedCustomerRecord -CountryCode UK
 ```
 
-New-FabricatedCustomerRecord returns the following data:
+New-FabricatedCustomerRecord returns data similar to the following example:
 
 
 Property | Value

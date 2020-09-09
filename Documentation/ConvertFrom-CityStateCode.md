@@ -29,7 +29,7 @@ Takes a CityState code (the city code with the two character state abbreviation 
 ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
 ```
 
-ConvertFrom-CityStateCode returns the following data:
+ConvertFrom-CityStateCode returns data similar to the following example:
 
 
 Property | Value

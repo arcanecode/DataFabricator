@@ -20,7 +20,11 @@ New-FabricatedProductRecord [[-RecordCount] <Int32>] [[-MaxDuplicateCountBeforeE
 
 ## DESCRIPTION
 
-This will generate one or more product records with the output type as described in the output section below.
+Admit it.
+If your company sold stuff people really wanted, you'd be using your real products here.
+Since it doesn't I guess we'll have to make up some products, which is what this cmdlet does, generating items of clothing.
+
+Here we'll generate one or more product records with the output type as described in the output section below.
 Note this cmdlet and New-FabricatedProductTable return the same output type, so could be used interchangeably.
 The main difference is this cmdlet randomly generates product data, and thus will be a subset of the product table, whereas New-FabricatedProductTable returns all possible products.
 

@@ -3,7 +3,8 @@
 Fabricates a new employee record.
 
 .DESCRIPTION
-Generates the data to create an employee record, as defined in the output area.
+If your company is like mine, the employees are far too embarrased to admit working there.
+In order not to drive employee morale even lower than it is, you can use this cmdlet to fabricate the data to create a fake employee record, with properties as defined in the output area.
 
 .PARAMETER EMailDomain
 By default the cmdlet will create customer records using fakemail.com as the final part of the email address.
@@ -55,7 +56,7 @@ JobTitle       | The employee's job title
 .EXAMPLE
 New-FabricatedEmployeeRecord
 
-New-FabricatedEmployeeRecord returns the following data:
+New-FabricatedEmployeeRecord returns data similar to the following example:
 
 FirstName      | Ilana
 MiddleName     | Maria
@@ -81,14 +82,14 @@ BirthDate      | 1958-09-13
 .EXAMPLE
 New-FabricatedEmployeeRecord -RecordCount 5
 
-New-FabricatedEmployeeRecord returns the following data:
+New-FabricatedEmployeeRecord returns data similar to the following example:
 
 The cmdlet produces five rows of data similar to the previous example.
 
 .EXAMPLE
 New-FabricatedEmployeeRecord -CountryCode UK
 
-New-FabricatedEmployeeRecord returns the following data:
+New-FabricatedEmployeeRecord returns data similar to the following example:
 
 FirstName      | Savannah
 MiddleName     | Kristy
@@ -162,8 +163,8 @@ function New-FabricatedEmployeeRecord()
 {
   [CmdletBinding()]
   param (
-          [int] $RecordCount = 1
-        , [int] $MaxDuplicateCountBeforeError = 50  
+             [int] $RecordCount = 1
+        ,    [int] $MaxDuplicateCountBeforeError = 50  
         , [string] $EMailDomain = 'fakemail.com'
         , [string] $CountryCode = 'US'
         )
@@ -175,8 +176,10 @@ function New-FabricatedEmployeeRecord()
   Write-Verbose @"
 $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
-         Record Count: $RecordCount
-         Max Duplicate Rows Befor Error: $MaxDuplicateCountBeforeError
+         Record Count....................: $RecordCount
+         Max Duplicate Rows Befor Error..: $MaxDuplicateCountBeforeError
+         EMailDomain.....................: $EMailDomain
+         Country Code....................: $CountryCode
 "@
 
   # Define the output object

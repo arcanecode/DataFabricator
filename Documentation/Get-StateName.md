@@ -19,7 +19,10 @@ Get-StateName [[-StateAbbr] <String>] [[-CountryCode] <String>] [<CommonParamete
 
 ## DESCRIPTION
 
-Takes the passed in state name, and expands it to the full state name.
+State abbreviations can be confusing, I mean is AL Alabama or Alaska?
+Who has time to remember stuff like that.
+
+To avoid confusion, this cmdlet takes the passed in the two character state abbreviation, and expands it to the full state name. 
 The country code is also needed to know which set of state tables to use (US, UK, etc).
 
 ## EXAMPLES
@@ -30,7 +33,7 @@ The country code is also needed to know which set of state tables to use (US, UK
 Get-StateName -StateAbbr 'AL' -CountryCode 'US'
 ```
 
-Returns the following data:
+returns data similar to the following example:
 
 
 Property | Value
@@ -43,7 +46,7 @@ StateName | Alabama
 Get-StateName -StateAbbr 'CA' -CountryCode 'UK'
 ```
 
-Returns the following data:
+returns data similar to the following example:
 
 
 Property | Value

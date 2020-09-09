@@ -3,6 +3,8 @@
 Fabricates names, first and last, from internal lists of over 20,000 names.
 
 .DESCRIPTION
+In order to protect the innocent, we wouldn't want to use real names so this cmdlet will generate a fake name for you.
+
 By default, this function will return a name in "First Last" format.
 However, using the swticthes (documented below) you can change the output.
 
@@ -36,56 +38,56 @@ String containing a fabricated name.
 .EXAMPLE
 Get-FabricatedName 
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 Name | John Sapien
 
 .EXAMPLE
 Get-FabricatedName -First
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 Name | Sherril
 
 .EXAMPLE
 Get-FabricatedName -Last
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 Name | Piercy
 
 .EXAMPLE
 Get-FabricatedName -FirstMiLast
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 Name | Gertie F. Phillip
 
 .EXAMPLE
 Get-FabricatedName -FirstMiddleLast
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 Name | Loyce Coral Caldwell
 
 .EXAMPLE
 Get-FabricatedName -LastFirst
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 Name | Wixom, Eli
 
 .EXAMPLE
 Get-FabricatedName -LastFirstMi
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 Name | Tunnell, Evan E.
 
 .EXAMPLE
 Get-FabricatedName -LastFirstMiddle
 
-Get-FabricatedName returns the following data:
+Get-FabricatedName returns data similar to the following example:
 
 Name | Boothe, Janiyah Lou
 

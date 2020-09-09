@@ -19,7 +19,8 @@ Get-FabricatedCompany [<CommonParameters>]
 
 ## DESCRIPTION
 
-Randomly generates a company name from three parts to create a realistic name.
+Let's face it, no real company wants to be associated with the likes of us.
+So we wrote this cmdlet, which randomly generates a company name from three parts to create a realistic name.
 The first part is a name, such as Arcane, the second is an industry, such as Training, the final part is a company type such as Incorporated.
 
 ## EXAMPLES
@@ -30,12 +31,12 @@ The first part is a name, such as Arcane, the second is an industry, such as Tra
 Get-FabricatedCompany
 ```
 
-Get-FabricatedCompany returns the following data:
+Get-FabricatedCompany returns data similar to the following example:
 
 
 Property | Value
 | ----- | ------ |
-Company | Arcane Training Inc.
+Company | Arcane Training Inc
 
 ## PARAMETERS
 

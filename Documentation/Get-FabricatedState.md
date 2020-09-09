@@ -19,7 +19,9 @@ Get-FabricatedState [-FullName] [[-CountryCode] <String>] [<CommonParameters>]
 
 ## DESCRIPTION
 
-Will randomly select a state and returns the two character code for that state.
+We're not talking about a state of mind here, but the state where someone lives, or in our case pretends to live.
+
+This cmdlet will randomly select a state and returns the two character code for that state.
 Alternativley it can also return the full name of a state by using the FullName switch.
 
 ## EXAMPLES
@@ -30,7 +32,7 @@ Alternativley it can also return the full name of a state by using the FullName 
 Get-FabricatedState
 ```
 
-Get-FabricatedState returns the following data:
+Get-FabricatedState returns data similar to the following example:
 
 
 Property | Value
@@ -43,7 +45,7 @@ State | AL
 Get-FabricatedState -FullName
 ```
 
-Get-FabricatedState returns the following data:
+Get-FabricatedState returns data similar to the following example:
 
 
 Property | Value
@@ -56,7 +58,7 @@ State | Alabama
 Get-FabricatedState -CountryCode UK
 ```
 
-Get-FabricatedState returns the following data:
+Get-FabricatedState returns data similar to the following example:
 
 
 Property | Value
@@ -69,7 +71,7 @@ State | WO
 Get-FabricatedState -FullName -CountryCode UK
 ```
 
-Get-FabricatedState returns the following data:
+Get-FabricatedState returns data similar to the following example:
 
 
 Property | Value

@@ -30,7 +30,7 @@ This is used as a key in several functions.
 ConvertTo-CityCode -City "Aaronsburg CDP"
 ```
 
-ConvertTo-CityCode returns the following data:
+ConvertTo-CityCode returns data similar to the following example:
 
 
 Property | Value

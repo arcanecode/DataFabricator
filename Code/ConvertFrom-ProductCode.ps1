@@ -3,7 +3,11 @@
 Takes the product code and converts it back to the Clothing, Color and Size.
 
 .DESCRIPTION
-The product code is 9 characters, the first three point to the clothing, second three to color, and final three to size. This function breaks them into the three codes then uses an internal lookup table to convert these back into the full clothing, color and size names.
+While you could probably figure out yourself the product by tring to decrypt the 9 character product code manually, who has that kind of time (or brain power)?
+So we created this cmdlet.
+
+The product code consists of 9 characters, the first three point to the clothing, second three to color, and final three to size. 
+This function breaks them into the three codes then uses an internal lookup table to convert these back into the full clothing, color and size names.
 These are then placed into an object with three properties, Clothing, Color, and Size, which is returned.
 
 .PARAMETER ProductCode
@@ -22,7 +26,7 @@ Size     | Standard sizes such as large, 1XL, 2XL and so on
 .EXAMPLE
 ConvertFrom-ProductCode -ProductCode "GLOOCELAR"
 
-Returns the following data:
+returns data similar to the following example:
 
 Clothing | Gloves
 Color    | Ocean Green

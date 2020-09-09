@@ -3,7 +3,8 @@
 Fabricates a new customer record.
 
 .DESCRIPTION
-This cmdlet will generate one or more custoemr records for the country code passed in.
+Our lawyers have advised us not to use the names of real customers in our data, to avoid even more lawsuits or make their negative product reviews easy to find.
+So we've created this cmdlet, will generate one or more fake customer records for the country code passed in.
 
 .PARAMETER EMailDomain
 By default the cmdlet will create customer records using fakemail.com as the final part of the email address.
@@ -52,7 +53,7 @@ BirthDate      | The birthdate of the customer
 .EXAMPLE
 New-FabricatedCustomerRecord
 
-New-FabricatedCustomerRecord returns the following data:
+New-FabricatedCustomerRecord returns data similar to the following example:
 
 FirstName      | Johanna
 MiddleName     | Shelley
@@ -78,7 +79,7 @@ BirthDate      | 1982-03-23
 .EXAMPLE
 New-FabricatedCustomerRecord -CountryCode UK
 
-New-FabricatedCustomerRecord returns the following data:
+New-FabricatedCustomerRecord returns data similar to the following example:
 
 FirstName      | Ilana
 MiddleName     | Maria
@@ -131,8 +132,8 @@ function New-FabricatedCustomerRecord()
 {
   [CmdletBinding()]
   param (
-          [int] $RecordCount = 1
-        , [int] $MaxDuplicateCountBeforeError = 50  
+             [int] $RecordCount = 1
+        ,    [int] $MaxDuplicateCountBeforeError = 50  
         , [string] $EMailDomain = 'fakemail.com'
         , [string] $CountryCode = 'US'
         )
@@ -144,9 +145,10 @@ function New-FabricatedCustomerRecord()
   Write-Verbose @"
 $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
-         Record Count: $RecordCount
-         Max Duplicate Rows Befor Error: $MaxDuplicateCountBeforeError
-         EMailDomain: $EMailDomain
+         Record Count....................: $RecordCount
+         Max Duplicate Rows Befor Error..: $MaxDuplicateCountBeforeError
+         EMailDomain.....................: $EMailDomain
+         Country Code....................: $CountryCode
 "@
 
   # Create a class for our return object

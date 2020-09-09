@@ -3,7 +3,9 @@
 Fabricates a phone number for the CountryCode, defaulting to the US based format.
 
 .DESCRIPTION
-Generates random numbers to compose a phone number for CountryCode parameter.
+We wouldn't want to use real phone numbers, telemarters are horrible! They always seem to call at meal time.
+
+This cmdlet generates random numbers to compose a phone number for CountryCode parameter, to avoid those meal interrupting calls.
 If no CountryCode is passed in, it will default to the US format of xxx-xxx-xxxx.
 To suppress extra charcters like dashes, spaces, and so on from the phone number use the NoFormatting switch.
 
@@ -22,28 +24,28 @@ String containing the fabricated phone number.
 .EXAMPLE
 Get-FabricatedPhone
 
-Get-FabricatedPhone returns the following data:
+Get-FabricatedPhone returns data similar to the following example:
 
 Phone | 672-344-1425
 
 .EXAMPLE
 Get-FabricatedPhone -NoDashes
 
-Get-FabricatedPhone returns the following data:
+Get-FabricatedPhone returns data similar to the following example:
 
 Phone | 6723441425
 
 .EXAMPLE
 Get-FabricatedPhone -UK
 
-Get-FabricatedPhone returns the following data:
+Get-FabricatedPhone returns data similar to the following example:
 
 Phone | (029) 6723 1425
 
 .EXAMPLE
 Get-FabricatedPhone -UK -NoFormatting
 
-Get-FabricatedPhone returns the following data:
+Get-FabricatedPhone returns data similar to the following example:
 
 Phone | 02967231425
 

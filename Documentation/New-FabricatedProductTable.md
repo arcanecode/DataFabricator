@@ -19,6 +19,9 @@ New-FabricatedProductTable [<CommonParameters>]
 
 ## DESCRIPTION
 
+Products?
+You want products?
+Well we got your products right here!
 This cmdlet will return a collection of all possible combinations of product codes that are contained in the included sample dataset.
 Note this cmdlet and New-FabricatedProductRecord both return the same output type, so they can be used interchangeably.
 

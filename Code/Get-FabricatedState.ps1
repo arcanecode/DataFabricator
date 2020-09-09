@@ -3,7 +3,9 @@
 Fabricates a US state by randomly picking it from a list of states.
 
 .DESCRIPTION
-Will randomly select a state and returns the two character code for that state.
+We're not talking about a state of mind here, but the state where someone lives, or in our case pretends to live.
+
+This cmdlet will randomly select a state and returns the two character code for that state.
 Alternativley it can also return the full name of a state by using the FullName switch.
 
 .PARAMETER FullName
@@ -21,28 +23,28 @@ String with a randomly selected US state.
 .EXAMPLE
 Get-FabricatedState
 
-Get-FabricatedState returns the following data:
+Get-FabricatedState returns data similar to the following example:
 
 State | AL
 
 .EXAMPLE
 Get-FabricatedState -FullName
 
-Get-FabricatedState returns the following data:
+Get-FabricatedState returns data similar to the following example:
 
 State | Alabama
 
 .EXAMPLE
 Get-FabricatedState -CountryCode UK
 
-Get-FabricatedState returns the following data:
+Get-FabricatedState returns data similar to the following example:
 
 State | WO
 
 .EXAMPLE
 Get-FabricatedState -FullName -CountryCode UK
 
-Get-FabricatedState returns the following data:
+Get-FabricatedState returns data similar to the following example:
 
 State | Yorkshire
 
@@ -95,6 +97,8 @@ function Get-FabricatedState()
   Write-Verbose @"
 $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
+         Country Code............................................: $CountryCode
+         Return the full state name instead of the abbreviation..: $($FullName.IsPresent)
 "@
 
   #----------------------------------------------------------------------------------------------

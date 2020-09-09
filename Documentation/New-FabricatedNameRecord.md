@@ -20,6 +20,11 @@ New-FabricatedNameRecord [[-RecordCount] <Int32>] [[-MaxDuplicateCountBeforeErro
 
 ## DESCRIPTION
 
+William Shakespeare said "What's in a name?".
+Or at least we think it was him, the help authoring team is too lazy to go look it up.
+Well apparently there's a lot in a name, people like your customers and employees start sending nasty emails when you use their real names, leaving the complaint department crying into their coffee.
+
+You can use this cmdlet, then, to fabricate one or more randomly generated names, hopefully saving cheap company coffee.
 Where Get-FabricatedName returns a variation with a name based on a switch, this cmdlet will return all variations of a name in one concise record.
 
 ## EXAMPLES

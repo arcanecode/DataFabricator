@@ -20,7 +20,10 @@ New-FabricatedCompanyRecord [[-RecordCount] <Int32>] [[-MaxDuplicateCountBeforeE
 
 ## DESCRIPTION
 
-This cmdlet will create a new object (or objects) that have properties tha a company would have.
+Let's face it, no company on this planet or any other (except Mars, those guys are pretty shady) would be associated with us.
+As such, we'll have to create some fake companies to work with.
+
+This cmdlet will create a new object (or objects) that have properties that a real company would have.
 Company name, address, contact and more (see the Outputs section for full details.)
 This makes it easy to generate one or more companies for you to do business with.
 
@@ -32,7 +35,7 @@ This makes it easy to generate one or more companies for you to do business with
 New-FabricatedCompanyRecord
 ```
 
-New-FabricatedCompanyRecord returns the following data:
+New-FabricatedCompanyRecord returns data similar to the following example:
 
 
 Property | Value
@@ -62,7 +65,7 @@ In this example, New-FabricatedCompanyRecord will return 10 rows of fabricated d
 New-FabricatedCompanyRecord -CountryCode UK
 ```
 
-New-FabricatedCompanyRecord returns the following data:
+New-FabricatedCompanyRecord returns data similar to the following example:
 
 
 Property | Value

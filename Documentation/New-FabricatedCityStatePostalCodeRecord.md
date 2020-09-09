@@ -20,6 +20,12 @@ New-FabricatedCityStatePostalCodeRecord [[-RecordCount] <Int32>] [[-MaxDuplicate
 
 ## DESCRIPTION
 
+Using real city, states and zips is just too risky.
+Makes it easy for governments to spy on us, making it hard to get away with...
+stuff, if you know what I mean. 
+Not that we have time for...
+stuff, too busy writing PowerShell code.
+
 This cmdlet will genereate an object (or array of them) with combinations of randomly selected cities, states and zip codes.
 Because these are randomly selected, you will wind up with odd results sometimes, such as placing Salt Lake City in Alabama, with a zip code somewhere in Michigan.
 That's not only acceptable but desired, as this data is only supposed to be realistic looking, not actually real.
@@ -62,7 +68,7 @@ New-FabricatedCityStatePostalCodeRecord returns 5 records with data similar to t
 New-FabricatedCityStatePostalCodeRecord -Plus4
 ```
 
-New-FabricatedCityStatePostalCodeRecord returns the following data:
+New-FabricatedCityStatePostalCodeRecord returns data similar to the following example:
 
 
 Property | Value
@@ -81,7 +87,7 @@ CityCode            | AKCHINOOKCDP
 New-FabricatedCityStatePostalCodeRecord -CountryCode UK
 ```
 
-New-FabricatedCityStatePostalCodeRecord returns the following data:
+New-FabricatedCityStatePostalCodeRecord returns data similar to the following example:
 
 
 Property | Value

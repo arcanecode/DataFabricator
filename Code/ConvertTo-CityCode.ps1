@@ -18,7 +18,7 @@ String with the CityCode
 .EXAMPLE
 ConvertTo-CityCode -City "Aaronsburg CDP"
 
-ConvertTo-CityCode returns the following data:
+ConvertTo-CityCode returns data similar to the following example:
 
 CityCode | AARONSBURGCDP
 

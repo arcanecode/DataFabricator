@@ -3,7 +3,10 @@
 Converts the state abbreviation to the full state name.
 
 .DESCRIPTION
-Takes the passed in state name, and expands it to the full state name. The country code is also needed to know which set of state tables to use (US, UK, etc).
+State abbreviations can be confusing, I mean is AL Alabama or Alaska? Who has time to remember stuff like that.
+
+To avoid confusion, this cmdlet takes the passed in the two character state abbreviation, and expands it to the full state name. 
+The country code is also needed to know which set of state tables to use (US, UK, etc).
 
 .PARAMETER CountryCode
 Country code. If no code is supplied it defaults to the US.
@@ -20,14 +23,14 @@ String with the expanded state name. It will be empty if the passed in state abb
 .EXAMPLE
 Get-StateName -StateAbbr 'AL' -CountryCode 'US'
 
-Returns the following data:
+returns data similar to the following example:
 
 StateName | Alabama
 
 .EXAMPLE
 Get-StateName -StateAbbr 'CA' -CountryCode 'UK'
 
-Returns the following data:
+returns data similar to the following example:
 
 StateName | Cambridgeshire
 
@@ -68,8 +71,8 @@ function Get-StateName()
   Write-Verbose @"
 $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
-         State Abbreviation: $StateAbbr
-         Country Code: $CountryCode
+         State Abbreviation..: $StateAbbr
+         Country Code........: $CountryCode
 "@
 
 # If no code is passed in, or they use unspecified, use the US

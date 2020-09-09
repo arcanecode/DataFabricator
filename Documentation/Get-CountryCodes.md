@@ -1,7 +1,7 @@
 ---
 external help file: DataFabricator-help.xml
 Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/CMDLET-HERE.md
+online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Test-CountryCode.md
 schema: 2.0.0
 ---
 
@@ -68,7 +68,7 @@ the express written consent of the author.
 
 ## RELATED LINKS
 
-[CMDLET-HERE](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/CMDLET-HERE.md)
+[Test-CountryCode](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Test-CountryCode.md)
 
 [ArcaneCode's Website](http://arcanecode.me)
 

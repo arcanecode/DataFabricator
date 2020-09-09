@@ -17,7 +17,7 @@ An object array with two properties, the City and State.
 .EXAMPLE
 ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP"
 
-ConvertFrom-CityStateCode returns the following data:
+ConvertFrom-CityStateCode returns data similar to the following example:
 
 City  | Aaronsburg CDP
 State | AL

@@ -3,7 +3,10 @@
 Fabricates a new company and returns it as an object (aka record)
 
 .DESCRIPTION
-This cmdlet will create a new object (or objects) that have properties tha a company would have.
+Let's face it, no company on this planet or any other (except Mars, those guys are pretty shady) would be associated with us.
+As such, we'll have to create some fake companies to work with.
+
+This cmdlet will create a new object (or objects) that have properties that a real company would have.
 Company name, address, contact and more (see the Outputs section for full details.)
 This makes it easy to generate one or more companies for you to do business with.
 
@@ -40,7 +43,7 @@ ContactJobTitle | A randomly selected job title of the company contact
 .EXAMPLE
 New-FabricatedCompanyRecord
 
-New-FabricatedCompanyRecord returns the following data:
+New-FabricatedCompanyRecord returns data similar to the following example:
 
 Name            | Transformative Products Corp
 Address1        | 762 Connie Hwy
@@ -61,7 +64,7 @@ In this example, New-FabricatedCompanyRecord will return 10 rows of fabricated d
 .EXAMPLE
 New-FabricatedCompanyRecord -CountryCode UK
 
-New-FabricatedCompanyRecord returns the following data:
+New-FabricatedCompanyRecord returns data similar to the following example:
 
 Name            | Popular Group Corporation
 Address1        | 7221 Chelsea Rd
@@ -110,8 +113,8 @@ function New-FabricatedCompanyRecord()
 {
   [CmdletBinding()]
   param (
-          [int] $RecordCount = 1
-        , [int] $MaxDuplicateCountBeforeError = 50  
+             [int] $RecordCount = 1
+        ,    [int] $MaxDuplicateCountBeforeError = 50  
         , [string] $CountryCode = 'US'
         )
 
@@ -122,8 +125,9 @@ function New-FabricatedCompanyRecord()
   Write-Verbose @"
 $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
-         Record Count: $RecordCount
-         Max Duplicate Rows Befor Error: $MaxDuplicateCountBeforeError
+         Record Count....................: $RecordCount
+         Max Duplicate Rows Befor Error..: $MaxDuplicateCountBeforeError
+         Country Code....................: $CountryCode
 "@
 
   # Define the properties of the object (or arrayy of them) we will return

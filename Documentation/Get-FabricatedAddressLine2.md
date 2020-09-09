@@ -20,10 +20,15 @@ Get-FabricatedAddressLine2 [[-Threshold] <Int32>] [<CommonParameters>]
 ## DESCRIPTION
 
 Often, but not always, an address will contain a second line that will be an apartment number or office suite.
+After all, how is the package delivery person supposed to know which location to leave your mutilated, crushed and water soaked package at?
+
 To account for the fact that an address2 line is not always used, this function calculates a percentage of the time to generate an address 2, by default 25%.
 This means there is a 25% chance of returning an address2, the rest of the time it will return an empty value for address2.
 Note this is calculated on each call to the function, it is not done across calls.
+
 The default threshold can be overridden using the Threshold parameter.
+Since it is more common for a business to have a second address line, the
+cmdlets in this module that deal with work / company addresses use a much higher threshold.
 
 ## EXAMPLES
 
@@ -33,7 +38,7 @@ The default threshold can be overridden using the Threshold parameter.
 Get-FabricatedAddressLine2
 ```
 
-Get-FabricatedAddressLine2 the following data:
+Get-FabricatedAddressLine2 can return data that looks something like:
 
 
 Property | Value

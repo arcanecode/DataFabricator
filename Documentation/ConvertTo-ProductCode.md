@@ -30,7 +30,7 @@ Based on the sample data included with this module this will create a unique val
 ConvertTo-ProductCode -Clothing 'Gloves' -Color 'Ocean Green' -Size 'Large'
 ```
 
-ConvertTo-ProductCode returns the following data:
+ConvertTo-ProductCode returns data similar to the following example:
 
 
 Property | Value

@@ -19,7 +19,7 @@ Get-FabricatedCity [[-CountryCode] <String>] [<CommonParameters>]
 
 ## DESCRIPTION
 
-This routine will generate the name of a city for use in your fabricated data.
+This routine will generate the name of a city from an internal list for use in your fabricated data.
 
 ## EXAMPLES
 
@@ -29,7 +29,7 @@ This routine will generate the name of a city for use in your fabricated data.
 Get-FabricatedCity
 ```
 
-Get-FabricatedCity returns the following data:
+Get-FabricatedCity returns data similar to the following example:
 
 
 Property | Value
@@ -42,7 +42,7 @@ City | Chelsea
 Get-FabricatedCity -CountryCode UK
 ```
 
-Get-FabricatedCity returns the following data:
+Get-FabricatedCity returns data similar to the following example:
 
 
 Property | Value

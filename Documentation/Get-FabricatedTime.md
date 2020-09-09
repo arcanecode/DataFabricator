@@ -19,7 +19,9 @@ Get-FabricatedTime [-AMPM] [<CommonParameters>]
 
 ## DESCRIPTION
 
-Will generate a time of day, by default in HH:MM:SS 24 hour format. 
+The clock is ticking, even for us.
+To get a time, we need to generate a fake time, which this cmdlet handles.
+It will generate a time of day, by default in HH:MM:SS 24 hour format. 
 Using a switch it can also return the time in 12 hour AM/PM format.
 
 ## EXAMPLES
@@ -30,7 +32,7 @@ Using a switch it can also return the time in 12 hour AM/PM format.
 Get-FabricatedTime
 ```
 
-Get-FabricatedTime returns the following data:
+Get-FabricatedTime returns data similar to the following example:
 
 
 Property | Value
@@ -43,7 +45,7 @@ Time | 22:35:41
 Get-FabricatedTime -AMPM
 ```
 
-Get-FabricatedTime returns the following data:
+Get-FabricatedTime returns data similar to the following example:
 
 
 Property | Value

@@ -24,7 +24,7 @@ String with the 9 character product code.
 .EXAMPLE
 ConvertTo-ProductCode -Clothing 'Gloves' -Color 'Ocean Green' -Size 'Large'
 
-ConvertTo-ProductCode returns the following data:
+ConvertTo-ProductCode returns data similar to the following example:
 
 ProductCode | GLOOCELAR
 
@@ -69,9 +69,9 @@ function ConvertTo-ProductCode()
   Write-Verbose @"
 $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
-         Clothing $Clothing
-         Color    $Color
-         Size     $Size
+         Clothing..: $Clothing
+         Color.....: $Color
+         Size......: $Size
 "@
 
   $retVal = $Clothing.Substring(0,3).ToUpper() `

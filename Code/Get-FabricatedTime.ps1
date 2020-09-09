@@ -3,7 +3,8 @@
 Fabricates a random time of day.
 
 .DESCRIPTION
-Will generate a time of day, by default in HH:MM:SS 24 hour format. 
+The clock is ticking, even for us. To get a time, we need to generate a fake time, which this cmdlet handles.
+It will generate a time of day, by default in HH:MM:SS 24 hour format. 
 Using a switch it can also return the time in 12 hour AM/PM format.
 
 .PARAMETER AMPM
@@ -18,14 +19,14 @@ String with a fabricated time.
 .EXAMPLE
 Get-FabricatedTime
 
-Get-FabricatedTime returns the following data:
+Get-FabricatedTime returns data similar to the following example:
 
 Time | 22:35:41
 
 .EXAMPLE
 Get-FabricatedTime -AMPM
 
-Get-FabricatedTime returns the following data:
+Get-FabricatedTime returns data similar to the following example:
 
 Time | 10:35:41 PM
 
@@ -65,6 +66,7 @@ function Get-FabricatedTime()
   Write-Verbose @"
 $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
+         Use AM/PM: $($AMPM.IsPresent)
 "@
 
   $hour = 0..23 | Get-Random

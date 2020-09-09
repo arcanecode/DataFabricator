@@ -19,7 +19,7 @@ Get-FabricatedBin [<CommonParameters>]
 
 ## DESCRIPTION
 
-Many warehouses follow a typical physical layout to indicate where a product is stored.
+Many warehouses (like the condom factory I used to work at, no kidding for real!) follow a typical physical layout to indicate where a product is stored.
 First is one to two letters, indicating what row a product can be found on.
 Each row contains racks with bins for storing products, typically on pallets.
 Bins often use three numbers, the first number indicating a level (1, 2, or 3) like a floor in a building.
@@ -34,7 +34,7 @@ This routine follows this pattern, creating two letters for a row and three numb
 Get-FabricatedBin
 ```
 
-Get-FabricatedBin returns the following data:
+Get-FabricatedBin returns data similar to the following example:
 
 
 Property | Value

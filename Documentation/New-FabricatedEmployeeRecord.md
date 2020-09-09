@@ -20,7 +20,8 @@ New-FabricatedEmployeeRecord [[-RecordCount] <Int32>] [[-MaxDuplicateCountBefore
 
 ## DESCRIPTION
 
-Generates the data to create an employee record, as defined in the output area.
+If your company is like mine, the employees are far too embarrased to admit working there.
+In order not to drive employee morale even lower than it is, you can use this cmdlet to fabricate the data to create a fake employee record, with properties as defined in the output area.
 
 ## EXAMPLES
 
@@ -30,7 +31,7 @@ Generates the data to create an employee record, as defined in the output area.
 New-FabricatedEmployeeRecord
 ```
 
-New-FabricatedEmployeeRecord returns the following data:
+New-FabricatedEmployeeRecord returns data similar to the following example:
 
 
 Property | Value
@@ -62,7 +63,7 @@ BirthDate      | 1958-09-13
 New-FabricatedEmployeeRecord -RecordCount 5
 ```
 
-New-FabricatedEmployeeRecord returns the following data:
+New-FabricatedEmployeeRecord returns data similar to the following example:
 
 The cmdlet produces five rows of data similar to the previous example.
 
@@ -72,7 +73,7 @@ The cmdlet produces five rows of data similar to the previous example.
 New-FabricatedEmployeeRecord -CountryCode UK
 ```
 
-New-FabricatedEmployeeRecord returns the following data:
+New-FabricatedEmployeeRecord returns data similar to the following example:
 
 
 Property | Value

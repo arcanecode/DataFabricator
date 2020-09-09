@@ -3,6 +3,9 @@
 Fabricate one or more records with city, state, and zip code data.
 
 .DESCRIPTION
+Using real city, states and zips is just too risky. Makes it easy for governments to spy on us, making it hard to get away with... stuff, if you know what I mean. 
+Not that we have time for... stuff, too busy writing PowerShell code.
+
 This cmdlet will genereate an object (or array of them) with combinations of randomly selected cities, states and zip codes.
 Because these are randomly selected, you will wind up with odd results sometimes, such as placing Salt Lake City in Alabama, with a zip code somewhere in Michigan.
 That's not only acceptable but desired, as this data is only supposed to be realistic looking, not actually real.
@@ -65,7 +68,7 @@ New-FabricatedCityStatePostalCodeRecord returns 5 records with data similar to t
 .EXAMPLE
 New-FabricatedCityStatePostalCodeRecord -Plus4
 
-New-FabricatedCityStatePostalCodeRecord returns the following data:
+New-FabricatedCityStatePostalCodeRecord returns data similar to the following example:
 
 City                | Chinook CDP
 State               | AK
@@ -78,7 +81,7 @@ CityCode            | AKCHINOOKCDP
 .EXAMPLE
 New-FabricatedCityStatePostalCodeRecord -CountryCode UK
 
-New-FabricatedCityStatePostalCodeRecord returns the following data:
+New-FabricatedCityStatePostalCodeRecord returns data similar to the following example:
 
 City                | St Davids
 State               | WE
@@ -135,8 +138,8 @@ function New-FabricatedCityStatePostalCodeRecord {
 
   [CmdletBinding()]
   param (
-          [int] $RecordCount = 1
-        , [int] $MaxDuplicateCountBeforeError = 50  
+             [int] $RecordCount = 1
+        ,    [int] $MaxDuplicateCountBeforeError = 50  
         , [string] $CountryCode = 'US'
         , [Alias('PlusFour')]
           [switch] $Plus4
@@ -148,10 +151,10 @@ function New-FabricatedCityStatePostalCodeRecord {
   Write-Verbose @"
 $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
-         Record Count: $RecordCount
-         CountryCode: $CountryCode
-         Max Duplicate Rows Befor Error: $MaxDuplicateCountBeforeError
-         Plus4 Switch Used: $($Plus4.IsPresent)
+         Record Count....................: $RecordCount
+         CountryCode.....................: $CountryCode
+         Max Duplicate Rows Befor Error..: $MaxDuplicateCountBeforeError
+         Plus4 Switch Used...............: $($Plus4.IsPresent)
 "@
 
   # Declare the class that will be used for the return CityStatePostalCode objects
