@@ -5,7 +5,7 @@
 
 # If the module is not in memory, then suppress the error and silently continue
 Remove-Module DataFabricator -ErrorAction SilentlyContinue
-Import-Module .\DataFabricator -Verbose
+Import-Module ./DataFabricator -Verbose
 
 Clear-Host
 
