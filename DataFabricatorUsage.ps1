@@ -24,7 +24,7 @@ Test-CountryCode -CountryCode 'XX'
 # Address
 #------------------------------------------------------------------------------------------------
 Get-FabricatedAddressLine1
-Get-FabricatedAddressLine1 -Verbose 
+Get-FabricatedAddressLine1 -Verbose
 
 Get-FabricatedAddressLine2
 Get-FabricatedAddressLine2 -Threshold 100
@@ -89,7 +89,7 @@ New-FabricatedCityStatePostalCodeRecord -Verbose
 New-FabricatedCityStatePostalCodeRecord -Plus4 -Verbose
 New-FabricatedCityStatePostalCodeRecord -PlusFour -Verbose
 
-New-FabricatedCityStatePostalCodeRecord -CountryCode UK 
+New-FabricatedCityStatePostalCodeRecord -CountryCode UK
 New-FabricatedCityStatePostalCodeRecord -CountryCode UK -Plus4
 New-FabricatedCityStatePostalCodeRecord -CountryCode UK -PlusFour
 New-FabricatedCityStatePostalCodeRecord -CountryCode UK -RecordCount 5
@@ -122,7 +122,7 @@ $csz | Format-Table
 # Company
 #------------------------------------------------------------------------------------------------
 Get-FabricatedCompany
-Get-FabricatedCompany -Verbose 
+Get-FabricatedCompany -Verbose
 
 #------------------------------------------------------------------------------------------------
 # Dates
@@ -159,7 +159,7 @@ Get-FabricatedJobTitle -Verbose
 #------------------------------------------------------------------------------------------------
 # Names
 #------------------------------------------------------------------------------------------------
-Get-FabricatedName 
+Get-FabricatedName
 Get-FabricatedName -First
 Get-FabricatedName -Last
 Get-FabricatedName -FirstMiLast
@@ -174,7 +174,7 @@ Get-FabricatedPhone
 Get-FabricatedPhone -NoFormatting
 Get-FabricatedPhone -Verbose
 
-Get-FabricatedPhone -CountryCode UK 
+Get-FabricatedPhone -CountryCode UK
 Get-FabricatedPhone -CountryCode UK -NoFormatting
 Get-FabricatedPhone -CountryCode UK -Verbose
 
@@ -191,10 +191,10 @@ Get-FabricatedTaxpayerID -CountryCode UK -Verbose
 # Names
 #------------------------------------------------------------------------------------------------
 $n = New-FabricatedNameRecord
-$n 
+$n
 
 $n = New-FabricatedNameRecord -Verbose
-$n 
+$n
 
 $n = New-FabricatedNameRecord -RecordCount 10
 $n | Format-Table
@@ -379,7 +379,7 @@ $product
 $productTable = New-FabricatedProductTable
 $productTable
 
-$productTable = New-FabricatedProductTable -Verbose 
+$productTable = New-FabricatedProductTable -Verbose
 $productTable
 
 #------------------------------------------------------------------------------------------------
@@ -417,7 +417,7 @@ Import-Module .\DataFabricator -Verbose
 
 # Get some employees
 $employees = New-FabricatedEmployeeRecord -RecordCount 50 -Verbose
-$productTable = New-FabricatedProductTable -Verbose 
+$productTable = New-FabricatedProductTable -Verbose
 $customers = New-FabricatedCustomerRecord -RecordCount 50 -Verbose
 
 $sales = New-FabricatedSalesRecord -Employees $employees `
@@ -461,10 +461,10 @@ $sales        | Export-Csv "$Path\Sales.csv"
 $company      | Export-Csv "$Path\Company.csv"
 
 $employees    | ConvertTo-Json | Out-File "$Path\Employees.json"
-$productTable | ConvertTo-Json | Out-File "$Path\Products.json" 
-$customers    | ConvertTo-Json | Out-File "$Path\Customers.json" 
-$sales        | ConvertTo-Json | Out-File "$Path\Sales.json" 
-$company      | ConvertTo-Json | Out-File "$Path\Company.json" 
+$productTable | ConvertTo-Json | Out-File "$Path\Products.json"
+$customers    | ConvertTo-Json | Out-File "$Path\Customers.json"
+$sales        | ConvertTo-Json | Out-File "$Path\Sales.json"
+$company      | ConvertTo-Json | Out-File "$Path\Company.json"
 
 Remove-Item "$Path\*.json"
 Remove-Item "$Path\*.csv"
@@ -475,7 +475,7 @@ Remove-Item "$Path\*.csv"
 
 # Change ZipCode to PostalCode in the project
 # Change TaxpayerID to taxpayer ID
-# Add -US flag to many of the Get-Fabricated... 
+# Add -US flag to many of the Get-Fabricated...
 # That, or add a CountryCode parameter that defaults to the US, using an ENUM value
 # Update the m_ lists to be m_xxxUS
 
@@ -499,12 +499,12 @@ Remove-Item "$Path\*.csv"
 #   x ConvertFrom-ProductCode
 #   x ConvertTo-CityCode
 #   x ConvertTo-ProductCode
-#  
+#
 #   x Get-FabricatedAddressLine1
 #   x Get-FabricatedAddressLine2
-#   x Get-FabricatedBin 
+#   x Get-FabricatedBin
 #   x Get-FabricatedCity
-#   x Get-FabricatedCompany 
+#   x Get-FabricatedCompany
 #   x Get-FabricatedDate
 #   x Get-FabricatedJobTitle
 #   x Get-FabricatedName
@@ -513,7 +513,7 @@ Remove-Item "$Path\*.csv"
 #   x Get-FabricatedState
 #   x Get-FabricatedTime
 #   x Get-FabricatedPostalCode
-#  
+#
 #   x New-FabricatedCityStatePostalCodeRecord
 #   x New-FabricatedCompanyRecord
 #   x New-FabricatedCustomerRecord
@@ -521,8 +521,8 @@ Remove-Item "$Path\*.csv"
 #   New-FabricatedInventoryRecord
 #   x New-FabricatedNameRecord
 #   x New-FabricatedProductRecord
-#   x New-FabricatedProductTable  
-#   New-FabricatedSalesRecord 
+#   x New-FabricatedProductTable
+#   New-FabricatedSalesRecord
 #   Test-CountryCode
 
 # Install/Test PlatyPs

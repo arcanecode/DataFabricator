@@ -11,20 +11,39 @@
   is implied or expressly granted.
 
   This module may not be reproduced in whole or in part without the express
-  written consent of the author. 
+  written consent of the author.
 -----------------------------------------------------------------------------------------------#>
 
 # On Windows an older version of Pester is included with Windows. We need these switches
 # so the new version can be installed. It will supercede the old version.
 # On Linux/Mac it's not needed, but won't hurt anything
-Install-Module Pester -Force 
-Import-Module Pester
+Remove-Module Pester
+Install-Module Pester -Force
+Import-Module Pester -Version "5.0.4"
 
 # Before running, you need to have the most current version loaded in memory
 Remove-Module DataFabricator -ErrorAction SilentlyContinue
-Import-Module .\DataFabricator 
+Import-Module .\DataFabricator
 
 $tests = "$pwd\Tests"
 
-Invoke-Pester "$tests\DataFabricator.Module.Tests.ps1"
+Invoke-Pester "$tests\DataFabricator.Module.Tests.ps1" -Output Detailed
 
+
+#------------------------------------------------------------------------------------------------
+# Stuff below here for debugging Pester issues
+#------------------------------------------------------------------------------------------------
+
+# See which version is loaded
+get-module pester
+
+# Code for generating bug reports to the pester project
+
+$bugReport = &{
+    $p = Get-Module -Name Pester -ListAvailable | Select-Object -First 1
+    "Pester version     : " + $p.Version + " " + $p.Path
+    "PowerShell version : " + $PSVersionTable.PSVersion
+    "OS version         : " + [System.Environment]::OSVersion.VersionString
+}
+$bugReport
+$bugReport | clip

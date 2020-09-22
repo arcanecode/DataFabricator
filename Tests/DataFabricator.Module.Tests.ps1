@@ -1,11 +1,45 @@
-$here = "$pwd\Tests"
+Describe -Tags ('Unit', 'Acceptance') "DataFabricator Module Tests"  {
 
-$module = 'DataFabricator'
+  BeforeAll {
+    $module = 'DataFabricator'
+    $here = Split-Path -parent $PSCommandPath
 
-Describe -Tags ('Unit', 'Acceptance') "$module Module Tests"  {
+  $functions = ( 'ConvertFrom-CityStateCode',
+                 'ConvertFrom-ProductCode',
+                 'ConvertTo-CityCode',
+                 'ConvertTo-ProductCode',
+                 'Get-CountryCodes',
+                 'Get-FabricatedAddressLine1',
+                 'Get-FabricatedAddressLine2',
+                 'Get-FabricatedBin',
+                 'Get-FabricatedCity',
+                 'Get-FabricatedCompany',
+                 'Get-FabricatedDate',
+                 'Get-FabricatedJobTitle',
+                 'Get-FabricatedName',
+                 'Get-FabricatedPhone',
+                 'Get-FabricatedPostalCode',
+                 'Get-FabricatedState',
+                 'Get-FabricatedTaxpayerID',
+                 'Get-FabricatedTime',
+                 'Get-StateName',
+                 'New-FabricatedCityStatePostalCodeRecord',
+                 'New-FabricatedCompanyRecord',
+                 'New-FabricatedCustomerRecord',
+                 'New-FabricatedEmployeeRecord',
+                 'New-FabricatedInventoryRecord',
+                 'New-FabricatedNameRecord',
+                 'New-FabricatedProductRecord',
+                 'New-FabricatedProductTable',
+                 'New-FabricatedSalesRecord',
+                 'Test-CountryCode'
+               )
+
+  } # BeforeAll
 
   Context 'Module Setup' {
-    It "has the root module $module.psm1" {
+
+    It "$module has the root module $module.psm1" {
       "$here\..\$module.psm1" | Should -Exist
     }
 
@@ -13,7 +47,7 @@ Describe -Tags ('Unit', 'Acceptance') "$module Module Tests"  {
       "$here\..\$module.psd1" | Should -Exist
       "$here\..\$module.psd1" | Should -FileContentMatch "$module.psm1"
     }
-    
+
     It "$module folder has Get functions" {
       "$here\..\Code\Get-*.ps1" | Should -Exist
     }
@@ -36,72 +70,74 @@ Describe -Tags ('Unit', 'Acceptance') "$module Module Tests"  {
 
   } # Context 'Module Setup'
 
-<#
-  $functions = ('Get-NoAgenda',
-                'Get-PodcastData',
-                'Get-PodcastMedia',
-                'Get-PodcastImage',
-                'ConvertTo-PodcastHtml',
-                'ConvertTo-PodcastXML',
-                'Write-PodcastHtml', 
-                'Write-PodcastXML'
-               )
+  Context 'Files for each Function Exist' {
 
-  foreach ($function in $functions)
-  {
-  
-    Context "Test Function $function" {
-      
-      It "$function.ps1 should exist" {
-        "$here\function-$function.ps1" | Should -Exist
-      }
-    
-      It "$function.ps1 should have help block" {
-        "$here\function-$function.ps1" | Should -FileContentMatch '<#'
-        "$here\function-$function.ps1" | Should -FileContentMatch '# >'
+
+      It "Do files for each function exist?" {
+        foreach ($function in $functions)
+        {
+          "$here\..\Code\$function.ps1" | Should -Exist
+        }
       }
 
-      It "$function.ps1 should have a SYNOPSIS section in the help block" {
-        "$here\function-$function.ps1" | Should -FileContentMatch '.SYNOPSIS'
-      }
-    
-      It "$function.ps1 should have a DESCRIPTION section in the help block" {
-        "$here\function-$function.ps1" | Should -FileContentMatch '.DESCRIPTION'
-      }
-
-      It "$function.ps1 should have a EXAMPLE section in the help block" {
-        "$here\function-$function.ps1" | Should -FileContentMatch '.EXAMPLE'
-      }
-    
-      It "$function.ps1 should be an advanced function" {
-        "$here\function-$function.ps1" | Should -FileContentMatch 'function'
-        "$here\function-$function.ps1" | Should -FileContentMatch 'cmdletbinding'
-        "$here\function-$function.ps1" | Should -FileContentMatch 'param'
-      }
-      
-      It "$function.ps1 should contain Write-Verbose blocks" {
-        "$here\function-$function.ps1" | Should -FileContentMatch 'Write-Verbose'
-      }
-    
-      It "$function.ps1 is valid PowerShell code" {
-        $psFile = Get-Content -Path "$here\function-$function.ps1" `
-                              -ErrorAction Stop
-        $errors = $null
-        $null = [System.Management.Automation.PSParser]::Tokenize($psFile, [ref]$errors)
-        $errors.Count | Should -Be 0
+      It "Each function should have a SYNOPSIS section in the help block" {
+        foreach ($function in $functions)
+        {
+          "$here\..\Code\$function.ps1" | Should -FileContentMatch '.SYNOPSIS'
+        }
       }
 
-    
-    } # Context "Test Function $function"
+      It "Each function should have a DESCRIPTION section in the help block" {
+        foreach ($function in $functions)
+        {
+          "$here\..\Code\$function.ps1" | Should -FileContentMatch '.DESCRIPTION'
+        }
+      }
 
-    Context "$function has tests" {
-      It "function-$($function).Tests.ps1 should exist" {
-        "$here\function-$($function).Tests.ps1" | Should -Exist
+      It "Each function should have a EXAMPLE section in the help block" {
+        foreach ($function in $functions)
+        {
+          "$here\..\Code\$function.ps1" | Should -FileContentMatch '.EXAMPLE'
+        }
+      }
+
+      It "Each function should be an advanced function" {
+        foreach ($function in $functions)
+        {
+          "$here\..\Code\$function.ps1" | Should -FileContentMatch 'function'
+          "$here\..\Code\$function.ps1" | Should -FileContentMatch 'cmdletbinding'
+          "$here\..\Code\$function.ps1" | Should -FileContentMatch 'param'
+        }
+      }
+
+      It "Each function should contain at least one Write-Verbose block" {
+        foreach ($function in $functions)
+        {
+          "$here\..\Code\$function.ps1" | Should -FileContentMatch 'Write-Verbose'
+        }
+      }
+
+      It "Each function is valid PowerShell code" {
+        foreach ($function in $functions)
+        {
+          $psFile = Get-Content -Path "$here\..\Code\$function.ps1" `
+                                -ErrorAction Stop
+          $errors = $null
+          $null = [System.Management.Automation.PSParser]::Tokenize($psFile, [ref]$errors)
+          $errors.Count | Should -Be 0
+        }
+      }
+
+  } # Context 'Files for each Function Exist'
+
+  Context "Checking to see if all functions have a test" {
+    It "Tests for each function should exist" {
+      foreach ($function in $functions)
+      {
+        "$here\$function.Tests.ps1" | Should -Exist
       }
     }
-  
-  } # foreach ($function in $functions)
+  }
 
-#>
 
 }
