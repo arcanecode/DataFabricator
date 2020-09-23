@@ -1,4 +1,4 @@
-$m_StreetsLast = Get-Content .\Data\Data-StreetsLast.ps1
+$m_StreetsLast = Get-Content .\Data\Data-StreetsLast.txt
 
 # Some functions use the length of a string for calculating spaces for
 # proper on screen formatting. By calculating these 'constants' here,

@@ -40,6 +40,8 @@ $tests = "$pwd\Tests"
 Invoke-Pester "$tests\DataFabricator.Module.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\DataFabricator.Functions.Tests.ps1" -Output Detailed
 
+Invoke-Pester "$tests\Test-CountryCode.Tests.ps1" -Output Detailed
+
 
 #------------------------------------------------------------------------------------------------
 # Stuff below here for debugging Pester issues
