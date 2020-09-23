@@ -17,9 +17,19 @@
 # On Windows an older version of Pester is included with Windows. We need these switches
 # so the new version can be installed. It will supercede the old version.
 # On Linux/Mac it's not needed, but won't hurt anything
-Remove-Module Pester
-Install-Module Pester -Force
-Import-Module Pester -Version "5.0.4"
+
+# Check to see if it's in memory, of so remove it, if not I don't care so keep going
+Remove-Module Pester -ErrorAction SilentlyContinue
+
+# See what is there, as we are using the beta for now use -AllowPrerelease so it will be listed
+Find-Module Pester -AllowPrerelease
+
+# Install the beta
+Install-Module Pester -RequiredVersion "5.1.0-beta1" -AllowPrerelease -Force
+
+# Import it
+Import-Module Pester -RequiredVersion "5.1.0" #"5.0.4"
+get-module pester -ListAvailable
 
 # Before running, you need to have the most current version loaded in memory
 Remove-Module DataFabricator -ErrorAction SilentlyContinue
@@ -28,6 +38,7 @@ Import-Module .\DataFabricator
 $tests = "$pwd\Tests"
 
 Invoke-Pester "$tests\DataFabricator.Module.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\DataFabricator.Functions.Tests.ps1" -Output Detailed
 
 
 #------------------------------------------------------------------------------------------------
