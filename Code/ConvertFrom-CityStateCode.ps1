@@ -45,14 +45,15 @@ http://arcanecode.me
 http://datafabricator.com
 #>
 function ConvertFrom-CityStateCode()
-{ 
+{
   [CmdletBinding()]
   param (
           [Parameter( Mandatory = $true,
                       HelpMessage = 'Please enter a valid city state code.'
                     )
-          ]          
+          ]
           [string] $CityStateCode
+        , [string] $CountryCode = 'US'
         )
 
   # Function Name
@@ -70,15 +71,20 @@ $fn
     [string] $City
     [string] $State
   }
-  
+
   #Extract the State abbreviation
   $state = $CityStateCode.Substring(0, 2)
 
   # Extract the City Code
   $code = $CityStateCode.Substring(2)
-  
+
   # Get the city code based on the code from the hash table
-  $city = $m_CityCodes[$code]
+  switch ( $CountryCode )
+  {
+    'UK'    { $city = $m_CityCodesUK[$code] }
+    'US'    { $city = $m_CityCodesUS[$code] }
+    default { $city = $m_CityCodesUS[$code] }
+  }
 
   # Create a new object to return
   $retVal = [City]::new()
@@ -88,11 +94,11 @@ $fn
   # Show what we found
   Write-Verbose "$fn City: $city State: $state"
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
   return $retVal
-  
+
 }
