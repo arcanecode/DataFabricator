@@ -12,6 +12,12 @@
 
   This module may not be reproduced in whole or in part without the express
   written consent of the author.
+
+  Important! This module is being created for use in my Everyday PowerShell for Developers
+  course on Pluralsight. The release date for it should coincide with the release of Pester
+  Version 5.1. As Pester 5.1 has significant enhancements in terms of usability and 
+  performance, I'm developing these tests under the 5.1 Beta. When 5.1 goes full release
+  I will return to update the tests using 5.1 Release and remove references to 5.1 Beta.
 -----------------------------------------------------------------------------------------------#>
 
 # On Windows an older version of Pester is included with Windows. We need these switches
@@ -33,7 +39,7 @@ get-module pester -ListAvailable
 
 # Before running, you need to have the most current version loaded in memory
 Remove-Module DataFabricator -ErrorAction SilentlyContinue
-Import-Module .\DataFabricator
+Import-Module "$pwd\DataFabricator"
 
 $tests = "$pwd\Tests"
 
