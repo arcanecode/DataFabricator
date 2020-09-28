@@ -44,6 +44,10 @@ Invoke-Pester "$tests\ConvertFrom-CityStateCode.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\ConvertFrom-ProductCode.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\ConvertTo-CityCode.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\ConvertTo-ProductCode.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedCity.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedJobTitle.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedState.Tests.ps1" -Output Detailed
+
 Invoke-Pester "$tests\Get-CountryCodes.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\Test-CountryCode.Tests.ps1" -Output Detailed
 
