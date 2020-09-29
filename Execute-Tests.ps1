@@ -50,11 +50,33 @@ Invoke-Pester "$tests\ConvertFrom-CityStateCode.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\ConvertFrom-ProductCode.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\ConvertTo-CityCode.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\ConvertTo-ProductCode.Tests.ps1" -Output Detailed
-Invoke-Pester "$tests\Get-FabricatedCity.Tests.ps1" -Output Detailed
-Invoke-Pester "$tests\Get-FabricatedJobTitle.Tests.ps1" -Output Detailed
-Invoke-Pester "$tests\Get-FabricatedState.Tests.ps1" -Output Detailed
 
 Invoke-Pester "$tests\Get-CountryCodes.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedAddressLine1.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedAddressLine2.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedBin.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedCity.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedCompany.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedDate.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedJobTitle.Tests.ps1" -Output Detailed
+# Invoke-Pester "$tests\Get-FabricatedName.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedPhone.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedPostalCode.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedState.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedTaxpayerID.Tests.ps1" -Output Detailed
+# Invoke-Pester "$tests\Get-FabricatedTime.Tests.ps1" -Output Detailed
+# Invoke-Pester "$tests\Get-StateName.Tests.ps1" -Output Detailed
+
+# Invoke-Pester "$tests\New-FabricatedCityStatePostalCodeRecord.Tests.ps1" -Output Detailed
+# Invoke-Pester "$tests\New-FabricatedCompanyRecord.Tests.ps1" -Output Detailed
+# Invoke-Pester "$tests\New-FabricatedCustomerRecord.Tests.ps1" -Output Detailed
+# Invoke-Pester "$tests\New-FabricatedEmployeeRecord.Tests.ps1" -Output Detailed
+# Invoke-Pester "$tests\New-FabricatedInventoryRecord.Tests.ps1" -Output Detailed
+# Invoke-Pester "$tests\New-FabricatedNameRecord.Tests.ps1" -Output Detailed
+# Invoke-Pester "$tests\New-FabricatedProductRecord.Tests.ps1" -Output Detailed
+# Invoke-Pester "$tests\New-FabricatedProductTable.Tests.ps1" -Output Detailed
+# Invoke-Pester "$tests\New-FabricatedSalesRecord.Tests.ps1" -Output Detailed
+
 Invoke-Pester "$tests\Test-CountryCode.Tests.ps1" -Output Detailed
 
 
@@ -75,3 +97,5 @@ $bugReport = &{
 }
 $bugReport
 $bugReport | clip
+
+

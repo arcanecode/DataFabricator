@@ -29,7 +29,7 @@ Get-FabricatedPhone returns data similar to the following example:
 Phone | 672-344-1425
 
 .EXAMPLE
-Get-FabricatedPhone -NoDashes
+Get-FabricatedPhone -NoFormatting
 
 Get-FabricatedPhone returns data similar to the following example:
 
