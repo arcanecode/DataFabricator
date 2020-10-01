@@ -59,7 +59,7 @@ Invoke-Pester "$tests\Get-FabricatedCity.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\Get-FabricatedCompany.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\Get-FabricatedDate.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\Get-FabricatedJobTitle.Tests.ps1" -Output Detailed
- Invoke-Pester "$tests\Get-FabricatedName.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Get-FabricatedName.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\Get-FabricatedPhone.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\Get-FabricatedPostalCode.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\Get-FabricatedState.Tests.ps1" -Output Detailed
@@ -67,6 +67,7 @@ Invoke-Pester "$tests\Get-FabricatedTaxpayerID.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\Get-FabricatedTime.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\Get-StateName.Tests.ps1" -Output Detailed
 
+# Pick up here
 # Invoke-Pester "$tests\New-FabricatedCityStatePostalCodeRecord.Tests.ps1" -Output Detailed
 # Invoke-Pester "$tests\New-FabricatedCompanyRecord.Tests.ps1" -Output Detailed
 # Invoke-Pester "$tests\New-FabricatedCustomerRecord.Tests.ps1" -Output Detailed
