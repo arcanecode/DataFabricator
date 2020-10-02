@@ -11,6 +11,8 @@
   This module may not be reproduced in whole or in part without the express
   written consent of the author.
 
+  ---------------------------------------------------------------------------------------------
+
   Common RegEx Syntax
     [A-Z]  - Single uppercase letter in the range A to Z
     [ABCD] - Single uppercase letter from the letters in A, B, C, or D

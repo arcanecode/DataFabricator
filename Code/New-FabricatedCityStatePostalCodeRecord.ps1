@@ -75,7 +75,7 @@ New-FabricatedCityStatePostalCodeRecord returns data similar to the following ex
 City                | Chinook CDP
 State               | AK
 StateName           | Alaska
-PostalCode          | 27264
+PostalCode          | 27264-3982
 CityStPostalCode    | Chinook CDP, AK 27264-3982
 CityStatePostalCode | Chinook CDP, Alaska 27264-3982
 CityCode            | AKCHINOOKCDP
