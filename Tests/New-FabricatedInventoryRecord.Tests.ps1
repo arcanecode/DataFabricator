@@ -53,7 +53,6 @@ Describe "DataFabricator New-FabricatedInventoryRecord.Tests" {
     # Load US Data
     $citiesUS = Get-Content .\Data\Data-CitiesUS.txt
     $stateAbbrUS = Get-Content .\Data\Data-StateAbbrUS.txt
-    $stateNameUS = Get-Content .\Data\Data-StateNameUS.txt
 
     $cityCodesUS = @()
     foreach($city in $citiesUS)
@@ -64,7 +63,6 @@ Describe "DataFabricator New-FabricatedInventoryRecord.Tests" {
     # Load UK Data
     $citiesUK = Get-Content .\Data\Data-CitiesUK.txt
     $stateAbbrUK = Get-Content .\Data\Data-StateAbbrUK.txt
-    $stateNameUK = Get-Content .\Data\Data-StateNameUK.txt
 
     $cityCodesUK = @()
     foreach($city in $citiesUK)

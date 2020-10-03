@@ -37,10 +37,26 @@ Install-Module Pester -RequiredVersion "5.1.0-beta1" -AllowPrerelease -Force
 Import-Module Pester -RequiredVersion "5.1.0" #"5.0.4"
 get-module pester -ListAvailable
 
-# Before running, you need to have the most current version loaded in memory
+# Before running, you need to have the most current version loaded in memory.
+# Typically this is done in each test, but it takes a minute or two to load
+# the module so I'm doing it here once, rather than in each test, in order
+# to make test execution run faster. It's up to you to manually unload
+# whatever version is in memory and reload, so you get the most current version.
 Remove-Module DataFabricator -ErrorAction SilentlyContinue
 Import-Module "$pwd\DataFabricator"
 
+
+# You can run all of the tests using Invoke-Pester, and passing 
+# in the directory with the tests. Note running all tests take just
+# under three minutes.
+Invoke-Pester Tests
+
+# If you want to see the detail on each test, pass in -Output Detailed
+Invoke-Pester Tests -Output Detailed
+
+# Or you can run tests one at a time using the commands below
+
+# Set a variable to get the current folder
 $tests = "$pwd\Tests"
 
 Invoke-Pester "$tests\DataFabricator.Module.Tests.ps1" -Output Detailed
@@ -79,23 +95,5 @@ Invoke-Pester "$tests\New-FabricatedSalesRecord.Tests.ps1" -Output Detailed
 
 Invoke-Pester "$tests\Test-CountryCode.Tests.ps1" -Output Detailed
 
-
-#------------------------------------------------------------------------------------------------
-# Stuff below here for debugging Pester issues
-#------------------------------------------------------------------------------------------------
-
-# See which version is loaded
-get-module pester
-
-# Code for generating bug reports to the pester project
-
-$bugReport = &{
-    $p = Get-Module -Name Pester -ListAvailable | Select-Object -First 1
-    "Pester version     : " + $p.Version + " " + $p.Path
-    "PowerShell version : " + $PSVersionTable.PSVersion
-    "OS version         : " + [System.Environment]::OSVersion.VersionString
-}
-$bugReport
-$bugReport | clip
 
 

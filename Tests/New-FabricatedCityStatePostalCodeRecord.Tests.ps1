@@ -135,8 +135,18 @@ Describe "DataFabricator New-FabricatedCityStatePostalCodeRecord.Tests" {
       $citiesUS | Should -Contain $csp[0]
       # Now split the state and postal code
       $sp = $csp[1].Split(" ")
-      $stateNameUS | Should -Contain $sp[0]
-      $sp[1] | Should -Match $matchPostalCodeUS
+      # Some states have two parts to the name, like New York. If so, the $sp will have 3 
+      # elements (New, York, then the code). Others will only have two, (Alabama, postal code)
+      # Adjust the test based on the number of elements in the array
+      if ($sp.Count -eq 3) {
+        $stateNameUS | Should -Contain "$($sp[0]) $($sp[1])"
+        $sp[2] | Should -Match $matchPostalCodeUS
+      }
+      else  #only two elements
+      {
+        $stateNameUS | Should -Contain $sp[0]
+        $sp[1] | Should -Match $matchPostalCodeUS
+      }
     }
 
   } # Context "<module> <function> default CountryCode Tests"
@@ -178,8 +188,18 @@ Describe "DataFabricator New-FabricatedCityStatePostalCodeRecord.Tests" {
       $citiesUS | Should -Contain $csp[0]
       # Now split the state and postal code
       $sp = $csp[1].Split(" ")
-      $stateNameUS | Should -Contain $sp[0]
-      $sp[1] | Should -Match $matchPostalCodeUS
+      # Some states have two parts to the name, like New York. If so, the $sp will have 3 
+      # elements (New, York, then the code). Others will only have two, (Alabama, postal code)
+      # Adjust the test based on the number of elements in the array
+      if ($sp.Count -eq 3) {
+        $stateNameUS | Should -Contain "$($sp[0]) $($sp[1])"
+        $sp[2] | Should -Match $matchPostalCodeUS
+      }
+      else  #only two elements
+      {
+        $stateNameUS | Should -Contain $sp[0]
+        $sp[1] | Should -Match $matchPostalCodeUS
+      }
     }
 
   } # Context "<module> <function> -CountryCode US Tests"
@@ -221,8 +241,18 @@ Describe "DataFabricator New-FabricatedCityStatePostalCodeRecord.Tests" {
       $citiesUS | Should -Contain $csp[0]
       # Now split the state and postal code
       $sp = $csp[1].Split(" ")
-      $stateNameUS | Should -Contain $sp[0]
-      $sp[1] | Should -Match $matchPostalCodePlus4US
+      # Some states have two parts to the name, like New York. If so, the $sp will have 3 
+      # elements (New, York, then the code). Others will only have two, (Alabama, postal code)
+      # Adjust the test based on the number of elements in the array
+      if ($sp.Count -eq 3) {
+        $stateNameUS | Should -Contain "$($sp[0]) $($sp[1])"
+        $sp[2] | Should -Match $matchPostalCodeUS
+      }
+      else  #only two elements
+      {
+        $stateNameUS | Should -Contain $sp[0]
+        $sp[1] | Should -Match $matchPostalCodeUS
+      }
     }
 
   } # Context "<module> <function> -Plus4 Tests"
@@ -265,9 +295,21 @@ Describe "DataFabricator New-FabricatedCityStatePostalCodeRecord.Tests" {
       $citiesUK | Should -Contain $csp[0]
       # Now split the state and postal code
       $sp = $csp[1].Split(" ")
-      $stateNameUK | Should -Contain $sp[0]
-      # UK postal codes have a space so we need to add 'em back together
-      "$($sp[1]) $($sp[2])" | Should -Match  $matchPostalCodeUK
+      # Some states have two parts to the name, like New York. If so, the $sp will have 4 
+      # elements (County, Durham, then the two part code). Others will only have three,
+      # (Cornwall, the the two part postal code)
+      # Adjust the test based on the number of elements in the array
+      if ($sp.Count -eq 4) {
+        $stateNameUS | Should -Contain "$($sp[0]) $($sp[1])"
+        "$($sp[2]) $($sp[3])" | Should -Match  $matchPostalCodeUK
+      }
+      else  #only three elements
+      {
+        $stateNameUK | Should -Contain $sp[0]
+        # UK postal codes have a space so we need to add 'em back together
+        "$($sp[1]) $($sp[2])" | Should -Match  $matchPostalCodeUK
+      }
+
     }
 
   } # Context "<module> <function> -CountryCode UK Tests"
