@@ -44,7 +44,7 @@ Phone | 672-344-1425
 ### EXAMPLE 2
 
 ```powershell
-Get-FabricatedPhone -NoDashes
+Get-FabricatedPhone -NoFormatting
 ```
 
 Get-FabricatedPhone returns data similar to the following example:

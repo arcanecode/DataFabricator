@@ -34,7 +34,7 @@ Address1        | The fictional address line 1 for the company
 Address2        | The fictional address line 2 for the company (might be empty)
 City            | A randomly selected City
 State           | A randomly selected state
-Zip             | A fabricated Zip code
+PostalCode      | A fabricated PostalCode code
 ContactName     | A fabricated persons name in "First Last" format
 ContactPhone    | A fake phone number for the company
 ContactEMail    | An email address generated from the name and company, such as f.last@companyname.com
@@ -50,7 +50,7 @@ Address1        | 762 Connie Hwy
 Address2        |
 City            | West Columbia City
 State           | AL
-Zip             | 48310
+PostalCode      | 48310
 ContactName     | Mikala Mundy
 ContactPhone    | 342-056-6296
 ContactEMail    | m.mundy@transformativeproductscorp.com
