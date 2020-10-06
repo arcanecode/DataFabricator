@@ -3,25 +3,25 @@
   Zip Code Lookups
   Author: Robert C. Cain | @ArcaneCode | arcanecode@gmail.com
           http://arcanecode.com
- 
+
   This module is Copyright (c) 2015 Robert C. Cain. All rights reserved.
   The code herein is for demonstration purposes. No warranty or guarentee
-  is implied or expressly granted. 
+  is implied or expressly granted.
   This module may not be reproduced in whole or in part without the express
-  written consent of the author. 
+  written consent of the author.
   Notes
-  This module demonstrates several concepts. First, it illustrates how to 
+  This module demonstrates several concepts. First, it illustrates how to
   call a REST API. The USPS (United States Postal Service) has an API
   which will allow you to retrieve a City and State based on a passed in
-  Zip Code. 
+  Zip Code.
   In order to use it, you will need to first register. It's free, just
   go to:
   https://www.usps.com/business/web-tools-apis/welcome.htm
-  and register. They'll send you an email with your user ID. 
+  and register. They'll send you an email with your user ID.
   In the code below replace the xxxxxxxxx's with your user id, then these
   demos should work.
   Next, it demonstrates how to integrate the new class features of PowerShell
-  Version 5 with modules. 
+  Version 5 with modules.
 -----------------------------------------------------------------------------#>
 
 # Use the $PSVersionTable.OS value to determine which OS you are on.
@@ -72,6 +72,9 @@
 . .\Code\New-FabricatedProductRecord.ps1
 . .\Code\New-FabricatedProductTable.ps1
 . .\Code\New-FabricatedSalesRecord.ps1
+. .\Code\Open-DataFabricatorWebsite.ps1
+. .\Code\Show-AboutDataFabricator.ps1
+. .\Code\Show-DataFabricatorFunctions.ps1
 . .\Code\Test-CountryCode.ps1
 
 # Run scripts to load internal functions, used only in the module
@@ -95,9 +98,9 @@ Export-ModuleMember Get-CountryCodes
 Export-ModuleMember Get-StateName
 Export-ModuleMember Get-FabricatedAddressLine1
 Export-ModuleMember Get-FabricatedAddressLine2
-Export-ModuleMember Get-FabricatedBin 
+Export-ModuleMember Get-FabricatedBin
 Export-ModuleMember Get-FabricatedCity
-Export-ModuleMember Get-FabricatedCompany 
+Export-ModuleMember Get-FabricatedCompany
 Export-ModuleMember Get-FabricatedDate
 Export-ModuleMember Get-FabricatedJobTitle
 Export-ModuleMember Get-FabricatedName
@@ -115,6 +118,9 @@ Export-ModuleMember New-FabricatedInventoryRecord
 Export-ModuleMember New-FabricatedNameRecord
 Export-ModuleMember New-FabricatedProductRecord
 Export-ModuleMember New-FabricatedProductTable
-Export-ModuleMember New-FabricatedSalesRecord 
+Export-ModuleMember New-FabricatedSalesRecord
 
+Export-ModuleMember Open-DataFabricatorWebsite
+Export-ModuleMember Show-AboutDataFabricator
+Export-ModuleMember Show-DataFabricatorFunctions
 Export-ModuleMember Test-CountryCode

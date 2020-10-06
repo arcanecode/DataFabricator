@@ -1,35 +1,29 @@
-# Get-FabricatedJobTitle
+# Show-DataFabricatorFunctions
 
 ## SYNOPSIS
 
-Fabricates a job title from an internal list.
+Shows a text message with a listing of all the functions in the module, along with their synopsis.
 
 ## SYNTAX
 
 ```powershell
-Get-FabricatedJobTitle [<CommonParameters>]
+Show-DataFabricatorFunctions [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-This module includes an interal list of over 4,000 real job titles, including my dream job of Zamboni Driver.
-
-This routine will randomly select one from the list and return it.
+Shows a text message with a listing of all the functions in the module, along with their synopsis.
+Included is a link to the online documentaiton.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
 ```powershell
-Get-FabricatedJobTitle
+Show-DataFabricatorFunctions
 ```
 
-Get-FabricatedJobTitle returns data similar to the following example:
-
-
-Property | Value
-| ----- | ------ |
-Job Title | Credentialing Specialist
+Show-DataFabricatorFunctions returns a rather large string with a list of all the functions in the DataFabricator, along with a synopsis of their use.
 
 ## PARAMETERS
 
@@ -43,11 +37,11 @@ This cmdlet has no inputs.
 
 ## OUTPUTS
 
-String with the job title.
+The cmdlet creates an array of one or more objects with the following properties
 
 ## NOTES
 
-Data Fabricator - Get-FabricatedJobTitle.ps1
+Data Fabricator - Show-DataFabricatorFunctions.ps1
 
 Author: Robert C Cain | [@ArcaneCode](https://twitter.com/arcanecode) | arcane@arcanetc.com
 
@@ -61,9 +55,7 @@ the express written consent of the author.
 
 ## RELATED LINKS
 
-[New-FabricatedCompanyRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCompanyRecord.md)
-
-[New-FabricatedEmployeeRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedEmployeeRecord.md)
+[Show-DataFabricatorFunctions](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Show-DataFabricatorFunctions.md)
 
 [ArcaneCode's Website](http://arcanecode.me)
 

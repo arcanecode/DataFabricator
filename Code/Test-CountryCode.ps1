@@ -1,12 +1,16 @@
 <#
 .SYNOPSIS
-Tests the country code to see if it is valid.
+Tests the passed in country code to see if it is valid.
 
 .DESCRIPTION
 People suck at following directions. 
+
 Even though we provided an easy way to return a list of valid country codes, the Get-CountryCodes cmdlet, we both know someone is going to try something bogus just to see if it works.
+
 So we had to create this cmdlet, which tests the country code. If it is valid it returns true.
+
 If not, it returns false and outputs a warning message about it being invalid.
+
 In most cmdlets if the code is invalid it then uses the default code of US and continues processing.
 
 .PARAMETER CountryCode

@@ -6,7 +6,9 @@ Fabricates a phone number for the CountryCode, defaulting to the US based format
 We wouldn't want to use real phone numbers, telemarters are horrible! They always seem to call at meal time.
 
 This cmdlet generates random numbers to compose a phone number for the CountryCode parameter, to avoid those meal interrupting calls.
+
 If no CountryCode is passed in, it will default to the US format of xxx-xxx-xxxx.
+
 To suppress extra charcters like dashes, spaces, and so on from the phone number use the NoFormatting switch.
 
 .PARAMETER NoFormatting
@@ -14,6 +16,11 @@ Switch that will prevent formatting, such as dashes or spaces, from being includ
 
 .PARAMETER CountryCode
 Enumerated country code. If no code is supplied it defaults to the US.
+
+.PARAMETER PhonePrefix
+Allows you to override the randomly generated prefix for a phone number. The prefix is the (typically, depending on country) three digits at the start of the phone number.
+
+Using PhonePrefix you could generate phone numbers for a specific area code. If you are concerned about generating a real phone number, in the US the prefix 555 is reserved for "fake" phone numbers for TV and movies, you could use it here as well.
 
 .INPUTS
 This cmdlet has no inputs.
@@ -83,6 +90,7 @@ function Get-FabricatedPhone()
   [CmdletBinding()]
   param (
           [string] $CountryCode = 'US'
+        , [string] $PhonePrefix = '0'
         , [switch] $NoFormatting
         )
 
@@ -104,8 +112,17 @@ $fn
   function usPhone ([bool] $noFormat)
   {
 
-    # (US Phones don't start with 0)
-    $first = (100..999 | Get-Random).ToString().PadLeft( 3, '0')
+    if ($PhonePrefix -eq 0)
+    { 
+      # Randomly generate a prefix (US Phones don't start with 0)
+      $first = (100..999 | Get-Random).ToString().PadLeft( 3, '0')
+    }
+    else
+    {
+      # Use the prefix that was passed in
+      $first = $PhonePrefix
+    }
+    # Randomly generate the rest of the phone number
     $mid   = (0..999   | Get-Random).ToString().PadLeft( 3, '0')
     $last  = (0..9999  | Get-Random).ToString().PadLeft( 4, '0')
   
@@ -123,22 +140,33 @@ $fn
     # The UK has a rather complicated phone number system. For simplicity, we'll limit the
     # output to two areas. London, because it's the biggest city, and Cardiff, because that's
     # where a lot of Doctor Who is filmed.
+    # (Note, this can be overridden by using the PhonePrefix parameter)
     # (020) nnnn nnnn London
     # (029) nnnn nnnn Cardiff
 
-    # Calculate the phone number
+    # Randomly generate the main part of the phone number (without the prefix)
     $first = (0..9999 | Get-Random).ToString().PadLeft( 4, '0')
     $last  = (0..9999 | Get-Random).ToString().PadLeft( 4, '0')
   
+    # Calculate the prefix
+    if ($PhonePrefix -eq 0)
+    { 
+      # Randomly generate a prefix
+      $ukPrefix = ('020', '029') | Get-Random
+    }
+    else
+    {
+      # Use the prefix that was passed in
+      $ukPrefix = $PhonePrefix
+    }
+
     if ( $noFormat )
     { 
-      $ukPrefix = ('020', '029') | Get-Random
       $retVal = "$($ukPrefix)$($first)$($last)" 
     }
     else
     { 
-      $ukPrefix = ('(020)', '(029)') | Get-Random
-      $retVal = "$ukPrefix $first $last" 
+      $retVal = "($ukPrefix) $first $last" 
     }
 
     return $retVal

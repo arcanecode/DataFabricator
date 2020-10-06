@@ -1,15 +1,8 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedProductRecord.md
-schema: 2.0.0
----
-
 # New-FabricatedProductTable
 
 ## SYNOPSIS
 
-Fabricate a table with all possible combinations of products.
+Fabricate a table (a collection of product objects) with all possible combinations of products.
 
 ## SYNTAX
 

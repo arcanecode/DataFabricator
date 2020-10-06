@@ -1,10 +1,3 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedInventoryRecord.md
-schema: 2.0.0
----
-
 # ConvertTo-CityCode
 
 ## SYNOPSIS
@@ -20,6 +13,7 @@ ConvertTo-CityCode [[-City] <String>] [<CommonParameters>]
 ## DESCRIPTION
 
 The city code is combined with the two character state abbreviaion to create the city state code.
+
 This is used as a key in several functions.
 
 ## EXAMPLES

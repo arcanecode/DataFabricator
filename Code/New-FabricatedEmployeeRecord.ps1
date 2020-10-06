@@ -1,13 +1,15 @@
 <#
 .SYNOPSIS
-Fabricates a new employee record.
+Fabricates one or more new employee records, and returns them as an array of objects (aka records).
 
 .DESCRIPTION
 If your company is like mine, the employees are far too embarrased to admit working there.
+
 In order not to drive employee morale even lower than it is, you can use this cmdlet to fabricate the data to create a fake employee record, with properties as defined in the output area.
 
 .PARAMETER EMailDomain
 By default the cmdlet will create customer records using fakemail.com as the final part of the email address.
+
 You can override this, for example using your own company email, using this parameter.
 
 .PARAMETER RecordCount
@@ -15,9 +17,13 @@ The number of records you want returned from this cmdlet. The default is 1.
 
 .PARAMETER MaxDuplicateCountBeforeError
 This cmdlet checks for duplicates so they are removed from the final output.
+
 By default, once the cmdlet has generated 50 duplicates it will throw an error and exit before all the records have been generated (although it will return what it has generated to that point).
+
 It is possible in some cases to request more records than it is possible to create based on the internal data.
+
 To keep from falling into an infinite loop this mechanism will exit and let the user know what the issue is.
+
 Normally you won't need to override this, but it is possible should you feel the need.
 
 .PARAMETER CountryCode

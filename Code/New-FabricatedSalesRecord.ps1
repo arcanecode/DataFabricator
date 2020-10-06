@@ -1,15 +1,17 @@
 <#
 .SYNOPSIS
-Fabricates sales data based on the supplied mix of employees, products, customers, and employees.
+Fabricates sales data based on the supplied mix of employees, products, customers, and employees. Returns them as a collection of sales records (objects) in an array.
 
 .DESCRIPTION
 Like our company, yours is probably embarrassed to admit how little they actually sell. To avoid this, you'll want to fabricate some fake sales data.
 
-Sales data answers the questions of what piece of cheap merchandise was sold (products), 
-which employee actually surprised their manager by selling something (employees),
-who was foolish or gullible enough to buy our stuff (customers),
-and how many did this poor person get stuck with (quantity),
-not to mention how much money did we make which is important to know because we've got another boat payment coming due (total sale).
+Sales data answers many common questions, such as:
+
+* what piece of cheap merchandise was sold (products),
+* which employee actually surprised their manager by selling something (employees),
+* who was foolish or gullible enough to buy our stuff (customers),
+* and how many did this poor person get stuck with (quantity),
+* not to mention how much money did we make which is important to know because we've got another boat payment coming due (total sale).
 
 This exciting cmdlet takes the output from other cmdlets and combines them together to fabricate sales data.
 
@@ -32,11 +34,11 @@ The minimum number of items to sell in a single transaction. The default is 1.
 The maximum number of items that can be sold for a single transaction. The defalt is 99.
 
 .PARAMETER MinPricePerProduct
-The minimum price for a single piece of product. The default is 1.00. 
+The minimum price for a single piece of product. The default is 1.00.
 Note prices are not in any monetary unit, so you can pretend they are dollars, pounds, euros, Martian gliptars, or whatever you fancy.
 
 .PARAMETER MaxPricePerProduct
-The maximum price for a single piece of product. The default is 99.99. 
+The maximum price for a single piece of product. The default is 99.99.
 Note prices are not in any monetary unit, so you can pretend they are dollars, pounds, euros, Minecraft emeralds, or whatever you think you can cram into your wallet.
 
 .PARAMETER YearsToFabricateSalesFor
@@ -98,7 +100,7 @@ $sales = New-FabricatedSalesRecord -Employees $employees `
                                    -MinQuantityPerSale 100 `
                                    -MaxQuantityPerSale 1000 `
                                    -MinPricePerProduct 100.00 `
-                                   -MaxPricePerProduct 200.00 
+                                   -MaxPricePerProduct 200.00
 $sales
 
 New-FabricatedSalesRecord returns data similar to the following example:
@@ -176,7 +178,7 @@ $fn
          Max Quantity Per Sale.................: $MaxQuantityPerSale
          Min Price Per Product.................: $MinPricePerProduct
          Max Price Per Product.................: $MaxPricePerProduct
-         Years To Fabricate Sales For..........: $YearsToFabricateSalesFor 
+         Years To Fabricate Sales For..........: $YearsToFabricateSalesFor
 "@
 
   # Note: We are not doing dupe checking in this function, as it's realistic to have
@@ -199,9 +201,9 @@ $fn
 
   # Set the counters
   $i = 0
-  
+
   # Fabricate new rows
-  while ($i -lt $RecordCount) 
+  while ($i -lt $RecordCount)
   {
     $sales = [SalesRecord]::new()
 
@@ -222,9 +224,9 @@ $fn
     $i++
   }
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Sort the output before returning
   $retVal = $retVal | Sort-Object -Property SalesDate, ProductCode, EmployeeID

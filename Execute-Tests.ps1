@@ -33,8 +33,12 @@ Find-Module Pester -AllowPrerelease
 # Install the beta
 Install-Module Pester -RequiredVersion "5.1.0-beta1" -AllowPrerelease -Force
 
+# Once the 5.1.0 version of Pester is released, you can uncomment the following line
+# and use it instead, deleting the previous line.
+# Install-Module Pester -RequiredVersion "5.1.0" -Force
+
 # Import it
-Import-Module Pester -RequiredVersion "5.1.0" #"5.0.4"
+Import-Module Pester -RequiredVersion "5.1.0"
 get-module pester -ListAvailable
 
 # Before running, you need to have the most current version loaded in memory.
@@ -45,6 +49,9 @@ get-module pester -ListAvailable
 Remove-Module DataFabricator -ErrorAction SilentlyContinue
 Import-Module "$pwd\DataFabricator"
 
+# Note, I've chosen to skip tests for the Show-* cmdlets, as all they do is 
+# display a string of text. Likewise, I've omitted the Open-* cmdlet, as it
+# just opens a webpage.
 
 # You can run all of the tests using Invoke-Pester, and passing 
 # in the directory with the tests. Note running all tests take just

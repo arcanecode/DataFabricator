@@ -1,15 +1,8 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStatePostalCodeRecord.md
-schema: 2.0.0
----
-
 # New-FabricatedCompanyRecord
 
 ## SYNOPSIS
 
-Fabricates a new company and returns it as an object (aka record)
+Fabricates one or more new company records, and returns them as an array of objects (aka records).
 
 ## SYNTAX
 
@@ -24,7 +17,7 @@ Let's face it, no company on this planet or any other (except Mars, those guys a
 As such, we'll have to create some fake companies to work with.
 
 This cmdlet will create a new object (or objects) that have properties that a real company would have.
-Company name, address, contact and more (see the Outputs section for full details.)
+Company name, address, contact and more (see the Outputs section for full details).
 This makes it easy to generate one or more companies for you to do business with.
 
 ## EXAMPLES
@@ -45,7 +38,7 @@ Address1        | 762 Connie Hwy
 Address2        |
 City            | West Columbia City
 State           | AL
-Zip             | 48310
+PostalCode      | 48310
 ContactName     | Mikala Mundy
 ContactPhone    | 342-056-6296
 ContactEMail    | m.mundy@transformativeproductscorp.com
@@ -103,9 +96,13 @@ Accept wildcard characters: False
 ### -MaxDuplicateCountBeforeError
 
 This cmdlet checks for duplicates so they are removed from the final output.
+
 By default, once the cmdlet has generated 50 duplicates it will throw an error and exit before all the records have been generated (although it will return what it has generated to that point).
+
 It is possible in some cases to request more records than it is possible to create based on the internal data.
+
 To keep from falling into an infinite loop this mechanism will exit and let the user know what the issue is.
+
 Normally you won't need to override this, but it is possible should you feel the need.
 
 ```yaml
@@ -156,7 +153,7 @@ Address1        | The fictional address line 1 for the company
 Address2        | The fictional address line 2 for the company (might be empty)
 City            | A randomly selected City
 State           | A randomly selected state
-Zip             | A fabricated Zip code
+PostalCode      | A fabricated PostalCode code
 ContactName     | A fabricated persons name in "First Last" format
 ContactPhone    | A fake phone number for the company
 ContactEMail    | An email address generated from the name and company, such as f.last@companyname.com

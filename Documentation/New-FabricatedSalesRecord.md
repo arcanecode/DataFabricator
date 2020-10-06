@@ -1,15 +1,9 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedDate.md
-schema: 2.0.0
----
-
 # New-FabricatedSalesRecord
 
 ## SYNOPSIS
 
 Fabricates sales data based on the supplied mix of employees, products, customers, and employees.
+Returns them as a collection of sales records (objects) in an array.
 
 ## SYNTAX
 
@@ -25,11 +19,13 @@ New-FabricatedSalesRecord [[-RecordCount] <Int32>] [[-Employees] <Array>] [[-Pro
 Like our company, yours is probably embarrassed to admit how little they actually sell.
 To avoid this, you'll want to fabricate some fake sales data.
 
-Sales data answers the questions of what piece of cheap merchandise was sold (products), 
-which employee actually surprised their manager by selling something (employees),
-who was foolish or gullible enough to buy our stuff (customers),
-and how many did this poor person get stuck with (quantity),
-not to mention how much money did we make which is important to know because we've got another boat payment coming due (total sale).
+Sales data answers many common questions, such as:
+
+* what piece of cheap merchandise was sold (products),
+* which employee actually surprised their manager by selling something (employees),
+* who was foolish or gullible enough to buy our stuff (customers),
+* and how many did this poor person get stuck with (quantity),
+* not to mention how much money did we make which is important to know because we've got another boat payment coming due (total sale).
 
 This exciting cmdlet takes the output from other cmdlets and combines them together to fabricate sales data.
 
@@ -87,7 +83,7 @@ $sales = New-FabricatedSalesRecord -Employees $employees `
                                    -MinQuantityPerSale 100 `
                                    -MaxQuantityPerSale 1000 `
                                    -MinPricePerProduct 100.00 `
-                                   -MaxPricePerProduct 200.00 
+                                   -MaxPricePerProduct 200.00
 $sales
 ```
 
@@ -141,7 +137,7 @@ Accept wildcard characters: False
 ### -MaxPricePerProduct
 
 The maximum price for a single piece of product.
-The default is 99.99. 
+The default is 99.99.
 Note prices are not in any monetary unit, so you can pretend they are dollars, pounds, euros, Minecraft emeralds, or whatever you think you can cram into your wallet.
 
 ```yaml
@@ -176,7 +172,7 @@ Accept wildcard characters: False
 ### -MinPricePerProduct
 
 The minimum price for a single piece of product.
-The default is 1.00. 
+The default is 1.00.
 Note prices are not in any monetary unit, so you can pretend they are dollars, pounds, euros, Martian gliptars, or whatever you fancy.
 
 ```yaml

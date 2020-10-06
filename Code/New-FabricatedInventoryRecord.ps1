@@ -1,38 +1,39 @@
 <#
 .SYNOPSIS
-Fabricates a new inventory record.
+Fabricates one or more new inventory records, and returns them as an array of objects (aka records).
 
 .DESCRIPTION
 Let's face it, your company probably doesn't want to admit to how much junk is still in the warehouse that they can't sell.
 
-In order to avoid yet another negative quarter on the stock market, you can use this cmdlet to create one or more rows of fake but realistic inventory data. 
-This contains properties such as the product, warehouse, bin, and quantity.
+In order to avoid yet another negative quarter on the stock market, you can use this cmdlet to create one or more rows of fake but realistic inventory data. This contains properties such as the product, warehouse, bin, and quantity.
 
 .PARAMETER RecordCount
 The number of records you want returned from this cmdlet. The default is 1.
 
 .PARAMETER MaxDuplicateCountBeforeError
 This cmdlet checks for duplicates so they are removed from the final output.
+
 By default, once the cmdlet has generated 50 duplicates it will throw an error and exit before all the records have been generated (although it will return what it has generated to that point).
+
 It is possible in some cases to request more records than it is possible to create based on the internal data.
+
 To keep from falling into an infinite loop this mechanism will exit and let the user know what the issue is.
+
 Normally you won't need to override this, but it is possible should you feel the need.
 
 .PARAMETER CountryCode
 Country code. If no code is supplied it defaults to the US.
 
 .PARAMETER WarehouseCode
-A code which represents the warehouse to put the inventory. 
-If not passed in, then warehouse values are generated for each product. 
+A code which represents the warehouse to put the inventory. If not passed in, then warehouse values are generated for each product.
+
 By passing in a warehouse code all inventory will be generated for a single warehouse.
 
 .PARAMETER MinQuantity
-The minimum quantity to generate inside a bin within the warehouse.
-This defaults to 1 if no value is passed in.
+The minimum quantity to generate inside a bin within the warehouse. This defaults to 1 if no value is passed in.
 
 .PARAMETER MaxQuantity
-The maximum quantity to generate inside a bin within the warehouse.
-This defaults to 999 if no value is passed in.
+The maximum quantity to generate inside a bin within the warehouse. This defaults to 999 if no value is passed in.
 
 .INPUTS
 This cmdlet has no inputs.

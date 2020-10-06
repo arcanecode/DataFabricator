@@ -3,7 +3,8 @@
 Creates a product code from the clothing, color and size.
 
 .DESCRIPTION
-The product code consists of the first three characters from the clothing, color, and size all uppercased.
+The product code consists of the first three characters from the clothing, color, and size all upper cased.
+
 Based on the sample data included with this module this will create a unique value that is used as a key in several places.
 
 .PARAMETER Clothing

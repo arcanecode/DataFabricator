@@ -1,6 +1,12 @@
-# ReadMe
+# Internal ReadMe
 
-The code in this folder is for internal use by the module, and is not exposed outside the module.
+The code in this folder is for internal use by the module, and is not exposed outside the module. See the help text at the top of each function for more details on its usage.
+
+See the [DataFabricator](./../Documentation/DataFabricator.md) document for more information on the overall structure of the code.
+
+See the [DataFabricator File Structure](./../Documentation/DataFabricator-FileStructure.md) document for more information on the file structure for the modules code base.
+
+[Return to main ReadMe document.](..\ReadMe.md)
 
 ---
 

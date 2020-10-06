@@ -4,10 +4,13 @@ Fabricates a location in a warehouse, referred to as a Bin number.
 
 .DESCRIPTION
 Many warehouses (like the condom factory I used to work at, no kidding for real!) follow a typical physical layout to indicate where a product is stored.
-First is one to two letters, indicating what row a product can be found on.
-Each row contains racks with bins for storing products, typically on pallets.
+
+First is one to two letters, indicating what row a product can be found on. Each row contains racks with bins for storing products, typically on pallets.
+
 Bins often use three numbers, the first number indicating a level (1, 2, or 3) like a floor in a building.
+
 The second two indicate how far down the row to go, for example 33 being the 33rd bin.
+
 This routine follows this pattern, creating two letters for a row and three numbers for the location on the row.
 
 .INPUTS

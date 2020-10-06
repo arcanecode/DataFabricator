@@ -1,10 +1,3 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCompanyRecord.md
-schema: 2.0.0
----
-
 # Get-FabricatedCompany
 
 ## SYNOPSIS
@@ -20,7 +13,9 @@ Get-FabricatedCompany [<CommonParameters>]
 ## DESCRIPTION
 
 Let's face it, no real company wants to be associated with the likes of us.
+
 So we wrote this cmdlet, which randomly generates a company name from three parts to create a realistic name.
+
 The first part is a name, such as Arcane, the second is an industry, such as Training, the final part is a company type such as Incorporated.
 
 ## EXAMPLES

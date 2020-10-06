@@ -1,12 +1,14 @@
 <#
 .SYNOPSIS
-Fabricates a TaxpayerID (In the US this would be the Social Security Number), a taxpayer identification number..
+Fabricates a TaxpayerID (taxpayer identification number). In the US this would be the Social Security Number.
 
 .DESCRIPTION
-Taxes are a terrible thing, but we all have to pay them. And to pay them we have to have a tax payer ID. 
+Taxes are a terrible thing, but we all have to pay them. And to pay them we have to have a tax payer ID.
+
 Of course we don't want to use real ones (unless you'd be open to paying our outrageously high tax bill, he said hopefuly?).
 
-To avoid this, we have this function which will generate a taxpayer ID Number (abbreviated TaxpayerID) for the specified CountryCode. 
+To avoid this, we have this function which will generate a taxpayer ID Number (abbreviated TaxpayerID) for the specified CountryCode.
+
 If no CountryCode is passed in, the cmdlet defaults to the US, the social security number in xxx-xx-xxxx format.
 
 .PARAMETER NoFormatting

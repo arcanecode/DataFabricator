@@ -1,15 +1,8 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/CMDLET-HERE.md
-schema: 2.0.0
----
-
 # New-FabricatedInventoryRecord
 
 ## SYNOPSIS
 
-Fabricates a new inventory record.
+Fabricates one or more new inventory records, and returns them as an array of objects (aka records).
 
 ## SYNTAX
 
@@ -23,7 +16,7 @@ New-FabricatedInventoryRecord [[-RecordCount] <Int32>] [[-MaxDuplicateCountBefor
 
 Let's face it, your company probably doesn't want to admit to how much junk is still in the warehouse that they can't sell.
 
-In order to avoid yet another negative quarter on the stock market, you can use this cmdlet to create one or more rows of fake but realistic inventory data. 
+In order to avoid yet another negative quarter on the stock market, you can use this cmdlet to create one or more rows of fake but realistic inventory data.
 This contains properties such as the product, warehouse, bin, and quantity.
 
 ## EXAMPLES
@@ -118,9 +111,13 @@ Accept wildcard characters: False
 ### -MaxDuplicateCountBeforeError
 
 This cmdlet checks for duplicates so they are removed from the final output.
+
 By default, once the cmdlet has generated 50 duplicates it will throw an error and exit before all the records have been generated (although it will return what it has generated to that point).
+
 It is possible in some cases to request more records than it is possible to create based on the internal data.
+
 To keep from falling into an infinite loop this mechanism will exit and let the user know what the issue is.
+
 Normally you won't need to override this, but it is possible should you feel the need.
 
 ```yaml
@@ -188,8 +185,9 @@ Accept wildcard characters: False
 
 ### -WarehouseCode
 
-A code which represents the warehouse to put the inventory. 
-If not passed in, then warehouse values are generated for each product. 
+A code which represents the warehouse to put the inventory.
+If not passed in, then warehouse values are generated for each product.
+
 By passing in a warehouse code all inventory will be generated for a single warehouse.
 
 ```yaml

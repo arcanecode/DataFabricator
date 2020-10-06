@@ -6,7 +6,7 @@ Fabricates an address typically used as the address line 1 in an address.
 Most people don't want to give out their addresses, heck even the help authors don't want you know where we live for fear you'll come throw eggs at our house.
 So we created this cmdlet, which will fabricate fake addresses.
 
-Note that addresses often consist of two lines, address 1 and address 2. This will create a realistic but fake address suitible for address 1.
+Note that addresses often consist of two lines, address 1 and address 2. This will create a realistic but fake address suitable for address 1.
 
 .INPUTS
 This cmdlet has no inputs.

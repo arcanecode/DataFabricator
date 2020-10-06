@@ -49,26 +49,49 @@ Describe "DataFabricator Get-FabricatedPhone.Tests" {
   }
 
   Context "<module> <function> Tests" {
-    It "<function> with default contry code matches a pattern of 555-555-5555" {
+    It "<function> with default contry code matches a pattern of 111-111-1111" {
       Get-FabricatedPhone | Should -Match '\d{3}-\d{3}-\d{4}'
     }
 
-    It "<function> -ContryCode US matches a pattern of 555-555-5555" {
+    It "<function> -ContryCode US matches a pattern of 111-111-1111" {
       Get-FabricatedPhone | Should -Match '\d{3}-\d{3}-\d{4}'
     }
 
-    It "<function> -NoFormatting matches a pattern of 5555555555" {
+    It "<function> -NoFormatting matches a pattern of 1111111111" {
       Get-FabricatedPhone -NoFormatting | Should -Match '\d{10}'
     }
 
-    It "<function> -CountryCode UK matches a pattern of (555) 5555 5555" {
+    It "<function> -PhonePrefix 555 with default contry code matches a pattern of 555-111-1111" {
+      Get-FabricatedPhone -PhonePrefix 555 | Should -Match '555-\d{3}-\d{4}'
+    }
+
+    It "<function> -ContryCode US -PhonePrefix 555 matches a pattern of 555-111-1111" {
+      Get-FabricatedPhone -PhonePrefix 555 | Should -Match '555-\d{3}-\d{4}'
+    }
+
+    It "<function> -NoFormatting matches a pattern of 1111111111" {
+      Get-FabricatedPhone -NoFormatting | Should -Match '\d{10}'
+    }
+
+    It "<function> -NoFormatting -PhonePrefix 555 matches a pattern of 5551111111" {
+      Get-FabricatedPhone -NoFormatting -PhonePrefix 555 | Should -Match '555\d{7}'
+    }
+
+    It "<function> -CountryCode UK matches a pattern of (111) 1111 1111" {
       Get-FabricatedPhone -CountryCode 'UK' | Should -Match '\(\d{3}\) \d{4} \d{4}'
     }
 
-    It "<function> -CountryCode UK -NoFormatting matches a pattern of 55555555555" {
+    It "<function> -CountryCode UK -NoFormatting matches a pattern of 11111111111" {
       Get-FabricatedPhone -CountryCode 'UK' -NoFormatting | Should -Match '\d{11}'
     }
 
+    It "<function> -CountryCode UK -PhonePrefix 555 matches a pattern of (555) 1111 1111" {
+      Get-FabricatedPhone -CountryCode 'UK' -PhonePrefix 555 | Should -Match '\(555\) \d{4} \d{4}'
+    }
+
+    It "<function> -CountryCode UK -NoFormatting -PhonePrefix 555 matches a pattern of 55511111111" {
+      Get-FabricatedPhone -CountryCode 'UK' -NoFormatting -PhonePrefix 555 | Should -Match '555\d{8}'
+    }
   } # Context "<module> <function> Tests"
 
 } # Describe DataFabricator Tests

@@ -1,15 +1,8 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedNameRecord.md
-schema: 2.0.0
----
-
 # New-FabricatedCustomerRecord
 
 ## SYNOPSIS
 
-Fabricates a new customer record.
+Fabricates one or more new customer records, and returns them as an array of objects (aka records).
 
 ## SYNTAX
 
@@ -111,6 +104,7 @@ Accept wildcard characters: False
 ### -EMailDomain
 
 By default the cmdlet will create customer records using fakemail.com as the final part of the email address.
+
 You can override this, for example using your own company email, using this parameter.
 
 ```yaml
@@ -128,9 +122,13 @@ Accept wildcard characters: False
 ### -MaxDuplicateCountBeforeError
 
 This cmdlet checks for duplicates so they are removed from the final output.
+
 By default, once the cmdlet has generated 50 duplicates it will throw an error and exit before all the records have been generated (although it will return what it has generated to that point).
+
 It is possible in some cases to request more records than it is possible to create based on the internal data.
+
 To keep from falling into an infinite loop this mechanism will exit and let the user know what the issue is.
+
 Normally you won't need to override this, but it is possible should you feel the need.
 
 ```yaml

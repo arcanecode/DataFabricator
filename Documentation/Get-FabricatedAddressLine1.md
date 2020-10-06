@@ -1,10 +1,3 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCompanyRecord.md
-schema: 2.0.0
----
-
 # Get-FabricatedAddressLine1
 
 ## SYNOPSIS
@@ -23,7 +16,7 @@ Most people don't want to give out their addresses, heck even the help authors d
 So we created this cmdlet, which will fabricate fake addresses.
 
 Note that addresses often consist of two lines, address 1 and address 2.
-This will create a realistic but fake address suitible for address 1.
+This will create a realistic but fake address suitable for address 1.
 
 ## EXAMPLES
 

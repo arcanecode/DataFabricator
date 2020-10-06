@@ -4,6 +4,7 @@ Taks a city name and creates a city code
 
 .DESCRIPTION
 The city code is combined with the two character state abbreviaion to create the city state code.
+
 This is used as a key in several functions.
 
 .PARAMETER City

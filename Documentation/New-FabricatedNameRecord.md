@@ -1,15 +1,8 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedName.md
-schema: 2.0.0
----
-
 # New-FabricatedNameRecord
 
 ## SYNOPSIS
 
-Fabricates a name record complete with all variations
+Fabricates one or more new name records, complete with all variations of a name, and returns them as an array of objects (aka records).
 
 ## SYNTAX
 
@@ -22,9 +15,11 @@ New-FabricatedNameRecord [[-RecordCount] <Int32>] [[-MaxDuplicateCountBeforeErro
 
 William Shakespeare said "What's in a name?".
 Or at least we think it was him, the help authoring team is too lazy to go look it up.
+
 Well apparently there's a lot in a name, people like your customers and employees start sending nasty emails when you use their real names, leaving the complaint department crying into their coffee.
 
 You can use this cmdlet, then, to fabricate one or more randomly generated names, hopefully saving cheap company coffee.
+
 Where Get-FabricatedName returns a variation with a name based on a switch, this cmdlet will return all variations of a name in one concise record.
 
 ## EXAMPLES
@@ -67,9 +62,13 @@ New-FabricatedNameRecord returns 5 records with output similar to the previous e
 ### -MaxDuplicateCountBeforeError
 
 This cmdlet checks for duplicates so they are removed from the final output.
+
 By default, once the cmdlet has generated 50 duplicates it will throw an error and exit before all the records have been generated (although it will return what it has generated to that point).
+
 It is possible in some cases to request more records than it is possible to create based on the internal data.
+
 To keep from falling into an infinite loop this mechanism will exit and let the user know what the issue is.
+
 Normally you won't need to override this, but it is possible should you feel the need.
 
 ```yaml

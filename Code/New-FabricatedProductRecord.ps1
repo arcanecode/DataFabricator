@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Fabricates one or more product records.
+Fabricates one or more new product records, and returns them as an array of objects (aka records).
 
 .DESCRIPTION
 Admit it. If your company sold stuff people really wanted, you'd be using your real products here.

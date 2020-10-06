@@ -1,15 +1,8 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCityStateZipRecord.md
-schema: 2.0.0
----
-
 # Get-FabricatedState
 
 ## SYNOPSIS
 
-Fabricates a US state by randomly picking it from a list of states.
+Fabricates a state by randomly picking it from a list of states.
 
 ## SYNTAX
 
@@ -22,7 +15,11 @@ Get-FabricatedState [-FullName] [[-CountryCode] <String>] [<CommonParameters>]
 We're not talking about a state of mind here, but the state where someone lives, or in our case pretends to live.
 
 This cmdlet will randomly select a state and returns the two character code for that state.
+
 Alternativley it can also return the full name of a state by using the FullName switch.
+
+Please note, we do realize the UK doesn't actually have "states", for now we generated a list of state names for it.
+As we continue internationalization development we'll come back to correct this formatting.
 
 ## EXAMPLES
 

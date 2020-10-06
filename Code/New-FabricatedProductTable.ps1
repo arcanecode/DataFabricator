@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Fabricate a table with all possible combinations of products.
+Fabricate a table (a collection of product objects) with all possible combinations of products.
 
 .DESCRIPTION
 Products? You want products? Well we got your products right here!

@@ -4,8 +4,11 @@ Fabricates a date and (optionally) a time.
 
 .DESCRIPTION
 This flexible cmdlet has the ability generate dates in either string or datetime format.
+
 By default it will uses ranges in the last 50 years backwards from the current year, however these are easily overridden using the parameters (see each parameter for more information).
+
 The default format for the returned string is YYYY-MM-DD (only a date, no time), unless overridden.
+
 Using switches (see below) you can change the format a well as include a fabricated time.
 
 .PARAMETER FromYear
@@ -21,12 +24,16 @@ When New Years hits and we get to 2021, the starting year will become 2021.
 
 .PARAMETER RelativeThruYear
 Just like the RelativeFromYear, this parameter can be used to set a relative end year for date generation.
+
 This can be especially useful for generating birthdays for employees.
+
 Many companies require people to be a minimum age, for example 21.
+
 Using 21 for a relative thru year would assure all dates fabricated would be at least 21 years ago.
 
 .PARAMETER AsDateTime
-Switch that will return the fabricated date as a datetime datatype instead of a string. 
+Switch that will return the fabricated date as a datetime datatype instead of a string.
+
 Note if you do not also use the FabricatedTime switch, the default time will be midnight (12:00:00 AM).
 
 .PARAMETER FormatMDY

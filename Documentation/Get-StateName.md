@@ -1,10 +1,3 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/CMDLET-HERE.md
-schema: 2.0.0
----
-
 # Get-StateName
 
 ## SYNOPSIS
@@ -23,6 +16,7 @@ State abbreviations can be confusing, I mean is AL Alabama or Alaska?
 Who has time to remember stuff like that.
 
 To avoid confusion, this cmdlet takes the passed in the two character state abbreviation, and expands it to the full state name. 
+
 The country code is also needed to know which set of state tables to use (US, UK, etc).
 
 ## EXAMPLES

@@ -1,35 +1,28 @@
-# Get-FabricatedJobTitle
+# Show-AboutDataFabricator
 
 ## SYNOPSIS
 
-Fabricates a job title from an internal list.
+This function does nothing more than display additional information about the DataFabricator module.
 
 ## SYNTAX
 
 ```powershell
-Get-FabricatedJobTitle [<CommonParameters>]
+Show-AboutDataFabricator [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-This module includes an interal list of over 4,000 real job titles, including my dream job of Zamboni Driver.
-
-This routine will randomly select one from the list and return it.
+Simply displays additional information on where users can find more information on the DataFabricator module.
 
 ## EXAMPLES
 
 ### EXAMPLE 1
 
 ```powershell
-Get-FabricatedJobTitle
+Show-AboutDataFabricator
 ```
 
-Get-FabricatedJobTitle returns data similar to the following example:
-
-
-Property | Value
-| ----- | ------ |
-Job Title | Credentialing Specialist
+Shows the info about this module.
 
 ## PARAMETERS
 
@@ -43,11 +36,11 @@ This cmdlet has no inputs.
 
 ## OUTPUTS
 
-String with the job title.
+The cmdlet creates an array of one or more objects with the following properties
 
 ## NOTES
 
-Data Fabricator - Get-FabricatedJobTitle.ps1
+Data Fabricator - Show-AboutDataFabricator.ps1
 
 Author: Robert C Cain | [@ArcaneCode](https://twitter.com/arcanecode) | arcane@arcanetc.com
 
@@ -61,9 +54,7 @@ the express written consent of the author.
 
 ## RELATED LINKS
 
-[New-FabricatedCompanyRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedCompanyRecord.md)
-
-[New-FabricatedEmployeeRecord](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedEmployeeRecord.md)
+[Show-AboutDataFabricator](https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Show-AboutDataFabricator.md)
 
 [ArcaneCode's Website](http://arcanecode.me)
 

@@ -1,10 +1,3 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedProductRecord.md
-schema: 2.0.0
----
-
 # ConvertTo-ProductCode
 
 ## SYNOPSIS
@@ -19,7 +12,8 @@ ConvertTo-ProductCode [[-Clothing] <String>] [[-Color] <String>] [[-Size] <Strin
 
 ## DESCRIPTION
 
-The product code consists of the first three characters from the clothing, color, and size all uppercased.
+The product code consists of the first three characters from the clothing, color, and size all upper cased.
+
 Based on the sample data included with this module this will create a unique value that is used as a key in several places.
 
 ## EXAMPLES

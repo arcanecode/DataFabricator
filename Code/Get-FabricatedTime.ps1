@@ -4,7 +4,9 @@ Fabricates a random time of day.
 
 .DESCRIPTION
 The clock is ticking, even for us. To get a time, we need to generate a fake time, which this cmdlet handles.
-It will generate a time of day, by default in HH:MM:SS 24 hour format. 
+
+It will generate a time of day, by default in HH:MM:SS 24 hour format.
+
 Using a switch it can also return the time in 12 hour AM/PM format.
 
 .PARAMETER AMPM

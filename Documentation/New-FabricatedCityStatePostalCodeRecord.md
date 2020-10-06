@@ -1,10 +1,3 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedCity.md
-schema: 2.0.0
----
-
 # New-FabricatedCityStatePostalCodeRecord
 
 ## SYNOPSIS
@@ -22,7 +15,7 @@ New-FabricatedCityStatePostalCodeRecord [[-RecordCount] <Int32>] [[-MaxDuplicate
 
 Using real city, states and postal codes is just too risky.
 Makes it easy for governments to spy on us, making it hard to get away with...
-stuff, if you know what I mean. 
+stuff, if you know what I mean.
 Not that we have time for...
 stuff, too busy writing PowerShell code.
 
@@ -31,7 +24,7 @@ Because these are randomly selected, you will wind up with odd results sometimes
 
 That's not only acceptable but desired, as this data is only supposed to be realistic looking, not actually real.
 
-One additional field returned is the CityCode. 
+One additional field returned is the CityCode.
 This is the city run through the ConvertTo-CityCode cmdlet, and will produce a unique value (based on the data supplied with the module) that is suitable for use as a key.
 This value is appended to the two letter state abbreviation to produce unqiue city/state keys.
 

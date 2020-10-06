@@ -1,15 +1,8 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/New-FabricatedProductTable.md
-schema: 2.0.0
----
-
 # New-FabricatedProductRecord
 
 ## SYNOPSIS
 
-Fabricates one or more product records.
+Fabricates one or more new product records, and returns them as an array of objects (aka records).
 
 ## SYNTAX
 

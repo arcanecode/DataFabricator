@@ -3,7 +3,7 @@
 Fabricate one or more records with city, state, and postal code data.
 
 .DESCRIPTION
-Using real city, states and postal codes is just too risky. Makes it easy for governments to spy on us, making it hard to get away with... stuff, if you know what I mean. 
+Using real city, states and postal codes is just too risky. Makes it easy for governments to spy on us, making it hard to get away with... stuff, if you know what I mean.
 Not that we have time for... stuff, too busy writing PowerShell code.
 
 This cmdlet will genereate an object (or array of them) with combinations of randomly selected cities, states and postal codes.
@@ -11,7 +11,7 @@ Because these are randomly selected, you will wind up with odd results sometimes
 
 That's not only acceptable but desired, as this data is only supposed to be realistic looking, not actually real.
 
-One additional field returned is the CityCode. 
+One additional field returned is the CityCode.
 This is the city run through the ConvertTo-CityCode cmdlet, and will produce a unique value (based on the data supplied with the module) that is suitable for use as a key.
 This value is appended to the two letter state abbreviation to produce unqiue city/state keys.
 
@@ -141,7 +141,7 @@ function New-FabricatedCityStatePostalCodeRecord {
   [CmdletBinding()]
   param (
              [int] $RecordCount = 1
-        ,    [int] $MaxDuplicateCountBeforeError = 50  
+        ,    [int] $MaxDuplicateCountBeforeError = 50
         , [string] $CountryCode = 'US'
         , [Alias('PlusFour')]
           [switch] $Plus4
@@ -163,8 +163,8 @@ $fn
   class CityStatePostalCode
   {
     [string] $City
-    [string] $State 
-    [string] $StateName 
+    [string] $State
+    [string] $StateName
     [string] $PostalCode
     [string] $CityStPostalCode
     [string] $CityStatePostalCode
@@ -189,21 +189,21 @@ $fn
   # Set the counters
   $dupeTrackingCount = 0
   $i = 0
-  
+
   # Fabricate new rows
   while ($i -lt $RecordCount)
   {
     $csp = [CityStatePostalCode]::new()
-  
+
     $csp.City = Get-FabricatedCity -CountryCode $CountryCode -Verbose:$false
     $csp.State = Get-FabricatedState -CountryCode $CountryCode -Verbose:$false
     $csp.StateName = Get-StateName -StateAbbr $csp.State -CountryCode $CountryCode -Verbose:$false
-  
-    if ($Plus4.IsPresent) 
+
+    if ($Plus4.IsPresent)
       { $csp.PostalCode = Get-FabricatedPostalCode -CountryCode $CountryCode -Plus4 -Verbose:$false }
-    else 
+    else
       { $csp.PostalCode = Get-FabricatedPostalCode -CountryCode $CountryCode -Verbose:$false }
-  
+
     $csp.CityStPostalCode = "$($csp.City), $($csp.State) $($csp.PostalCode)"
     $csp.CityStatePostalCode = "$($csp.City), $($csp.StateName) $($csp.PostalCode)"
     $csp.CityCode = "$($csp.State)$(ConvertTo-CityCode -City $csp.City -Verbose:$false)"
@@ -219,18 +219,18 @@ $fn
     $item = "$($csp.City)$spCity $($csp.State) $($csp.PostalCode)"
 
     Write-Verbose "$fn - Fabricating #$($i.ToString('#,##0')): $item"
-    
+
     # If no values we need to add the first one. If we don't, the dupe check below will
     # error out on a null valued array ($retVal)
     if ( $retVal.Count -eq 0 )
     {
       $retVal += $csp; $i++
-    }   
+    }
     else
     {
       # Now do the dupe check
       if ($retVal.CityCode.Contains($csp.CityCode) -eq $false)
-      {        
+      {
         $retVal += $csp; $i++   # If not there are are safe to add it
       }
       else
@@ -248,9 +248,9 @@ $fn
     }
   }
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Sort the output
   $retVal = $retVal | Sort-Object -Property CityCode

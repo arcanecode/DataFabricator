@@ -1,10 +1,3 @@
----
-external help file: DataFabricator-help.xml
-Module Name: DataFabricator
-online version: https://github.com/arcanecode/DataFabricator/blob/master/Documentation/Get-FabricatedDate.md
-schema: 2.0.0
----
-
 # Get-FabricatedTime
 
 ## SYNOPSIS
@@ -21,7 +14,9 @@ Get-FabricatedTime [-AMPM] [<CommonParameters>]
 
 The clock is ticking, even for us.
 To get a time, we need to generate a fake time, which this cmdlet handles.
-It will generate a time of day, by default in HH:MM:SS 24 hour format. 
+
+It will generate a time of day, by default in HH:MM:SS 24 hour format.
+
 Using a switch it can also return the time in 12 hour AM/PM format.
 
 ## EXAMPLES
