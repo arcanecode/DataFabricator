@@ -170,8 +170,8 @@ function Get-FabricatedDate()
   Write-Verbose @"
 $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
-         FromYear $FromYear 
-         ThruYear $ThruYear 
+         FromYear $FromYear
+         ThruYear $ThruYear
          RelativeFromYear $RelativeFromYear
          RelativeThruYear $RelativeThruYear
 "@
@@ -208,13 +208,13 @@ $fn
   # Note, since this is fake data we're just going to ignore leap years
   switch ($retMonth)
   {
-    ($_ -in (1,3,5,7,8,10,12)) 
+    ($_ -in (1,3,5,7,8,10,12))
       { $retDay = (1..31 | Get-Random).ToString().PadLeft(2, '0') }
 
-    ($_ -in (4,6,9,11))        
+    ($_ -in (4,6,9,11))
       { $retDay = (1..30 | Get-Random).ToString().PadLeft(2, '0') }
-    
-    default                    
+
+    default
       { $retDay = (1..28 | Get-Random).ToString().PadLeft(2, '0') }
   }
 
@@ -248,9 +248,9 @@ $fn
 
   Write-Verbose "$fn Fabricated Date: $retVal"
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
   return $retVal

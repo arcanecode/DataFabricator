@@ -24,7 +24,7 @@ Describe "ConvertFrom-CityStateCode Tests" {
     $expectedCityUK = 'St Davids'
     $expectedStateUS = 'AL'
     $expectedStateUK = 'AL'
-  } 
+  }
 
   Context "<module> <function> Tests" {
     It "<function> Default Country Code CityStateCode of <cityStateCodeUS> returns <expectedCityUS>, <expectedStateUS>" {

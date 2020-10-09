@@ -5,7 +5,7 @@ Converts the state abbreviation to the full state name.
 .DESCRIPTION
 State abbreviations can be confusing, I mean is AL Alabama or Alaska? Who has time to remember stuff like that.
 
-To avoid confusion, this cmdlet takes the passed in the two character state abbreviation, and expands it to the full state name. 
+To avoid confusion, this cmdlet takes the passed in the two character state abbreviation, and expands it to the full state name.
 
 The country code is also needed to know which set of state tables to use (US, UK, etc).
 
@@ -90,9 +90,9 @@ $fn
     default { $retVal = $m_StateTableUS[$StateAbbr] }
   }
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
   return $retVal

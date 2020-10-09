@@ -5,7 +5,7 @@ Fabricates a postal code.
 .DESCRIPTION
 Real postal codes just lead to more junk mail, and who needs yet another high interest rate credit card offer?
 
-This cmldet will generate a postal code in the format used by the country represented in the country code parameter. 
+This cmldet will generate a postal code in the format used by the country represented in the country code parameter.
 If no code is passed, it will default to a country code of US.
 
 In the US postal codes, known as Zip Codes, are five numbers indicating the area of mail service.
@@ -119,7 +119,7 @@ $fn
   function usPostal ( [bool] $plus4 )
   {
     $first = $(1..99999 | Get-Random).ToString().PadLeft(5, '0')
-  
+
     if ($plus4)
       { $last = "-$($(1..9999 | Get-Random).ToString().PadLeft(4, '0'))" }
     else
@@ -137,7 +137,7 @@ $fn
     # a common simple format of AA9A 9AA
 
     if ( $plus4 )
-      { Write-Verbose "$fn - The use of Plus4 is invalid with CountryCodes other than US and will be ignored." } 
+      { Write-Verbose "$fn - The use of Plus4 is invalid with CountryCodes other than US and will be ignored." }
 
     $l1 = $m_TwoLetter | Get-Random
     $l2 = (0..9 | Get-Random).ToString()
@@ -145,7 +145,7 @@ $fn
     $l4 = (0..9 | Get-Random).ToString()
     $l5 = $m_TwoLetter | Get-Random
 
-    $retVal = "$l1$l2$l3 $l4$l5" 
+    $retVal = "$l1$l2$l3 $l4$l5"
 
     return $retVal
  }
@@ -171,9 +171,9 @@ $fn
 
   Write-Verbose "$fn Fabricated Postal Code: $retVal"
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
   return $retVal

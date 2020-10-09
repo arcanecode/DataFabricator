@@ -1,7 +1,32 @@
-# Demonstrates how to use the DataFabricator Module
+<#-------------------------------------------------------------------------------------------------
+  Data Fabricator - DataFabricatorUsage.ps1
+  Author: Robert C. Cain | @ArcaneCode | arcane@arcanetc.com
+           http://arcanecode.me
 
+  This code is Copyright (c) 2020 Robert C. Cain. All rights reserved.
+
+  This script simply demonstrates how to use the DataFabricator Module. It's a bunch of test
+  commands I used during development. I've left it here in case you want to explore
+  DataFabricator.
+
+  The code herein is for demonstration purposes. No warranty or guarantee
+  is implied or expressly granted.
+
+  This module may not be reproduced in whole or in part without the express
+  written consent of the author.
+-----------------------------------------------------------------------------------------------#>
+
+# Note, this PowerShell script is designed to run individual lines of code for testing.
+# Highlighting individual line(s) and pressing F8 to run just those lines.
+
+# Old habits die hard, and sometimes you hit F5 by accident. The line below will exit the
+# script, should you hit F5.
+if ( 1-eq 1 ) { exit }
+
+#------------------------------------------------------------------------------------------------
 # First, remove the module from memory if it's loaded. This is needed
 # if you are making changes and want to test those changes.
+#------------------------------------------------------------------------------------------------
 
 # If the module is not in memory, then suppress the error and silently continue
 Remove-Module DataFabricator -ErrorAction SilentlyContinue
@@ -447,12 +472,17 @@ $s = New-FabricatedSalesRecord -RecordCount 50 `
 $s | Format-Table
 
 
-# To DO
-
 $company = New-FabricatedCompanyRecord -RecordCount 50
 
+#------------------------------------------------------------------------------------------------
+# This section is some simple examples of how to export the fabricated data into files.
+# I've setup a folder, SampleOutput, as a place to store the data, and included some
+# Remove-Item commands to empty the folder when you are done.
+#
+# Please note the sample files are not included on the GitHub site, since they are easy enough
+# to regenerate.
+#------------------------------------------------------------------------------------------------
 
-# Some examples of how to export the fabricated data to files
 $Path = ".\SampleOutput"
 $employees    | Export-Csv "$Path\Employee.csv"
 $productTable | Export-Csv "$Path\Products.csv"
@@ -468,67 +498,3 @@ $company      | ConvertTo-Json | Out-File "$Path\Company.json"
 
 Remove-Item "$Path\*.json"
 Remove-Item "$Path\*.csv"
-
-
-# TODO
-# Recheck the data fabricator.com link once the github project is public
-
-# Change ZipCode to PostalCode in the project
-# Change TaxpayerID to taxpayer ID
-# Add -US flag to many of the Get-Fabricated...
-# That, or add a CountryCode parameter that defaults to the US, using an ENUM value
-# Update the m_ lists to be m_xxxUS
-
-# UK Phones
-# (020) nnnn nnnn London
-# (029) nnnn nnnn Cardiff
-
-# UK TaxpayerID
-# UTR - Unique Taxpayer Reference
-# 01234 56789 (10 digits)
-
-# Strip out the external XML data PlatyPS puts at the top of each MD file
-
-# Fabricate Date - Add text to -FabricateTime to indicate time is in 24 hour format
-
-# Date Table
-
-
-# Write Help / Verbose
-#   x ConvertFrom-CityStateCode
-#   x ConvertFrom-ProductCode
-#   x ConvertTo-CityCode
-#   x ConvertTo-ProductCode
-#
-#   x Get-FabricatedAddressLine1
-#   x Get-FabricatedAddressLine2
-#   x Get-FabricatedBin
-#   x Get-FabricatedCity
-#   x Get-FabricatedCompany
-#   x Get-FabricatedDate
-#   x Get-FabricatedJobTitle
-#   x Get-FabricatedName
-#   x Get-FabricatedPhone
-#   x Get-FabricatedTaxpayerID
-#   x Get-FabricatedState
-#   x Get-FabricatedTime
-#   x Get-FabricatedPostalCode
-#
-#   x New-FabricatedCityStatePostalCodeRecord
-#   x New-FabricatedCompanyRecord
-#   x New-FabricatedCustomerRecord
-#   New-FabricatedEmployeeRecord
-#   New-FabricatedInventoryRecord
-#   x New-FabricatedNameRecord
-#   x New-FabricatedProductRecord
-#   x New-FabricatedProductTable
-#   New-FabricatedSalesRecord
-#   Test-CountryCode
-
-# Install/Test PlatyPs
-# Eventually Pester Tests
-
-# Output CSV
-# Output JSON   $x | ConvertTo-Json | Out-File $path
-
-# Load-TableProducts Not sure this is still needed?

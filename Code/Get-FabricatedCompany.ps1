@@ -60,17 +60,17 @@ $fn
 
   $coFirst = $m_CompanyFirst | Get-Random
   $coIndustry = $m_CompanyIndustry | Get-Random
-  $coLast = $m_CompanyLast | Get-Random 
+  $coLast = $m_CompanyLast | Get-Random
 
   $retVal = "$coFirst $coIndustry $coLast"
 
   Write-Verbose "$fn Fabricated Company: $retVal"
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
-  return $retVal 
+  return $retVal
 
 }

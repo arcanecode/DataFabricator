@@ -113,7 +113,7 @@ $fn
   {
 
     if ($PhonePrefix -eq 0)
-    { 
+    {
       # Randomly generate a prefix (US Phones don't start with 0)
       $first = (100..999 | Get-Random).ToString().PadLeft( 3, '0')
     }
@@ -125,7 +125,7 @@ $fn
     # Randomly generate the rest of the phone number
     $mid   = (0..999   | Get-Random).ToString().PadLeft( 3, '0')
     $last  = (0..9999  | Get-Random).ToString().PadLeft( 4, '0')
-  
+
     if ( $noFormat )
       { $retVal = "$($first)$($mid)$($last)" }
     else
@@ -147,10 +147,10 @@ $fn
     # Randomly generate the main part of the phone number (without the prefix)
     $first = (0..9999 | Get-Random).ToString().PadLeft( 4, '0')
     $last  = (0..9999 | Get-Random).ToString().PadLeft( 4, '0')
-  
+
     # Calculate the prefix
     if ($PhonePrefix -eq 0)
-    { 
+    {
       # Randomly generate a prefix
       $ukPrefix = ('020', '029') | Get-Random
     }
@@ -161,12 +161,12 @@ $fn
     }
 
     if ( $noFormat )
-    { 
-      $retVal = "$($ukPrefix)$($first)$($last)" 
+    {
+      $retVal = "$($ukPrefix)$($first)$($last)"
     }
     else
-    { 
-      $retVal = "($ukPrefix) $first $last" 
+    {
+      $retVal = "($ukPrefix) $first $last"
     }
 
     return $retVal
@@ -193,11 +193,11 @@ $fn
 
   Write-Verbose "$fn Fabricated Phone $retVal"
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
- # Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+ # Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
   return $retVal
-  
+
 }

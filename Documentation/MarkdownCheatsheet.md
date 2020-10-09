@@ -30,9 +30,9 @@
 <a name="overview"></a>
 ## Overview
 
-This document is a Markdown quick reference. It is by no means a comprehensive tutorial on Markdown, but rather just some of the most common Markdown tags to serve as a reminder. 
+This document is a Markdown quick reference. It is by no means a comprehensive tutorial on Markdown, but rather just some of the most common Markdown tags to serve as a reminder.
 
-You can view this using one of the Markdown preview tools, just be aware somethings won't work quite right, such as the Image and YouTube sections, as they point to items that do not exist. 
+You can view this using one of the Markdown preview tools, just be aware somethings won't work quite right, such as the Image and YouTube sections, as they point to items that do not exist.
 
 [Back to Table of Contents](#toc)
 
@@ -55,7 +55,7 @@ The second method is with HTML
 <!---
 Block HTML comment here
 multiline too
-Make sure to use three - after the opening as some markdown viewers fail to recognize the html comment without it. 
+Make sure to use three - after the opening as some markdown viewers fail to recognize the html comment without it.
 -->
 
 Embedding blank linkes
@@ -248,7 +248,7 @@ Anchors can also go backwords. For example you could use code like this to jump 
 
 Not all parsers support footnotes, but many do. For example, the markdown extension here in Visual Studio does, but the markdown engine in GitHub does not.
 
-To do a footnote, use a square bracket, caret, then the footnote number, such as `[^1]`. 
+To do a footnote, use a square bracket, caret, then the footnote number, such as `[^1]`.
 
 ```
 Some text with a [^1] footnote
@@ -256,7 +256,7 @@ Some text with a [^1] footnote
 [^1]: Even though this footnote is right under the reference, you won't see it unless you jump to the bottom of the document.
 ```
 
-Please note that no matter where you place the footnote in the document, the markdown engine will place it at teh very bottom of the document. 
+Please note that no matter where you place the footnote in the document, the markdown engine will place it at teh very bottom of the document.
 
 Try it out:
 
@@ -316,7 +316,7 @@ Renders to:
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
 
-Note there must be at least three dashes for each header cell. Also, the opening and closing vertical bar are optional, but look much nicer. 
+Note there must be at least three dashes for each header cell. Also, the opening and closing vertical bar are optional, but look much nicer.
 
 [Back to Table of Contents](#toc)
 
@@ -333,7 +333,7 @@ Block quotes can be used to emulate a side note or what you might see in email. 
 > Some text to block quote
 >> Here's the __indented__ quote
 
-You can also embed markdown inside the block quote, as the above example shows with the word second bolded. 
+You can also embed markdown inside the block quote, as the above example shows with the word second bolded.
 
 [Back to Table of Contents](#toc)
 
@@ -371,7 +371,7 @@ They can't be added directly but you can add an image with a link to the video l
 
 ```
 <a name="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
-" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
+" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg"
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 ```
 

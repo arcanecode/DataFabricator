@@ -1,4 +1,21 @@
-# Now load a hashtable of codes and cities
+<#-------------------------------------------------------------------------------------------------
+  Data Fabricator - Load-TableCityCodes.ps1
+  Author: Robert C. Cain | @ArcaneCode | arcane@arcanetc.com
+           http://arcanecode.me
+
+  This code is Copyright (c) 2020 Robert C. Cain. All rights reserved.
+
+  This script takes all of the cities, and uses the DataFabrciator function ConvertTo-CityCode
+  to generate an array of city codes.
+
+  The code herein is for demonstration purposes. No warranty or guarantee
+  is implied or expressly granted.
+
+  This module may not be reproduced in whole or in part without the express
+  written consent of the author.
+-----------------------------------------------------------------------------------------------#>
+
+# Load a hashtable of codes and cities
 $m_CityCodesUS = @{}
 
 foreach($c in $m_CitiesUS)

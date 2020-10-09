@@ -45,6 +45,14 @@ function Show-AboutDataFabricator()
   param (
         )
 
+  $fn = "$($PSCmdlet.MyInvocation.MyCommand.Module) - $($PSCmdlet.MyInvocation.MyCommand.Name)"
+  $st = Get-Date
+
+  Write-Verbose @"
+$fn
+         Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
+"@
+
   $message = @"
 
 
@@ -80,6 +88,10 @@ Where to find the source code, online help, and more about Data Fabricator: http
 
 "@
 
-  Write-Host $message
+  # Let user know we're done
+  $et = Get-Date   # End Time
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
+
+  return $message
 
 }

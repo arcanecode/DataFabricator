@@ -6,7 +6,7 @@ Takes the product code and converts it back to the Clothing, Color and Size.
 While you could probably figure out yourself the product by tring to decrypt the 9 character product code manually, who has that kind of time (or brain power)?
 So we created this cmdlet.
 
-The product code consists of 9 characters, the first three point to the clothing, second three to color, and final three to size. 
+The product code consists of 9 characters, the first three point to the clothing, second three to color, and final three to size.
 This function breaks them into the three codes then uses an internal lookup table to convert these back into the full clothing, color and size names.
 These are then placed into an object with three properties, Clothing, Color, and Size, which is returned.
 
@@ -82,7 +82,7 @@ $fn
 
   # Break the product code down to its three parts
   $clothingCode = $ProductCode.Substring(0, 3)
-  $colorCode = $ProductCode.Substring(3, 3)  
+  $colorCode = $ProductCode.Substring(3, 3)
   $sizeCode = $ProductCode.Substring(6, 3)
 
   # Create a new instance of the product
@@ -101,6 +101,6 @@ $fn
   Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our result
-  return $retVal 
+  return $retVal
 
 }

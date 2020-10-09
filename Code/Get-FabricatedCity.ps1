@@ -96,11 +96,11 @@ $fn
 
   Write-Verbose "$fn Fabricated City: $retVal"
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
-  return $retVal 
+  return $retVal
 
 }

@@ -3,7 +3,7 @@
 Tests the passed in country code to see if it is valid.
 
 .DESCRIPTION
-People suck at following directions. 
+People suck at following directions.
 
 Even though we provided an easy way to return a list of valid country codes, the Get-CountryCodes cmdlet, we both know someone is going to try something bogus just to see if it works.
 
@@ -112,15 +112,15 @@ $fn
   }
   else
   {
-    Write-Error "$CountryCode is not a valid country code. Use Get-CountryCodes to get a valid list."  
+    Write-Error "$CountryCode is not a valid country code. Use Get-CountryCodes to get a valid list."
     $retVal = $false
   }
 
   Write-Verbose "$fn - Testing $CountryCode returns $retVal"
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
   return $retVal

@@ -1,11 +1,23 @@
-#------------------------------------------------------------------------------------------------
-# In version 5.1 of Pester, the author has indicated they want to enable
-# looping for a Describe block in the manner below.
-# In version 5.0.x, however, this is not implemented so having to do
-# loops in the IT blocks as shown in the DataFabricator.Module.Tests.ps1
-# I've left this sa an example, so when Pester 5.1 is released
-# I can test it and hopefully shift testing over to this model
-#------------------------------------------------------------------------------------------------
+<#-------------------------------------------------------------------------------------------------
+  Data Fabricator - DataFabricator.Functions.Tests.ps1
+  Author: Robert C. Cain | @ArcaneCode | arcane@arcanetc.com
+           http://arcanecode.me
+
+  This code is Copyright (c) 2020 Robert C. Cain. All rights reserved.
+
+  This script will test to make sure each function exists, is valid PowerShell, and has tests 
+  for it. The $functions array has an entry for each function being tested.
+
+  Note, we've chosen to not to write a test for Open-DataFabricatorWebsite. It is very simple,
+  and it would be difficult to test to see if a persons default browser opened up a page,
+  especially across multiple operating systems.
+
+  The code herein is for demonstration purposes. No warranty or guarantee
+  is implied or expressly granted.
+
+  This module may not be reproduced in whole or in part without the express
+  written consent of the author.
+-----------------------------------------------------------------------------------------------#>
 
   $functions = ( 'ConvertFrom-CityStateCode',
                  'ConvertFrom-ProductCode',
@@ -35,6 +47,8 @@
                  'New-FabricatedProductRecord',
                  'New-FabricatedProductTable',
                  'New-FabricatedSalesRecord',
+                 'Show-AboutDataFabricator',
+                 'Show-DataFabricatorFunctions',
                  'Test-CountryCode'
                )
 

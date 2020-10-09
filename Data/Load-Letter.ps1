@@ -1,3 +1,20 @@
+<#-------------------------------------------------------------------------------------------------
+  Data Fabricator - Load-Letter.ps1
+  Author: Robert C. Cain | @ArcaneCode | arcane@arcanetc.com
+           http://arcanecode.me
+
+  This code is Copyright (c) 2020 Robert C. Cain. All rights reserved.
+
+  This script loads two arrays, of one and two letters. The one letter array is used for
+  things like middle initials. The two letter is used for bin numbers.
+
+  The code herein is for demonstration purposes. No warranty or guarantee
+  is implied or expressly granted.
+
+  This module may not be reproduced in whole or in part without the express
+  written consent of the author.
+-----------------------------------------------------------------------------------------------#>
+
 # This is simply an array of the letter A-Z. It could be used for middle
 # initials, suite or apartment numbers, and more
 

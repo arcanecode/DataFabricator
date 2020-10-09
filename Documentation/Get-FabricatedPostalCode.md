@@ -14,7 +14,7 @@ Get-FabricatedPostalCode [[-CountryCode] <String>] [-Plus4] [<CommonParameters>]
 
 Real postal codes just lead to more junk mail, and who needs yet another high interest rate credit card offer?
 
-This cmldet will generate a postal code in the format used by the country represented in the country code parameter. 
+This cmldet will generate a postal code in the format used by the country represented in the country code parameter.
 If no code is passed, it will default to a country code of US.
 
 In the US postal codes, known as Zip Codes, are five numbers indicating the area of mail service.

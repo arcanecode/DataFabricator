@@ -103,7 +103,7 @@ $fn
     $first = (0..999  | Get-Random).ToString().PadLeft( 3, '0')
     $mid   = (0..99   | Get-Random).ToString().PadLeft( 2, '0')
     $last  = (0..9999 | Get-Random).ToString().PadLeft( 4, '0')
-  
+
     if ( $noFormat )
       { $retVal = "$($first)$($mid)$($last)" }
     else
@@ -118,7 +118,7 @@ $fn
     # Calculate a TaxpayerID
     $first = (0..99999 | Get-Random).ToString().PadLeft( 5, '0')
     $last  = (0..99999 | Get-Random).ToString().PadLeft( 5, '0')
-  
+
     if ( $noFormat )
       { $retVal = "$($first)$($last)" }
     else
@@ -145,14 +145,14 @@ $fn
     'US'    { $retVal = usID( $NoFormatting.IsPresent ) }
     default { $retVal = usID( $NoFormatting.IsPresent ) }
   }
- 
+
   Write-Verbose "$fn Fabricated TaxpayerID for $CountryCode is $retVal"
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
   return $retVal
-  
+
 }

@@ -1,3 +1,21 @@
+<#-------------------------------------------------------------------------------------------------
+  Data Fabricator - Load-Products.ps1
+  Author: Robert C. Cain | @ArcaneCode | arcane@arcanetc.com
+           http://arcanecode.me
+
+  This code is Copyright (c) 2020 Robert C. Cain. All rights reserved.
+
+  For products in DataFabricator, we've gone with the generic product of clothing. This script
+  loads colors, clothing type (shirts, pants etc.) and sizes. The three are then used to
+  randomly generate a product.
+
+  The code herein is for demonstration purposes. No warranty or guarantee
+  is implied or expressly granted.
+
+  This module may not be reproduced in whole or in part without the express
+  written consent of the author.
+-----------------------------------------------------------------------------------------------#>
+
 $m_Colors = Get-Content .\Data\Data-Colors.txt
 
 $m_Clothing = Get-Content .\Data\Data-Clothing.txt

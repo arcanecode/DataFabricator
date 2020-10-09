@@ -24,9 +24,17 @@ The other is Pester. Pester is used to execute the tests (found in the Tests fol
 
 ## Multi-Platform
 
-This module was developed using PowerShell 7 (aka PowerShell Core 7, Microsoft keeps changing the name). I've not found anything in the DataFabricator itself that would not work under PowerShell 6. (Note, I can't swear the same for PlatyPS and Pester, as I've not tested their specified versions on PowerShell 6.)
+This module was developed using PowerShell 7.0.3 (aka PowerShell Core 7, Microsoft keeps changing the name). I've not found anything in the DataFabricator itself that would not work under PowerShell 6. (Note, I can't swear the same for PlatyPS and Pester, as I've not tested their specified versions on PowerShell 6.)
 
-This code was tested on Windows 10, macOS Catalina, and Ubuntu 20.04. Please note that PowerShell 7 is not yet "offically" supported on Ubuntu 20.04, however I found no problems executing this module (as well as other projects I've worked on) under Ubuntu 20.04. It should also operate fine on other Linux platforms that support PowerShell 7, but be sure to let me know if you run across issues.
+This code was tested on the following platforms:
+
+* Windows 10
+* macOS Catalina 10.15.7
+* macOS Big Sur 11.0 Beta 9
+* Ubuntu 20.04
+* Ubuntu 20.10 Beta
+
+Please note that PowerShell 7 is not yet "officially" supported on Ubuntu 20.04, however I found no problems executing this module (as well as other projects I've worked on) under Ubuntu 20.04. It should also operate fine on other Linux platforms that support PowerShell 7, but be sure to let me know if you run across issues.
 
 ## Additional Documentation
 

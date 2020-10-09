@@ -137,7 +137,7 @@ function New-FabricatedCustomerRecord()
   [CmdletBinding()]
   param (
              [int] $RecordCount = 1
-        ,    [int] $MaxDuplicateCountBeforeError = 50  
+        ,    [int] $MaxDuplicateCountBeforeError = 50
         , [string] $EMailDomain = 'fakemail.com'
         , [string] $CountryCode = 'US'
         )
@@ -190,12 +190,12 @@ $fn
 
   # Declare an empty array to hold the results
   $retVal = @()
-  
+
   # Set the counters
   $dupeTrackingCount = 0
   $i = 0
-  
-  while ($i -lt $RecordCount) 
+
+  while ($i -lt $RecordCount)
   {
     # Fabricate city/state/PostalCode and name records
     $cszHome = New-FabricatedCityStatePostalCodeRecord -CountryCode $CountryCode -Verbose:$false
@@ -231,7 +231,7 @@ $fn
     $cust.WorkPostalCode = $cszWork.PostalCode
 
     $cust.BirthDate = Get-FabricatedDate -RelativeThruYear 18 -RelativeFromYear 70 -Verbose:$false
- 
+
     $item = $cust.FullName
     Write-Verbose "$fn - Fabricating #$($i.ToString('#,##0')): $item"
 
@@ -240,12 +240,12 @@ $fn
     if ( $retVal.Count -eq 0 )
     {
       $retVal += $cust; $i++
-    }   
+    }
     else
     {
       # Now do the dupe check
       if ($retVal.FullName.Contains($cust.FullName) -eq $false)
-      {        
+      {
         $retVal += $cust; $i++   # If not there are are safe to add it
       }
       else
@@ -263,9 +263,9 @@ $fn
     }
   }
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Sort the output before returning
   $retVal = $retVal | Sort-Object -Property LastName, FirstName, MiddleName

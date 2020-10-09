@@ -119,25 +119,25 @@ function New-FabricatedInventoryRecord()
   [CmdletBinding()]
   param (
              [int] $RecordCount = 1
-        ,    [int] $MaxDuplicateCountBeforeError = 50  
+        ,    [int] $MaxDuplicateCountBeforeError = 50
         , [string] $WarehouseCode = 'x'
         , [string] $CountryCode = 'US'
         ,    [int] $MinQuantity = 1
-        ,    [int] $MaxQuantity = 999  
+        ,    [int] $MaxQuantity = 999
         )
 
 
   # Note, due to the way the range function in PowerShell works, we
   # don't have to worry if the Min Quantity is greater than the Max.
   # 1..999 and 999..1 both work the same for our purposes
-  
+
   # Function Name
   $fn = "$($PSCmdlet.MyInvocation.MyCommand.Module) - $($PSCmdlet.MyInvocation.MyCommand.Name)"
   $st = Get-Date
 
   if ($WarehouseCode -eq 'x')
     { $wc = 'Fabricate Warehouse Codes'}
-  else 
+  else
     { $wc = $WarehouseCode }
 
   Write-Verbose @"
@@ -178,12 +178,12 @@ $fn
   # Set the counters
   $dupeTrackingCount = 0
   $i = 0
-  
+
   # Fabricate new rows
-  while ($i -lt $RecordCount) 
+  while ($i -lt $RecordCount)
   {
     $prod = [InventoryRecord]::new()
-  
+
     # Generate a product code, but suppress any verbose messages from it
     $prod.ProductCode = $(New-FabricatedProductRecord -Verbose:$false).ProductCode
 
@@ -196,12 +196,12 @@ $fn
     {
       $state = Get-FabricatedState -CountryCode $CountryCode -Verbose:$false
       $cityCode = ConvertTo-CityCode -City $(Get-FabricatedCity -CountryCode $CountryCode -Verbose:$false)
-  
+
       $prod.WarehouseCode = "$state$cityCode"
     }
-    
+
     $prod.Bin = Get-FabricatedBin -Verbose:$false
-  
+
     $prod.Quantity = $MinQuantity..$MaxQuantity | Get-Random
 
     $prod.WarehouseBinCode = "$($prod.WarehouseCode)$($prod.Bin)"
@@ -216,12 +216,12 @@ $fn
     if ( $retVal.Count -eq 0 )
     {
       $retVal += $prod; $i++
-    }   
+    }
     else
     {
       # Now do the dupe check
       if ($retVal.WarehouseBinCode.Contains($prod.WarehouseBinCode) -eq $false)
-      {        
+      {
         $retVal += $prod; $i++   # If not there are are safe to add it
       }
       else
@@ -239,9 +239,9 @@ $fn
     }
   }
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Sort the output before returning
   $retVal = $retVal | Sort-Object -Property WarehouseBinCode

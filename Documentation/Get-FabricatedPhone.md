@@ -7,7 +7,7 @@ Fabricates a phone number for the CountryCode, defaulting to the US based format
 ## SYNTAX
 
 ```powershell
-Get-FabricatedPhone [[-CountryCode] <String>] [-NoFormatting] [<CommonParameters>]
+Get-FabricatedPhone [[-CountryCode] <String>] [[-PhonePrefix] <String>] [-NoFormatting] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -106,6 +106,26 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PhonePrefix
+
+Allows you to override the randomly generated prefix for a phone number.
+The prefix is the (typically, depending on country) three digits at the start of the phone number.
+
+Using PhonePrefix you could generate phone numbers for a specific area code.
+If you are concerned about generating a real phone number, in the US the prefix 555 is reserved for "fake" phone numbers for TV and movies, you could use it here as well.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

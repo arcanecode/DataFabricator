@@ -67,7 +67,7 @@ New-MarkdownHelp -Module DataFabricator `
   a level 3 header. This looks ugly and shouldn't be, so this code will clean that up by
   stripping out the ### for each line in those sections
 
-  In addition, it does not adhere to good markdown rules, such as blank lines after headers, 
+  In addition, it does not adhere to good markdown rules, such as blank lines after headers,
   so we will make checks to reformat the output to make it adhere to good practices.
 
   When PlatyPS inserted a code block, it just used the generic three backticks. I chose to
@@ -84,7 +84,7 @@ New-MarkdownHelp -Module DataFabricator `
   some code that would convert the links I place in my comment headers into actual markdown
   link syntax.
 
-  In my comment based help, I placed links to other related commands. PlatyPS just 
+  In my comment based help, I placed links to other related commands. PlatyPS just
   renders them with the full https://github/arcanecode/blah/blah/blah, so I fix the generated
   markdown link to something nicer to read.
 
@@ -95,7 +95,7 @@ New-MarkdownHelp -Module DataFabricator `
 -----------------------------------------------------------------------------------------------#>
 
 # Get a list of all the MD files
-$filePath = Get-ChildItem -Path $docPath | Where-Object {$_.Extension -eq '.md'} # | Where-Object { $_.Name -eq 'ConvertFrom-CityStateCode.md'}
+$filePath = Get-ChildItem -Path $docPath | Where-Object {$_.Extension -eq '.md'} 
 
 # Create a function to do the cleanup. This will make it easier to transfer this code to
 # future projects.

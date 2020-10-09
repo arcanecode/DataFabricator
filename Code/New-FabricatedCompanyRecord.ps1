@@ -115,7 +115,7 @@ function New-FabricatedCompanyRecord()
   [CmdletBinding()]
   param (
              [int] $RecordCount = 1
-        ,    [int] $MaxDuplicateCountBeforeError = 50  
+        ,    [int] $MaxDuplicateCountBeforeError = 50
         , [string] $CountryCode = 'US'
         )
 
@@ -145,7 +145,7 @@ $fn
     [string] $ContactEMail
     [string] $ContactJobTitle
   }
-  
+
   # If no code is passed in, or they use unspecified, use the US
   if ( ($null -eq $CountryCode) -or ( $CountryCode -eq 'Unspecified') )
     { $CountryCode = 'US' }
@@ -160,9 +160,9 @@ $fn
   # Set the counters
   $dupeTrackingCount = 0
   $i = 0
-  
+
   # Fabricate new rows
-  while ($i -lt $RecordCount) 
+  while ($i -lt $RecordCount)
   {
     # Fabricate city/state/zip and name records
     $csz = New-FabricatedCityStatePostalCodeRecord -CountryCode $CountryCode -Verbose:$false
@@ -182,7 +182,7 @@ $fn
 
     $company.ContactPhone = Get-FabricatedPhone -CountryCode $CountryCode -Verbose:$false
     $company.ContactJobTitle = Get-FabricatedJobTitle -Verbose:$false
-    
+
     $item = $company.Name
     Write-Verbose "$fn - Fabricating #$($i.ToString('#,##0')): $item"
 
@@ -191,12 +191,12 @@ $fn
     if ( $retVal.Count -eq 0 )
     {
       $retVal += $company; $i++
-    }   
+    }
     else
     {
       # Now do the dupe check
       if ($retVal.Name.Contains($company.Name) -eq $false)
-      {        
+      {
         $retVal += $company; $i++   # If not there are are safe to add it
       }
       else
@@ -215,9 +215,9 @@ $fn
 
   }
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Sort the output before returning
   $retVal = $retVal | Sort-Object -Property Name

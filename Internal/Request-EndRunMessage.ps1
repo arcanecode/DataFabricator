@@ -7,7 +7,7 @@ In order to provide metrics each cmdlet creates a start and end time for run. Us
 This function takes the start and end times and calculates the run time, formatting it to display in milliseconds, seconds, or minutes.
 It then bundles that into a nicely formatted readable message letting a user know the cmdlet is done processing.
 
-I chose to put this in a cmdlet of it's own because it is used in just about all the other cmdlets here. 
+I chose to put this in a cmdlet of it's own because it is used in just about all the other cmdlets here.
 It let me keep the coding in them minimal, and it gives me one place to go should I want to update the message.
 
 .PARAMETER FunctionName

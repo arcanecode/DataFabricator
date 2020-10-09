@@ -76,7 +76,7 @@ $fn
     # Note the space prior to the direction
     $compass = " $($m_Compass | Get-Random)"
   }
-  else 
+  else
   {
     # If above 20% we won't add anything
     $compass = ''
@@ -87,9 +87,9 @@ $fn
 
   Write-Verbose "$fn $retVal"
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
   return $retval

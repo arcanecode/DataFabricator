@@ -47,7 +47,7 @@ function Get-CountryCodes()
 {
   [CmdletBinding()]
   param (
-        ) 
+        )
 
 
   # Function Name
@@ -58,9 +58,9 @@ $fn
          Starting at $($st.ToString('yyyy-MM-dd hh:mm:ss tt'))
 "@
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
   return $m_CountryCode

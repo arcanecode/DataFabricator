@@ -36,7 +36,7 @@ This cmdlet has no inputs.
 String containing a fabricated name.
 
 .EXAMPLE
-Get-FabricatedName 
+Get-FabricatedName
 
 Get-FabricatedName returns data similar to the following example:
 
@@ -145,7 +145,7 @@ $fn
   $firstName = $m_NamesFirst | Get-Random
   $mi = $m_Letter | Get-Random
   $middleName = $m_NamesFirst | Get-Random
-  $lastName = $m_NamesLast | Get-Random    
+  $lastName = $m_NamesLast | Get-Random
 
   switch ($true)
   {
@@ -168,11 +168,11 @@ $fn
 
   Write-Verbose "$fn Fabricated Name $retVal"
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
-  return $retVal 
+  return $retVal
 
 }

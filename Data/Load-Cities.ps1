@@ -1,3 +1,19 @@
+<#-------------------------------------------------------------------------------------------------
+  Data Fabricator - Load-Cities.ps1
+  Author: Robert C. Cain | @ArcaneCode | arcane@arcanetc.com
+           http://arcanecode.me
+
+  This code is Copyright (c) 2020 Robert C. Cain. All rights reserved.
+
+  This loads the list of cities used in the module for fabricating data.
+
+  The code herein is for demonstration purposes. No warranty or guarantee
+  is implied or expressly granted.
+
+  This module may not be reproduced in whole or in part without the express
+  written consent of the author.
+-----------------------------------------------------------------------------------------------#>
+
 # Load US Cities
 $m_CitiesUS = Get-Content .\Data\Data-CitiesUS.txt
 

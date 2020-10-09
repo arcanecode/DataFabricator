@@ -104,7 +104,7 @@ function New-FabricatedNameRecord()
   [CmdletBinding()]
   param (
           [int] $RecordCount = 1
-        , [int] $MaxDuplicateCountBeforeError = 50  
+        , [int] $MaxDuplicateCountBeforeError = 50
         )
 
   # Function Name
@@ -139,7 +139,7 @@ $fn
   # Set the counters
   $dupeTrackingCount = 0
   $i = 0
-  
+
   # Fabricate new rows
   while ($i -lt $RecordCount)
   {
@@ -147,7 +147,7 @@ $fn
     $firstName = $m_NamesFirst | Get-Random
     $middleName = $m_NamesFirst | Get-Random
     $mi = $middleName.Substring(0, 1)
-    $lastName = $m_NamesLast | Get-Random    
+    $lastName = $m_NamesLast | Get-Random
 
     $n = [NameRecord]::new()
 
@@ -173,12 +173,12 @@ $fn
     if ( $retVal.Count -eq 0 )
     {
       $retVal += $n; $i++
-    }   
+    }
     else
     {
       # Now do the dupe check
       if ($retVal.NameCode.Contains($n.NameCode) -eq $false)
-      {        
+      {
         $retVal += $n; $i++   # If not there are are safe to add it
       }
       else
@@ -197,12 +197,12 @@ $fn
 
   } # while ($i -lt $RecordCount)
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
-  return $retVal 
+  return $retVal
 
 
 }

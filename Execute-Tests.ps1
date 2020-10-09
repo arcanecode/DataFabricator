@@ -15,7 +15,7 @@
 
   Important! This module is being created for use in my Everyday PowerShell for Developers
   course on Pluralsight. The release date for it should coincide with the release of Pester
-  Version 5.1. As Pester 5.1 has significant enhancements in terms of usability and 
+  Version 5.1. As Pester 5.1 has significant enhancements in terms of usability and
   performance, I'm developing these tests under the 5.1 Beta. When 5.1 goes full release
   I will return to update the tests using 5.1 Release and remove references to 5.1 Beta.
 -----------------------------------------------------------------------------------------------#>
@@ -37,9 +37,9 @@ Install-Module Pester -RequiredVersion "5.1.0-beta1" -AllowPrerelease -Force
 # and use it instead, deleting the previous line.
 # Install-Module Pester -RequiredVersion "5.1.0" -Force
 
-# Import it
+# Import it, then confirm it's in memory
 Import-Module Pester -RequiredVersion "5.1.0"
-get-module pester -ListAvailable
+Get-Module Pester -ListAvailable
 
 # Before running, you need to have the most current version loaded in memory.
 # Typically this is done in each test, but it takes a minute or two to load
@@ -49,23 +49,30 @@ get-module pester -ListAvailable
 Remove-Module DataFabricator -ErrorAction SilentlyContinue
 Import-Module "$pwd\DataFabricator"
 
-# Note, I've chosen to skip tests for the Show-* cmdlets, as all they do is 
+# Note, I've chosen to skip tests for the Show-* cmdlets, as all they do is
 # display a string of text. Likewise, I've omitted the Open-* cmdlet, as it
 # just opens a webpage.
 
-# You can run all of the tests using Invoke-Pester, and passing 
+# You can run all of the tests using Invoke-Pester, and passing
 # in the directory with the tests. Note running all tests take just
 # under three minutes.
 Invoke-Pester Tests
+
+# Just in case someone hits F5 by accident, I didn't want it to run all the tests
+# multiple times. So I'm adding the line of code below to exist the script
+# just in case.
+if ( 1 -eq 1 ) { exit }
+
 
 # If you want to see the detail on each test, pass in -Output Detailed
 Invoke-Pester Tests -Output Detailed
 
 # Or you can run tests one at a time using the commands below
 
-# Set a variable to get the current folder
+# First, set a variable to get the current folder
 $tests = "$pwd\Tests"
 
+# Now you can pick the test to run
 Invoke-Pester "$tests\DataFabricator.Module.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\DataFabricator.Functions.Tests.ps1" -Output Detailed
 
@@ -100,6 +107,8 @@ Invoke-Pester "$tests\New-FabricatedProductRecord.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\New-FabricatedProductTable.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\New-FabricatedSalesRecord.Tests.ps1" -Output Detailed
 
+Invoke-Pester "$tests\Show-AboutDataFabricator.Tests.ps1" -Output Detailed
+Invoke-Pester "$tests\Show-DataFabricatorFunctions.Tests.ps1" -Output Detailed
 Invoke-Pester "$tests\Test-CountryCode.Tests.ps1" -Output Detailed
 
 

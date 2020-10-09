@@ -1,3 +1,23 @@
+<#-------------------------------------------------------------------------------------------------
+  Data Fabricator - Load-States.ps1
+  Author: Robert C. Cain | @ArcaneCode | arcane@arcanetc.com
+           http://arcanecode.me
+
+  This code is Copyright (c) 2020 Robert C. Cain. All rights reserved.
+
+  This script loads lists of states and their abbreviations.
+
+  Note: Yes, we know the UK doesn't really have "states". For the time being we've used UK
+  counties, and fabricated some bogus two letter abbreviations. In a future version of
+  DataFabricator we plan to fix this.
+
+  The code herein is for demonstration purposes. No warranty or guarantee
+  is implied or expressly granted.
+
+  This module may not be reproduced in whole or in part without the express
+  written consent of the author.
+-----------------------------------------------------------------------------------------------#>
+
 # Load State Abbreviations and Names
 
 $m_StateAbbrUS = Get-Content .\Data\Data-StateAbbrUS.txt

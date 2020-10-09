@@ -100,27 +100,27 @@ $fn
     $retVal = ''
     Write-Verbose "$fn Generated Threshold of $thresholdPercent%, which was above the maximum of $Threshold% so the address suppressed."
   }
-  else 
+  else
   {
     $first = $m_Address2First | Get-Random
-    
+
     # 20 percent of the time, use a letter, otherwise use a number
     if ($(1..100 | Get-Random) -gt 20)
     {
       $last = $(1..9999 | Get-Random).ToString()
     }
-    else 
+    else
     {
-      $last = $m_Letter | Get-Random  
+      $last = $m_Letter | Get-Random
     }
 
     $retVal = "$first $last"
     Write-Verbose "$fn $retVal"
   }
 
-  # Let user know we're done 
+  # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
   return $retVal

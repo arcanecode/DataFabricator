@@ -12,7 +12,7 @@ Test-CountryCode [[-CountryCode] <Object>] [<CommonParameters>]
 
 ## DESCRIPTION
 
-People suck at following directions. 
+People suck at following directions.
 
 Even though we provided an easy way to return a list of valid country codes, the Get-CountryCodes cmdlet, we both know someone is going to try something bogus just to see if it works.
 

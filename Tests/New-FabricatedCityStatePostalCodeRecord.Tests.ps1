@@ -300,7 +300,7 @@ Describe "DataFabricator New-FabricatedCityStatePostalCodeRecord.Tests" {
       # (Cornwall, the the two part postal code)
       # Adjust the test based on the number of elements in the array
       if ($sp.Count -eq 4) {
-        $stateNameUS | Should -Contain "$($sp[0]) $($sp[1])"
+        $stateNameUK | Should -Contain "$($sp[0]) $($sp[1])"
         "$($sp[2]) $($sp[3])" | Should -Match  $matchPostalCodeUK
       }
       else  #only three elements

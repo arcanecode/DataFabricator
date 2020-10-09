@@ -85,7 +85,7 @@ $fn
     [string] $Color
     [string] $Size
   }
-  
+
   $products = @()
   $i = 0
 
@@ -110,18 +110,18 @@ $fn
         $colorSp = ' ' * ($c_MaxColorLength - $prod.Color.Length)
         $prodData = "Product $($prod.ProductCode) $($prod.Clothing)$clothSp $($prod.Color)$colorSp $($prod.Size)"
         Write-Verbose "$fn - Fabricating #$($i.ToString('#,##0')): $prodData"
-        
-        $products += $prod 
+
+        $products += $prod
         $i++
       }
     }
   }
-  
- # Let user know we're done 
+
+ # Let user know we're done
   $et = Get-Date   # End Time
-  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose 
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
-  return $products 
+  return $products
 
 }
