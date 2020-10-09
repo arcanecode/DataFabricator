@@ -13,6 +13,7 @@
 -----------------------------------------------------------------------------------------------#>
 
 # Run the scripts to load data into memory. These need to be run prior to running the functions.
+. .\Data\Load-AboutMessages.ps1
 . .\Data\Load-Address2.ps1
 . .\Data\Load-Cities.ps1
 . .\Data\Load-Company.ps1

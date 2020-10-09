@@ -1,7 +1,9 @@
 <#-------------------------------------------------------------------------------------------------
-  Data Fabricator - Show-DataFabricatorFunctions.Tests.ps1
+  Data Fabricator - Load-AboutMessages.ps1
   Author: Robert C. Cain | @ArcaneCode | arcane@arcanetc.com
            http://arcanecode.me
+
+  Loads About messages from text files. Putting them in text files makes them easier to update.
 
   This code is Copyright (c) 2020 Robert C. Cain. All rights reserved.
 
@@ -12,21 +14,6 @@
   written consent of the author.
 -----------------------------------------------------------------------------------------------#>
 
-Describe "DataFabricator Show-DataFabricatorFunctions.Tests" {
+$m_aboutFunctions = Get-Content ./Data/Data-AboutFunctions.txt -Raw
 
-  BeforeAll {
-    $module = 'DataFabricator'
-    $function = 'Show-DataFabricatorFunctions'
-    $here = $PSScriptRoot
-    $message = Get-Content ./Data/Data-AboutFunctions.txt -Raw
-
-  }
-
-  Context "<module> <function> Tests" {
-    It "<function> returns the correct text" {
-      Show-DataFabricatorFunctions | Should -Be $message
-    }
-
-  } # Context "<module> <function> Tests"
-
-} # Describe DataFabricator Tests
+$m_aboutDataFabricator = Get-Content ./Data/Data-AboutMessage.txt -Raw

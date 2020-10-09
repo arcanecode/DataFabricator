@@ -46,7 +46,9 @@
   CLRVersion = '2.0.50727'
 
   # These are the data files the functions use to fabricate data from
-  FileList = @( './Data/Data-Address2.txt',
+  FileList = @( './Data/Data-AboutFunctions.txt',
+                './Data/Data-AboutMessage.txt',
+                './Data/Data-Address2.txt',
                 './Data/Data-CitiesUK.txt',
                 './Data/Data-CitiesUS.txt',
                 './Data/Data-Clothing.txt',

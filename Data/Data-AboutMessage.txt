@@ -1,0 +1,32 @@
+
+
+Greetings, and welcome to the DataFabricator.
+
+This module is designed to fabricate fake, but realistic looking data. Fabricated data could be used to test applications, for providing data to demonstrate your program to others, and more.
+
+It has been designed to be modular, you could select individual functions, such as generating names, or to generate entire records such as customer or employee records.
+
+Each cmdlet in the DataFabricator includes extensive help. However, if you want to read more about DataFabricator, see the source code, or register an issue or feature request, you can see the full documentation at https://github.com/arcanecode/DataFabricator or use the shorcut I setup, http://datafabricator.com.
+
+You can also use the function Show-DataFabricatorFunctions to display a list of all the functions, along with a synopsis of their purpose.
+
+This module was created as part of my Pluralsight course "Everyday PowerShell 7 for Developers", to be published toward the end of 2020. See my about.me page below for more information.
+
+Keep in mind going forward maintenance and improvements to this module will be a part time endevor, so be patient. I'm also open to any input or enhancements you wish to contribute, use the contact info in my about.me page to get ahold of me.
+
+
+DataFabricator
+
+Author: Robert C Cain | @ArcaneCode | arcane@arcanetc.com
+
+This code is Copyright (c) 2020 Robert C Cain All rights reserved
+
+The code herein is for demonstration purposes. No warranty or guarantee is implied or expressly granted.
+
+This module may not be reproduced in whole or in part without the express written consent of the author.
+
+Where to find more about me: http://arcanecode.me
+
+Where to find the source code, online help, and more about Data Fabricator: http://datafabricator.com
+
+
