@@ -146,7 +146,7 @@ function Format-PlatyPSMarkdown()
 
       # If we are at the input area, turn on the flag to begin checking
       # for the erroneous ### tags PlatyPS likes (mistakenly) to insert
-      if ( $line.StartsWith('## INPUTS') )
+      if ( ($line.StartsWith('## INPUTS') ) -or ( $line.StartsWith('## OUTPUTS') ) )
       {
         $checkIOforUnwantedH3Tags = $true
         $insertTableHeader = $true
@@ -259,7 +259,7 @@ function Format-PlatyPSMarkdown()
         {
           if ( $insertTableHeader )
           {
-            $newOutput += ''
+            #$newOutput += ''
             $newOutput += 'Property | Value'
             $newOutput += '| ----- | ------ |'
             $insertTableHeader = $false
