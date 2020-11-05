@@ -31,7 +31,7 @@ Remove-Module Pester -ErrorAction SilentlyContinue
 Find-Module Pester -AllowPrerelease
 
 # Install the beta
-Install-Module Pester -RequiredVersion "5.1.0-beta2" -AllowPrerelease -Force
+Install-Module Pester -RequiredVersion "5.1.0-beta4" -AllowPrerelease -Force
 
 # Once the 5.1.0 version of Pester is released, you can uncomment the following line
 # and use it instead, deleting the previous line.
@@ -47,7 +47,7 @@ Get-Module Pester -ListAvailable
 # to make test execution run faster. It's up to you to manually unload
 # whatever version is in memory and reload, so you get the most current version.
 Remove-Module DataFabricator -ErrorAction SilentlyContinue
-Import-Module "$pwd\DataFabricator"
+Import-Module "$pwd/DataFabricator"
 
 # Note, I've chosen to skip tests for the Show-* cmdlets, as all they do is
 # display a string of text. Likewise, I've omitted the Open-* cmdlet, as it
