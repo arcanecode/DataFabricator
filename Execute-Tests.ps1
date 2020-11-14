@@ -31,7 +31,7 @@ Remove-Module Pester -ErrorAction SilentlyContinue
 Find-Module Pester -AllowPrerelease
 
 # Install the beta
-Install-Module Pester -RequiredVersion "5.1.0-beta4" -AllowPrerelease -Force
+Install-Module Pester -RequiredVersion "5.1.0-rc1" -AllowPrerelease -Force
 
 # Once the 5.1.0 version of Pester is released, you can uncomment the following line
 # and use it instead, deleting the previous line.
