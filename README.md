@@ -34,9 +34,9 @@ This code was tested on the following platforms:
 
 * Windows 10
 * macOS Catalina 10.15.7
-* macOS Big Sur 11.0 Beta 9
+* macOS Big Sur 11.0
 * Ubuntu 20.04
-* Ubuntu 20.10 Beta
+* Ubuntu 20.10
 
 Please note that PowerShell 7 is not yet "officially" supported on Ubuntu 20.04, however I found no problems executing this module (as well as other projects I've worked on) under Ubuntu 20.04. It should also operate fine on other Linux platforms that support PowerShell 7, but be sure to let me know if you run across issues.
 

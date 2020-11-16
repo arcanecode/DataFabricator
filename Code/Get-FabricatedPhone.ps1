@@ -112,7 +112,7 @@ $fn
   function usPhone ([bool] $noFormat)
   {
 
-    if ($PhonePrefix -eq 0)
+    if ($PhonePrefix -eq '0')
     {
       # Randomly generate a prefix (US Phones don't start with 0)
       $first = (100..999 | Get-Random).ToString().PadLeft( 3, '0')

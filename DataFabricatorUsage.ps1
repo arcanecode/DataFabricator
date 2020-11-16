@@ -35,6 +35,13 @@ Import-Module ./DataFabricator -Verbose
 Clear-Host
 
 #------------------------------------------------------------------------------------------------
+# Helper Functions
+#------------------------------------------------------------------------------------------------
+Show-AboutDataFabricator
+Show-DataFabricatorFunctions
+Open-DataFabricatorWebsite
+
+#------------------------------------------------------------------------------------------------
 # Country Codes
 #------------------------------------------------------------------------------------------------
 Get-CountryCodes
@@ -65,8 +72,6 @@ ConvertFrom-CityStateCode -CityStateCode "ALAARONSBURGCDP" -Verbose
 
 ConvertTo-CityCode -City "Aaronsburg CDP"
 ConvertTo-CityCode -City "Aaronsburg CDP" -Verbose
-
-
 
 Get-FabricatedCity
 Get-FabricatedCity -Verbose
@@ -182,7 +187,7 @@ Get-FabricatedJobTitle
 Get-FabricatedJobTitle -Verbose
 
 #------------------------------------------------------------------------------------------------
-# Names
+# Names, Phones, and IDs
 #------------------------------------------------------------------------------------------------
 Get-FabricatedName
 Get-FabricatedName -First
@@ -198,6 +203,7 @@ Get-FabricatedName -Verbose
 Get-FabricatedPhone
 Get-FabricatedPhone -NoFormatting
 Get-FabricatedPhone -Verbose
+Get-FabricatedPhone -PhonePrefix '555'
 
 Get-FabricatedPhone -CountryCode UK
 Get-FabricatedPhone -CountryCode UK -NoFormatting
@@ -213,7 +219,7 @@ Get-FabricatedTaxpayerID -CountryCode UK -Verbose
 
 
 #------------------------------------------------------------------------------------------------
-# Names
+# Name Records
 #------------------------------------------------------------------------------------------------
 $n = New-FabricatedNameRecord
 $n
@@ -240,6 +246,7 @@ Get-FabricatedBin -Verbose
 #------------------------------------------------------------------------------------------------
 $cust = New-FabricatedCustomerRecord
 $cust
+$cust | Format-Table
 
 $cust = New-FabricatedCustomerRecord -EMailDomain 'pluralsight.com'
 $cust

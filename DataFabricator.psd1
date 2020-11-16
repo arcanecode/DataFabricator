@@ -34,7 +34,7 @@
   Description = 'Tools to fabricate realistic but fake data'
 
   # Version number for the module
-  ModuleVersion = '0.9.1'
+  ModuleVersion = '0.9.2'
 
   # Minimum version of PowerShell needed to run this module
   PowerShellVersion = '6.0'
