@@ -453,17 +453,17 @@ $productTable = New-FabricatedProductTable -Verbose
 $customers = New-FabricatedCustomerRecord -RecordCount 50 -Verbose
 
 $sales = New-FabricatedSalesRecord -Employees $employees `
-                               -Products $productTable `
-                               -Customers $customers `
-                               -Verbose
+                                   -Products $productTable `
+                                   -Customers $customers `
+                                   -Verbose
 $sales | Format-Table
 
 
 $sales = New-FabricatedSalesRecord -RecordCount 50 `
-                               -Employees $employees `
-                               -Products $productTable `
-                               -Customers $customers `
-                               -Verbose
+                                   -Employees $employees `
+                                   -Products $productTable `
+                                   -Customers $customers `
+                                   -Verbose
 $sales | Format-Table
 
 $s = New-FabricatedSalesRecord -RecordCount 50 `

@@ -195,7 +195,7 @@ $fn
 
   # Let user know we're done
   $et = Get-Date   # End Time
- # Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
+  Request-EndRunMessage -FunctionName $fn -StartTime $st -EndTime $et | Write-Verbose
 
   # Return our results
   return $retVal

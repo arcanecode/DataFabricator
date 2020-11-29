@@ -24,22 +24,18 @@
 # so the new version can be installed. It will supercede the old version.
 # On Linux/Mac it's not needed, but won't hurt anything
 
-# Check to see if it's in memory, of so remove it, if not I don't care so keep going
-Remove-Module Pester -ErrorAction SilentlyContinue
+# See what is there on PSGallery
+Find-Module Pester
 
-# See what is there, as we are using the beta for now use -AllowPrerelease so it will be listed
-Find-Module Pester -AllowPrerelease
+# See what is local
+Get-Module -ListAvailable Pester
 
-# Install the beta
-Install-Module Pester -RequiredVersion "5.1.0-rc1" -AllowPrerelease -Force
-
-# Once the 5.1.0 version of Pester is released, you can uncomment the following line
-# and use it instead, deleting the previous line.
-# Install-Module Pester -RequiredVersion "5.1.0" -Force
+# Install Pester
+# Install-Module Pester
 
 # Import it, then confirm it's in memory
 Import-Module Pester -RequiredVersion "5.1.0"
-Get-Module Pester -ListAvailable
+Get-Module Pester
 
 # Before running, you need to have the most current version loaded in memory.
 # Typically this is done in each test, but it takes a minute or two to load
@@ -48,10 +44,6 @@ Get-Module Pester -ListAvailable
 # whatever version is in memory and reload, so you get the most current version.
 Remove-Module DataFabricator -ErrorAction SilentlyContinue
 Import-Module "$pwd/DataFabricator"
-
-# Note, I've chosen to skip tests for the Show-* cmdlets, as all they do is
-# display a string of text. Likewise, I've omitted the Open-* cmdlet, as it
-# just opens a webpage.
 
 # You can run all of the tests using Invoke-Pester, and passing
 # in the directory with the tests. Note running all tests take just

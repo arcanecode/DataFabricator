@@ -29,7 +29,7 @@ Describe "DataFabricator Get-StateName.Tests" {
     }
 
     It "<function> -StateAbbr '<usInput>' -CountryCode 'US' returns <usOutput>" {
-      Get-StateName -StateAbbr $usInput | Should -Be $usOutput
+      Get-StateName -StateAbbr $usInput -CountryCode 'US' | Should -Be $usOutput
     }
 
     It "<function> -StateAbbr '<ukInput>' -CountryCode 'UK' returns <ukOutput>" {
